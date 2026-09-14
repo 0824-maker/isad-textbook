@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第7章 复杂工作流与多智能体系统 · 数字教材</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">《信息系统分析与设计》· 数字教材
+      <small>智能体实战主线 · 信息资源管理专业</small></div>
+    <nav>
+      <a href="index.html">门户</a>
+      <a href="ch06.html">第6章</a>
+      <a href="ch07.html">第7章</a>
+      <a href="ch09.html">第9章</a>
+      <a href="appendix.html">附录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc">
+  <aside class="side">
+    <h4>第 7 章 目录</h4>
+    <a href="#lead" class="cur">导语与学习目标</a>
+    <span class="navpart p1">第一部分　课程导学</span>
+    <a href="#theory">理论基石</a>
+    <a href="#ideo">课程思政</a>
+    <a href="#casein">案例导入</a>
+    <span class="navpart p2">第二部分　课程内容</span>
+    <a href="#s71">7.1 业务逻辑节点</a>
+    <a href="#s72">7.2 工作流嵌套</a>
+    <a href="#s73">7.3 多 Agent 模式</a>
+    <a href="#s74">7.4 选型</a>
+    <a href="#s75">7.5 组合落地</a>
+    <span class="navpart p3">第三部分　拓展练习</span>
+    <a href="#kb">知识拓展与前沿</a>
+    <a href="#lit">↳ 前沿文献</a>
+    <a href="#exp">上机实验</a>
+    <span class="navpart p4">第四部分　本章小结</span>
+    <a href="#sum">本章小结</a>
+    <a href="#caseext">拓展案例 · 延伸思考</a>
+  </aside>
+
+  <main class="content">
+    <h1>第 7 章　复杂工作流与多智能体系统</h1>
+    <p class="progress-txt">当任务变复杂：用业务逻辑节点与多 Agent 协同攻坚。本章掌握选择器/批处理/循环/代码节点，理解工作流嵌套与多智能体分工。</p>
+
+    
+
+    <h2 class="part p1" id="lead">第一部分　课程导学</h2>
+
+<span class="mod mod-lead">导语 · 本章定位</span>
+    <p>简单任务一个工作流搞定；复杂任务需要"逻辑分支 + 并行 + 协作"。本章是工程能力的分水岭——把庞大流程拆成可调试的模块（嵌套工作流），让多个专长 Agent 像团队一样分工（多 Agent）。这背后是业务流程管理与多智能体系统（MAS）的经典理论。</p>
+
+    <span class="mod mod-lead">三维学习目标</span>
+    <div class="goals">
+      <div class="goal"><b>知识</b><br>理解业务逻辑节点；掌握工作流嵌套；了解多 Agent 模式。</div>
+      <div class="goal"><b>能力</b><br>能用代码/批处理/循环节点；能通过嵌套实现模块化；能设计多 Agent 协同。</div>
+      <div class="goal"><b>价值</b><br>培养模块化工程思维；培养精益求精的工匠精神；提升分析复杂问题的能力。</div>
+    </div>
+
+            
+    
+      <h3 class="sec-h" id="theory">理论基石 · 信息系统分析与设计</h3>
+    <span class="mod mod-theory">理论 · 业务流程与工作流理论</span>
+    <p>BPMN（业务流程建模与标注，统一流程图形语言）；WfMC（工作流管理联盟参考模型：流程定义/引擎/客户端/互操作）；BPR（业务流程重组，根本性再设计）；Petri 网（并发、同步与资源竞争的严格建模）。</p>
+    <span class="mod mod-theory">理论 · 多智能体系统（MAS）协调理论</span>
+    <p>Agent = 角色（Role）+ 目标（Goal）+ 结构（Structure）；协调/协作/协商机制：黑板、合同网、市场机制；组织结构隐喻：将人类团队协作映射为 Agent 分工；与 BPM 映射：流程节点 ↔ Agent 职责。</p>
+    <span class="mod mod-theory">理论 ↔ 智能体能力 映射</span>
+    <div class="two">
+      <div class="card"><b>BPMN / WfMC</b> ↔ 工作流编排：节点、引擎、客户端与互操作</div>
+      <div class="card"><b>BPR</b> ↔ 用智能体重组端到端业务流程，而非仅自动化</div>
+      <div class="card"><b>Petri 网（并发/同步）</b> ↔ 多智能体并发执行与资源竞争建模</div>
+      <div class="card"><b>MAS 协调（合同网/协商）</b> ↔ 多智能体任务分配、出价与协商</div>
+      <div class="card"><b>组织结构隐喻</b> ↔ 父/子 Agent = 团队分工（角色+目标+结构）</div>
+    </div>
+    <span class="mod mod-theory">理论可视化 · 信息系统相关图形（4 幅）</span>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 200" role="img" aria-label="业务逻辑节点家族">
+        <g font-size="12" fill="#0E2F3A" text-anchor="middle">
+          <rect x="20" y="40" width="120" height="54" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="80" y="62">选择器</text><text x="80" y="80" font-size="10" fill="#5A6B73">条件分支</text>
+          <rect x="155" y="40" width="120" height="54" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="215" y="62">批处理</text><text x="215" y="80" font-size="10" fill="#5A6B73">并行批量</text>
+          <rect x="290" y="40" width="120" height="54" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="350" y="62">循环</text><text x="350" y="80" font-size="10" fill="#5A6B73">串行重复</text>
+          <rect x="425" y="40" width="120" height="54" rx="9" fill="#FDF3E3" stroke="#E0A82E"/><text x="485" y="62">代码节点</text><text x="485" y="80" font-size="10" fill="#5A6B73">JS/Python</text>
+          <rect x="560" y="40" width="110" height="54" rx="9" fill="#eaf7ef" stroke="#2E8B57"/><text x="615" y="62">变量聚合</text><text x="615" y="80" font-size="10" fill="#5A6B73">取首非空</text>
+        </g>
+      </svg>
+      <span class="cap"><b>图1</b>　业务逻辑节点家族（工作流进阶节点）</span>
+    </figure>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 220" role="img" aria-label="工作流嵌套">
+        <defs><marker id="m7b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C"/></marker></defs>
+        <g font-size="12" fill="#0E2F3A" text-anchor="middle">
+          <rect x="240" y="20" width="200" height="44" rx="9" fill="#FDF3E3" stroke="#E0A82E"/><text x="340" y="47">主工作流（调度+整合）</text>
+          <rect x="30" y="110" width="180" height="48" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="120" y="135">子流 generate_article</text>
+          <rect x="250" y="110" width="180" height="48" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="340" y="135">子流 adapt_content</text>
+          <rect x="470" y="110" width="180" height="48" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="560" y="135">子流 text2image</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="2" fill="none" marker-end="url(#m7b)">
+          <line x1="300" y1="64" x2="150" y2="108"/>
+          <line x1="340" y1="64" x2="340" y2="108"/>
+          <line x1="380" y1="64" x2="530" y2="108"/>
+        </g>
+        <text x="340" y="200" text-anchor="middle" font-size="11" fill="#5A6B73">子流须先发布，才能被主工作流嵌套调用</text>
+      </svg>
+      <span class="cap"><b>图2</b>　工作流嵌套：主工作流调度多个子工作流（模块化）</span>
+    </figure>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 230" role="img" aria-label="多Agent结构">
+        <defs><marker id="m7c" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#1497A8"/></marker></defs>
+        <g font-size="13" fill="#0E2F3A" text-anchor="middle">
+          <rect x="250" y="20" width="180" height="48" rx="9" fill="#FDF3E3" stroke="#E0A82E"/><text x="340" y="48">父 Agent（调度中心）</text>
+          <rect x="40" y="130" width="170" height="50" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="125" y="160">子 Agent A</text>
+          <rect x="255" y="130" width="170" height="50" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="340" y="160">子 Agent B</text>
+          <rect x="470" y="130" width="170" height="50" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="555" y="160">子 Agent C</text>
+        </g>
+        <g stroke="#1497A8" stroke-width="2" fill="none" marker-end="url(#m7c)">
+          <line x1="300" y1="68" x2="150" y2="128"/>
+          <line x1="340" y1="68" x2="340" y2="128"/>
+          <line x1="380" y1="68" x2="530" y2="128"/>
+        </g>
+        <text x="125" y="205" font-size="11" fill="#5A6B73">订单查询</text>
+        <text x="340" y="205" font-size="11" fill="#5A6B73">促销咨询</text>
+        <text x="555" y="205" font-size="11" fill="#5A6B73">人工客服</text>
+      </svg>
+      <span class="cap"><b>图3</b>　多 Agent 结构：父 Agent 调度多个专长子 Agent</span>
+    </figure>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 300" role="img" aria-label="UML时序图多智能体">
+        <defs><marker id="m7d" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C"/></marker></defs>
+        <g font-size="12" fill="#0E2F3A" text-anchor="middle">
+          <rect x="30" y="30" width="90" height="32" rx="6" fill="#EAF4F6" stroke="#0F6E8C"/><text x="75" y="51">用户</text>
+          <rect x="150" y="30" width="110" height="32" rx="6" fill="#FDF3E3" stroke="#E0A82E"/><text x="205" y="51">父 Agent</text>
+          <rect x="290" y="30" width="110" height="32" rx="6" fill="#EAF4F6" stroke="#0F6E8C"/><text x="345" y="51">子 Agent A</text>
+          <rect x="430" y="30" width="110" height="32" rx="6" fill="#EAF4F6" stroke="#0F6E8C"/><text x="485" y="51">子 Agent B</text>
+          <rect x="560" y="30" width="90" height="32" rx="6" fill="#fff" stroke="#0F6E8C"/><text x="605" y="51">工具</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="1.5" fill="none" marker-end="url(#m7d)">
+          <line x1="120" y1="75" x2="203" y2="75"/><text x="160" y="69" font-size="11" fill="#5A6B73">请求</text>
+          <line x1="260" y1="105" x2="343" y2="105"/><text x="300" y="99" font-size="11" fill="#5A6B73">分派:订单</text>
+          <line x1="400" y1="135" x2="483" y2="135"/><text x="440" y="129" font-size="11" fill="#5A6B73">分派:促销</text>
+          <line x1="540" y1="165" x2="613" y2="165"/><text x="575" y="159" font-size="11" fill="#5A6B73">调用工具</text>
+          <line x1="540" y1="195" x2="613" y2="195"/><text x="575" y="189" font-size="11" fill="#5A6B73">结果</text>
+          <line x1="400" y1="225" x2="343" y2="225"/><text x="370" y="219" font-size="11" fill="#5A6B73">汇总 A</text>
+          <line x1="260" y1="255" x2="203" y2="255"/><text x="230" y="249" font-size="11" fill="#5A6B73">汇总 B</text>
+        </g>
+      </svg>
+      <span class="cap"><b>图4</b>　UML 时序图：多智能体协作（父调度、子调用工具、汇总回复）</span>
+    </figure>
+
+          <div class="callout method" id="classicmap"><span class="m-tag">经典方法论对照 · 交互与架构</span><p>原版 ch12-13 的<b>顺序图/协作图</b>（刻画多智能体消息交互，H.4）、<b>SOLID/GoF</b>（指导 Agent 职责单一与可替换，H.5）、<b>面向服务设计</b>（"每个智能体 = 一个业务能力/微服务"，H.6）是理解多智能体编排的经典地基。把智能体互联网 IoA 拓扑画成协作图最直观。</p></div>
+
+<h3 class="sec-h" id="ideo">课程思政 · 价值引领</h3>
+    
+<!-- wxfig-inject -->
+<figure class="wxfig">
+  <img src="media/weixin/ch07_multiagent_arch.png" alt="ch07_multiagent_arch.png" loading="lazy">
+  <figcaption>
+    <strong>图：多智能体系统架构模式</strong><br>层级式(Hierarchical)：管理者Agent负责任务分解与协调，执行Agent负责具体任务；对等式(Peer-to-Peer)：所有Agent地位平等，通过协商和投票达成共识。
+    <span class="src">来源：公众号·大模型助理</span>
+  </figcaption>
+</figure>
+
+<!-- wxfig-inject -->
+<figure class="wxfig">
+  <img src="media/weixin/ch07_multiagent_recsys.png" alt="ch07_multiagent_recsys.png" loading="lazy">
+  <figcaption>
+    <strong>图：基于 Multi-Agent 的智能推荐系统案例</strong><br>传统电商推荐存在三大痛点（推荐结果和排序脱节、各系统各自为战、缺乏实时反馈）；本项目用 Supervisor 模式 + LangGraph + RAG + ReAct 构建 Agent 推荐系统。
+    <span class="src">来源：公众号·大模型助理</span>
+  </figcaption>
+</figure>
+
+<!-- wxfig-inject -->
+<figure class="wxfig">
+  <img src="media/weixin/ch07_workflow_guide.png" alt="ch07_workflow_guide.png" loading="lazy">
+  <figcaption>
+    <strong>图：工作流与 Agent 实战指南（《Build Effective Agents》）</strong><br>从 Anthropic 出发，构建高效工作流 Agent 三分支：技术选型指南、设计模式解析、实施要点扩展。含 Workflow VS Agent 思维导图。
+    <span class="src">来源：智学优课</span>
+  </figcaption>
+</figure>
+<span class="mod mod-kb">前沿动态 · 行业速递（2026-08）</span>
+<div class="callout frontier">
+  <span class="f-tag">动态更新 2026-08</span>
+  <p><b>1</b> 蚂蚁集团开源多智能体协作基础设施 Avernet（2026-08-07）：聚焦 agent 发现、共识、跨团队协作与治理（身份 / 权限 / 生命周期）。</p>
+  <p><b>2</b> agency-agents 框架 GitHub 单日 14.3 万 star（2026-08-11）：角色化 agent 团队，验证“组织化 AI 劳动力”需求。</p>
+  <p><b>3</b> SpaceXAI 发布 Grok Bot 多智能体协作工具（2026-08-11）；DeepMind 多智能体强化学习成果登《Science》（2026-08-12）；A2A 协议成熟。</p>
+  <p class="src">来源：搜狐 2026-08-07、Donews 2026-08-11、DeepMind / Science 2026-08-12、AI Daily</p>
+</div>
+
+<span class="mod mod-ideo">精神坐标 · 人民日报金句</span>
+    <div class="callout quote">"同舟共济扬帆起，乘风破浪万里航。"——人民日报金句库</div>
+    <div class="callout quote">"聚阳才能生焰，拢指才能聚拳。"</div>
+    <p><b>本章映射：</b>多智能体系统就像一支团队——父/子 Agent 分工协作、协商任务。真正的系统效能来自"拢指成拳"的协同，而非单点强悍；把个体能力组织成整体合力，正是系统分析设计的价值。</p>
+    <span class="mod mod-ideo">名校范式 · 清华课程思政案例</span>
+    <div class="callout warn">🎓 清华软件学院 刘玉身团队《基于 AI 智能博弈的对战游戏程序设计》（全国教学案例大赛特等奖）：面向大一"程序设计基础"大作业，将"寻路·博弈对抗·智能检测"作为 AI 目标，"推动学生在大一就思考：如何让程序自己做决策"。</div>
+    <p><b>本章映射：</b>多智能体系统像一支团队，恰是"团结协作"的算法写照。博弈对抗中的自主决策，正是多智能体"让程序自己做决策"的能力内核。</p>
+
+    
+<span class="mod mod-ideo">课程思政案例 · IMA 知识库</span>
+<div class="kbcase">
+  <h4>复杂系统里的协同治理：多 Agent 也是"系统工程"</h4>
+  <ul>
+    <li>新质生产力强调系统集成与协同配合；复杂工作流/多 Agent 正是系统工程的微观演练。</li>
+    <li>多智能体协作如同社会治理：需要规则、接口标准与明确的责任边界。</li>
+  </ul>
+  <span class="src">来源：IMA 知识库《AI思政课》· 新质生产力与系统观念；习近平关于"新型举国体制"论述</span>
+  <span class="think"><b>本章映射：</b>编排多 Agent 时，既要效率也要"可治理"——明确的角色分工、可审计的消息流、失败兜底，正对应国家治理中"全国一盘棋"的协同思维。</span>
+</div>
+      <h3 class="sec-h" id="casein">案例导入 · 多智能体协同故障调度</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B1-05</span> <b>基于多智能体协同的故障调度新实践</b><br><span class="cunit">申报单位：中国移动通信集团福建有限公司</span></p>
+        <p>在“人工智能+”行动计划深入推进的背景下，中国移动福建公司将九天大模型能力深度融入通信网络运维体系，开创了AI 赋能传统基础设施智能化升级的创新范式。此举积极响应数字经济发展与数字中国建设战略，以人工智能驱动网络运维从自动化向认知化、自优化跃迁，加速构建以AI 为核心引擎的新质生产力，为通信行业数智化转型树立标杆，助力国家智能化基础设施体系高质量发展。面对日均4500 起故障任务，传统调度模式凸显三大结构性痛点：一是跨域调度定界定位能力不足，重复派单严重；二是传统调度流程依赖预定义、硬编码的传统集成方式，无法适应快速变化的网络环境；三是单故障需6 次通话、20 次信息查询。</p>
+        <p><b>导学解读 · 与本章的对接</b>：本章讲工作流编排，最怕的是“为了多智能体而多智能体”。本案例给出了一个可检验的判据：日均 4500 起故障、单故障需 6 次通话与 20 次信息查询——<b>复杂度与规模都已越过单点处理的能力边界</b>，才需要拆分专业智能体并协同。请重点看它的三层设计：PrefixSpan 序列挖掘 + 资源图谱做事件关联（相当于工作流中的条件分支依据）、业务 SLA 模型做优先级判定（相当于路由规则）、“事件调度控制模块”做调度大脑（相当于编排器）。定界定位时长由 40 分钟压缩至 20 分钟、首调准确率提升至 80%，正是工作流优化的直接收益，也是本章学习成果的可量化标尺。</p>
+        
+      </div>
+
+    <h2 class="part p2">第二部分　课程内容</h2>
+      <h3 class="sec-h" id="s71">7.1　业务逻辑节点家族</h3>
+    <ul>
+      <li><b>选择器</b>：条件分支，常配合意图识别做分类，可用"否则"兜底，提升可靠性。</li>
+      <li><b>批处理</b>：并行批量，任务相互独立、无依赖，运行次数=数组长度，适合批量生成图像/查询。</li>
+      <li><b>循环</b>：串行重复，可依赖上次结果，支持次数/无限/数组循环，可"终止循环"跳出。</li>
+      <li><b>代码节点</b>：自定义逻辑（JS/Python），上游数据封装在 params，输出须以对象返回。</li>
+      <li><b>变量聚合</b>：读取多路分支第一个"非空值"，避免未运行分支读空报错。</li>
+    </ul>
+
+    
+    <div class="pptgrid" data-cnt="20">
+      <figure class="wxfig">
+  <img src="media/coze/p251.jpg" alt="课件第 251 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p252.jpg" alt="课件第 252 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p254.jpg" alt="课件第 254 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p255.jpg" alt="课件第 255 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p256.jpg" alt="课件第 256 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p257.jpg" alt="课件第 257 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p258.jpg" alt="课件第 258 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p259.jpg" alt="课件第 259 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p262.jpg" alt="课件第 262 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p263.jpg" alt="课件第 263 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p269.jpg" alt="课件第 269 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p270.jpg" alt="课件第 270 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p271.jpg" alt="课件第 271 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p272.jpg" alt="课件第 272 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p273.jpg" alt="课件第 273 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p274.jpg" alt="课件第 274 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p275.jpg" alt="课件第 275 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p313.jpg" alt="课件第 313 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p314.jpg" alt="课件第 314 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p321.jpg" alt="课件第 321 页" loading="lazy">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s72">7.2　工作流嵌套：复杂业务的模块化</h3>
+    <p>将庞大工作流拆为单一职责子工作流，遵循模块化思想。主工作流负责任务"调度"与"整合"（如 multiplatform_copywriting：开始→嵌套子流→代码 JSON 转数组→循环→结束）；子工作流专注单项能力（generate_article / adapt_content / text2image），各 3~4 节点独立调试。<b>关键约束：只有已发布的工作流才能被主工作流嵌套调用。</b></p>
+
+    
+    <div class="pptgrid" data-cnt="1">
+      <figure class="wxfig">
+  <img src="media/coze/p250.jpg" alt="课件第 250 页" loading="lazy">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s73">7.3　多 Agent 模式</h3>
+    <p><b>父 Agent</b>：调度中心，按各子 Agent"适用场景"分发，保留全局配置；不满足时回退父 Agent。<b>子 Agent A/B/C</b>：各具专长（订单/促销/人工），独立提示词与技能。<b>跳转机制</b>：输入满足某 Agent 触发条件即移交（如含"人工/投诉"跳转人工客服）。适用于智能客服、深度报告、虚拟公司等。</p>
+
+    
+    <div class="pptgrid" data-cnt="9">
+      <figure class="wxfig">
+  <img src="media/coze/p316.jpg" alt="课件第 316 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p317.jpg" alt="课件第 317 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p318.jpg" alt="课件第 318 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p319.jpg" alt="课件第 319 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p320.jpg" alt="课件第 320 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p322.jpg" alt="课件第 322 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p323.jpg" alt="课件第 323 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p324.jpg" alt="课件第 324 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p325.jpg" alt="课件第 325 页" loading="lazy">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s74">7.4　多 Agent vs 工作流</h3>
+    <p>多 Agent：多个具决策能力的智能体动态交互，灵活、可自主规划，适合复杂开放问题，但调试复杂。工作流：执行预设固定流水线，可控、清晰、可视化易调试，适合流程明确、结果可预测的任务。</p>
+
+          <h3 class="sec-h" id="s75">7.5　代码节点与变量聚合实操</h3>
+    <p>代码节点输入/输出：所有上游数据封装在 params（如 const city = params['city']）；输出必须对象返回（即使单值）。能力：数据转换、计算、调外部 API。变量聚合"取首个非空"避免分支不确定性报错。组合案例：合同金额审查 = 读取→解析(大模型,Object)→代码(Python审查)→报告；知识问答 = 联网/头条/大模型三路并行，变量聚合按优先级取首非空。</p>
+
+    
+    <div class="pptgrid" data-cnt="8">
+      <figure class="wxfig">
+  <img src="media/coze/p253.jpg" alt="课件第 253 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p260.jpg" alt="课件第 260 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p261.jpg" alt="课件第 261 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p264.jpg" alt="课件第 264 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p265.jpg" alt="课件第 265 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p266.jpg" alt="课件第 266 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p267.jpg" alt="课件第 267 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p268.jpg" alt="课件第 268 页" loading="lazy">
+</figure>
+    </div>
+
+      
+
+    
+    <h2 class="part p3">第三部分　拓展练习</h2>
+      <h3 class="sec-h" id="kb">知识拓展与前沿</h3>
+    <span class="mod mod-kb">拓展 · 四大 Agentic Workflow 模式</span>
+    <p>① 规划 Planning（任务分解）；② 工具使用 Tool Use（与外部资源动态交互）；③ 反思 Reflection（自评迭代纠错）；④ 组合 Compose（原子模式 + 人在环 + 分级自主权）。</p>
+    <span class="mod mod-kb">前沿 · 多智能体协作主流范式</span>
+    <p>① 单智能体自主循环（思考-规划-执行-反思）；② 角色扮演式对话（CAMEL）；③ 组织化工作流（MetaGPT、CrewAI）；④ 高级控制流（LangGraph，状态图支持循环/分支/人工）。选型：简单可预测→工作流；开放复杂→多智能体。</p>
+    <span class="mod mod-kb">案例 · 生产级 Agentic Workflow</span>
+    <p>Claygent（网络扫描做潜客研究）；ServiceNow AI Agents（工单触发→知识库 RAG→生成处理建议，决策权留人类）。</p>
+    <div class="callout src">📚 来源：ima 知识库《智能体宇宙》。</div>
+
+    
+<div class="termbox">
+  <h4>📌 复杂工作流与多智能体 · 核心术语</h4>
+  <ul>
+    <li><span class="term" data-def="将多个节点（插件/大模型/代码）按确定逻辑串联，实现可控、可复用的业务流程。">工作流编排</span></li>
+    <li><span class="term" data-def="可被主工作流嵌套调用的独立工作流，需发布后调用，利于分工与复用。">子工作流</span></li>
+    <li><span class="term" data-def="由多个分工明确的智能体协作完成复杂任务的组织形态，如规划者+执行者+评审者。">多智能体</span></li>
+    <li><span class="term" data-def="对无依赖的任务并行批量执行，适合大规模生成等场景。">批处理节点</span></li>
+    <li><span class="term" data-def="依据条件在多个分支间路由的工作流节点。">选择器</span></li>
+  </ul>
+</div>
+
+<div class="casebox">
+  <h4>🧩 案例 · 电商客服多智能体协作</h4>
+  <ul>
+    <li><b>场景：</b>订单、促销、人工三条线由三个专业智能体分工，一个“主管 Agent”按问题类型派单——复杂业务拆给专家，而非塞进一个万能体。</li>
+    <li><b>编排：</b>用批处理节点并行生成 100 张商品文案；用选择器在‘能答/转人工’间路由——节点即总体设计的模块落地。</li>
+    <li><b>映射：</b>多智能体 = 现实里‘科室协作’的软件映射；本章把你从‘写提示词’升级到‘搭组织’。</li>
+  </ul>
+</div>
+
+<span class="mod mod-kb" id="lit">前沿文献 · 近三年精选（2023–2026）</span>
+    <p>以下文献反映本章主题在智能体时代的最新进展，供学有余力的同学延伸阅读（链接指向原文/预印本）。</p>
+          <div class="callout src">🎓 <b>学界观点</b>：储节旺等（2025）刻画了智能体在智慧图书馆中的应用框架与场景；蒲云强等（2026）构建面向科技战略情报的多智能体协同系统。这恰是本章“多智能体 = 组织化工作流”的学界注脚。</div>
+<ul class="lit-list">
+      <li><a href="https://arxiv.org/abs/2308.08155" target="_blank" rel="noopener">AutoGen：通过多智能体对话赋能下一代 LLM 应用（AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation）</a>
+        <div class="lit-meta">Wu et al., 2023, arXiv:2308.08155</div>
+        <div class="lit-note">微软对话式多智能体框架事实标准</div></li>
+
+      <li><a href="https://arxiv.org/abs/2308.00352" target="_blank" rel="noopener">MetaGPT：多智能体协作的元编程框架（MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework）</a>
+        <div class="lit-meta">Hong et al., 2024, ICLR 2024 (arXiv:2308.00352)</div>
+        <div class="lit-note">标准化作业流程(SOP)驱动的软件工厂模式</div></li>
+
+      <li><a href="https://arxiv.org/abs/2307.07924" target="_blank" rel="noopener">ChatDev：用于软件开发的通信智能体（ChatDev: Communicative Agents for Software Development）</a>
+        <div class="lit-meta">Chen et al., 2024, arXiv:2307.07924</div>
+        <div class="lit-note">角色对话协作开发</div></li>
+
+      <li><a href="https://arxiv.org/abs/2303.17760" target="_blank" rel="noopener">CAMEL：用于“心智”探索的通信智能体（CAMEL: Communicative Agents for 'Mind' Exploration）</a>
+        <div class="lit-meta">Li et al., 2023, NeurIPS 2023 (arXiv:2303.17760)</div>
+        <div class="lit-note">首个角色扮演多智能体协作框架</div></li>
+
+      <li><a href="https://scholar.google.com/scholar?q=Chain-of-Agents+Large+Language+Models+Collaborating+on+Long-Context+Tasks" target="_blank" rel="noopener">Chain-of-Agents：LLM 在长上下文任务上的协作（Chain-of-Agents: Large Language Models Collaborating on Long-Context Tasks）</a>
+        <div class="lit-meta">Google Research, 2024, arXiv</div>
+        <div class="lit-note">链式推理缓解长文本“中段遗失”</div></li>
+
+          <li><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E6%99%BA%E8%83%BD%E4%BD%93%E5%9C%A8%E6%99%BA%E6%85%A7%E5%9B%BE%E4%B9%A6%E9%A6%86%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%9A%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%9C%BA%E6%99%AF" target="_blank" rel="noopener">智能体在智慧图书馆中的应用：框架与场景</a>
+        <div class="lit-meta">储节旺, 等. 智能体在智慧图书馆中的应用：框架与场景[J]. 图书情报工作, 2025, 69(14): 3-13.</div>
+        <div class="lit-note">给出图书馆智能体的能力框架与典型场景，对应多智能体协作</div></li>
+
+      <li><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E9%9D%A2%E5%90%91%E7%A7%91%E7%A0%94%E6%83%85%E6%8A%A5%E5%88%86%E6%9E%90%E7%9A%84%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93%E5%8D%8F%E5%90%8C%E6%A8%A1%E5%9E%8B" target="_blank" rel="noopener">面向科研情报分析的多智能体协同模型</a>
+        <div class="lit-meta">吴田, 等. 面向科研情报分析的多智能体协同模型[J]. 图书情报工作, 2026, 70(10): 1-12.</div>
+        <div class="lit-note">角色化多智能体协同完成复杂情报任务，呼应 MetaGPT/CrewAI</div></li>
+
+      <li><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E9%9D%A2%E5%90%91%E7%A7%91%E6%8A%80%E6%88%98%E7%95%A5%E6%83%85%E6%8A%A5%E5%88%86%E6%9E%90%E7%9A%84%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93%E5%8D%8F%E5%90%8C%E7%B3%BB%E7%BB%9F%E7%A0%94%E7%A9%B6" target="_blank" rel="noopener">面向科技战略情报分析的多智能体协同系统研究</a>
+        <div class="lit-meta">蒲云强, 等. 面向科技战略情报分析的多智能体协同系统研究[J]. 情报理论与实践, 2026, 49(3): 40-52.</div>
+        <div class="lit-note">多智能体分工 + 控制流，对应本章工作流与多智能体范式</div></li>
+
+      <li><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E6%83%85%E6%8A%A5%E6%99%BA%E8%83%BD%E4%BD%93%E6%8A%80%E6%9C%AF%E8%A7%A3%E6%9E%84%E4%B8%8E%E8%83%BD%E5%8A%9B%E6%A1%86%E6%9E%B6" target="_blank" rel="noopener">情报智能体技术解构与能力框架</a>
+        <div class="lit-meta">付芸, 等. 情报智能体技术解构与能力框架[J]. 图书情报工作, 2024, 68(20): 1-11.</div>
+        <div class="lit-note">对情报智能体的能力组件做拆解，对应智能体能力建模</div></li>
+
+      <li><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E6%83%85%E6%8A%A5%E6%99%BA%E8%83%BD%E4%BD%93%EF%BC%9A%E9%9D%A2%E5%90%91%E5%8D%81%E4%BA%94%E4%BA%94%E7%9A%84%E7%A7%91%E6%8A%80%E6%83%85%E6%8A%A5%E5%B7%A5%E4%BD%9C%E6%96%B0%E8%8C%83%E5%BC%8F" target="_blank" rel="noopener">情报智能体：面向十五五的科技情报工作新范式</a>
+        <div class="lit-meta">刘细文, 等. 情报智能体：面向十五五的科技情报工作新范式[J]. 农业图书情报学报, 2024, 36(12): 1-12.</div>
+        <div class="lit-note">提出情报智能体作为十五五科技情报新范式，呼应课程战略视角</div></li>
+
+    </ul>
+        <div class="callout tip">💡 <b>软考/职业考点</b>：本章对应软考高项「项目整合管理 / 制定项目管理计划」「进度管理」与 CISA「运营(D4)」。复杂工作流离不开“计划 + 监控”。</div>
+
+      <!-- 本章学习方法 -->
+    <div class="callout method">
+      <span class="m-tag">本章学习方法 · 结对编程 / 角色扮演法（Pair & Role Play）</span>
+      <p><b>核心理念：</b>让两个「角色」(如架构师 + 审查员)互相质疑，或你与 AI 结对，能在协作中暴露盲区——比独自闷头写更稳。</p>
+      <p><b>四步/要点：</b>① 分角色设定设计者与质疑者两类视角　② 出方案设计者给出架构 / 流程方案　③ 挑漏洞质疑者从边界 / 异常处发难　④ 迭代收敛据反馈修订，直至双方认可</p>
+      <p><b>与录屏结合：</b>录屏时，扮演「主管 Agent」给两个子 Agent 派活，演示「角色分工如何提升复杂任务质量」。</p>
+    </div>
+
+              <!-- G3. 知识巩固与提高 -->
+    <h3 class="sec-h" id="review">知识巩固与提高</h3>
+    <div class="btnrow">
+      <a class="btn" href="课堂测试_第07章.pptx" target="_blank" rel="noopener">📂 第07章 课堂测试（PPT · 10 题 · 点击打开）</a>
+    </div>
+<h3 class="sec-h" id="exp">上机实验 · 构建复杂工作流或多 Agent 系统</h3>
+    <div class="labtask">
+      <h3>📋 实验任务书</h3>
+      <p><b>目标：</b>实现一个复杂工作流或多 Agent 原型，体现模块化与协同。</p>
+      <p><b>环境：</b>扣子 Coze 工作流/多 Agent 模式。</p>
+      <p><b>步骤：</b>① 代码节点+变量聚合实现业务逻辑；② 或改造成主/子工作流嵌套；③ 进阶搭多 Agent（父+2~3 子）；④ 测试分流与协同。</p>
+      <p><b>交付物：</b>架构图 + 代码节点逻辑说明 + 分流测试记录（≥3 类输入）。</p>
+      <p><b>评分点：</b>逻辑正确性(30%) · 模块化(25%) · 多Agent/嵌套(25%) · 测试记录(20%)。</p>
+    </div>
+    <h3 class="sec-h" id="labexp">🛠 分步操作 · 构建复杂工作流或多 Agent 系统</h3>
+    <span class="mod mod-lab">动手 · 分步操作</span>
+    <ol>
+      <li>用代码节点 + 变量聚合，为项目实现一段结构化业务逻辑（如合同/表单审查）。</li>
+      <li>或把已有工作流改造为"主工作流 + 子工作流"嵌套结构。</li>
+      <li>进阶：搭建多 Agent 原型（父 Agent 调度 + 2~3 个专长子 Agent，如订单/促销/人工客服）。</li>
+      <li>测试不同用户输入的自动分流与协同效果。</li>
+    </ol>
+    <details class="fold">
+      <summary>📝 代码节点输出规范</summary>
+      <p>// 所有上游数据在 params 中<br>const city = params['city'];<br>// 输出必须封装为对象<br>return { result: processed, ok: true };<br>// 否则工作流无法读取返回值</p>
+    </details>
+<h3 class="exp-h">🔬 扩展实验（选做 2–3 项，巩固本章学法）</h3>
+    <div class="expext">
+      <h4>扩展实验 1 · A2A 协议<span class="tag">协作</span></h4>
+      <p><b>任务：</b>实现一个 Agent 间消息传递，对比「单 Agent 硬扛 vs 多 Agent 协作」。</p>
+      <p><b>交付：</b>录屏讲清 A2A 价值，给出协作拓扑。</p>
+    </div>
+    <div class="expext">
+      <h4>扩展实验 2 · 层级 vs 对等<span class="tag">架构</span></h4>
+      <p><b>任务：</b>同一任务分别用「主管-下属」层级与「平级协商」实现对等。</p>
+      <p><b>交付：</b>录屏对比优劣，给出选型建议。</p>
+    </div>
+    <div class="expext">
+      <h4>扩展实验 3 · 监督者模式<span class="tag">治理</span></h4>
+      <p><b>任务：</b>加一个「监督 Agent」做质量把关。</p>
+      <p><b>交付：</b>费曼式讲清「为何复杂系统需要监督者」，录屏演示。</p>
+    </div>
+
+    <h2 class="part p4">第四部分　本章小结</h2>
+      <h3 class="sec-h" id="sum">本章小结</h3>
+    <div class="summary">
+            <h4>核心要点回顾</h4>
+      <ul>
+        <li>业务逻辑节点：选择器/批处理/循环/代码/变量聚合。</li>
+        <li>批处理并行、循环串行，按依赖选型。</li>
+        <li>工作流嵌套实现模块化与复用（子流须先发布）。</li>
+        <li>多 Agent 适合复杂、开放、需分工的任务。</li>
+        <li>代码+变量聚合是复杂业务可控落地的关键。</li>
+        <li>下一章：把能力封装为可部署的低代码应用。</li>
+      </ul>
+      <p class="progress-txt">延伸阅读：ima 知识库《智能体宇宙》"四大 Agentic Workflow 模式""多智能体协作范式"；业务流程管理（BPMN/Petri 网）与 MAS 协调理论相关教材；清华 AI 博弈教学案例。</p>
+    </div>
+      <h3 class="sec-h" id="caseext">拓展案例 · AgentOS 集群与联邦协同</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B7-06</span> <b>多智能体集群与联邦协同平台</b><br><span class="cunit">申报单位：中国电信股份有限公司研究院</span></p>
+        <p>电信研究院面向复杂任务协同合作场景，研发“AgentOS”多智能体集群与“AgentFed”联邦协同平台。目前，单一智能体能力边界受限，无法独立完成长流程、多角色、跨系统参与的复杂任务，并且在实现多人、多机器协同时，存在上下文割裂，任务接续困难、协作效率低下的问题。为解决上述问题，平台采用端云协同架构设计：通过AgentOS 构建本地智能体运行底座，提供任务规划、流程路由、指令执行、工具调用、工作流记忆及集群协同全链路能力；通过AgentFed 打造云端联邦协同层，实现跨设备、跨用户上下文与工作空间安全共享。</p>
+        <p><b>看点</b>：AgentOS 用 Plan-Route-Action 三层编排把“规划—路由—执行”拆开，AgentFed 则解决跨设备、跨用户的上下文接续。前者是工作流引擎的骨架，后者是协作记忆的载体。</p>
+        <h4>延伸思考题</h4>
+        <ol>
+          <li>AgentOS 采用 Plan-Route-Action 三层编排架构。请把本章 Coze 工作流的节点类型映射到这三层，并指出哪一类节点最容易成为性能瓶颈、为什么。</li>
+          <li>Router 结合 BM25、向量相似度与 RRF 融合排序来匹配执行单元。请解释为什么单一检索策略不够用，并说明 RRF 融合相比简单加权求和的优势。</li>
+          <li>AgentFed 让不同成员、不同终端的上下文与工作空间安全共享。请列出至少三项共享带来的风险，并给出对应的权限设计。</li>
+        </ol>
+        
+      </div>
+
+    <!-- AGENT-LIT-INJECT -->
+    <span class="mod mod-kb">📚 智能体工程必读文献 · 工程层 · 多智能体框架（AutoGen）</span>
+    <ul class="lit-list">
+      <li>
+        <a href="https://arxiv.org/abs/2308.08155" target="_blank" rel="noopener">Wu et al.《AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation》(COLM 2024)</a>
+        <div class="lit-meta">arXiv:2308.08155 · DOI https://doi.org/10.48550/arXiv.2308.08155</div>
+        <div class="lit-note">多智能体对话框架，第7章“多智能体协作”的工业级参考</div>
+      </li>
+    </ul>
+<!-- /AGENT-LIT-INJECT -->
+
+<div class="btnrow">
+      <button class="btn" id="exportPdf">⬇ 导出本章 PDF</button>
+      <a class="btn ghost" href="index.html">← 返回门户</a>
+    </div>
+
+    <div class="readbox">
+      <span class="dot" id="readDot"></span>
+      <button class="btn ghost" id="markRead" data-ch="7">标记为已读</button>
+    </div>
+
+  </main>
+</div>
+
+<div id="termtip"></div>
+<script src="app.js"></script>
+</body>
+</html>

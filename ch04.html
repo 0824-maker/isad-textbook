@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="HLBmLJoqZtMnDlROAsRbvu">
+<head data-page-node-id="5cogL5BOHqp0rAEaR9hE3D">
+<meta charset="UTF-8" data-page-node-id="iVK3wYAL4xPBEL5EOvft7f">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="1zQY7XuYHdEGcX3YePBjGG">
+<title>第4章 系统总体设计与智能体架构 · 数字教材</title>
+<link rel="stylesheet" href="style.css" data-page-node-id="4zGDQNHHJyQ9Si4wflZRpB">
+</head>
+<body data-page-node-id="1d91YfBlHpzKm5qIB3CSUF">
+<header class="topbar" data-page-node-id="v6kZlvVURAyFkiymJtUauL">
+  <div class="wrap" data-page-node-id="5ChxmH7DhwGyJHBgIn75gK">
+    <div class="brand" data-page-node-id="0UG0Fz07tTXDSCMlHKkiAd">《信息系统分析与设计》· 数字教材
+      <small data-page-node-id="peiQXa8JmZ8mHbcZJkSksb">智能体实战主线 · 信息资源管理专业</small></div>
+    <nav data-page-node-id="htutauyvg8uCDdcbGeihjg">
+      <a href="index.html" data-page-node-id="QNH7wYrxGnQ07x5PguqIQZ">门户</a>
+      <a href="ch03.html" data-page-node-id="qGm0nBO9MGwQF2cnH0UyZp">第3章</a>
+      <a href="ch04.html" data-page-node-id="pONcvT6Su6O9pEOJf25SyT">第4章</a>
+      <a href="ch09.html" data-page-node-id="61OtAOLhWSo4zZP2G6EEvT">第9章</a>
+      <a href="appendix.html" data-page-node-id="ITR2UEk4D1gD7eYFpv1DNq">附录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc" data-page-node-id="gb04NTEvSGm6vTLhzxVikk">
+  <aside class="side" data-page-node-id="Z3GEPoumNYKuCkk9Hy0lKD">
+    <h4 data-page-node-id="376aTHa4v0yWvkLtCebwHa">第 4 章 目录</h4>
+    <a href="#lead" class="cur" data-page-node-id="OGaSWFfzEDSbYGcemVcPmi">导语与学习目标</a>
+    <span class="navpart p1" data-page-node-id="xTx0NMNC6o3T8i4NRbizzU">第一部分　课程导学</span>
+    <a href="#theory" data-page-node-id="9NNkF1KKTB7q4L9oQxO1ad">理论基石</a>
+    <a href="#ideo" data-page-node-id="uGnM4Y9H00HfVxSvylXXAP">课程思政</a>
+    <a href="#casein" data-page-node-id="4swItIjoQR94hgjuo7mYJm">案例导入</a>
+    <span class="navpart p2" data-page-node-id="DsH9FHgaeXrwVWcZ8PxcMe">第二部分　课程内容</span>
+    <a href="#s41" data-page-node-id="1V3hOkFzBYnnQX46FqNtJ7">4.1 总体设计原则</a>
+    <a href="#s42" data-page-node-id="TyhJIBu9hmZJ5SG4DkQ6G2">4.2 智能体架构组成</a>
+    <a href="#s43" data-page-node-id="LzDwzAoeUBpsoVXSOVMxVI">4.3 组件对比选型</a>
+    <a href="#s44" data-page-node-id="2HD06TyJ3ClM2K0UYDh2Ad">4.4 防御性设计</a>
+    <a href="#s45" data-page-node-id="7SeHspBFo6QCFvkAgmaODp">4.5 插件 / 4.6 编排</a>
+    <span class="navpart p3" data-page-node-id="5pbYmXUPHDxIaRiAQU7NYz">第三部分　拓展练习</span>
+    <a href="#kb" data-page-node-id="FwJF4X5Ncc92U1Dy4ova7R">知识拓展与前沿</a>
+    <a href="#lit" data-page-node-id="MU2gTECOuKHAJjYEn0sgDH">↳ 前沿文献</a>
+    <a href="#exp" data-page-node-id="MRXFcxBHlYLj2oCb9je27w">上机实验</a>
+    <span class="navpart p4" data-page-node-id="BKR82Xsb7CuguY6N7V06zY">第四部分　本章小结</span>
+    <a href="#sum" data-page-node-id="MAAN5EN2X3KtaNBmgjy0xe">本章小结</a>
+    <a href="#caseext" data-page-node-id="FptsrJrmnltF4FLQfOjz2l">拓展案例 · 延伸思考</a>
+  </aside>
+
+  <main class="content" data-page-node-id="OnvlICQhdmj2FOTDw9MPFT">
+    <h1 data-page-node-id="3Zb0JhxaiJjHJ3BE0DmQmO">第 4 章　系统总体设计与智能体架构</h1>
+    <p class="progress-txt" data-page-node-id="D8JBWPR5gGloDa8Antsokr">好的设计让系统模块化、易维护；智能体架构亦然。本章把需求落成智能体总体架构，理解插件/工作流/对话流/卡片的职责与选型。</p>
+
+    
+
+    <h2 class="part p1" id="lead" data-page-node-id="PSrzYzOJSpsV504BOoMNCx">第一部分　课程导学</h2>
+
+<span class="mod mod-lead" data-page-node-id="s8FQ9x10BSBBXg0coaRUnu">导语 · 本章定位</span>
+    <p data-page-node-id="9QrOGeyM8EdXOjTSHykJpp">设计回答"系统怎么搭"。经典的总体设计追求模块化、高内聚低耦合；在智能体世界里，这套思想一点没过时——人设、技能、记忆就是模块，工作流就是低耦合的编排。本章让你学会画一张智能体总体架构图，并知道每个组件该干什么。</p>
+
+    <span class="mod mod-lead" data-page-node-id="LGErkQcMFVOY3j4rIHB3Kv">三维学习目标</span>
+    <div class="goals" data-page-node-id="2r2v5HzmxoR0gQGQkt0FaS">
+      <div class="goal" data-page-node-id="SUK8Z8e1QPRnbsEo3TM2sN"><b data-page-node-id="CkHpvZXhjR94ZG3K5oqajT">知识</b><br data-page-node-id="EHu1EvMme8G3v0ezIbXA7O">理解系统总体设计原则；掌握智能体架构组成；区分插件/工作流/对话流/卡片。</div>
+      <div class="goal" data-page-node-id="r12O3bK6jqUr2qRPAXNHdX"><b data-page-node-id="rJ6gHRJLNw9hz9TYVIY4oX">能力</b><br data-page-node-id="9weoXa3yDh9Xgulm1MJWuK">能为项目绘制总体架构图；能把需求映射到智能体组件；能评估架构模块化程度。</div>
+      <div class="goal" data-page-node-id="6txsII7CtOlOowKVlhLu9G"><b data-page-node-id="5YwD0o6Od3v92pjgFGGRWQ">价值</b><br data-page-node-id="HETwfGy9BPjCziGAtKekFh">培养模块化与高内聚低耦合思维；理解"设计决定可维护性"；善用防御性设计降低故障。</div>
+    </div>
+
+            
+    
+      <h3 class="sec-h" id="theory" data-page-node-id="w1Pwi0nG0DCxxACjdeAcyN">理论基石 · 信息系统分析与设计</h3>
+    <span class="mod mod-theory" data-page-node-id="T5PgyaHOrKewHq0Ttg0KjE">理论 · 结构化设计（SD）</span>
+    <p data-page-node-id="Gh6DKpN2WaxuO5LC8NfmOq">① 模块独立性：耦合 Coupling 越低越好、内聚 Cohesion 越高越好；② 结构图 SC：表达模块调用关系与数据/控制标记传递；③ 变换/事务分析：由 DFD 映射为程序结构；④ IPO 图：输入—处理—输出描述模块内部逻辑。</p>
+    <span class="mod mod-theory" data-page-node-id="Zy1HeQevbbxVGhPDX7fHt5">理论 · 软件架构风格与模式</span>
+    <p data-page-node-id="wgE1Da6ShmMFr2PjD0Xpi6">分层架构（C/S、B/S、三层）；面向服务（SOA、微服务、事件驱动 EDA）；云原生（容器、Serverless）；智能体架构（感知—决策—行动 + 工具/记忆/规划）。</p>
+    <span class="mod mod-theory" data-page-node-id="fdfL6SPdUscN41Yl1dEnTs">理论 · 面向对象设计（OOD）</span>
+    <p data-page-node-id="D2oBEGbGrJnlmE91ZBqwuQ">类图（类、属性、操作及关联/聚合/继承）；交互图（时序图）；状态图（生命周期）；设计原则 SOLID（单一职责、开闭、依赖倒置等）。</p>
+    <span class="mod mod-theory" data-page-node-id="2GpjTx6AkcGGjeBJPlZS0s">理论 ↔ 智能体能力 映射</span>
+    <div class="two" data-page-node-id="itcErLB5GpYMRB2g9SfoRE">
+      <div class="card" data-page-node-id="HcuN4YvaxPdwZtFgDTplsp"><b data-page-node-id="7P5BBNIpkkUpQoedEXuIOK">模块化·高内聚低耦合</b> ↔ 智能体技能=高内聚模块；工作流=低耦合编排</div>
+      <div class="card" data-page-node-id="6eQFbQ9hjGmV2rwCnzcMci"><b data-page-node-id="Dq9uZ1VVoPZF8aMHroolcF">结构图/变换·事务分析</b> ↔ 工作流编排图（节点+连线）</div>
+      <div class="card" data-page-node-id="BsWolKCBpQgkUK3rIJQjxH"><b data-page-node-id="DNLY8Z2fw5zV2cZpqv9Cid">架构风格（分层/SOA/云原生）</b> ↔ 智能体总体架构：感知—决策—行动+工具/记忆</div>
+      <div class="card" data-page-node-id="fxazWCligbsMl7BGsEtaTD"><b data-page-node-id="BEpIwx2gFF1HYI9q5xkH5s">OOD SOLID</b> ↔ 多智能体职责单一、依赖倒置、易替换</div>
+      <div class="card" data-page-node-id="g43E06sxRlG4PoBQzSNmYP"><b data-page-node-id="qD3TNqZH9xviksAJqAXmTk">IPO</b> ↔ 感知(输入)—推理(处理)—行动(输出)</div>
+    </div>
+    <span class="mod mod-theory" data-page-node-id="w2AkKtHzvoJc8P8U1iAxfw">理论可视化 · 信息系统相关图形（4 幅）</span>
+
+    <figure class="figure" data-page-node-id="bhfAuPtGlWZV4paGUqQurz">
+      <svg viewBox="0 0 680 200" role="img" aria-label="设计四原则" data-page-node-id="E0KV3XQDKrkWWFoZIwSD7r">
+        <g font-size="14" fill="#0E2F3A" text-anchor="middle" data-page-node-id="irViqTODHrcfsLXntJrJSt">
+          <rect x="30" y="50" width="145" height="70" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="aXr2Dkyb2HGE6RgFd3A3Pz"/><text x="102" y="80" data-page-node-id="2ncuE7HnnOOKXM6eJ3inOq">模块化</text><text x="102" y="100" font-size="11" fill="#5A6B73" data-page-node-id="Yb5HrdSR59uCfBn0httrFB">单一职责拆分</text>
+          <rect x="190" y="50" width="145" height="70" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="PezPzzpkroDnf3JTb4iwAl"/><text x="262" y="80" data-page-node-id="z0nHAfQcjp0KgiGA6fdVXw">高内聚</text><text x="262" y="100" font-size="11" fill="#5A6B73" data-page-node-id="KnYyVJclvDeozjYXXC6NyP">内部紧密相关</text>
+          <rect x="350" y="50" width="145" height="70" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="BoNZqLLVLQW48V5NehU5SL"/><text x="422" y="80" data-page-node-id="Mb1NsIWCzqOIR0cPhiHBve">低耦合</text><text x="422" y="100" font-size="11" fill="#5A6B73" data-page-node-id="ip0QaBrcljcMTvSZ8zG6H0">对外少依赖</text>
+          <rect x="510" y="50" width="145" height="70" rx="9" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="0F8b6o6PTDoPhmHqvCD7ZM"/><text x="582" y="80" data-page-node-id="zISKH0RwGED4zt1xaAhefz">可复用·易维护</text><text x="582" y="100" font-size="11" fill="#5A6B73" data-page-node-id="Ak9TYytbqwUM0oYI2dMKqc">积木式迭代</text>
+        </g>
+      </svg>
+      <span class="cap" data-page-node-id="OBEPtAFk1aAWybisqHgMqe"><b data-page-node-id="UHRC9wbZGkEkfevWHdHbhO">图1</b>　总体设计四原则（模块化 / 高内聚 / 低耦合 / 可复用）</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="zLFmRs4cWhJJgLxxpbECeL">
+      <svg viewBox="0 0 680 240" role="img" aria-label="智能体架构组成" data-page-node-id="g4wr6EyKTRKTeeOaqOFeX0">
+        <g font-size="13" fill="#0E2F3A" text-anchor="middle" data-page-node-id="HvNszdvkGdyko9QsytBBs2">
+          <rect x="240" y="20" width="200" height="46" rx="9" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="NUCyOZPnF3ASC6fLhowE14"/><text x="340" y="48" data-page-node-id="9XeiHl4Kc1Reu5lD2feuFc">人设与回复逻辑（大脑）</text>
+          <rect x="30" y="100" width="290" height="56" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="7n7bjBLqS9VJk3ED9kcJ05"/><text x="175" y="120" data-page-node-id="sWuCM3BEFrUlgjkWOcTSMD">技能区：插件/工作流/知识库/卡片</text><text x="175" y="140" font-size="11" fill="#5A6B73" data-page-node-id="hqQtFMNquxpMn2Ld4HU7lJ">能力扩展四件套</text>
+          <rect x="360" y="100" width="290" height="56" rx="9" fill="#eaf7ef" stroke="#2E8B57" data-page-node-id="LzJumZYP5jJStxhJdvQjIP"/><text x="505" y="120" data-page-node-id="QHFPuMN88DTowPNf9KDaQM">记忆区：变量/数据库/记忆库</text><text x="505" y="140" font-size="11" fill="#5A6B73" data-page-node-id="xsHasCzMudHFCRXPhhZi08">个性化与持久化</text>
+          <rect x="240" y="180" width="200" height="40" rx="9" fill="#fff" stroke="#0F6E8C" data-page-node-id="f5wmDsoUjyRCSD5BrWwEnT"/><text x="340" y="205" data-page-node-id="U6q8G3w2RtyRK1jSTEMKZb">编排画布（节点+连线）</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="2" fill="none" marker-end="url(#m4)" data-page-node-id="Ff43mRRwSRD592tBlXWUUA">
+          <line x1="340" y1="66" x2="175" y2="98" data-page-node-id="LwYDLPq8CdKkbk5MfWsQc5"/>
+          <line x1="340" y1="66" x2="505" y2="98" data-page-node-id="lpnh7P0TGTSea4ykZHlRxC"/>
+          <line x1="175" y1="156" x2="340" y2="178" data-page-node-id="zB6PfeHyCS26VxQLz3YDLq"/>
+          <line x1="505" y1="156" x2="340" y2="178" data-page-node-id="8GlqvUS5yzpcGE1XsY3Bb3"/>
+        </g>
+        <defs data-page-node-id="G1U2WLxeFoHNEfdxbWf7RN"><marker id="m4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="BbJjHUAI9nWbTYqkH4uCUO"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C" data-page-node-id="OgX8aHujEjNDuoHMyGwpqz"/></marker></defs>
+      </svg>
+      <span class="cap" data-page-node-id="bCEBjSBgs5LXiuGql5cyGX"><b data-page-node-id="DWlqqoqiicqj7CefOlmFen">图2</b>　智能体三大组成（人设 / 技能 / 记忆）与编排画布</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="SunsihrCU2oRT4hOF2C5tp">
+      <svg viewBox="0 0 680 280" role="img" aria-label="UML组件图智能体架构" data-page-node-id="GQ9n4HawzEFe9tXaOlpFyf">
+        <defs data-page-node-id="OGe6FVnU8R1mnJzPQ3gRTF"><marker id="m4c" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="bSfvMHI7NUNUOARB7bU4jz"><path d="M0,0 L7,3 L0,6 Z" fill="#1497A8" data-page-node-id="FEl1gflWhcbGDnup9Z3GPU"/></marker></defs>
+        <g font-size="13" fill="#0E2F3A" text-anchor="middle" data-page-node-id="Hvcif6m8NxXkEf2Jd6L4Ar">
+          <rect x="40" y="40" width="150" height="50" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="p5VE9uqQekhTIdXAPZ1yQy"/><text x="115" y="62" data-page-node-id="GHJZnEXVCho63kOyKHRgJN">感知组件</text><text x="115" y="80" font-size="11" fill="#5A6B73" data-page-node-id="SByS7pASs6dKErIICthbTy">文本/图像/语音</text>
+          <rect x="265" y="40" width="150" height="50" rx="9" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="KesoORZhCEhGFQN2n8aj8w"/><text x="340" y="62" data-page-node-id="GDKqOgbqPGpI8dZAHkeds4">决策组件 LLM</text><text x="340" y="80" font-size="11" fill="#5A6B73" data-page-node-id="izzbKPEABGQmVhBadAHHXT">«规划»接口</text>
+          <rect x="490" y="40" width="150" height="50" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="Lir40NkGGcpHYwLfePOQ6n"/><text x="565" y="62" data-page-node-id="kxE1QtozraN569Ko2AXoHX">工具/插件</text><text x="565" y="80" font-size="11" fill="#5A6B73" data-page-node-id="7TC1qc0Ded5wC5tdqE16EB">API 调用</text>
+          <rect x="150" y="150" width="150" height="50" rx="9" fill="#eaf7ef" stroke="#2E8B57" data-page-node-id="pFDcMOYoNAYrCTptmDn0XH"/><text x="225" y="172" data-page-node-id="i3tRvqxlFoD849hjZGLkbi">记忆组件</text><text x="225" y="190" font-size="11" fill="#5A6B73" data-page-node-id="T7jZ547CMpBGhKHn1FZTRy">短期/长期</text>
+          <rect x="400" y="150" width="150" height="50" rx="9" fill="#eaf7ef" stroke="#2E8B57" data-page-node-id="vao7xTtcEMzOmpTLZpG4I2"/><text x="475" y="172" data-page-node-id="34dX06qNhwqJSbX9DG93JY">知识库组件</text><text x="475" y="190" font-size="11" fill="#5A6B73" data-page-node-id="ZEuZt23Sm0amPQfJsOesBm">向量检索</text>
+        </g>
+        <g stroke="#1497A8" stroke-width="2" fill="none" marker-end="url(#m4c)" data-page-node-id="anHYr6NEj81yKD9yRNWNBG">
+          <line x1="190" y1="65" x2="263" y2="65" data-page-node-id="XQa8NcexVHOz3vgKuK4HeT"/>
+          <line x1="415" y1="65" x2="492" y2="65" data-page-node-id="7vuprcdecdXb7SF2ioH01b"/>
+          <line x1="340" y1="90" x2="225" y2="148" data-page-node-id="ptTMMAmi7BEAMOtDOL6dAx"/>
+          <line x1="340" y1="90" x2="475" y2="148" data-page-node-id="XAxCNQGEPgbEMUUuclVsKh"/>
+        </g>
+        <text x="340" y="265" text-anchor="middle" font-size="11" fill="#5A6B73" data-page-node-id="9Lb8I0zyB1fhXGEJtTZCJU">实线=组成，虚线=依赖；决策组件提供«规划»接口</text>
+      </svg>
+      <span class="cap" data-page-node-id="UVwYISWHsksMy39J8CBujU"><b data-page-node-id="QHTHGMRglelpajRzJ6e76O">图3</b>　UML 组件图：智能体总体架构（感知/决策/工具/记忆/知识库）</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="9TblsJs42QG1PkVPlz0eKQ">
+      <svg viewBox="0 0 680 180" role="img" aria-label="IPO图" data-page-node-id="hqFi41R939PBSnElYXEJEE">
+        <defs data-page-node-id="Q2yYX5nVybMF0lBfyLSqEi"><marker id="m4d" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="v3QTtMmTqEdvMnHeblS1cf"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C" data-page-node-id="qMK26xvQsrVIpc20Evgn6r"/></marker></defs>
+        <rect x="60" y="60" width="150" height="56" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="amh0VIEdcuzdPIfCtHeLjc"/><text x="135" y="92" text-anchor="middle" font-size="15" fill="#0E2F3A" data-page-node-id="X7bS2xVIP5HDg1LHEDbRXD">输入 I</text>
+        <rect x="265" y="60" width="150" height="56" rx="9" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="SNJFBRTHzfwAKalQOZSFHF"/><text x="340" y="92" text-anchor="middle" font-size="15" fill="#0E2F3A" data-page-node-id="A9TreLMAPCvW8MERrTwTrf">处理 P</text>
+        <rect x="470" y="60" width="150" height="56" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="vMCs47y5r59fFWpnFXtG2M"/><text x="545" y="92" text-anchor="middle" font-size="15" fill="#0E2F3A" data-page-node-id="GpTlLDSgUishMmInlGKfo2">输出 O</text>
+        <line x1="210" y1="88" x2="263" y2="88" stroke="#0F6E8C" stroke-width="2" marker-end="url(#m4d)" data-page-node-id="Ii7y1qdFom1EC5w2s0Oftz"/>
+        <line x1="415" y1="88" x2="468" y2="88" stroke="#0F6E8C" stroke-width="2" marker-end="url(#m4d)" data-page-node-id="31VB1lEdyy2Eam1z0LuGAI"/>
+        <text x="340" y="150" text-anchor="middle" font-size="12" fill="#5A6B73" data-page-node-id="rF4mVsoT5gWEmdlGH3jdNn">IPO 图：模块的 输入—处理—输出（对应智能体 感知—推理—行动）</text>
+      </svg>
+      <span class="cap" data-page-node-id="xVM6tjXdqrGXG2QZkVb9ut"><b data-page-node-id="xPP4i3QWzVrn2Q5Ebvnqmj">图4</b>　IPO 图：模块内部逻辑（输入—处理—输出）</span>
+    </figure>
+
+          <div class="callout method" id="classicmap" data-page-node-id="dOZVOEHZQBVSFnrn6HIUJR"><span class="m-tag" data-page-node-id="OKjDRh75s4KdrkCJ7EbEbS">经典方法论对照 · 设计建模</span><p data-page-node-id="37FhMMZlxFwZ4JL01k4lsp">原版 ch8-14 与附录A 的设计硬核，本书 ch04 已融入架构主线，深度速查见 <a href="appendix.html#modeling" data-page-node-id="Cb0233t72tfAoNtukNTG6t">附录 H</a>：<b data-page-node-id="BElcTgmC7AhLVTkGBdWZnF">类图/状态图</b>（H.3）、<b data-page-node-id="acBaQClO9Lm2lPbtqQE2VJ">顺序图/协作图</b>（H.4）、<b data-page-node-id="hTCWjkpb2FnTXWQkUzAO90">SOLID 原则与 GoF 23 设计模式</b>（H.5）、<b data-page-node-id="YcQRKWG0VyLNR67QyxXIoE">面向服务与微服务 / API</b>（H.6）、<b data-page-node-id="L98INQi5L5WAT2AxE432Ip">数据层 SQL/NoSQL/范式/ORM</b>（H.7）、<b data-page-node-id="UbcDg4ijxGQy1LfwtbVXK4">非功能需求与性能/可用性架构</b>（H.8）。</p></div>
+
+<h3 class="sec-h" id="ideo" data-page-node-id="V1PUOC30fqDQdPCANdOGgm">课程思政 · 价值引领</h3>
+    
+<!-- wxfig-inject -->
+<figure class="wxfig" data-page-node-id="Q5cH3iQCPPalenDhBAnYxf">
+  <img src="media/weixin/ch04_agent_fullstack_mcp.png" alt="ch04_agent_fullstack_mcp.png" loading="lazy" data-page-node-id="8ZdU2J0POyg3cnA1XCvQrZ">
+  <figcaption data-page-node-id="DR7Bm7IAGJrnKtUAFDIukH">
+    <strong data-page-node-id="LhHQ13mqsuGLadiaqX2fNG">图：从零搭建 AI Agent 全流程 | 含 MCP 与 A2A 协议</strong><br data-page-node-id="8KX41iGHOYypdwHmh5KSBA">Agent 分为 Context-Oriented（面向上下文）和 Inter-Agent（面向 Agent 间）两种协议；MCP 采用 Client-Server 架构解决"Agent 如何从外部世界获取任务所需信息"的问题。
+    <span class="src" data-page-node-id="YDg9hxi6TuSpqRl31cWAgx">来源：公众号·大模型助理</span>
+  </figcaption>
+</figure>
+<span class="mod mod-kb" data-page-node-id="bByjWyWDV8fBKzPwPDFyT3">前沿动态 · 行业速递（2026-08）</span>
+<div class="callout frontier" data-page-node-id="6DM1yxdwIY3WUttgvfu0RW">
+  <span class="f-tag" data-page-node-id="K4ZHcYo4NRewrbBiBiLCtP">动态更新 2026-08</span>
+  <p data-page-node-id="Q1m226tR6NPdzCYN5f6fas"><b data-page-node-id="ZZ41eOUVGoCkDj7m0Rsu1K">1</b> MCP 于 2026-07-28 发布规范候选版（RC）：无状态核心、可路由 HTTP 头、扩展机制，由 Linux Foundation「Agentic AI Foundation」治理，已成 agent 互联事实标准（类比“USB-C”）。</p>
+  <p data-page-node-id="tDw9I2j6DqXirSQzzwXthc"><b data-page-node-id="GwazdcKlASktPMgrgVGAF0">2</b> 编排器（Orchestrator）模式兴起：任务成功率由单体 Agent 的 68% 提升至 94%，故障定位时间缩短 76%。</p>
+  <p data-page-node-id="sMzMb12qRMfWzly2ihkCwy"><b data-page-node-id="mEXca1UHFwFVywkgMg5upI">3</b> 对架构设计启示：“架构设计能力 > 写代码”，智能体系统的可插拔与容错成为核心。</p>
+  <p class="src" data-page-node-id="R3La8BorqRCH9UTvCB1Xhg">来源：MCP News 2026-07、yonbaos Agentic AI 架构分析 2026</p>
+</div>
+
+<span class="mod mod-ideo" data-page-node-id="TvM5tyfp4j6S6AxIElIyam">精神坐标 · 人民日报金句</span>
+    <div class="callout quote" data-page-node-id="BcAZSKfMKDyqWBWjrPh4YN">"真正的优秀不是别人逼出来的，而是自己和自己死磕。"——人民日报金句库</div>
+    <div class="callout quote" data-page-node-id="ElwS3gLVNhLyb2yAkDGVzQ">"流水不争先，争的是滔滔不绝。"</div>
+    <p data-page-node-id="SGjPUmEe1Ar0YQUZbVBPlT"><b data-page-node-id="9CbU0N0evj455HX17RGlBe">本章映射：</b>总体设计是"工匠精神"的舞台——高内聚低耦合、SOLID 原则，都是对"把系统做对、做久"的较真。架构不是一次成型的，要在可持续的"滔滔不绝"中迭代演进。</p>
+    <span class="mod mod-ideo" data-page-node-id="fuN56Ndx7DKHkXuebmCuPI">名校范式 · 清华课程思政案例</span>
+    <div class="callout warn" data-page-node-id="bYEAaEP3Uvj04vN6sbud5G">🎓 清华《计算机程序设计基础》（黄永峰 + 邓俊辉算法课）：工匠精神落地——以"分而治之"的工程匠心拆解复杂问题；由"严谨性"引申培养严谨认真态度与高标准自我要求。</div>
+    <p data-page-node-id="k2Umz5BgVw0pHmM02LESMF"><b data-page-node-id="HA0OUdFttEwcGrhyfHVJBr">本章映射：</b>总体设计是"工匠精神"的舞台——架构如算法，常需"分而治之"；严谨性则是设计质量的底线。</p>
+
+    
+<span class="mod mod-ideo" data-page-node-id="xoIV7qTAkeaAwbgdJe0yoU">课程思政案例 · IMA 知识库</span>
+<div class="kbcase" data-page-node-id="G2odySCeVCqr0c5eAhLyC6">
+  <h4 data-page-node-id="UsU38jI99Wo72lF6GdELpu">设计即伦理：总体设计中的公平、隐私与责任</h4>
+  <ul data-page-node-id="0nkimYF7wQtIz1Nf8AyJmo">
+    <li data-page-node-id="bBJtTIj09K0XqE14JSARO6">古天龙（暨南大学）《人工智能推荐系统中的大数据杀熟》课程思政样例：定位 Bloom"元认知知识"、认知过程"评估"层次，关注点落在计算学科思维框架中的"社会与职业的问题"。</li>
+    <li data-page-node-id="qSc6O6jmWYj6rzZ2Oeobuz">推荐系统的大数据杀熟 = 同一商品对老用户定更高价，是<b data-page-node-id="EuUD97u5xsmf5yVs3Tn3fn">算法偏见与价格歧视</b>的典型，直接损害消费者权益。</li>
+  </ul>
+  <span class="src" data-page-node-id="lNWgVJCCJZ9L9nUxewNIiX">来源：IMA 知识库《课程思政示范案例》· 古天龙《人工智能推荐系统中的大数据杀熟》(2022)</span>
+  <span class="think" data-page-node-id="WYvRnu0iVVfWA8KJnbAIPf"><b data-page-node-id="kfEnwsBDp1CoKkOeXiUA6C">本章映射：</b>总体设计不是只画架构图。在 4.4 防御性设计之外，把"公平性、可解释性、隐私保护"列为架构的非功能需求——设计阶段就埋下伦理护栏。</span>
+</div>
+      <h3 class="sec-h" id="casein" data-page-node-id="NKFte9tz05tArk4xzdwSK0">案例导入 · 中兴 AIOS 企业级智能体平台</h3>
+      <div class="casebox" data-page-node-id="zz9BcY1OKCUqaVC8HziuH4">
+        <p data-page-node-id="uFWB32eE2Bm4TISBNCkGTw"><span class="tagx" data-page-node-id="wZSFGCL81vAwtRBUGBuyz5">案例 B1-06</span> <b data-page-node-id="53SVrqzwbeRLPbDIuDAxAg">基于中兴通讯AIOS 的企业级智能体平台建设方案</b><br data-page-node-id="UJ6AkiKHENoCmnAjdMhC9u"><span class="cunit" data-page-node-id="qx7vpwKaJIGVdp1CMCFLuc">申报单位：中兴通讯股份有限公司</span></p>
+        <p data-page-node-id="KIsqVrwp3M6AaCsWwCmwCn">2026 年通用人工智能进入产业规模化落地关键期，但企业普遍面临AI 能力孤岛、开发门槛高、系统集成难、安全合规缺失等痛点。中兴通讯联合全资子公司北京兴云数科，依托自研AIOS 智能操作系统打造Co- Claw 企业级AI 智能体平台，创新实现端云协同双形态部署、标准化Skill 资产生态、全流程自动化研发流水线、四重企业级安全防护四大核心能力突破，彻底打破传统AI 应用碎片化、定制化、难推广的建设瓶颈。平台已覆盖营销、供应链、财务、人力等全业务域，服务用户3.5 万+，沉淀技能1400+、下载量48 万次、调用量200 万次，孵化120 余个成熟的智能体应用场景。</p>
+        <p data-page-node-id="c84CWsvVhTCxpkZsytPlwH"><b data-page-node-id="Uch25FEyqPdLNrzdhlXWYE">导学解读 · 与本章的对接</b>：请把这份材料当作一份<b data-page-node-id="ILLFNbkEQwfKkBMnUvj3dw">平台型系统的总体设计说明书</b>来读。面对“AI 能力孤岛、开发门槛高、系统集成难、安全合规缺失”四类问题，中兴给出的不是四个补丁，而是一个统一底座：端云协同双形态回应“集中管控 vs 隐私安全”的架构权衡，标准化 Skill 资产生态回应复用与集成，全流程自动化研发流水线回应交付效率，四重企业级安全防护回应合规。这与本章“总体设计要做的是架构决策，而非功能罗列”完全同构。请带着一个线索读下去：为什么一个底座能沉淀 1400+ 技能、孵化 120 余个应用场景？架构决策如何决定了一个生态的规模上限？</p>
+        
+      </div>
+
+    <h3 class="ppt-src-h">第9章《系统设计概述》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p09_005.jpg" alt="第9章 P.5"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_006.jpg" alt="第9章 P.6"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_007.jpg" alt="第9章 P.7"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_008.jpg" alt="第9章 P.8"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_009.jpg" alt="第9章 P.9"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_010.jpg" alt="第9章 P.10"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_011.jpg" alt="第9章 P.11"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_012.jpg" alt="第9章 P.12"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_013.jpg" alt="第9章 P.13"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_014.jpg" alt="第9章 P.14"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_015.jpg" alt="第9章 P.15"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_016.jpg" alt="第9章 P.16"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_017.jpg" alt="第9章 P.17"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_018.jpg" alt="第9章 P.18"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_019.jpg" alt="第9章 P.19"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_020.jpg" alt="第9章 P.20"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_021.jpg" alt="第9章 P.21"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_022.jpg" alt="第9章 P.22"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_023.jpg" alt="第9章 P.23"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_024.jpg" alt="第9章 P.24"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_025.jpg" alt="第9章 P.25"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_026.jpg" alt="第9章 P.26"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_027.jpg" alt="第9章 P.27"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_028.jpg" alt="第9章 P.28"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_029.jpg" alt="第9章 P.29"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_030.jpg" alt="第9章 P.30"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_031.jpg" alt="第9章 P.31"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_032.jpg" alt="第9章 P.32"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_033.jpg" alt="第9章 P.33"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_034.jpg" alt="第9章 P.34"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_035.jpg" alt="第9章 P.35"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_036.jpg" alt="第9章 P.36"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_037.jpg" alt="第9章 P.37"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_038.jpg" alt="第9章 P.38"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_039.jpg" alt="第9章 P.39"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_040.jpg" alt="第9章 P.40"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_041.jpg" alt="第9章 P.41"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_042.jpg" alt="第9章 P.42"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_043.jpg" alt="第9章 P.43"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_044.jpg" alt="第9章 P.44"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_045.jpg" alt="第9章 P.45"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_046.jpg" alt="第9章 P.46"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_047.jpg" alt="第9章 P.47"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_048.jpg" alt="第9章 P.48"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_049.jpg" alt="第9章 P.49"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_050.jpg" alt="第9章 P.50"></figure>
+      <figure><img loading="lazy" src="images/ppt/p09_051.jpg" alt="第9章 P.51"></figure>
+    </div>
+<h2 class="part p2" data-page-node-id="BPHGGhK9GggLTAvQ5BcDz7">第二部分　课程内容</h2>
+      <h3 class="sec-h" id="s41" data-page-node-id="BLO82XVdHHISE0CMG1Pgbc">4.1　总体设计原则</h3>
+    <p data-page-node-id="IPGgKKav5Zk4VKF5ul0XjL">四个基石原则：① <b data-page-node-id="RHqAPAuOi2xkjb2bEsMErz">模块化</b>（复杂系统拆为单一职责模块）；② <b data-page-node-id="7BAOB52SGH7zbnAalc5BRt">高内聚低耦合</b>（模块内紧密相关、模块间少依赖）；③ <b data-page-node-id="eFDQvvo83adniEj9MVzBZK">可复用</b>（组件像积木可被多处调用）；④ <b data-page-node-id="84ALy4M1tDajEyfLE1IzAB">易维护</b>（变更局部化，便于调试迭代）。</p>
+
+    
+    <div class="pptgrid" data-cnt="6" data-page-node-id="ip7RIb9ZENRvoAx5gXaX5A">
+      <figure class="wxfig" data-page-node-id="PRB6U5WV2eUBggvLIAGFco">
+  <img src="media/coze/p033.jpg" alt="课件第 33 页" loading="lazy" data-page-node-id="mGjQf6cIoLM7jeE7ogG8Lz">
+</figure>
+      <figure class="wxfig" data-page-node-id="LoeAMqsp0tDBAfH262OQvD">
+  <img src="media/coze/p071.jpg" alt="课件第 71 页" loading="lazy" data-page-node-id="ug8UTKqBisv93d9FcA7Dl9">
+</figure>
+      <figure class="wxfig" data-page-node-id="5cyvlwbTYCkcsqqoLqfZ00">
+  <img src="media/coze/p074.jpg" alt="课件第 74 页" loading="lazy" data-page-node-id="Z2x0iYgUpcIhBIenAhbiU0">
+</figure>
+      <figure class="wxfig" data-page-node-id="6CZ0q3CtJ9AMu7YUYJmdcN">
+  <img src="media/coze/p090.jpg" alt="课件第 90 页" loading="lazy" data-page-node-id="69r2tos6DZa1eibmB3RTtb">
+</figure>
+      <figure class="wxfig" data-page-node-id="Ued7bivvQz3RKv5byMCSbE">
+  <img src="media/coze/p091.jpg" alt="课件第 91 页" loading="lazy" data-page-node-id="rUWmRFV6P84QFCgMkWt43L">
+</figure>
+      <figure class="wxfig" data-page-node-id="lH2G9hmSEaBjGyoHZDQGlQ">
+  <img src="media/coze/p096.jpg" alt="课件第 96 页" loading="lazy" data-page-node-id="ULfrDxEFXiJuz4uSvw2ckn">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s42" data-page-node-id="kgVlqcUaYojBu1fZp1wOdk">4.2　智能体架构组成（Coze）</h3>
+    <p data-page-node-id="GoAOKd4XAZnd4f4gt3hioG">一个 Coze 智能体由三块有机组成：</p>
+    <ul data-page-node-id="XeVylNTMv9CqPJLxtsmsld">
+      <li data-page-node-id="ANsP8qHXgxGE5s3m2XUj5i"><b data-page-node-id="bzYtdk5SUGuJulhNqn34Xp">人设与回复逻辑</b>：定义角色、技能与回复规则（=需求规格），是智能体"大脑"。</li>
+      <li data-page-node-id="GhjE9Kk8SbwT2UfCMVWNKw"><b data-page-node-id="pPfoHIQe3tYo5gogIM0B6w">技能区四件套</b>：插件（调外部 API）/ 工作流（编排多步）/ 知识库（注入领域知识）/ 卡片（富媒体呈现）。</li>
+      <li data-page-node-id="AkU8DsVZuLherdcnSFr3D4"><b data-page-node-id="57X3z3DNxN87ff8k2y7own">记忆区三类</b>：变量（记昵称/进度）/ 数据库（结构化业务数据）/ 记忆库（自动沉淀用户画像）。</li>
+    </ul>
+    <p data-page-node-id="Ss4hHVjicQCY5Nv5JAj0hY">编排画布用可视化拖曳节点、连线定义数据流向，支持实时调试与运行日志追踪。</p>
+
+    
+    <div class="pptgrid" data-cnt="9" data-page-node-id="vDxfJSkUk1TTJF8Cqn5SzK">
+      <figure class="wxfig" data-page-node-id="exj44dXuBeoVmqLUHzpSxX">
+  <img src="media/coze/p029.jpg" alt="课件第 29 页" loading="lazy" data-page-node-id="jmXBNO74uMoa8Sx8tm5iiU">
+</figure>
+      <figure class="wxfig" data-page-node-id="OqnvnAfE6feZ1xYR8vMltx">
+  <img src="media/coze/p069.jpg" alt="课件第 69 页" loading="lazy" data-page-node-id="LDtXKDR0RueIkPzRjTmdug">
+</figure>
+      <figure class="wxfig" data-page-node-id="8JOvSE6DlRfhOnBIaBoAof">
+  <img src="media/coze/p070.jpg" alt="课件第 70 页" loading="lazy" data-page-node-id="0PdLoD3C3i21k8Eki7GmPT">
+</figure>
+      <figure class="wxfig" data-page-node-id="jp2TReHeKvD5msWpx8art5">
+  <img src="media/coze/p072.jpg" alt="课件第 72 页" loading="lazy" data-page-node-id="bKWK9fyMPoNpTlSOlb09wk">
+</figure>
+      <figure class="wxfig" data-page-node-id="utxGMUNq3coetQAPH7vZub">
+  <img src="media/coze/p073.jpg" alt="课件第 73 页" loading="lazy" data-page-node-id="lHRUsPZCE58UW6AUbKFa2H">
+</figure>
+      <figure class="wxfig" data-page-node-id="IgbB31kkuDgeO1xhO6gJfQ">
+  <img src="media/coze/p080.jpg" alt="课件第 80 页" loading="lazy" data-page-node-id="JPaquI0QtA1kKhxZTksriu">
+</figure>
+      <figure class="wxfig" data-page-node-id="XZjwVKnqB7qM4SdJQXjC80">
+  <img src="media/coze/p082.jpg" alt="课件第 82 页" loading="lazy" data-page-node-id="AXGKkZeCagugxu2yLWzDdQ">
+</figure>
+      <figure class="wxfig" data-page-node-id="qR5vOTuAnHyDiXmCWO5knL">
+  <img src="media/coze/p086.jpg" alt="课件第 86 页" loading="lazy" data-page-node-id="BU2SKqYzU6Y3uZAUix8r6H">
+</figure>
+      <figure class="wxfig" data-page-node-id="6pXI3gcgyHJf3l5okKPER0">
+  <img src="media/coze/p105.jpg" alt="课件第 105 页" loading="lazy" data-page-node-id="m1prZyC1aTGFnxPpzpIGt4">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s43" data-page-node-id="DHwzTP72BaisW717o4YdBR">4.3　四种扩展能力怎么选</h3>
+    <table data-page-node-id="gceomtWopG9ly3VEuBmWRO">
+      <thead data-page-node-id="Z1nLapK99jK3UVuNCcJmGh"><tr data-page-node-id="AuOw66zGfdqQYXhh6OONHY"><th data-page-node-id="4CW75IJCrO9Nld0uOsUTfk">能力</th><th data-page-node-id="FZCbUw6hUXZQLiRxmzE03v">本质</th><th data-page-node-id="HPnj2Hyspf5QPEuOHWu0EJ">何时选</th></tr></thead>
+      <tbody data-page-node-id="hFrcGvTJKsKwsUpcrMJr4I">
+        <tr data-page-node-id="jOOCa1V7F87WSw6c5uLRKW"><td data-page-node-id="fqcCenj266EXQh6zrnOsi5"><b data-page-node-id="suQJl1lJBKpAxg8vhngGvY">插件</b></td><td data-page-node-id="iWT3SGlxx9pOO70sutjEQm">工具箱（封装外部 API）</td><td data-page-node-id="2Ze4h1vNQf7WAsH1A4WZAK">需实时/专业外部信息</td></tr>
+        <tr data-page-node-id="4RdNVOWdCdhfORboG0jjaz"><td data-page-node-id="H7ketL2btIbqUt8ePBllWH"><b data-page-node-id="HaB3ZyGHVjEsGYXzmWR7T0">工作流</b></td><td data-page-node-id="E68kWKYU662vyFqIizCaWB">流水线（多步骤可控）</td><td data-page-node-id="KDzZ96dTqwNP0eZG295oih">步骤固定、结果稳定可控</td></tr>
+        <tr data-page-node-id="0wGN8DMQ3ecdBkHfxIQCNv"><td data-page-node-id="IWREA5b4zE5FPHkFBWo5Pq"><b data-page-node-id="ZgBELTbSg9gZPxqyKSv087">对话流</b></td><td data-page-node-id="hWxZicofTOkvXZFICwASLs">连续对话（记忆上下文）</td><td data-page-node-id="1LGaaRCYBr9mY4Y1CAXkYR">需多轮、记住历史上下文</td></tr>
+        <tr data-page-node-id="OLagHNI1S7itphVG2HxeQO"><td data-page-node-id="FzZBLtMjgFCfpalTGJcNVD"><b data-page-node-id="ayFQ6vNN48qRsPjWbBErO8">卡片</b></td><td data-page-node-id="UeAnzdp276hOiMelbcAPuN">信息看板（富媒体）</td><td data-page-node-id="ps83dn02Nvjv1Y0ERs49l0">美化输出界面（须依附工作流/插件）</td></tr>
+      </tbody>
+    </table>
+
+    
+    <div class="pptgrid" data-cnt="15" data-page-node-id="Jkq9pfZDqC8FrpKgwwWqcK">
+      <figure class="wxfig" data-page-node-id="i7VpPaEXkwtqEzfdNT2bFe">
+  <img src="media/coze/p008.jpg" alt="课件第 8 页" loading="lazy" data-page-node-id="ypfwGvitgHMK6AFnUoXDo8">
+</figure>
+      <figure class="wxfig" data-page-node-id="lfQdxCpEzlJaobz1bdve4b">
+  <img src="media/coze/p030.jpg" alt="课件第 30 页" loading="lazy" data-page-node-id="vU6TZRhUuoJqxgZrdVbpG5">
+</figure>
+      <figure class="wxfig" data-page-node-id="Sbx1z9ITO7xoMMKkEBpBmi">
+  <img src="media/coze/p031.jpg" alt="课件第 31 页" loading="lazy" data-page-node-id="zMAt7roe6cPc0VOeTwLfy9">
+</figure>
+      <figure class="wxfig" data-page-node-id="6Sdjk40zTBKaLCQRqdQOaK">
+  <img src="media/coze/p032.jpg" alt="课件第 32 页" loading="lazy" data-page-node-id="9EyTChsT4h2UHWZz6Hys3o">
+</figure>
+      <figure class="wxfig" data-page-node-id="BGPrDkkyFiW4KcSHeo5gwP">
+  <img src="media/coze/p053.jpg" alt="课件第 53 页" loading="lazy" data-page-node-id="gDW3gW19qxTTu8KCd6sfGl">
+</figure>
+      <figure class="wxfig" data-page-node-id="sxHCYPzbViEBXDHa6QlgQM">
+  <img src="media/coze/p054.jpg" alt="课件第 54 页" loading="lazy" data-page-node-id="0JnKbdQvAIbzhxGPRIOjLx">
+</figure>
+      <figure class="wxfig" data-page-node-id="tUOI6CTwaVAAICvT6Bf6B1">
+  <img src="media/coze/p055.jpg" alt="课件第 55 页" loading="lazy" data-page-node-id="uG0XdajvZJWikfUptd8UjD">
+</figure>
+      <figure class="wxfig" data-page-node-id="sKwpavWxgkBG6XtsLSSFd4">
+  <img src="media/coze/p056.jpg" alt="课件第 56 页" loading="lazy" data-page-node-id="Qu3qaF8w5DBEjB0DKAHZg8">
+</figure>
+      <figure class="wxfig" data-page-node-id="A0gMz1dfbBnwPFGEJpzLx2">
+  <img src="media/coze/p057.jpg" alt="课件第 57 页" loading="lazy" data-page-node-id="5yHU218WG4Ohcw2AFxkIcs">
+</figure>
+      <figure class="wxfig" data-page-node-id="SY0W2h4f69Rp7UxsNg0zbW">
+  <img src="media/coze/p075.jpg" alt="课件第 75 页" loading="lazy" data-page-node-id="Y1n4YMKenjcEQDWWu3fqVP">
+</figure>
+      <figure class="wxfig" data-page-node-id="rNPMhDPWYgI351vmGSH6GN">
+  <img src="media/coze/p078.jpg" alt="课件第 78 页" loading="lazy" data-page-node-id="ix44g3GmXe8XNLIbTQ70H1">
+</figure>
+      <figure class="wxfig" data-page-node-id="2QeWsSAb6puNqERyhmSI2n">
+  <img src="media/coze/p079.jpg" alt="课件第 79 页" loading="lazy" data-page-node-id="1iVHwKgsb34CZG4NcCV00c">
+</figure>
+      <figure class="wxfig" data-page-node-id="hdd6HLHIzCNLkjCY4ITu2r">
+  <img src="media/coze/p081.jpg" alt="课件第 81 页" loading="lazy" data-page-node-id="wdCxnNIlo8OTR6nsPjc56c">
+</figure>
+      <figure class="wxfig" data-page-node-id="vyLOOB5dMWQMnnkyytmNEY">
+  <img src="media/coze/p083.jpg" alt="课件第 83 页" loading="lazy" data-page-node-id="aBbBtBrnPH7NFrxy75iAb5">
+</figure>
+      <figure class="wxfig" data-page-node-id="4700Fi3jmCEG9F7U675JDo">
+  <img src="media/coze/p087.jpg" alt="课件第 87 页" loading="lazy" data-page-node-id="EPtdHwRKnPA4sQZ0P0Ao2V">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s44" data-page-node-id="HPGWt4yOygtZ4yJRQxwsdF">4.4　知识库赋能：防御性设计</h3>
+    <p data-page-node-id="kH5z0hjSzcbgzKAOeXblE9">参考 KB《软件防御性设计专家提示词》：在系统设计阶段识别故障点并嵌入恢复机制。对智能体，为工作流增加<b data-page-node-id="69f0QGZSnfLMKYo2O7VamE">异常/兜底分支</b>（选择器"否则"分支 + 变量聚合节点统一输出）；为提示词增加边界处理（超范围请求明确说明并尝试用通用知识回答）。把组件当作独立模块，便于测试与复用。</p>
+
+          <h3 class="sec-h" id="s45" data-page-node-id="XSTawiMcoOSFAb5lhpgkUu">4.5 插件详解 & 4.6 编排详解</h3>
+    <p data-page-node-id="XRnNVJ0reeJUvoJjZnVhfR"><b data-page-node-id="zIbjRcDsKjAeCebux50jZT">插件</b>分三类来源：官方（优先用）/ 资源库 / 自定义（须先发布）。添加路径：编排→技能→"+"→搜索→展开工具→添加（如头条搜索、墨迹天气）。入参告诉插件做什么、出参以 JSON 返回，节点间用 {{变量}} 串联。</p>
+    <p data-page-node-id="CjXPTWN7VgfV7CfhaUj7dx"><b data-page-node-id="fGY1mMbEWntUU0nRF0lqa0">工作流画布</b>：开始→处理/逻辑节点→结束，节点类型含大模型/插件/代码/知识库/消息，逻辑节点含选择器、循环、批处理。<b data-page-node-id="GSY9NQGz9SehrwSEViEtra">对话流</b>：大模型/意图识别节点读取历史对话、自动保存上下文，适合客服、顾问等需记忆的场景。案例：双语社交文案生成器=插件+大模型串联；AI 健身教练=对话流维持记忆。</p>
+
+    
+    <div class="pptgrid" data-cnt="10" data-page-node-id="bRBG9OEd0bTBu3s9uEUKGp">
+      <figure class="wxfig" data-page-node-id="YCSCzJvFAKINRSCUw3ZwbL">
+  <img src="media/coze/p009.jpg" alt="课件第 9 页" loading="lazy" data-page-node-id="l8EoUpK6Hf19A6JKzEdj7M">
+</figure>
+      <figure class="wxfig" data-page-node-id="7TL2Z2WxMPdqiIsZggyZYS">
+  <img src="media/coze/p010.jpg" alt="课件第 10 页" loading="lazy" data-page-node-id="uYBCRnbqKqBVvyOBClumN7">
+</figure>
+      <figure class="wxfig" data-page-node-id="EKDD6FpRP8BicqGdBsftV7">
+  <img src="media/coze/p058.jpg" alt="课件第 58 页" loading="lazy" data-page-node-id="n7IaEEQDIlqPAYYmREw6gh">
+</figure>
+      <figure class="wxfig" data-page-node-id="08239f1apJxyUeDBxBIS2j">
+  <img src="media/coze/p068.jpg" alt="课件第 68 页" loading="lazy" data-page-node-id="ZQlutMca4xOd5OhD2jg3Bw">
+</figure>
+      <figure class="wxfig" data-page-node-id="qayUrFv5eebPhcwfDibH22">
+  <img src="media/coze/p076.jpg" alt="课件第 76 页" loading="lazy" data-page-node-id="1Sig2UaZcoDcX5jn7EvBDB">
+</figure>
+      <figure class="wxfig" data-page-node-id="0NGvhNmnbRSLENyRkG7oTs">
+  <img src="media/coze/p077.jpg" alt="课件第 77 页" loading="lazy" data-page-node-id="xHcOgc4JgE06lX3PCPigBn">
+</figure>
+      <figure class="wxfig" data-page-node-id="no49Fzky7CiQCTFu7q8FGE">
+  <img src="media/coze/p084.jpg" alt="课件第 84 页" loading="lazy" data-page-node-id="F8486Cnx3LSBVzAI4NqnW9">
+</figure>
+      <figure class="wxfig" data-page-node-id="P1dktDZl7fIRFAlxEnVQHT">
+  <img src="media/coze/p085.jpg" alt="课件第 85 页" loading="lazy" data-page-node-id="BJ1DuMrVQ2ERHW5sHVx45n">
+</figure>
+      <figure class="wxfig" data-page-node-id="mrqi8ULJ0oCZvqEq2wUblE">
+  <img src="media/coze/p099.jpg" alt="课件第 99 页" loading="lazy" data-page-node-id="3RdHViiiC5vJFDDwUCP614">
+</figure>
+      <figure class="wxfig" data-page-node-id="Vc2c5E23BTN1jRJza0j2OL">
+  <img src="media/coze/p103.jpg" alt="课件第 103 页" loading="lazy" data-page-node-id="GUXtScFY6vEIGR8UuquGyW">
+</figure>
+    </div>
+
+      
+
+    
+    <h3 class="ppt-src-h">第8章《领域对象建模》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p08_005.jpg" alt="第8章 P.5"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_006.jpg" alt="第8章 P.6"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_007.jpg" alt="第8章 P.7"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_008.jpg" alt="第8章 P.8"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_009.jpg" alt="第8章 P.9"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_010.jpg" alt="第8章 P.10"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_011.jpg" alt="第8章 P.11"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_012.jpg" alt="第8章 P.12"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_013.jpg" alt="第8章 P.13"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_014.jpg" alt="第8章 P.14"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_015.jpg" alt="第8章 P.15"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_016.jpg" alt="第8章 P.16"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_017.jpg" alt="第8章 P.17"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_018.jpg" alt="第8章 P.18"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_019.jpg" alt="第8章 P.19"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_020.jpg" alt="第8章 P.20"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_021.jpg" alt="第8章 P.21"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_022.jpg" alt="第8章 P.22"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_023.jpg" alt="第8章 P.23"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_024.jpg" alt="第8章 P.24"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_025.jpg" alt="第8章 P.25"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_026.jpg" alt="第8章 P.26"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_027.jpg" alt="第8章 P.27"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_028.jpg" alt="第8章 P.28"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_029.jpg" alt="第8章 P.29"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_030.jpg" alt="第8章 P.30"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_031.jpg" alt="第8章 P.31"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_032.jpg" alt="第8章 P.32"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_033.jpg" alt="第8章 P.33"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_034.jpg" alt="第8章 P.34"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_035.jpg" alt="第8章 P.35"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_036.jpg" alt="第8章 P.36"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_037.jpg" alt="第8章 P.37"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_038.jpg" alt="第8章 P.38"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_039.jpg" alt="第8章 P.39"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_040.jpg" alt="第8章 P.40"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_041.jpg" alt="第8章 P.41"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_042.jpg" alt="第8章 P.42"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_043.jpg" alt="第8章 P.43"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_044.jpg" alt="第8章 P.44"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_045.jpg" alt="第8章 P.45"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_046.jpg" alt="第8章 P.46"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_047.jpg" alt="第8章 P.47"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_048.jpg" alt="第8章 P.48"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_049.jpg" alt="第8章 P.49"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_050.jpg" alt="第8章 P.50"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_051.jpg" alt="第8章 P.51"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_052.jpg" alt="第8章 P.52"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_053.jpg" alt="第8章 P.53"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_054.jpg" alt="第8章 P.54"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_055.jpg" alt="第8章 P.55"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_056.jpg" alt="第8章 P.56"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_057.jpg" alt="第8章 P.57"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_058.jpg" alt="第8章 P.58"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_059.jpg" alt="第8章 P.59"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_060.jpg" alt="第8章 P.60"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_061.jpg" alt="第8章 P.61"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_062.jpg" alt="第8章 P.62"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_063.jpg" alt="第8章 P.63"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_064.jpg" alt="第8章 P.64"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_065.jpg" alt="第8章 P.65"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_066.jpg" alt="第8章 P.66"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_067.jpg" alt="第8章 P.67"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_068.jpg" alt="第8章 P.68"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_069.jpg" alt="第8章 P.69"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_070.jpg" alt="第8章 P.70"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_071.jpg" alt="第8章 P.71"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_072.jpg" alt="第8章 P.72"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_073.jpg" alt="第8章 P.73"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_074.jpg" alt="第8章 P.74"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_075.jpg" alt="第8章 P.75"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_076.jpg" alt="第8章 P.76"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_077.jpg" alt="第8章 P.77"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_078.jpg" alt="第8章 P.78"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_079.jpg" alt="第8章 P.79"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_080.jpg" alt="第8章 P.80"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_081.jpg" alt="第8章 P.81"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_082.jpg" alt="第8章 P.82"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_083.jpg" alt="第8章 P.83"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_084.jpg" alt="第8章 P.84"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_085.jpg" alt="第8章 P.85"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_086.jpg" alt="第8章 P.86"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_087.jpg" alt="第8章 P.87"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_088.jpg" alt="第8章 P.88"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_089.jpg" alt="第8章 P.89"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_090.jpg" alt="第8章 P.90"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_091.jpg" alt="第8章 P.91"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_092.jpg" alt="第8章 P.92"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_093.jpg" alt="第8章 P.93"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_094.jpg" alt="第8章 P.94"></figure>
+      <figure><img loading="lazy" src="images/ppt/p08_095.jpg" alt="第8章 P.95"></figure>
+    </div>
+<h3 class="ppt-src-h">第10章《系统应用架构设计》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p10_005.jpg" alt="第10章 P.5"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_006.jpg" alt="第10章 P.6"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_007.jpg" alt="第10章 P.7"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_008.jpg" alt="第10章 P.8"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_009.jpg" alt="第10章 P.9"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_010.jpg" alt="第10章 P.10"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_011.jpg" alt="第10章 P.11"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_012.jpg" alt="第10章 P.12"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_013.jpg" alt="第10章 P.13"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_014.jpg" alt="第10章 P.14"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_015.jpg" alt="第10章 P.15"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_016.jpg" alt="第10章 P.16"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_017.jpg" alt="第10章 P.17"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_018.jpg" alt="第10章 P.18"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_019.jpg" alt="第10章 P.19"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_020.jpg" alt="第10章 P.20"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_021.jpg" alt="第10章 P.21"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_022.jpg" alt="第10章 P.22"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_023.jpg" alt="第10章 P.23"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_024.jpg" alt="第10章 P.24"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_025.jpg" alt="第10章 P.25"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_026.jpg" alt="第10章 P.26"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_027.jpg" alt="第10章 P.27"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_028.jpg" alt="第10章 P.28"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_029.jpg" alt="第10章 P.29"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_030.jpg" alt="第10章 P.30"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_031.jpg" alt="第10章 P.31"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_032.jpg" alt="第10章 P.32"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_033.jpg" alt="第10章 P.33"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_034.jpg" alt="第10章 P.34"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_035.jpg" alt="第10章 P.35"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_036.jpg" alt="第10章 P.36"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_037.jpg" alt="第10章 P.37"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_038.jpg" alt="第10章 P.38"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_039.jpg" alt="第10章 P.39"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_040.jpg" alt="第10章 P.40"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_041.jpg" alt="第10章 P.41"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_042.jpg" alt="第10章 P.42"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_043.jpg" alt="第10章 P.43"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_044.jpg" alt="第10章 P.44"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_045.jpg" alt="第10章 P.45"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_046.jpg" alt="第10章 P.46"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_047.jpg" alt="第10章 P.47"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_048.jpg" alt="第10章 P.48"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_049.jpg" alt="第10章 P.49"></figure>
+      <figure><img loading="lazy" src="images/ppt/p10_050.jpg" alt="第10章 P.50"></figure>
+    </div>
+<h3 class="ppt-src-h">第11章《接口层设计》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p11_005.jpg" alt="第11章 P.5"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_006.jpg" alt="第11章 P.6"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_007.jpg" alt="第11章 P.7"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_008.jpg" alt="第11章 P.8"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_009.jpg" alt="第11章 P.9"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_010.jpg" alt="第11章 P.10"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_011.jpg" alt="第11章 P.11"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_012.jpg" alt="第11章 P.12"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_013.jpg" alt="第11章 P.13"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_014.jpg" alt="第11章 P.14"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_015.jpg" alt="第11章 P.15"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_016.jpg" alt="第11章 P.16"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_017.jpg" alt="第11章 P.17"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_018.jpg" alt="第11章 P.18"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_019.jpg" alt="第11章 P.19"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_020.jpg" alt="第11章 P.20"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_021.jpg" alt="第11章 P.21"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_022.jpg" alt="第11章 P.22"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_023.jpg" alt="第11章 P.23"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_024.jpg" alt="第11章 P.24"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_025.jpg" alt="第11章 P.25"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_026.jpg" alt="第11章 P.26"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_027.jpg" alt="第11章 P.27"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_028.jpg" alt="第11章 P.28"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_029.jpg" alt="第11章 P.29"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_030.jpg" alt="第11章 P.30"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_031.jpg" alt="第11章 P.31"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_032.jpg" alt="第11章 P.32"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_033.jpg" alt="第11章 P.33"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_034.jpg" alt="第11章 P.34"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_035.jpg" alt="第11章 P.35"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_036.jpg" alt="第11章 P.36"></figure>
+      <figure><img loading="lazy" src="images/ppt/p11_037.jpg" alt="第11章 P.37"></figure>
+    </div>
+<h3 class="ppt-src-h">第12章《面向对象设计》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p12_005.jpg" alt="第12章 P.5"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_006.jpg" alt="第12章 P.6"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_007.jpg" alt="第12章 P.7"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_008.jpg" alt="第12章 P.8"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_009.jpg" alt="第12章 P.9"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_010.jpg" alt="第12章 P.10"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_011.jpg" alt="第12章 P.11"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_012.jpg" alt="第12章 P.12"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_013.jpg" alt="第12章 P.13"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_014.jpg" alt="第12章 P.14"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_015.jpg" alt="第12章 P.15"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_016.jpg" alt="第12章 P.16"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_017.jpg" alt="第12章 P.17"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_018.jpg" alt="第12章 P.18"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_019.jpg" alt="第12章 P.19"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_020.jpg" alt="第12章 P.20"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_021.jpg" alt="第12章 P.21"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_022.jpg" alt="第12章 P.22"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_023.jpg" alt="第12章 P.23"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_024.jpg" alt="第12章 P.24"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_025.jpg" alt="第12章 P.25"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_026.jpg" alt="第12章 P.26"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_027.jpg" alt="第12章 P.27"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_028.jpg" alt="第12章 P.28"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_029.jpg" alt="第12章 P.29"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_030.jpg" alt="第12章 P.30"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_031.jpg" alt="第12章 P.31"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_032.jpg" alt="第12章 P.32"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_033.jpg" alt="第12章 P.33"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_034.jpg" alt="第12章 P.34"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_035.jpg" alt="第12章 P.35"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_036.jpg" alt="第12章 P.36"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_037.jpg" alt="第12章 P.37"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_038.jpg" alt="第12章 P.38"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_039.jpg" alt="第12章 P.39"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_040.jpg" alt="第12章 P.40"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_041.jpg" alt="第12章 P.41"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_042.jpg" alt="第12章 P.42"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_043.jpg" alt="第12章 P.43"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_044.jpg" alt="第12章 P.44"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_045.jpg" alt="第12章 P.45"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_046.jpg" alt="第12章 P.46"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_047.jpg" alt="第12章 P.47"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_048.jpg" alt="第12章 P.48"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_049.jpg" alt="第12章 P.49"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_050.jpg" alt="第12章 P.50"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_051.jpg" alt="第12章 P.51"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_052.jpg" alt="第12章 P.52"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_053.jpg" alt="第12章 P.53"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_054.jpg" alt="第12章 P.54"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_055.jpg" alt="第12章 P.55"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_056.jpg" alt="第12章 P.56"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_057.jpg" alt="第12章 P.57"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_058.jpg" alt="第12章 P.58"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_059.jpg" alt="第12章 P.59"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_060.jpg" alt="第12章 P.60"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_061.jpg" alt="第12章 P.61"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_062.jpg" alt="第12章 P.62"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_063.jpg" alt="第12章 P.63"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_064.jpg" alt="第12章 P.64"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_065.jpg" alt="第12章 P.65"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_066.jpg" alt="第12章 P.66"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_067.jpg" alt="第12章 P.67"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_068.jpg" alt="第12章 P.68"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_069.jpg" alt="第12章 P.69"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_070.jpg" alt="第12章 P.70"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_071.jpg" alt="第12章 P.71"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_072.jpg" alt="第12章 P.72"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_073.jpg" alt="第12章 P.73"></figure>
+      <figure><img loading="lazy" src="images/ppt/p12_074.jpg" alt="第12章 P.74"></figure>
+    </div>
+<h3 class="ppt-src-h">第13章《面向服务设计》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p13_005.jpg" alt="第13章 P.5"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_006.jpg" alt="第13章 P.6"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_007.jpg" alt="第13章 P.7"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_008.jpg" alt="第13章 P.8"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_009.jpg" alt="第13章 P.9"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_010.jpg" alt="第13章 P.10"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_011.jpg" alt="第13章 P.11"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_012.jpg" alt="第13章 P.12"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_013.jpg" alt="第13章 P.13"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_014.jpg" alt="第13章 P.14"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_015.jpg" alt="第13章 P.15"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_016.jpg" alt="第13章 P.16"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_017.jpg" alt="第13章 P.17"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_018.jpg" alt="第13章 P.18"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_019.jpg" alt="第13章 P.19"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_020.jpg" alt="第13章 P.20"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_021.jpg" alt="第13章 P.21"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_022.jpg" alt="第13章 P.22"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_023.jpg" alt="第13章 P.23"></figure>
+      <figure><img loading="lazy" src="images/ppt/p13_024.jpg" alt="第13章 P.24"></figure>
+    </div>
+<h3 class="ppt-src-h">第14章《数据层设计》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p14_005.jpg" alt="第14章 P.5"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_006.jpg" alt="第14章 P.6"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_007.jpg" alt="第14章 P.7"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_008.jpg" alt="第14章 P.8"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_009.jpg" alt="第14章 P.9"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_010.jpg" alt="第14章 P.10"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_011.jpg" alt="第14章 P.11"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_012.jpg" alt="第14章 P.12"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_013.jpg" alt="第14章 P.13"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_014.jpg" alt="第14章 P.14"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_015.jpg" alt="第14章 P.15"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_016.jpg" alt="第14章 P.16"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_017.jpg" alt="第14章 P.17"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_018.jpg" alt="第14章 P.18"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_019.jpg" alt="第14章 P.19"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_020.jpg" alt="第14章 P.20"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_021.jpg" alt="第14章 P.21"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_022.jpg" alt="第14章 P.22"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_023.jpg" alt="第14章 P.23"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_024.jpg" alt="第14章 P.24"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_025.jpg" alt="第14章 P.25"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_026.jpg" alt="第14章 P.26"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_027.jpg" alt="第14章 P.27"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_028.jpg" alt="第14章 P.28"></figure>
+      <figure><img loading="lazy" src="images/ppt/p14_029.jpg" alt="第14章 P.29"></figure>
+    </div>
+<h2 class="part p3" data-page-node-id="anMB0GLmK3DVEetrh6plt0">第三部分　拓展练习</h2>
+      <h3 class="sec-h" id="kb" data-page-node-id="5q52nw90BvQspp1i59u6lQ">知识拓展与前沿</h3>
+    <span class="mod mod-kb" data-page-node-id="MVQUJgIjwXHST3H2dKim9W">拓展 · 智能体三大核心组件</span>
+    <p data-page-node-id="upykI1vOVoIscRKHYRkrim">① 推理 Reasoning（规划 + 反思）；② 工具 Tools（经函数调用访问搜索/API/数据库/代码解释器）；③ 记忆 Memory（短期会话上下文 + 长期跨会话个性化）。</p>
+    <span class="mod mod-kb" data-page-node-id="LCjR1zJCQVuCUfJi73nAYU">前沿 · MCP 重构 Agent 工具生态</span>
+    <p data-page-node-id="oMGR7t2oOSXqFPQhZUdUsG">MCP（模型上下文协议）为"工具—模型"提供统一标准接口，拓宽应用边界、降低集成成本、提升互操作性。设计建议：工具与权限成对定义，遵循最小权限原则。吴恩达提醒落地仍需关注稳定性与安全。</p>
+    <span class="mod mod-kb" data-page-node-id="rqBAKrTuDSPChppTZFfP6u">拓展 · Agentic 架构 vs Agentic 工作流</span>
+    <p data-page-node-id="d9wUmDvPD2MPuFKU38EIEq">架构回答"系统由什么构成"（相对稳定骨架：≥1 个可决策 Agent + 工具 + 记忆）；工作流回答"系统如何运转"（计划→分解→工具执行→反思调整，随任务动态变化）。</p>
+    <div class="callout src" data-page-node-id="1lBCDZOqJaoaf9CPmyZDci">📚 来源：ima 知识库《智能体宇宙》。</div>
+
+    
+<div class="termbox" data-page-node-id="Gw5kRp2gazbbV5BPBcW1XR">
+  <h4 data-page-node-id="ma3BFRjU31uMiF1RtUawOr">📌 系统总体设计与智能体架构 · 核心术语</h4>
+  <ul data-page-node-id="HGN1UqIkfB2td0fjGYzuYq">
+    <li data-page-node-id="NxvuinOvjx09KlIrkG40Io"><span class="term" data-def="模块内部职责紧密相关（高内聚），模块之间依赖尽量少（低耦合），是提升可维护性与可扩展性的核心设计原则。" data-page-node-id="nMhDBYAMBF1JSXT0PRKTJR">高内聚低耦合</span></li>
+    <li data-page-node-id="PR0xrsIxy8lJpL9XCX8suk"><span class="term" data-def="系统的顶层结构蓝图，描述组件划分、职责与交互关系；本章以智能体系统总体架构为例。" data-page-node-id="ULzG17uylnjUTGXiFfsz8g">架构</span></li>
+    <li data-page-node-id="KvajLPWUnB6h8FHNbu1xR7"><span class="term" data-def="统一接收外部请求并路由到内部服务/插件的入口层，负责认证、限流与协议转换。" data-page-node-id="xHLeWt3EDvc2rul7qTbutQ">API 网关</span></li>
+    <li data-page-node-id="H8CBBxQKuzrnhDINuugyhB"><span class="term" data-def="针对反复出现设计问题的可复用方案，如分层、适配器、策略模式等。" data-page-node-id="wCy9EuNA8Vuu1lFQWWJg8r">设计模式</span></li>
+    <li data-page-node-id="fz9MnbAGsqyD4rqYWtHZeD"><span class="term" data-def="可独立设计、测试与替换的系统组成单元，是总体设计的基本构件。" data-page-node-id="fbNoQXw3LrTxko6DBeSd2C">模块</span></li>
+  </ul>
+</div>
+
+<div class="casebox" data-page-node-id="HSsB5aCMse9CXW0oK1HuYe">
+  <h4 data-page-node-id="RjmCBxGxqeQydA8bd6MJyA">🧩 案例 · 高内聚低耦合的智能体架构</h4>
+  <ul data-page-node-id="Fk8Y4HFAp8BsM5tJxjHkNB">
+    <li data-page-node-id="92Pa26HERDyc0bE27Ss3sC"><b data-page-node-id="nRk25jGhWb1ASbxzo3ONdB">场景：</b>把‘查政策 / 答疑问 / 约咨询’拆成三个子智能体，由一个调度智能体按意图路由——改一个不影响另外两个，正是高内聚低耦合。</li>
+    <li data-page-node-id="n8T6OfEKBD6GzoaxcGEKJf"><b data-page-node-id="bA5AUH5TDBnP8MvHZ2CQjE">防御性：</b>总体设计阶段就标注‘如果用户问隐私怎么办’：给拒答边界与转人工节点，设计即伦理。</li>
+    <li data-page-node-id="uj2HqGEKnWNu6kZXwMrT5J"><b data-page-node-id="PlPANzlEBKYsAFlvVTOn4v">映射：</b>本章‘模块 + 接口’思想，对应 Coze 的‘主工作流 + 子工作流/插件’组件划分。</li>
+  </ul>
+</div>
+
+<span class="mod mod-kb" id="lit" data-page-node-id="5VuxViFpnFSCsz5GsLFaBj">前沿文献 · 近三年精选（2023–2026）</span>
+    <p data-page-node-id="8WRiJSnwUQJHxDWUxIdA7q">以下文献反映本章主题在智能体时代的最新进展，供学有余力的同学延伸阅读（链接指向原文/预印本）。</p>
+          <div class="callout src" data-page-node-id="P3Mrr82ZRDFHZMNS5HfsAu">🎓 <b data-page-node-id="EhRCdiltJbVBiIOOQXboOq">学界观点</b>：牛力等（2024）指出大模型正重塑档案工作的数智转型路径；曹树金等（2023）论证生成式 AI 改变了情报学“研究—实践”的链路。两者都提示：总体设计与架构必须为“数据 / 知识”预留标准接口。</div>
+<ul class="lit-list" data-page-node-id="8lbQJKBQGoqBPNFUo4RkKl">
+      <li data-page-node-id="ZyzcnUUNGbB5PkwuxZprr1"><a href="https://www.emergentmind.com/topics/llm-based-agent-frameworks" target="_blank" rel="noopener" data-page-node-id="t2JkSbMCmESk7ph52RHPwd">LLM-Agent-UMF：基于 LLM 的智能体统一框架（LLM-Agent-UMF: A Unified Framework for LLM-based Agents）</a>
+        <div class="lit-meta" data-page-node-id="ermYslQFx7llQS97HuMIyY">Hassouna et al., 2024, Information Fusion</div>
+        <div class="lit-note" data-page-node-id="XiLGy3pfUwhRWtkIrfGebH">五模块核心智能体：规划/记忆/画像/行动/安全</div></li>
+
+      <li data-page-node-id="SpxwzTx86MmX2tpEMas28E"><a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener" data-page-node-id="pm5zPAeQBGePm3zPfxLqul">ReAct：在语言模型中协同推理与行动（ReAct: Synergizing Reasoning and Acting in Language Models）</a>
+        <div class="lit-meta" data-page-node-id="hEDpzGsF9O1khu4PX3Mspj">Yao et al., 2023, ICLR 2023 (arXiv:2210.03629)</div>
+        <div class="lit-note" data-page-node-id="GsXkyh9RAiwOAHSbFG3Ayi">推理+行动循环的奠基模式</div></li>
+
+      <li data-page-node-id="UhBK3ZXzJXvLKk9djzsdDw"><a href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noopener" data-page-node-id="FYkS9ctiQaDjgWVmilUKBj">Reflexion：具备言语强化学习的语言智能体（Reflexion: Language Agents with Verbal Reinforcement Learning）</a>
+        <div class="lit-meta" data-page-node-id="UFgrrQViT5DIA1Muc8CNR9">Shinn et al., 2023, NeurIPS 2023 (arXiv:2303.11366)</div>
+        <div class="lit-note" data-page-node-id="ExGb32SdfjrRJxzKhXpYAn">自我反思/自我修正闭环</div></li>
+
+      <li data-page-node-id="TRmZToAqX87FkDtKwCQwCz"><a href="https://arxiv.org/abs/2305.16291" target="_blank" rel="noopener" data-page-node-id="3uuk6pcsAdhnVtDSI5FSZG">Voyager：基于大模型的开创性具身智能体（Voyager: An Open-Ended Embodied Agent with Large Language Models）</a>
+        <div class="lit-meta" data-page-node-id="nZrwK6iHZMez0ePQmqW7lE">Wang et al., 2023, arXiv:2305.16291</div>
+        <div class="lit-note" data-page-node-id="YqN2Jw1Z92jTgqso6D7cqV">终身学习与自主技能库</div></li>
+
+      <li data-page-node-id="ZDQvGeHnXJIjA1mo1Kqsfo"><a href="http://www.emergentmind.com/topics/llm-based-agent-frameworks" target="_blank" rel="noopener" data-page-node-id="vSnNwNvlwx8RYzlseoKcFz">LLM 智能体框架综述（LLM-Based Agent Frameworks）</a>
+        <div class="lit-meta" data-page-node-id="HbsYpCoUz3yMSeCVFK8lDM">emergentmind, 2025, 综述</div>
+        <div class="lit-note" data-page-node-id="rm4tL7Lg03kH9YWiuOwd5D">感知–规划–行动–记忆模块化与设计范式</div></li>
+
+          <li data-page-node-id="k2MXIbjV0NzDknrQnj4iJ4"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9C%A8%E6%A1%A3%E6%A1%88%E5%B7%A5%E4%BD%9C%E6%95%B0%E6%99%BA%E8%BD%AC%E5%9E%8B%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E6%80%9D%E8%80%83" target="_blank" rel="noopener" data-page-node-id="JJTCMVJZhcjc11XHY1tcfc">大模型在档案工作数智转型中的应用与思考</a>
+        <div class="lit-meta" data-page-node-id="X7w4O6WhrgboRI7z1NXqe4">牛力, 等. 大模型在档案工作数智转型中的应用与思考[J]. 档案学通讯, 2024(6): 4-12.</div>
+        <div class="lit-note" data-page-node-id="3dINLCmwLuL35aLJPxidGB">系统梳理大模型在档案接收、整理、利用中的落地场景</div></li>
+
+      <li data-page-node-id="fTJCK0yCbv8EjDA3qsUGZB"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E4%BB%8E%20ChatGPT%20%E7%9C%8B%E7%94%9F%E6%88%90%E5%BC%8F%20AI%20%E5%AF%B9%E6%83%85%E6%8A%A5%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E8%B7%B5%E7%9A%84%E5%BD%B1%E5%93%8D" target="_blank" rel="noopener" data-page-node-id="9B3YqKjwnTvp5Ifjjyf4Yy">从 ChatGPT 看生成式 AI 对情报学研究与实践的影响</a>
+        <div class="lit-meta" data-page-node-id="QSzsyX7QFVtZz267Rp4h91">曹树金, 等. 从 ChatGPT 看生成式 AI 对情报学研究与实践的影响[J]. 现代情报, 2023, 43(4): 3-11.</div>
+        <div class="lit-note" data-page-node-id="q8YQW9RK9FBx5UooCpTMzt">讨论生成式 AI 对情报学研究对象、方法与职业的冲击</div></li>
+
+      <li data-page-node-id="1GHRVbkLwYrCpYuGffDElO"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E9%A9%B1%E5%8A%A8%E7%9A%84%E7%9F%A5%E8%AF%86%E7%BB%84%E7%BB%87%E6%96%B9%E6%B3%95%E9%9D%A9%E6%96%B0" target="_blank" rel="noopener" data-page-node-id="LR5FglezAUVjKlL1LQzWlJ">大语言模型驱动的知识组织方法革新</a>
+        <div class="lit-meta" data-page-node-id="gTYug5uLmhyA0M8hv1CA3j">王昊, 等. 大语言模型驱动的知识组织方法革新[J]. 情报理论与实践, 2024, 47(2): 1-9.</div>
+        <div class="lit-note" data-page-node-id="k6cQpZDwNMsx6YmZteuzF8">从元数据、本体、图谱三方面论述 LLM 对知识组织的改造</div></li>
+
+    </ul>
+        <div class="callout tip" data-page-node-id="6RnvOfA7PpF3XDPFAKKsN3">💡 <b data-page-node-id="tmO9s4CfgD1zjkY4CuhMlk">软考/职业考点</b>：本章对应 CISA「购置与开发(D3) 设计阶段审计」、软考高项「配置与变更管理」。架构评审本质上就是一次“设计审计”。</div>
+
+      <!-- 本章学习方法 -->
+    <div class="callout method" data-page-node-id="YAFVEI00sSWSGPqgITqR3C">
+      <span class="m-tag" data-page-node-id="jLrvDxIoaoKwHGBZcMnMJR">本章学习方法 · 5S 整理法（信息架构版）</span>
+      <p data-page-node-id="R9sMrliR72wpF9j5823yUx"><b data-page-node-id="Ri4EbzSuBWp20M2GG1BGeB">核心理念：</b>把精益/丰田的 5S 用到架构「断舍离」：去掉冗余模块、固定位置、明确边界，系统才好维护、好扩展。</p>
+      <p data-page-node-id="fXp042DAXfJqYIfO4UBq4G"><b data-page-node-id="1hxH9mlOKoERRwX69zVDio">四步/要点：</b>① 整理剔除无用功能与伪需求　② 整顿模块归位、单一职责，各司其职　③ 清扫清技术债、去冗余依赖　④ 清洁定设计规范，形成标准　⑤ 素养团队养成按规范设计的习惯</p>
+      <p data-page-node-id="1jZ3RTArgKrFX5me22qLgg"><b data-page-node-id="hqL9pFT53bMcqNIF8TtysS">与录屏结合：</b>录屏讲解你设计的智能体架构时，用 5S 逐项说明「这个模块为什么该留 / 该并 / 该删」。</p>
+    </div>
+
+              <!-- G3. 知识巩固与提高 -->
+    <h3 class="sec-h" id="review">知识巩固与提高</h3>
+    <div class="btnrow">
+      <a class="btn" href="课堂测试_第04章.pptx" target="_blank" rel="noopener">📂 第04章 课堂测试（PPT · 35 题 · 点击打开）</a>
+    </div>
+<h3 class="sec-h" id="exp" data-page-node-id="F9mBTuNT2FBDSOg9RrQ9nW">上机实验 · 设计智能体总体架构</h3>
+    <div class="labtask" data-page-node-id="gbWj0f6yLIIqjMNgbJGSo6">
+      <h3 data-page-node-id="qtKr64kqZhfLZ4Z2hNGt0l">📋 实验任务书</h3>
+      <p data-page-node-id="QMWFsIr8LxRevlx5lfjk3X"><b data-page-node-id="xeKsX6fk2PL0ci7yRVC5t3">目标：</b>基于需求产出可追溯的智能体总体架构图与失效点分析。</p>
+      <p data-page-node-id="hlbq2u5DS3NebbJ8vkwdnK"><b data-page-node-id="mwWwSMt7pZie8FTBoqgq84">环境：</b>扣子 Coze + 绘图工具（纸笔/在线画图均可）。</p>
+      <p data-page-node-id="O8GzEZbSNYruC9ujLMNyfd"><b data-page-node-id="CBNtjXmY3GQNQ66zkEMkgr">步骤：</b>① 画架构图（人设/技能/记忆）；② 标注需求对应；③ 用 KB 防御性设计提示词做失效点分析（3 点 + 恢复机制）；④ 在 Coze 搭建骨架占位。</p>
+      <p data-page-node-id="3XTrWb20msUqzWp5JPm2mx"><b data-page-node-id="YPWDXgOjG2OGyqPivK4coN">交付物：</b>总体架构图 + 失效点分析清单 + Coze 架构骨架截图。</p>
+      <p data-page-node-id="KAM114m0kyPDqKyBNxigyf"><b data-page-node-id="y94JiZiW1SS7vv1cwAP6wJ">评分点：</b>架构完整(30%) · 需求可追溯(25%) · 防御性分析(30%) · 骨架搭建(15%)。</p>
+    </div>
+    <h3 class="sec-h" id="labexp">🛠 分步操作 · 为项目设计智能体总体架构</h3>
+    <span class="mod mod-lab" data-page-node-id="rXX2DhBTa0TAWdNw82AHR3">动手 · 分步操作</span>
+    <ol data-page-node-id="inxB1Bkx7B0yzDmCAK3nTj">
+      <li data-page-node-id="p8BoqJ7Zi1FUcHGQbNSDLk">基于第 3 章需求，绘制智能体架构图：人设/回复逻辑 + 技能（插件/工作流/知识库）+ 记忆。</li>
+      <li data-page-node-id="wUg83FE5Ib4YGGF6A0guA9">标注每个组件对应的需求条目，体现"需求→架构"可追溯。</li>
+      <li data-page-node-id="O9NgMPajoScSVFM5mbPQHp">用 KB《软件防御性设计专家提示词》做一次失效点分析：列 3 个故障点与恢复机制。</li>
+      <li data-page-node-id="Fm6hMDxjf2VhLEV8YTqjq0">在 Coze 中按架构搭建骨架：创建智能体、添加对应技能占位。</li>
+    </ol>
+    <details class="fold" data-page-node-id="OcazxOHdeyGGuWTWQ1phDA">
+      <summary data-page-node-id="urPtK6t5NBHspPnFaVCwTh">📝 架构图自检清单</summary>
+      <p data-page-node-id="gvQtxGmSmt1fsfxojwXNQ5">□ 人设是否覆盖核心需求？<br data-page-node-id="nCWrnwDYoApHin1VirEjDg">□ 每个技能是否单一职责（高内聚）？<br data-page-node-id="u3zwRTIn7zeJxZeXdm2t8P">□ 组件间依赖是否最少（低耦合）？<br data-page-node-id="jtPuFUwcPn7EtgACAJH0gV">□ 是否都有异常/兜底分支（防御性）？<br data-page-node-id="kNtzmR0CAJKbMKVPEuHSOV">□ 记忆/知识是否分工清晰（动态 vs 静态）？</p>
+    </details>
+<h3 class="exp-h" data-page-node-id="DPMSlcmBwhrSWjx45NMbTs">🔬 扩展实验（选做 2–3 项，巩固本章学法）</h3>
+    <div class="expext" data-page-node-id="CjpgQ2z5xHtNRWGRIzmUox">
+      <h4 data-page-node-id="IFcfTUbFVIKVBbwFEai291">扩展实验 1 · MCP 工具编排<span class="tag" data-page-node-id="s9oqJm9f0YeZ0pDcsETIG2">集成</span></h4>
+      <p data-page-node-id="HLSYLKMayzs8FlMSHTnq2P"><b data-page-node-id="F4ozV56Wtm5bGVzDugD7AB">任务：</b>用 MCP 把外部工具接入智能体，对比「硬编码 vs 标准协议」的效果。</p>
+      <p data-page-node-id="i4Ma0R2LYzwRjrCFzCtPAW"><b data-page-node-id="8H810h1WuiroxOU6BlPGn2">交付：</b>录屏讲清 MCP 的价值与适用边界。</p>
+    </div>
+    <div class="expext" data-page-node-id="srUc0ugjuLqvp1HBylxzlt">
+      <h4 data-page-node-id="cBfo8DKIzfzNAezwFuhCHO">扩展实验 2 · 对话流 vs 工作流<span class="tag" data-page-node-id="yki15THZLqXXxURTk6YoDl">选型</span></h4>
+      <p data-page-node-id="patalb7gMGcdhPoLtfZYnl"><b data-page-node-id="owLyGg43N3VG3Ac7Ra40H9">任务：</b>同一功能分别用对话流与工作流实现。</p>
+      <p data-page-node-id="koPU1QjzvgRJq8dfzLI7vu"><b data-page-node-id="MYMBqtj5YUo66OTH5qMU1y">交付：</b>录屏对比「何时该用哪条路径」，给出选型判据。</p>
+    </div>
+    <div class="expext" data-page-node-id="DloKnTOr2rRCTtno73aWwg">
+      <h4 data-page-node-id="jmYu9uX1dZcKCh2nd0WlFw">扩展实验 3 · 模块依赖图<span class="tag" data-page-node-id="CF6JI36GbRnf2e4oeJpACU">架构</span></h4>
+      <p data-page-node-id="lCazJEDSB8gX8mdDW2ZXar"><b data-page-node-id="QbEviIKmjvIyU5BVCcfNCu">任务：</b>画出模块依赖关系图，标出耦合点。</p>
+      <p data-page-node-id="uJCt3VyLCOar2imjOkzER8"><b data-page-node-id="VbVrHN5n1KdNjheoSIXE0R">交付：</b>费曼式讲清「低耦合为何易维护」，提出 1 处解耦方案。</p>
+    </div>
+
+    <h2 class="part p4" data-page-node-id="1MTwuIaFtaH8PQZRp2qRyS">第四部分　本章小结</h2>
+      <h3 class="sec-h" id="sum" data-page-node-id="tSK837Z3TJ2u4aJodyHaLl">本章小结</h3>
+    <div class="summary" data-page-node-id="VWTgJncsZkScsk0jjGYJ3B">
+            <h4 data-page-node-id="VLqwvEeou9LSEXY5DgwKtn">核心要点回顾</h4>
+      <ul data-page-node-id="5oYICvDHOnjDDPTQ1J36dB">
+        <li data-page-node-id="2tdcmw4Q0iXJAGeG7JFQUx">总体设计原则：模块化、高内聚低耦合、可复用。</li>
+        <li data-page-node-id="mDRCaa3wgR84FEBTBJYnj9">智能体 = 人设 + 技能 + 记忆 的有机组合。</li>
+        <li data-page-node-id="A0ns5bIc82eyV71Y9LCWM7">插件/工作流/对话流/卡片各司其职。</li>
+        <li data-page-node-id="g8uL1YVdCDoJhD8eME53lv">架构设计决定系统可维护性与扩展性。</li>
+        <li data-page-node-id="cuhOcj3jE7GuK5RfyRhLIJ">KB 防御性设计提示词帮助提前埋设恢复机制。</li>
+        <li data-page-node-id="6WQ8uugi8ZZgTViVGeGIcy">下一章：知识库与提示词工程——智能体的"大脑内容"。</li>
+      </ul>
+      <p class="progress-txt" data-page-node-id="URTy83IAUFozvKXQ2jXPQS">延伸阅读：ima 知识库《智能体宇宙》"三大核心组件""MCP"；结构化与面向对象设计相关教材；清华工匠精神课程思政材料。</p>
+    </div>
+      <h3 class="sec-h" id="caseext" data-page-node-id="yeaiXQIN0gimbamTWpyWOV">拓展案例 · CubeMAP 智能体互联网架构</h3>
+      <div class="casebox" data-page-node-id="eQu9AlehAqZBTwBc15g2J5">
+        <p data-page-node-id="DKHEPKgrYn5kd4f3KDtgzH"><span class="tagx" data-page-node-id="IkiRxg6OSA5FfXx2Nj3L8Q">案例 B7-02</span> <b data-page-node-id="hzEvCfSHNN5Az9xZ5kFkTa">CubeMAP 智能体互联网体系架构创新与实践</b><br data-page-node-id="xwON5RvzpJwB1TdUYUtbLJ"><span class="cunit" data-page-node-id="3WDWHGHepH0cXDFywakzKS">申报单位：中国联合网络通信有限公司研究院</span></p>
+        <p data-page-node-id="v3TcHISyFjqpqZvudpAQ8z">本案例“CubeMAP 智能体互联网体系架构创新与实践”由中国联通研究院依托CubeMAP 智能体互联网平台提出并实践，聚焦解决人与智能体交互的门槛壁垒以及多智能体跨域协同的技术难点。针对当前智能体交互严重依赖即时通信应用、对老年及视障群体不友好等问题，案例首创“电话号码即智能体接入点”方案，打通传统电信网与智能体互联网，用户通过普通电话拨打专属号码即可与智能体语音互联，实现了通信入口的极大简化与泛在化。同时，为应对多智能体跨域协作中协议异构、互发现难等挑战，案例构建了基于服务层的跨域协同体系，通过智能体注册发现、多协议适配及动态组网等能力，实现了不同技术栈智能体间的协同调度。</p>
+        <p data-page-node-id="EELrx9pfZegFN1vzZGsJkX"><b data-page-node-id="AMozc0IkLmwcjotGurdP85">看点</b>：CubeMAP 解决的是两个层面的“连接”：人如何低门槛地连到智能体（电话号码即接入点），智能体之间如何跨域协同（注册发现 + 多协议适配 + 动态组网）。这两条正是体系结构设计中最难的部分。</p>
+        <h4 data-page-node-id="tnckiN335RJ6Loop67ScF0">延伸思考题</h4>
+        <ol data-page-node-id="HknR6SGjHe3pP1u4Qe8BU0">
+          <li data-page-node-id="I26oZ7kU1EePFsZEsZKrHX">“电话号码即智能体接入点”本质上是在既有电信网上叠加一层适配。请用本章的体系结构分层方法，画出该方案的层次结构（至少 4 层），并标出每层的关键构件。</li>
+          <li data-page-node-id="YpGVvAfjc0KUV0ph53xFJx">跨域协同依赖“智能体注册发现、多协议适配、动态组网”三种机制。请对比它们与传统 SOA／ESB 中服务注册、协议转换、服务编排的异同。</li>
+          <li data-page-node-id="LUcIGZASG5zNSxGppty4Pp">把电话号码作为智能体的统一身份标识会带来哪些安全与治理风险？请提出两项架构层面的应对措施。</li>
+        </ol>
+        
+      </div>
+
+      
+<!-- AGENT-LIT-INJECT -->
+    <span class="mod mod-kb">📚 智能体工程必读文献 · 工程层 · 协议与标准（MCP）</span>
+    <ul class="lit-list">
+      <li>
+        <a href="https://modelcontextprotocol.io/specification/2025-03-26/" target="_blank" rel="noopener">Model Context Protocol (MCP) Specification（Linux Foundation / Agentic AI Foundation, 2025）</a>
+        <div class="lit-meta">模型上下文协议规范 2025-03-26（2025-11-25 修订）；GitHub github.com/modelcontextprotocol/specification</div>
+        <div class="lit-note">Agent 连接工具/数据源的开放标准，第4章“架构与工具”的协议基石</div>
+      </li>
+    </ul>
+<!-- /AGENT-LIT-INJECT -->
+
+<div class="btnrow" data-page-node-id="YtfnJP7cCmFS94t8ujmjRG">
+      <button class="btn" id="exportPdf" data-page-node-id="Swu5kVmd5oywgZK2l9ffzW">⬇ 导出本章 PDF</button>
+      <a class="btn ghost" href="index.html" data-page-node-id="5XFCqvgFJfyAaCt3qfv9eK">← 返回门户</a>
+    </div>
+
+    <div class="readbox" data-page-node-id="vGB5GbCCxx8eJ6lpNTYc3D">
+      <span class="dot" id="readDot" data-page-node-id="4xkmwZDQvGZ4HM8EBYBOak"></span>
+      <button class="btn ghost" id="markRead" data-ch="4" data-page-node-id="WyAedfKZ4H587mXkTdeS1s">标记为已读</button>
+    </div>
+</main>
+</div>
+
+<div id="termtip" data-page-node-id="3yMixGRmNqxRwwBSDBfoeY"></div>
+<script src="app.js"></script>
+</body>
+</html>

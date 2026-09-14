@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="jogHZ8MCJZQgNbSna9xt5z">
+<head data-page-node-id="OOP8OO32cOYhhr1ujhUXLa">
+<meta charset="UTF-8" data-page-node-id="IOwSMwtDevsdYjAPlWvu90">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="RJqKUqFdeTLEddURH4HMhc">
+<title>第1章 信息系统与智能体概述 · 数字教材</title>
+<link rel="stylesheet" href="style.css" data-page-node-id="jHJCwwC8GCbtoIwDSqmeCl">
+</head>
+<body data-page-node-id="flUF14IWgMkONaWyQj6F58">
+<header class="topbar" data-page-node-id="3aPcy9axJNibdNvjqsLzPY">
+  <div class="wrap" data-page-node-id="m49wlRdmnjiN3ZCCgWBk4a">
+    <div class="brand" data-page-node-id="xYB3b9UglTkN3d9yWjmGWN">《信息系统分析与设计》· 数字教材
+      <small data-page-node-id="nLfIgUfolWQsLflERzYWmL">智能体实战主线 · 信息资源管理专业</small></div>
+    <nav data-page-node-id="VN15MkeC90hHbVU4xAReD0">
+      <a href="index.html" data-page-node-id="IQGSO5OHhUGTyNiX0SfOUD">门户</a>
+      <a href="ch01.html" data-page-node-id="g31Jbmj96oK5uEzvpDokTj">第1章</a>
+      <a href="appendix.html" data-page-node-id="7v1CvC3ulDUV5vZuKNPbip">附录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc" data-page-node-id="23ldgp5PVGYocqaBkHAd3x">
+  <!-- 侧边目录 -->
+  <aside class="side" data-page-node-id="9qIiNN3vHdIwIRtWnBBACQ">
+    <h4 data-page-node-id="z9sjPchwzIZoD4Jj0ApELe">第 1 章 目录</h4>
+    <a href="#lead" class="cur" data-page-node-id="xLU8FGATO1pbvvDoNMJEb3">导语与学习目标</a>
+    <span class="navpart p1" data-page-node-id="RI8AstSDb1MvHD7ISIlekB">第一部分　课程导学</span>
+    <a href="#theory" data-page-node-id="MAiDPP6FM4hzjWLbY0TF5z">理论基石</a>
+    <a href="#ideo" data-page-node-id="xqSzsFjy6JzrBv0ZypfIKb">课程思政</a>
+    <a href="#casein">案例导入</a>
+    <span class="navpart p2" data-page-node-id="XCKQYeWAJn9KmL9SBUzvna">第二部分　课程内容</span>
+    <a href="#s11" data-page-node-id="tA2IVZFbcZGZshRJWkK4AT">1.1 认识智能体</a>
+    <a href="#s12" data-page-node-id="a2XxCE4fTAAZeVcV4qh2Wd">1.2 四大核心能力</a>
+    <a href="#s13" data-page-node-id="OdVhNrC0vsM1SoBWPReUVH">1.3 感知—决策—行动循环</a>
+    <a href="#s14" data-page-node-id="rUGSYYoJAr8G1gxmgr8DP1">1.4 Coze 开发环境</a>
+    <a href="#s15" data-page-node-id="YBHYmwllXQXGiQNy6CmKst">1.5 基本开发流程</a>
+    <a href="#s16" data-page-node-id="NYGQ4Q9Lbw37Au2TpK2n8m">1.6 平台选型</a>
+    <span class="navpart p3" data-page-node-id="ZG7eSbEc2hQLMtWERi9HcW">第三部分　拓展练习</span>
+    <a href="#kb" data-page-node-id="HDLG2QzMhQkPCdeVVWiRVG">知识拓展与前沿</a>
+    <a href="#lit" data-page-node-id="q2n8sv0k9ejKGGnBENuYd4">↳ 前沿文献</a>
+    <a href="#exp" data-page-node-id="ITcheRUO4C3V3UrWsIe9gw">上机实验</a>
+    <span class="navpart p4" data-page-node-id="tnDGzBbmWVbvhWWhjOPqhG">第四部分　本章小结</span>
+    <a href="#sum" data-page-node-id="CcwEY8d6rC0p8sVTaAFG71">本章小结</a>
+    <a href="#caseext">拓展案例 · 延伸思考</a>
+  </aside>
+
+  <!-- 正文 -->
+  <main class="content" data-page-node-id="0HP2EIPjgP3wqzBh2dD6KQ">
+    <h1 data-page-node-id="NaURE7z6usHTFiz9uf2wNq">第 1 章　信息系统与智能体概述</h1>
+    <p class="progress-txt" data-page-node-id="a6OYscQl5rq1i4BlRDK0SP">本章为全书认知基础：建立"智能体即新一代信息系统"的框架，并能在扣子 Coze 中创建第一个智能体。</p>
+
+    
+
+    <h2 class="part p1" id="lead" data-page-node-id="xHIl6hflNYtLcpV2ZEcuYt">第一部分　课程导学</h2>
+
+<span class="mod mod-lead" data-page-node-id="CW7tMwKBxEn8f26Z769RwZ">导语 · 本章定位</span>
+    <p data-page-node-id="mz5RhwXL6CVTrDr09Q2f9V">当我们谈论"信息系统"时，过去脑海中浮现的是数据库、表单与报表；而今天，一个能听懂自然语言、
+       自主调用工具、持续从交互中学习的<span class="term" data-def="智能体（Agent）：能感知环境、自主决策并采取行动以实现特定目标的软件实体。" data-page-node-id="oX4tIzxbhdmX3WAKguQXsj">智能体</span>
+       正成为信息系统的新形态。本课程以"智能体 / 低代码"为贯穿性实践主线，重构《信息系统分析与设计》的经典方法论。
+       本章先解决三个"是什么"：<b data-page-node-id="bjsMyqhjkuCMeP51DZPEPo">智能体是什么、它凭什么"智能"、我们如何在零代码平台上把它造出来</b>。</p>
+
+    <span class="mod mod-lead" data-page-node-id="ibs2eL0iIU27CDCZJ1fH20">三维学习目标</span>
+    <div class="goals" data-page-node-id="ifuPpD0quetiifsL5S6ubG">
+      <div class="goal" data-page-node-id="1uro6fwp9tUUIUeIjuhH9E"><b data-page-node-id="9VCACkPmQeS7AzmlCwXFA1">知识</b><br data-page-node-id="scwM4Dp0q77zf9WkRcdtWU">阐述智能体的定义、四大核心能力、感知—决策—行动循环；理解信息系统的定义、构成与多维分类，并能建立"智能体能力 ↔ 信息系统模块"的映射。</div>
+      <div class="goal" data-page-node-id="7gPqqRfjyiDwTSSIZpItLy"><b data-page-node-id="55AGBnahB8nmSktsb4FpOu">能力</b><br data-page-node-id="B0pPD4gHFXiOZpbyCnvhz4">在扣子 Coze 中完成账号注册、创建第一个智能体、配置基础人设与提示词；对比主流平台定位，做出适合本专业的选择。</div>
+      <div class="goal" data-page-node-id="cN8cVLDG5YTmN7P2SgnmC2"><b data-page-node-id="CficZBIIlfNQlEq1eMJ5lC">价值</b><br data-page-node-id="W7sW0eB6m8uJZxe3MsDuWs">树立科技自立自强意识，理解构建自主可控智能体技术体系对信息资源管理者的重要意义。</div>
+    </div>
+
+    
+    <span class="mod mod-gov" data-page-node-id="pvJjHOqK2Vy06VRfezrDop">职业地图 · 学完这门课你能成为谁</span>
+    <div class="callout tip" data-page-node-id="e5Ylpy8dHYKIQhlcgV4sdc">💡 本课不是“纸上谈兵”：它直接对接《国家职业分类大典》中一批与信息系统相关的国家职业。下面是最对口的方向，完整 37 项见附录 F《职业与资格导航》。</div>
+    <div class="two" data-page-node-id="F2QldADjntEDX1R1dUqMcd">
+      <div class="card" data-page-node-id="btUhYWWy9eCJDs3BJt6315"><b data-page-node-id="NKbdnMJKujA7FCIcLUvnAx">信息系统分析工程技术人员</b>（2-02-10-05）<br data-page-node-id="48hZttmYo2R3UKsEwcvs7s">需求/总体设计/规划——本课核心出口岗位</div>
+      <div class="card" data-page-node-id="Wz3tb7MxB4OJAT1AmFmA1x"><b data-page-node-id="RrPIHMX7TcIQCW7CsM6HbR">生成式人工智能系统应用员</b>（4-04-05-13 S）<br data-page-node-id="8lt3AASmgfgDRmTiPUv8DU">设计/调用/训练生成式AI系统——与 Coze 搭智能体高度贴合</div>
+      <div class="card" data-page-node-id="puG1rLW6Jrj9sfulILMJp6"><b data-page-node-id="Dpa9EOz48Bi1Uk829lkRZs">人工智能训练师</b>（4-04-05-05）<br data-page-node-id="HFenMTRVCQP9KNGpYgyuE6">训练智能体/数字人</div>
+      <div class="card" data-page-node-id="7KMYEqFFMEUA9wctRp28NZ"><b data-page-node-id="2vcaugeXIq4QvAb0NuyxWD">人工智能工程技术人员</b>（2-02-38-01）<br data-page-node-id="pBNlmg7WL3MSl3BOThCAMQ">智能体/大模型工程底座</div>
+      <div class="card" data-page-node-id="bdlDBKTckyORXujHU6y1Pk"><b data-page-node-id="hRsTgfVCbAUFGnsYNAGJ2z">计算机软件工程技术人员</b>（2-02-10-03）<br data-page-node-id="6hzBboSrNb3P5F6LFd09Nu">系统开发实现</div>
+      <div class="card" data-page-node-id="kx9oNpZLZ6p1xDxt1NsPNi"><b data-page-node-id="6SDlQ4MsBeEGx2Qw9ocDow">信息系统运行维护工程技术人员</b>（2-02-10-08）<br data-page-node-id="KiIr4HY9fiBcTf7hHB6tvK">实施/运维/测试</div>
+      <div class="card" data-page-node-id="oJt28LIvc6GunemLuaQsVJ"><b data-page-node-id="Yhz3I8rf82Q6cTGbWxoMtT">数据库运行管理员</b>（4-04-05-04）<br data-page-node-id="7NHqjsbdXPmJnramJR10yN">数据/RAG 底座</div>
+      <div class="card" data-page-node-id="HEnHTNLtdfPbEKjnnlyqVg"><b data-page-node-id="DHC1ydsS9IDzd5oH3exp4w">低代码开发员</b>（4-04-05-01 工种）<br data-page-node-id="TiiQFgOMDlLaD0DGYVG4P5">低代码开发——第8章主线</div>
+      <div class="card" data-page-node-id="jDHhrkVzSIhbjCxf1tDkw1"><b data-page-node-id="NMIOOkJqGBsnv8Qbe95UrV">智能体开发员</b>（2026 第八批新工种）<br data-page-node-id="ozuflaVzMdAFTnhatcaUbk">基于大模型开发自主规划/工具调用的智能体——本课直接出口，Coze 即入门</div>
+    </div>
+
+    <div class="callout tip" data-page-node-id="V0XBL7dayTF0pHesHHArsF">💰 <b data-page-node-id="o5KGPSkLs45UKhfUDGl48y">薪资与缺口速览</b>（来源：江苏省人社厅《2024年度人力资源市场工资价位》、智联招聘、人社部）：数字人才总体缺口约 <b data-page-node-id="CW4DG7FOoi504tECUGZxn3">2500万–3000万</b>，人工智能人才缺口超 <b data-page-node-id="KkZnqJHHOqmnnzDTE6WiiF">500万</b>。与课程直接相关的几个岗位<b data-page-node-id="JSTFQIdpBDsOKOCyK8yJkw">年薪中位数</b>参考——信息系统分析工程技术人员 <b data-page-node-id="9dGKJbUEYeXnINlKgX68lv">约10万元</b>、计算机软件工程技术人员 <b data-page-node-id="pBYDfsLvADFbA23ZHCoYnK">约12.5万元</b>、人工智能工程技术人员 <b data-page-node-id="h6hAMBCubW3s8gVJOsFpnb">约16万元</b>（90%分位可达 <b data-page-node-id="QzZohvu6DbqOcRuBNunO1c">53万元</b>）；人工智能行业平均招聘月薪约 <b data-page-node-id="47jmMd9EBlvTWlWDMr5hTt">1.36万元</b>。完整薪资对照见附录 F《职业与资格导航》。</div>
+    <div class="callout frontier" data-page-node-id="zALCO3bVtFsojeul5a82ym">
+      <span class="f-tag" data-page-node-id="wadNLgCkWrH21ikxYsgdnQ">最新动态 2026-09-09</span>
+      <p data-page-node-id="D49Bxba5Pr3oZvJBJSD5R1"><b data-page-node-id="8qZQQses8WF4IhAnEVoHgK">「智能体开发员」成为国家新工种！</b>今天（2026-09-09）人社部发布第八批新职业：11 个新职业 + 23 个新工种，<b data-page-node-id="2NUA9QSFhQECJFvNfoY6cJ">智能体开发员</b>作为新工种列入数字职业序列。这意味着你在这门课上用 Coze 搭智能体的实践，正是这一国家认可职业能力的入门训练——学完本课程，你已站在"智能体开发员"的起跑线上。完整解读见附录 F《职业与资格导航》。</p>
+      <p class="src" data-page-node-id="g9OLnAyDtjOYYmfjbzBzRG">来源：人社部 2026-09-09 第八批新职业发布（新华社/央广网）</p>
+    </div>
+
+    
+        
+    
+      <h3 class="sec-h" id="theory" data-page-node-id="a18vfGSHbk6Hw6AM2nbC8a">理论基石 · 信息系统分析与设计</h3>
+    <span class="mod mod-theory" data-page-node-id="JhrmFpN0rGLBltq1CjDaCF">理论 · 信息系统的定义与构成</span>
+    <p data-page-node-id="3EvoHSkqzq0nfkJqhx9G2g">经典定义：<b data-page-node-id="0MxtEzW1KpyZ66iEi3HoJa">信息系统是由人、机（计算机及网络）、数据、流程等要素组成，对信息进行采集、处理、存储、传输与利用，以支持组织决策与运作的人—机—数据系统。</b>
+       其一般模型为"输入—处理—输出 + 反馈"。这与 1.2 节的智能体四能力形成清晰对应。</p>
+    <span class="mod mod-theory" data-page-node-id="sOH298HUiKqECnYTTX1imY">理论 · 信息系统的多维分类</span>
+    <p data-page-node-id="aT6OEDcKsqXaoecZJbqlZb">按层级与目标可分为：事务处理系统（TPS）、管理信息系统（MIS）、决策支持系统（DSS）、专家系统（ES）等；
+       按技术架构可分为集中式、客户机/服务器、浏览器/服务器（B/S）、以及今日的智能体架构。
+       <b data-page-node-id="v9oLBKnoiO8YIxZVPbaLW3">智能体架构可视为 B/S 架构在"交互智能"上的进化形态。</b></p>
+    <span class="mod mod-theory" data-page-node-id="VFBpvIDERBb5ELCfa62VT0">理论 ↔ 智能体能力 映射</span>
+    <div class="two" data-page-node-id="SMQPalSmB12J8nYjjghckA">
+      <div class="card" data-page-node-id="r8S8LmQSM7b4tQDfUkIHZg"><b data-page-node-id="c3C1PNVZYIsH5rMpDg9ng0">感知</b> ↔ 输入/数据采集（表单、接口、爬虫）</div>
+      <div class="card" data-page-node-id="IcfnOGsDMb0NI0pZRmRk3R"><b data-page-node-id="hzevThGgnOtlfO2PpFLPAh">认知推理</b> ↔ 处理/计算（业务规则、算法）</div>
+      <div class="card" data-page-node-id="LkDxlmcCOyECqw1w7cDnRC"><b data-page-node-id="gBVe22mF8mODJ9gaHswqyf">行动</b> ↔ 输出/执行（报表、消息、写库）</div>
+      <div class="card" data-page-node-id="Xa7oGoaIVtVCNzaS8x5F9N"><b data-page-node-id="GR4CGgpfSo3n7XSZDQ19TP">记忆</b> ↔ 数据存储/知识管理（数据库、知识库）</div>
+    </div>
+    <span class="mod mod-theory" data-page-node-id="7ucUFy8dKHNo80ni7q5hKf">
+    <span class="mod mod-theory" data-page-node-id="GD-T1">延伸 · 智能体理论基础（节选自权威指南 1.2）</span>
+    <p>经典教材《人工智能：一种现代方法》(Russell &amp; Norvig, 1995) 把 AI 的目标定义为"构建<b>理性智能体</b>"：对每一个可能的感知序列，选择使预期效用最大的行动。在 LLM 时代，系统提示词"你是一个……助手"即定义了当前任务的效用边界——<b>指令即目标</b>；这解释了为什么"提示词写不清，智能体行为就混乱"。</p>
+    <p>智能体与环境的交互在数学上建模为 <b>POMDP（部分可观测马尔可夫决策过程）</b>：真实世界中它只能看到局部观测，需依赖"信念状态"决策；上下文窗口本质就是信念状态的文本化表示，记忆 / RAG 则是为了在部分可观测的世界里更好地估计这一状态。</p>
+    <p>下表把经典 AI 理论概念与现代 LLM 智能体工程组件做"近似对应"，帮助建立"理论 → 实现"的桥梁：</p>
+    <table data-page-node-id="GD-TB1">
+      <thead><tr><th>经典 AI 理论概念</th><th>现代 LLM 智能体中的近似对应</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td><b>策略函数 Policy π(a|s)</b></td><td>LLM + 外层控制逻辑</td><td>给定上下文 s，模型生成候选行动；能否执行还受 harness、权限与工具路由约束。</td></tr>
+        <tr><td><b>信念状态 Belief State b<sub>t</sub></b></td><td>Context Window / Memory</td><td>维护当前对话历史、变量状态、环境观测的文本快照。</td></tr>
+        <tr><td><b>规划 Planning / Search</b></td><td>CoT / ReAct / Planner 模块</td><td>通过中间推理步骤、任务拆解或外部 planner 模拟搜索与规划。</td></tr>
+        <tr><td><b>感知 Perception o<sub>t</sub></b></td><td>输入通道与观测编码</td><td>将多模态信号（视觉、代码、日志）编码为 Token 序列或结构化上下文。</td></tr>
+        <tr><td><b>行动 Action a<sub>t</sub></b></td><td>Function Calling / Tool Use</td><td>输出结构化请求触发外部代码执行。</td></tr>
+        <tr><td><b>环境反馈 / 观察更新</b></td><td>Tool Outputs / Runtime Feedback</td><td>工具结果、编译报错、人工反馈更新下一轮上下文，但不天然等同于标量 reward。</td></tr>
+      </tbody>
+    </table>
+    <p>设计环境的 <b>PEAS 框架</b>（Performance, Environment, Actuators, Sensors）在 LLM 时代依然适用且必要：</p>
+    <table data-page-node-id="GD-TB2">
+      <thead><tr><th>维度</th><th>定义</th><th>现代智能体设计考量</th></tr></thead>
+      <tbody>
+        <tr><td><b>Performance</b><br>性能度量</td><td>即"目标函数"</td><td>不仅是提示词指令，还包括量化指标（代码通过率、API 成本）。须转化为可自动执行的验收标准（Acceptance Criteria）或 CI 卡点阈值，否则无法回归优化。</td></tr>
+        <tr><td><b>Environment</b><br>环境</td><td>决定架构复杂度</td><td>完全/部分可观测？确定/随机（工具失败是否重试）？静态/动态（如股票市场）？</td></tr>
+        <tr><td><b>Actuators</b><br>执行器</td><td>智能体的"手"</td><td>LLM 时代即 Tools / Function Calling；所有输出（文本、JSON、API 请求）都是行动。</td></tr>
+        <tr><td><b>Sensors</b><br>传感器</td><td>智能体的"眼"</td><td>提示词输入部分；除用户文字，还可是图像（Vision）、LSP 报错、网页 DOM 树等。</td></tr>
+      </tbody>
+    </table>
+    <div class="callout src">📚 来源：yeasy《智能体 AI 权威指南》第1章《智能体范式革命》（v1.0.0, 2026-08-18, CC BY-NC-SA 4.0）。以下为节选与教学化改写。</div>
+    理论可视化 · 信息系统相关图形（4 幅）</span>
+    <p data-page-node-id="F2vkfhp6E4fZIjxDr8m5jx">以下矢量图把前面文字观点"画出来"，便于建立可视化心智模型；均可在浏览器中无损缩放，导出 PDF 后同样清晰。</p>
+
+    <figure class="figure" data-page-node-id="CobVo30k84u0aJUmfHMzRz">
+      <svg viewBox="0 0 680 250" role="img" aria-label="信息系统一般模型" data-page-node-id="3jKhIsvvJdA6XDJkA8FgjW">
+        <defs data-page-node-id="cGH8vyQeJH6fWCU5W7FE73"><marker id="ar1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="Gs8NYoAOnXtRwIqkPEbfPi"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C" data-page-node-id="C1hroLT15VWieYOAVvSu1l"/></marker></defs>
+        <rect x="40" y="95" width="130" height="60" rx="9" fill="#EAF4F6" stroke="#0F6E8C" stroke-width="1.5" data-page-node-id="XSqYZb0mmLQdpv6H3gaATK"/>
+        <text x="105" y="123" text-anchor="middle" font-size="15" fill="#0E2F3A" data-page-node-id="wtmN7MClnvJyg3bxKVawUz">输入 / 采集</text>
+        <rect x="215" y="95" width="130" height="60" rx="9" fill="#EAF4F6" stroke="#0F6E8C" stroke-width="1.5" data-page-node-id="L1vzPhvZnUZxfOpzwlWATu"/>
+        <text x="280" y="123" text-anchor="middle" font-size="15" fill="#0E2F3A" data-page-node-id="uldcTXsPxWWBttyxQj8YIf">处理 / 计算</text>
+        <rect x="390" y="95" width="130" height="60" rx="9" fill="#EAF4F6" stroke="#0F6E8C" stroke-width="1.5" data-page-node-id="g85tyc895xfAZK2DFoo0cW"/>
+        <text x="455" y="123" text-anchor="middle" font-size="15" fill="#0E2F3A" data-page-node-id="KJVgMriDfoKehcA4lXokgf">输出 / 执行</text>
+        <rect x="215" y="185" width="130" height="50" rx="9" fill="#FDF3E3" stroke="#E0A82E" stroke-width="1.5" data-page-node-id="GizgqNVSisxwzD9rm6dutS"/>
+        <text x="280" y="215" text-anchor="middle" font-size="14" fill="#0E2F3A" data-page-node-id="FvsDZmZ0Fx9gbKXGBjq16h">存储 / 记忆</text>
+        <line x1="170" y1="125" x2="210" y2="125" stroke="#0F6E8C" stroke-width="2" marker-end="url(#ar1)" data-page-node-id="LX9OEjii5xhJBjU1z4FYCb"/>
+        <line x1="345" y1="125" x2="385" y2="125" stroke="#0F6E8C" stroke-width="2" marker-end="url(#ar1)" data-page-node-id="G8ZangiKEtcCCJ3TgyINE0"/>
+        <line x1="280" y1="155" x2="280" y2="183" stroke="#E0A82E" stroke-width="2" marker-end="url(#ar1)" data-page-node-id="e4CTsXjE9MUJEQU19hqWPE"/>
+        <line x1="280" y1="183" x2="280" y2="155" stroke="#E0A82E" stroke-width="2" marker-end="url(#ar1)" data-page-node-id="56ZC7msRuKqdCWIeIO9B2l"/>
+        <path d="M390,155 C300,235 170,235 40,155" fill="none" stroke="#F27A4E" stroke-width="2" marker-end="url(#ar1)" data-page-node-id="M0KhhUW7j0bOY4ElVPiiGJ"/>
+        <text x="215" y="246" text-anchor="middle" font-size="12" fill="#F27A4E" data-page-node-id="Mxnke9dKksEbqMva4QAjna">反馈环：输出回送为输入，实现自我修正</text>
+      </svg>
+      <span class="cap" data-page-node-id="TS5A0ywMvxf62sDsJBERMd"><b data-page-node-id="I38z7G9TQoJc0lHPRtzYZ5">图1</b>　信息系统一般模型（输入—处理—输出 + 反馈 + 数据存储）</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="Y7ukZ9hPC63DP6cSKJBGJ5">
+      <svg viewBox="0 0 680 285" role="img" aria-label="智能体能力与信息系统职能映射" data-page-node-id="lR3EiFEGn335XTqhWceb7D">
+        <defs data-page-node-id="8t73h6Y5tl7yFNrMJdrOxY"><marker id="ar2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="YwHWsAChNl8S6Ow8SL1yjE"><path d="M0,0 L7,3 L0,6 Z" fill="#1497A8" data-page-node-id="IVkq1pJz1WZRZfzljruShu"/></marker></defs>
+        <text x="170" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#0F6E8C" data-page-node-id="IiOueC2MEpXAPf6G5dFiHm">智能体四能力</text>
+        <text x="510" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#0F6E8C" data-page-node-id="Ea3ZMCkxYpYNUPQoZNiqxm">信息系统职能</text>
+        <g font-size="15" fill="#0E2F3A" data-page-node-id="rWcUeJANRXLHaLvvBhoptQ">
+          <rect x="60" y="48" width="220" height="44" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="S7LqoFMZurJCedV9HWQMN8"/><text x="170" y="75" text-anchor="middle" data-page-node-id="rteLot6T3hhSKvIyjwebOY">感知 Perceive</text>
+          <rect x="400" y="48" width="220" height="44" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="gJMZG2q4H4AqlehejW6WPv"/><text x="510" y="75" text-anchor="middle" data-page-node-id="vJsOppbBicaet21EBFqS0J">输入 / 数据采集</text>
+          <rect x="60" y="108" width="220" height="44" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="uxNbH8iHnmun6H5xbxetQS"/><text x="170" y="135" text-anchor="middle" data-page-node-id="W1eiZe96KwMPja1CoDAj8m">认知推理 Reason</text>
+          <rect x="400" y="108" width="220" height="44" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="LbMoPZuKNQoDuYxSR0vbgD"/><text x="510" y="135" text-anchor="middle" data-page-node-id="UDLTIqcmbV4W2SgL5ds7PE">处理 / 计算</text>
+          <rect x="60" y="168" width="220" height="44" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="7Hsk3o2EF3SqV18DPGIE2o"/><text x="170" y="195" text-anchor="middle" data-page-node-id="CyhvQE0w2f7lvecLw7hxEv">行动 Act</text>
+          <rect x="400" y="168" width="220" height="44" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="6mZHidvHhCG5uwjpqG8dtw"/><text x="510" y="195" text-anchor="middle" data-page-node-id="uFIzJZn6seGp7WLY06B2GR">输出 / 执行</text>
+          <rect x="60" y="228" width="220" height="44" rx="9" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="O0A6Qg9aZYegnNhJzp8Gow"/><text x="170" y="255" text-anchor="middle" data-page-node-id="qRPNzbRxr5HTe6hoBKhHEM">记忆 Remember</text>
+          <rect x="400" y="228" width="220" height="44" rx="9" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="D2wqB1jlEQlqbTfGHlx7TH"/><text x="510" y="255" text-anchor="middle" data-page-node-id="ZuR9GDsh0h9HtFuXJqGufZ">存储 / 知识管理</text>
+        </g>
+        <g stroke="#1497A8" stroke-width="2" marker-end="url(#ar2)" data-page-node-id="jp9iXFtIcRWYr7O8eO7wK6">
+          <line x1="280" y1="70" x2="398" y2="70" data-page-node-id="6vOH5G9dE7EGkzEZxTmqrd"/><line x1="280" y1="130" x2="398" y2="130" data-page-node-id="sAs4EsGOCiEPyrJtobPoPA"/>
+          <line x1="280" y1="190" x2="398" y2="190" data-page-node-id="dDof2DxYADIQiicwJIiiiV"/><line x1="280" y1="250" x2="398" y2="250" data-page-node-id="Pi4g5kXlDKpKIqgpIzrKIB"/>
+        </g>
+      </svg>
+      <span class="cap" data-page-node-id="wySQIVxym8Ss5u03MSrvO3"><b data-page-node-id="McZOwc6VlcrKZfnZAqhKcE">图2</b>　智能体四能力 ↔ 信息系统职能 的同构映射</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="pWFNH3v3USVQP0phbTy5GI">
+      <svg viewBox="0 0 680 270" role="img" aria-label="信息系统分类金字塔" data-page-node-id="GcAFAsHhAv84jvXMIlC9j5">
+        <polygon points="300,20 380,20 405,72 275,72" fill="#0F6E8C" data-page-node-id="GBgLuqLhASOWhTuRfuiPXk"/>
+        <polygon points="270,82 410,82 440,134 240,134" fill="#1497A8" data-page-node-id="TNDHrzhsb1TGRTCzJJswbi"/>
+        <polygon points="240,144 440,144 470,196 210,196" fill="#3FB0C0" data-page-node-id="qveTFBoyIDDacmslv17WSG"/>
+        <polygon points="210,206 470,206 500,258 180,258" fill="#8FD3DF" data-page-node-id="M2RvWaIuf5i1gAlliW6FLN"/>
+        <g fill="#FFFFFF" font-size="15" text-anchor="middle" data-page-node-id="G8kJezZVuGy5eFiINPMw4b">
+          <text x="340" y="52" data-page-node-id="YdJ0e4NNVSLfW9gXMhwtzr">专家系统 ES</text>
+          <text x="340" y="112" data-page-node-id="HxcJOx5nLhbzH69szLKN07">决策支持 DSS</text>
+          <text x="340" y="172" data-page-node-id="d3qLvNFCNJZWGGByBmqSAl">管理信息 MIS</text>
+          <text x="340" y="234" data-page-node-id="QNjrf1Zh6wigXzgVHJrsvM">事务处理 TPS</text>
+        </g>
+        <text x="560" y="40" font-size="13" fill="#0F6E8C" font-weight="bold" data-page-node-id="9b98z1MZjD9Ag2hDZ101pO">决策支持</text>
+        <text x="560" y="56" font-size="13" fill="#0F6E8C" font-weight="bold" data-page-node-id="TZTNHOoQv6lz1AbVnIoTTk">能力 ↑</text>
+        <text x="560" y="250" font-size="12" fill="#5A6B73" data-page-node-id="uXe0QENM1qn28fK8jrRIuZ">基础事务</text>
+        <text x="560" y="266" font-size="12" fill="#5A6B73" data-page-node-id="6XrqTpK1xxrq2xZzuf6elN">处理 ↓</text>
+      </svg>
+      <span class="cap" data-page-node-id="hC7zcBju1GAZ9524MD5u2W"><b data-page-node-id="5SlwrsUhlAJrLEGNn0sF9E">图3</b>　信息系统按层级与目标分类（自下而上决策力增强）</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="DO2OZaB9M0G4sJNlKAzUtx">
+      <svg viewBox="0 0 680 360" role="img" aria-label="UML用例图示意" data-page-node-id="Os5PZb03wvAgeN7Odc94EB">
+        <g stroke="#0E2F3A" stroke-width="2" fill="none" data-page-node-id="0OFr9CiemHJtGgZ17qSrBX">
+          <circle cx="80" cy="70" r="14" data-page-node-id="94qcaYEcbCQZxq1fv9dnuw"/>
+          <line x1="80" y1="84" x2="80" y2="140" data-page-node-id="VIFxN2fgDQca0JA1Le9oN0"/>
+          <line x1="60" y1="104" x2="100" y2="104" data-page-node-id="fymRBuq8JrEUlNtctbyFzE"/>
+          <line x1="80" y1="140" x2="63" y2="180" data-page-node-id="euVjjWuH3lPTScLy6qXAbP"/>
+          <line x1="80" y1="140" x2="97" y2="180" data-page-node-id="v8G3u0Bye89kD3wIB6jVKH"/>
+        </g>
+        <text x="80" y="205" text-anchor="middle" font-size="14" fill="#0E2F3A" data-page-node-id="CkEHWYjbC1sHR2bXxeIoWc">学习者 / 开发者</text>
+        <g font-size="14" fill="#0E2F3A" data-page-node-id="a34FmOf4ng5STjHZvpPqkr">
+          <ellipse cx="440" cy="50" rx="100" ry="22" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="mB5sx8mywxKvcob4BlDnVN"/><text x="440" y="55" text-anchor="middle" data-page-node-id="Cdbb3FahPrs0VQAS2q6g0A">创建 Bot</text>
+          <ellipse cx="440" cy="100" rx="100" ry="22" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="5dDwujgUisRjzvw4SzNKy7"/><text x="440" y="105" text-anchor="middle" data-page-node-id="mCsG34I6hh3ZBXA9KID7ob">配置知识</text>
+          <ellipse cx="440" cy="150" rx="100" ry="22" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="EkMLQaa2Z0ulPwFwJ33Z1I"/><text x="440" y="155" text-anchor="middle" data-page-node-id="0uTwpJNGRO37yIDEh6UF9g">编排工作流</text>
+          <ellipse cx="440" cy="200" rx="100" ry="22" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="g1NPX9lQED9EEaKpjOffAs"/><text x="440" y="205" text-anchor="middle" data-page-node-id="EjLoBJqWG0ZqYAs9PDKcvm">绑定插件</text>
+          <ellipse cx="440" cy="250" rx="100" ry="22" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="Q5XsUpgDQwW5cA660h93PN"/><text x="440" y="255" text-anchor="middle" data-page-node-id="ilHfzGizTPt25pOqNXR9xB">预览测试</text>
+          <ellipse cx="440" cy="300" rx="100" ry="22" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="wADyRbRJ8gVszRCE1IVxLu"/><text x="440" y="305" text-anchor="middle" data-page-node-id="LFkUYmWYjEesqjaksRjdHh">发布</text>
+        </g>
+        <g stroke="#5A6B73" stroke-width="1.5" data-page-node-id="9Hd390j7UTF8N1RllCKRLN">
+          <line x1="98" y1="120" x2="338" y2="50" data-page-node-id="CsEO5GiJTtEZlVpkRcggP7"/>
+          <line x1="98" y1="120" x2="338" y2="100" data-page-node-id="le8I15o5zTxPikuHzPPaEC"/>
+          <line x1="98" y1="120" x2="338" y2="150" data-page-node-id="H0T0O307VWscZk8ad6Zii0"/>
+          <line x1="98" y1="120" x2="338" y2="200" data-page-node-id="pSkRgLFH2hSK4ez4puvE68"/>
+          <line x1="98" y1="120" x2="338" y2="250" data-page-node-id="fbIHh6W5Hr79KIMgtDFcpt"/>
+          <line x1="98" y1="120" x2="338" y2="300" data-page-node-id="DKnDOXMLgeKK765p8B0GWa"/>
+        </g>
+      </svg>
+      <span class="cap" data-page-node-id="tQp13JSVbQ1z9DhLdCKnog"><b data-page-node-id="BLT3oh8vztZGhgsuUOMyxn">图4</b>　第1章 UML 用例图示意（参与者与 6 个用例的关联）</span>
+    </figure>
+    <div class="callout src" data-page-node-id="0BSWVLFFIjTsqaVdZBkzJ9">📌 完整矢量图已内嵌，缩放/打印均清晰；后续章节将沿用"理论文字 + 图形"的同构呈现。</div>
+
+    <!-- D. 智能体实战 -->
+          <div class="callout method" id="classicmap"><span class="m-tag">经典方法论对照 · 系统思想</span><p>原版 ch1-3 提供理解"为何用智能体重构 IS"的底层逻辑：<b>霍尔三维结构 / WSR 系统方法论</b>（物理-事理-人理）、<b>诺兰模型</b>（IT 演进六阶段）、<b>生命周期与三种开发范式</b>（结构化 / 面向对象 / 敏捷）。读本章时把这些经典视角当作"评判智能体方案成熟度"的尺子。深度概念见 <a href="appendix.html#modeling">附录 H</a>。</p></div>
+
+<h3 class="sec-h" id="ideo" data-page-node-id="BpEF1Ng1DOTEnf1nXHcqPY">课程思政 · 价值引领</h3>
+    
+
+
+
+<span class="mod mod-kb" data-page-node-id="mYpK0SB4nmi7elSrgG7D6n">前沿动态 · 行业速递（2026-08）</span>
+<div class="callout frontier" data-page-node-id="50NYklSQ30WezwDvQsKAPL">
+  <span class="f-tag" data-page-node-id="sXDOghzN4OVJTuK81De2bv">动态更新 2026-08</span>
+  <p data-page-node-id="klryhVmiB42VMQUyBSagql"><b data-page-node-id="TD5vvwZvSKyIcnAHV7KSUX">1</b> 2026 年 AI 从“聊天机器人”转向“生产就绪的智能体生态”：GitHub 趋势榜被 agent-skills、agency-agents 等框架霸榜（2026-08-12）。</p>
+  <p data-page-node-id="PIb8fHZcSB2Wm0FaP6BDTB"><b data-page-node-id="Xp0BkGeMlFcw7blEwp38VA">2</b> 国产开源大模型密集爆发：Kimi K3（2.8T，7/27 开源）、Qwen3.8-Max（2.4T，8/3）、DeepSeek-V4-Flash（7/31）；HuggingFace 中国开源模型下载占比 41% 首超美国。</p>
+  <p data-page-node-id="iqyertlH66uoZGISuNKsez"><b data-page-node-id="foyFq4U3C5sPgoYutyONEz">3</b> 思政呼应：开源大模型站上世界前沿，是科技自立自强的生动注脚。</p>
+  <p class="src" data-page-node-id="FJZAxCtwyye8KsOrGFrvGC">来源：Hugging Face 2026 春季报告、AI Daily 2026-08-12、东方财富行业跟踪</p>
+</div>
+
+<span class="mod mod-ideo" data-page-node-id="rP7UqHJ3g75p0RBwVLD3fG">精神坐标 · 人民日报金句</span>
+    <div class="callout quote" data-page-node-id="mmC0w5OvTp3VCugCxCHnYD">"关键核心技术是要不来、买不来、讨不来的。"——人民日报金句（科技自立自强）</div>
+    <div class="callout quote" data-page-node-id="rMqVLA6bsObzCMwIOupVZe">"山河虽无恙，吾辈当自强。"</div>
+    <p data-page-node-id="foBs9LrfXqp4m1Gi5jFHMq"><b data-page-node-id="iG0IdMmXNeViLbDlXBBf6V">本章映射：</b>信息系统的灵魂在于"自主可控"。当我们学会用 Coze 搭建智能体，不应只做平台的"使用者"，
+       更要理解底层数据主权与技术自主的意义——这正是信息资源管理者在 AI 时代的责任。</p>
+    <span class="mod mod-ideo" data-page-node-id="Tv54JGxk8uPPS6J3eHEnXv">名校范式 · 清华课程思政案例</span>
+    <div class="callout warn" data-page-node-id="n66U3VBgnrMpfXhtSqVATj">🎓 清华大学计算机系国旗下演讲《热血铸就英雄梦》（罗志鸿）：
+      "用代码构建自主可控的技术体系"；吴建平院士推动互联网关键技术"牢牢掌握在自己手中"。</div>
+    <p data-page-node-id="kZj9LF5RgTjp6WifNEHkj6"><b data-page-node-id="HE5BqAEvyqK79WfigP6xeS">本章映射：</b>清华学子以代码报国，信息资源管理学子则以<b data-page-node-id="8ihfr2FhprOUIubMc4DlZh">知识组织与数据治理</b>报国。
+       同样是"自主可控"， ours is 在档案、方志、企业知识库这些"国家记忆"的底座上——价值同向，路径各异。</p>
+
+    <span class="mod mod-ideo" data-page-node-id="FaQbre4x3UFuFULsHzEUkW">课程思政案例 · IMA 知识库</span>
+<div class="kbcase" data-page-node-id="DeuH1cvhIimSk0TXaczHjD">
+  <h4 data-page-node-id="VCfZCtXot8WAByKzbpiFvE">科技自立自强：AI 时代信息资源管理者如何报国</h4>
+  <ul data-page-node-id="KLVzT4xByMJJG8lC8KNF1t">
+    <li data-page-node-id="lbrDacDUMNDRa5md8iiUvY">习近平总书记强调："要充分发挥新型举国体制优势，坚持自立自强，突出应用导向，推动我国人工智能朝着<b data-page-node-id="AAa2VU9DZMRimrpggL26rW">有益、安全、公平</b>方向健康有序发展。"（中共中央政治局第二十次集体学习）</li>
+    <li data-page-node-id="ntQuh6W9CqS6spE0ueI9BY">《人工智能导论》课程思政优秀教学案例以"扶需、扶新、扶特"对接国家战略重大需求，把思政元素有机融入专业课程。</li>
+  </ul>
+  <span class="src" data-page-node-id="qzKQD8e8GHISK2Y3jFTsQV">来源：IMA 知识库《课程思政示范案例》· 人民日报理论《推动人工智能全方位赋能千行百业》(2025-11-03)；《人工智能导论》课程思政优秀教学案例</span>
+  <span class="think" data-page-node-id="UqIO2DF2rgCGLcswCGaFGL"><b data-page-node-id="kXv3F7H9cnuLJ589nVolhN">本章映射：</b>智能体化不是"用别人的平台搭别人的能力"，而是把数据主权、技术自主的意识种进每一次需求与设计；信息资源管理专业的"自主可控"，落在档案、方志、企业知识库这些国家记忆底座。</span>
+</div>
+      <h3 class="sec-h" id="casein">案例导入 · 超级EVA 整车级智能体</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B1-01</span> <b>超级EVA 整车级智能体</b><br><span class="cunit">申报单位：上海阶跃星辰智能科技股份有限公司</span></p>
+        <p>2026 年4 月，阶跃星辰联合吉利、千里科技推出超级EVA——中国首个量产落地的整车级智能体，首发搭载于极氪8X。基于阶跃星辰旗舰基座模型Step 3.5 Flash，超级EVA 打破座舱、智驾、底盘、动力域的信息孤岛，实现"舱驾融合、对话即执行"。应用场景中，用户以自然语言发出复合指令，智能体可自主拆解意图、规划多途经点路线、动态调度订餐、泊车等生态服务，全程无需人工分步操作。其具备情绪感知、环境理解、行程规划、整车控制、生态服务五大能力矩阵，支持口语化地标识别、上下文记忆与主动关怀。人机协同上，用户从"操作者"转变为"监督者"，智能体承担认知与操作负荷。</p>
+        <p><b>导学解读 · 与本章的对接</b>：超级EVA 几乎是本章定义的一个完整注脚：麦克风与摄像头负责<b>感知</b>，Step 3.5 Flash 基座模型负责<b>认知</b>与意图拆解，座舱、智驾、底盘、动力四大域控制器负责<b>行动</b>，256K 超长上下文与短／长期记忆机制构成<b>记忆</b>——四能力一一对位。更值得琢磨的是它验证了一条 ISAD 的核心命题：系统的价值不在功能清单，而在<b>人与系统的职责重新划分</b>。当用户从“操作者”变成“监督者”，需求不再由人逐步下达，而是由系统自主拆解。请带着这个问题读完本章：如果系统能自己规划并执行，那么“需求”还是人提的吗？分析与设计的边界应该划在哪里？</p>
+        
+      </div>
+
+    <h3 class="ppt-src-h">第1章《系统思想》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p01_005.jpg" alt="第1章 P.5"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_006.jpg" alt="第1章 P.6"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_007.jpg" alt="第1章 P.7"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_008.jpg" alt="第1章 P.8"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_009.jpg" alt="第1章 P.9"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_010.jpg" alt="第1章 P.10"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_011.jpg" alt="第1章 P.11"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_012.jpg" alt="第1章 P.12"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_013.jpg" alt="第1章 P.13"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_014.jpg" alt="第1章 P.14"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_015.jpg" alt="第1章 P.15"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_016.jpg" alt="第1章 P.16"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_017.jpg" alt="第1章 P.17"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_018.jpg" alt="第1章 P.18"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_019.jpg" alt="第1章 P.19"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_020.jpg" alt="第1章 P.20"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_021.jpg" alt="第1章 P.21"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_022.jpg" alt="第1章 P.22"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_023.jpg" alt="第1章 P.23"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_024.jpg" alt="第1章 P.24"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_025.jpg" alt="第1章 P.25"></figure>
+      <figure><img loading="lazy" src="images/ppt/p01_026.jpg" alt="第1章 P.26"></figure>
+    </div>
+<h2 class="part p2" data-page-node-id="W9j0ojvWkTS1n0UX3Dm4Hr">第二部分　课程内容</h2>
+      <h3 class="sec-h" id="s11" data-page-node-id="UuUJEEo35gRH0I1pv3tcgD">1.1　认识智能体：从"软件代理"到 LLM 驱动</h3>
+    <p data-page-node-id="10AZmEVKEfazF4LrguF25e">"智能体"并非新词。早在上世纪 90 年代，<span class="term" data-def="软件代理（Software Agent）：能在一定范围内自主运行、代表用户完成特定任务的程序。" data-page-node-id="pAqIahOd0lDnm91zkHcrAR">软件代理</span>
+       研究就提出：让程序像"代理人"一样替用户干活。但彼时的智能体多为规则驱动，能力受限。
+       真正让智能体"破圈"的，是<span class="term" data-def="大语言模型（LLM）：以海量文本训练、能理解与生成自然语言的神经网络模型，如 GPT、文心、通义等。" data-page-node-id="uEZkm0R7KVQzIasolmoQIB">大语言模型（LLM）</span>
+       的成熟——它赋予了智能体"理解语言、推理规划、生成内容"的通用大脑。</p>
+    <p data-page-node-id="jEnxCRj5f9Z6jxrvkDxLt9">我们可以这样定义：<b data-page-node-id="lYFGymc8cUyUYjKRloJIj3">智能体是一种以 LLM 为认知核心，能感知输入、自主决策、调用工具并采取行动，以完成开放任务的软件系统。</b>
+       它和传统信息系统的根本区别在于"主动性"——传统系统等指令、按流程走；智能体能自己拆解目标、选择路径、在反馈中修正。</p>
+    
+    <figure class="figure" data-page-node-id="GD-F1">
+      <svg viewBox="0 0 680 300" role="img" aria-label="传统LLM与智能体架构对比" data-page-node-id="GD-S1">
+        <defs><marker id="gu1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="gu1d"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C" data-page-node-id="gu1p"/></marker></defs>
+        <text x="170" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#5A6B73" data-page-node-id="t1">传统 LLM：单次预测</text>
+        <text x="510" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#0F6E8C" data-page-node-id="t2">智能体：动态循环</text>
+        <g font-size="13" fill="#0E2F3A" data-page-node-id="g1">
+          <rect x="60" y="50" width="220" height="40" rx="9" fill="#EAF4F6" stroke="#5A6B73" data-page-node-id="r1"/><text x="170" y="75" text-anchor="middle" data-page-node-id="x1">用户提示词</text>
+          <rect x="60" y="120" width="220" height="40" rx="9" fill="#EAF4F6" stroke="#5A6B73" data-page-node-id="r2"/><text x="170" y="145" text-anchor="middle" data-page-node-id="x2">大语言模型</text>
+          <rect x="60" y="190" width="220" height="40" rx="9" fill="#EAF4F6" stroke="#5A6B73" data-page-node-id="r3"/><text x="170" y="215" text-anchor="middle" data-page-node-id="x3">文本回复</text>
+        </g>
+        <g stroke="#5A6B73" stroke-width="2" marker-end="url(#gu1)" data-page-node-id="ga1">
+          <line x1="170" y1="90" x2="170" y2="118" data-page-node-id="l1"/>
+          <line x1="170" y1="160" x2="170" y2="188" data-page-node-id="l2"/>
+        </g>
+        <g font-size="13" fill="#0E2F3A" data-page-node-id="g2">
+          <rect x="400" y="45" width="220" height="38" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="r4"/><text x="510" y="69" text-anchor="middle" data-page-node-id="x4">用户目标</text>
+          <rect x="400" y="105" width="220" height="38" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="r5"/><text x="510" y="129" text-anchor="middle" data-page-node-id="x5">感知与规划</text>
+          <rect x="400" y="165" width="220" height="38" rx="9" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="r6"/><text x="510" y="189" text-anchor="middle" data-page-node-id="x6">行动 / 工具调用</text>
+          <rect x="400" y="225" width="220" height="38" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="r7"/><text x="510" y="249" text-anchor="middle" data-page-node-id="x7">观察结果 → 最终结果</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="2" marker-end="url(#gu1)" data-page-node-id="ga2">
+          <line x1="510" y1="83" x2="510" y2="103" data-page-node-id="l3"/>
+          <line x1="510" y1="143" x2="510" y2="163" data-page-node-id="l4"/>
+          <line x1="510" y1="203" x2="510" y2="223" data-page-node-id="l5"/>
+        </g>
+        <path d="M620,244 C660,244 660,64 620,64" fill="none" stroke="#F27A4E" stroke-width="2" marker-end="url(#gu1)" data-page-node-id="lp"/>
+        <text x="640" y="155" font-size="11" fill="#F27A4E" data-page-node-id="lx">循环</text>
+      </svg>
+      <span class="cap" data-page-node-id="GD-C1"><b>图1-1</b>　传统 LLM（单次预测）与智能体（感知—规划—行动—观察 动态循环）架构对比（节选自权威指南）</span>
+    </figure>
+
+    <div class="callout tip" data-page-node-id="KCZs4oc3WUyyDVVUCUwI8j">💡 一句话记忆：传统信息系统是"你告诉我怎么做"，智能体是"你告诉我目标，我来想办法"。</div>
+
+    
+    <div class="pptgrid" data-cnt="7" data-page-node-id="Rs86vZ3yMTOHV9WBOSFqGL">
+      <figure class="wxfig" data-page-node-id="M6fEWpv1RQaeMHllmyDXj3">
+  <img src="media/coze/p005.jpg" alt="课件第 5 页" loading="lazy" data-page-node-id="zjCqXvsvTUceHiwLW0tlkv">
+</figure>
+      <figure class="wxfig" data-page-node-id="BEms9opUh5HAm0fucHD0m2">
+  <img src="media/coze/p007.jpg" alt="课件第 7 页" loading="lazy" data-page-node-id="aKCFOZzOaGtmIpRqRtZYAg">
+</figure>
+      <figure class="wxfig" data-page-node-id="VdHgnkWcfdQXEQYp0AuFx8">
+  <img src="media/coze/p011.jpg" alt="课件第 11 页" loading="lazy" data-page-node-id="0yjmHMi9OXWtz7AqjhE5aQ">
+</figure>
+      <figure class="wxfig" data-page-node-id="yV6217iJxhu03DglCmOp3u">
+  <img src="media/coze/p012.jpg" alt="课件第 12 页" loading="lazy" data-page-node-id="Ge5uz1Cgnj7awdgG4uGRR7">
+</figure>
+      <figure class="wxfig" data-page-node-id="8xCZ7FlC9GnGFIhsKloHoC">
+  <img src="media/coze/p035.jpg" alt="课件第 35 页" loading="lazy" data-page-node-id="jHKaI7759FVr3P0WaYmKR5">
+</figure>
+      <figure class="wxfig" data-page-node-id="BOK9t9GAOc7Zk9cq1v6fzj">
+  <img src="media/coze/p036.jpg" alt="课件第 36 页" loading="lazy" data-page-node-id="qceZDMvf4SH4dDqiJLAxQO">
+</figure>
+      <figure class="wxfig" data-page-node-id="aYBUmlerPkaCi9AQugqVXf">
+  <img src="media/coze/p038.jpg" alt="课件第 38 页" loading="lazy" data-page-node-id="S1LvZqXFXKz8OdkG9izARG">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s12" data-page-node-id="s2EFzBjGEmrZ8yBdMOHKRF">1.2　智能体的四大核心能力</h3>
+    <p data-page-node-id="RYgCfcUeNUuIKBvpaxsX7R">无论平台如何包装，一个能干的智能体通常具备四种能力，恰好对应信息系统的基本职能：</p>
+    <table data-page-node-id="PQyDunzLCyaAsIandykhzr">
+      <thead data-page-node-id="IaELVawu9EaQ0F1esXTRzX"><tr data-page-node-id="kUIUl9pAmQFBgBZXqwESef"><th data-page-node-id="T6lV9VwzQsyVOgjQwM9CBo">核心能力</th><th data-page-node-id="tIg57Tt6HadYfFQV1cPzl2">含义</th><th data-page-node-id="HkdND5jNVFXF9VnbvYmcNT">对应信息系统职能</th></tr></thead>
+      <tbody data-page-node-id="5FUEEJEqIOLMyeHTB9Y19E">
+        <tr data-page-node-id="qHubZM5FDzMjaWOJNDCy6C"><td data-page-node-id="0ksd1nEN3tt2diZvpjqlpC"><b data-page-node-id="djjplDV5jKkjiFj9DWPqHG">感知（Perceive）</b></td><td data-page-node-id="ABEs94EOrQ5ivngBs4umr8">接收用户输入、读取文件/网页/数据库</td><td data-page-node-id="rO9wUF7axfnugJbrFPS2Bx">输入 / 数据采集</td></tr>
+        <tr data-page-node-id="BzHa3ECx6xsiG2e4N1otq5"><td data-page-node-id="dS65T8Ev3nDRLDQFCOBEEt"><b data-page-node-id="qs3947nHFFy5jnA3mXWVc3">认知与推理（Reason）</b></td><td data-page-node-id="RKYtupH6AwCDlKMNpNeDDt">理解意图、规划步骤、做判断</td><td data-page-node-id="1fbIpzjCvJeQPi8zYooEAK">处理 / 计算</td></tr>
+        <tr data-page-node-id="gogoffFgCZtyHJ3CrHDLp4"><td data-page-node-id="UTrPmZycFhu1GFIvBDzoW1"><b data-page-node-id="x0GzcD4rl4uAJsoZiv7XuR">行动（Act）</b></td><td data-page-node-id="XPpnHyTJUaOfCuSmSOpSWT">调用插件、写文件、发消息、返回结果</td><td data-page-node-id="DAGPtRA8PJGHK2n79PZHMu">输出 / 执行</td></tr>
+        <tr data-page-node-id="cwdkxCWWMa8T6ujgC1dbNd"><td data-page-node-id="KDaIa76z62RulpMByg3mz3"><b data-page-node-id="WmskEWrE6l3MBftxc3Q3ER">记忆（Remember）</b></td><td data-page-node-id="RlIhhf3gb0qMIHPnjzMmt9">保存对话历史与长期经验</td><td data-page-node-id="1Xv2uAUCNNL4iws4UmkJQm">数据存储 / 知识管理</td></tr>
+      </tbody>
+    </table>
+    
+    <span class="mod mod-theory" data-page-node-id="GD-T3">延伸 · 从"单体多技能"到工程化（节选自权威指南 1.1.6）</span>
+    <p>智能体并非一蹴而就。从早期自定义 API 到今天的标准化工具连接，核心演进可总结为四个维度：</p>
+    <table data-page-node-id="GD-TB3">
+      <thead><tr><th>维度</th><th>痛点</th><th>解决方案</th><th>关键技术词</th></tr></thead>
+      <tbody>
+        <tr><td><b>集成</b></td><td>烟囱式开发，扩展难</td><td>工业级协议实践，趋向即插即用</td><td>Tool-aware</td></tr>
+        <tr><td><b>智商</b></td><td>走一步看一步，易出错</td><td>三思而后行，分层思考</td><td>Reasoning LLM, Reflection</td></tr>
+        <tr><td><b>安全</b></td><td>容易被"忽悠"，防不住</td><td>权限隔离，硬性审计</td><td>Policy as Code, Zero Trust</td></tr>
+        <tr><td><b>效率</b></td><td>臃肿、思维混乱</td><td>小而美，协同作战</td><td>MAS, State-sharing</td></tr>
+      </tbody>
+    </table>
+    <p>更进一步，Agent 时代可统一到一个三维思考框架——<b>Goal（目标工程）· Context（上下文工程）· Constraints（约束）</b>：能力不只取决于模型智力，更取决于这三者的设计完整性与平衡；进入生产环节时，<b>约束层</b>的成熟度往往成为瓶颈。</p>
+
+    <p data-page-node-id="jbfja2TD3xP2SQGtNKOnkp">对<b data-page-node-id="g06nOZIOXGlYU6oPOOAkrS">信息资源管理专业</b>的同学而言，这正说明：智能体没有脱离信息系统范畴，而是把"采集—处理—存储—输出"这个经典闭环，用更自然的人机交互重新封装了一遍。我们过去学的数据组织、知识分类，恰是"记忆"与"知识"能力的理论基础。</p>
+
+    
+    <!-- wxfig-inject -->
+<figure class="wxfig" data-page-node-id="Q73nQvtg0vTh6jYgDShClm">
+  <img src="media/weixin/ch01_agent_4layer_arch_crop.png" alt="ch01_agent_4layer_arch_crop.png" loading="lazy" data-page-node-id="FEspqbpTdb2rD2JWEubQgK">
+  <figcaption data-page-node-id="XgzrfaSjhXpPE81PLsOPpN">
+    <strong data-page-node-id="KdExFK8Vsp73eoy0MvAyjF">图：AI Agent 四层架构（保姆级教程）</strong><br data-page-node-id="94tuKAF4NBmZNDo0dQ2oHU">智能体不是单一个"大脑"，而是「大模型(脑) + 能力层(感官+手脚) + 行为规则(SOP) + 中枢神经系统(Harness)」的组合。只有四者配合，Agent 才能真正落地。
+    <span class="src" data-page-node-id="YKzxtM4CQrdXXmFvH5cqey">来源：公众号·大模型助理</span>
+  </figcaption>
+</figure>
+<!-- wxfig-inject -->
+<figure class="wxfig" data-page-node-id="1qLbiURSxCxHtkNFvq22k0">
+  <img src="media/weixin/ch01_framework_comparison_crop.png" alt="ch01_framework_comparison_crop.png" loading="lazy" data-page-node-id="QrhDL1yBBTaXMzjwK7l5uG">
+  <figcaption data-page-node-id="FMLkziKpGcyQc6k1Mf9xtZ">
+    <strong data-page-node-id="NM4uwPuq0CRY4gXMURKO5A">图：Agent 框架对比与四大核心模块</strong><br data-page-node-id="5W74DsiZoWuhRXKjECko92">决策流程：感知(Perception) → 规划(Planning) → 行动(Action)；四大核心模块：推理、记忆、工具、行动。主流框架以 ReAct 为基础，衍生 Plan-and-Execute 等变体。
+    <span class="src" data-page-node-id="zK7jqCycUi3pFm6J7Iat9T">来源：贴图号·张张AI笔记</span>
+  </figcaption>
+</figure>
+<div class="pptgrid" data-cnt="10" data-page-node-id="klIVB51NlEukB6tC9gnzLX">
+      <figure class="wxfig" data-page-node-id="PffR3uxacFgG4iIyjAXXg1">
+  <img src="media/coze/p039.jpg" alt="课件第 39 页" loading="lazy" data-page-node-id="CuLyvA8HUVfPHnKPGxnguy">
+</figure>
+      <figure class="wxfig" data-page-node-id="YMUQJ6JhYs3rgGu52IKmUj">
+  <img src="media/coze/p040.jpg" alt="课件第 40 页" loading="lazy" data-page-node-id="fwAQtSaTcsiXBFJVw2uZ77">
+</figure>
+      <figure class="wxfig" data-page-node-id="yuTljlr548CnS3aQDVrsTd">
+  <img src="media/coze/p041.jpg" alt="课件第 41 页" loading="lazy" data-page-node-id="k0Y8CUEGWBL3DoSPddY4VP">
+</figure>
+      <figure class="wxfig" data-page-node-id="NUGHwEcPMh5z8pINrVuZuX">
+  <img src="media/coze/p042.jpg" alt="课件第 42 页" loading="lazy" data-page-node-id="ClnSsOPD7Zx455e2xiDDtc">
+</figure>
+      <figure class="wxfig" data-page-node-id="4zy90sL62sOBcaT07cchY5">
+  <img src="media/coze/p043.jpg" alt="课件第 43 页" loading="lazy" data-page-node-id="GevzTcAUM7HEokFOSMk1Xz">
+</figure>
+      <figure class="wxfig" data-page-node-id="oNjVwBDYr5M7DowHzyYfvs">
+  <img src="media/coze/p044.jpg" alt="课件第 44 页" loading="lazy" data-page-node-id="DhINCaaJjrDFScBoQmR48Y">
+</figure>
+      <figure class="wxfig" data-page-node-id="A8vb9cMrBG3qShUUM4vYKB">
+  <img src="media/coze/p045.jpg" alt="课件第 45 页" loading="lazy" data-page-node-id="VO6v9hCAIs4BzutNzAd0P8">
+</figure>
+      <figure class="wxfig" data-page-node-id="8Z1rAmG4oKsuz1CBTb1aDt">
+  <img src="media/coze/p046.jpg" alt="课件第 46 页" loading="lazy" data-page-node-id="qsgxbSqiDunU6CrbV8ALFJ">
+</figure>
+      <figure class="wxfig" data-page-node-id="RWo64XErQF15nlMkgSILjs">
+  <img src="media/coze/p047.jpg" alt="课件第 47 页" loading="lazy" data-page-node-id="nfXmYqv01kxNxnXBBwsA97">
+</figure>
+      <figure class="wxfig" data-page-node-id="XwsYEBOCgBxVtHzoMG9byV">
+  <img src="media/coze/p048.jpg" alt="课件第 48 页" loading="lazy" data-page-node-id="WE5GBc9rK9U7jgCXd6ZQ0w">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s13" data-page-node-id="udTqvvLQDO7QIrrgL8t1kM">1.3　"感知—决策—行动"循环</h3>
+    <p data-page-node-id="p8W4AD4fC31y6MTE6Xp3Ba">智能体的运行是一个持续闭环（如图）。它先<b data-page-node-id="HYUKqqUXtDNflO16Hn1OQe">感知</b>环境与用户诉求，再<b data-page-node-id="OKEAfdSWb4s7OHUTfU8mPF">决策</b>（LLM 规划"下一步做什么"），
+       然后<b data-page-node-id="MS3GCsauQ12c4E6K1IaXvh">行动</b>（调用工具或修改状态），行动结果又成为新的感知输入——如此循环，直到目标达成。</p>
+    <div class="callout quote" data-page-node-id="wQZ7usu7gL4k3lOEDJHlnF">感知 → 决策 → 行动 →（反馈）→ 再感知 → …</div>
+    <p data-page-node-id="PO6cRFAzA7QQuGWLlFHVOg">这个结构源自控制论的<span class="term" data-def="反馈环（Feedback Loop）：系统将输出回送为输入以自我修正的控制结构。" data-page-node-id="QH26B2beEZiaKl1aAvR3vt">反馈环</span>。
+       与瀑布式信息系统"需求→设计→实现→交付"的单向推进不同，智能体是<b data-page-node-id="179dOXy8hBgdYCKhSHOLrO">自适应闭环</b>：它允许在执行中根据环境变化调整计划，这也是它更"像人"的原因。</p>
+
+    
+    
+    <figure class="figure" data-page-node-id="GD-F2">
+      <svg viewBox="0 0 680 330" role="img" aria-label="标准智能体循环" data-page-node-id="GD-S2">
+        <defs><marker id="gu2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="gu2d"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C" data-page-node-id="gu2p"/></marker></defs>
+        <rect x="190" y="30" width="300" height="56" rx="10" fill="#EAF4F6" stroke="#0F6E8C" stroke-width="1.5" data-page-node-id="n1"/>
+        <text x="340" y="55" text-anchor="middle" font-size="14" font-weight="bold" fill="#0E2F3A" data-page-node-id="n1t1">推理器 Reasoner</text>
+        <text x="340" y="75" text-anchor="middle" font-size="12" fill="#5A6B73" data-page-node-id="n1t2">目标与约束</text>
+        <rect x="470" y="120" width="180" height="50" rx="10" fill="#EAF4F6" stroke="#0F6E8C" stroke-width="1.5" data-page-node-id="n2"/>
+        <text x="560" y="142" text-anchor="middle" font-size="13" fill="#0E2F3A" data-page-node-id="n2t1">策略与权限护栏</text>
+        <text x="560" y="160" text-anchor="middle" font-size="12" fill="#5A6B73" data-page-node-id="n2t2">Action Selector</text>
+        <rect x="470" y="215" width="180" height="50" rx="10" fill="#FDF3E3" stroke="#E0A82E" stroke-width="1.5" data-page-node-id="n3"/>
+        <text x="560" y="237" text-anchor="middle" font-size="13" fill="#0E2F3A" data-page-node-id="n3t1">工具执行器</text>
+        <text x="560" y="255" text-anchor="middle" font-size="12" fill="#5A6B73" data-page-node-id="n3t2">Tool Runtime</text>
+        <rect x="30" y="215" width="180" height="50" rx="10" fill="#EAF4F6" stroke="#0F6E8C" stroke-width="1.5" data-page-node-id="n4"/>
+        <text x="120" y="237" text-anchor="middle" font-size="13" fill="#0E2F3A" data-page-node-id="n4t1">观察处理</text>
+        <text x="120" y="255" text-anchor="middle" font-size="12" fill="#5A6B73" data-page-node-id="n4t2">Observation Parser</text>
+        <rect x="30" y="120" width="180" height="50" rx="10" fill="#EAF4F6" stroke="#0F6E8C" stroke-width="1.5" data-page-node-id="n5"/>
+        <text x="120" y="142" text-anchor="middle" font-size="13" fill="#0E2F3A" data-page-node-id="n5t1">状态与记忆</text>
+        <text x="120" y="160" text-anchor="middle" font-size="12" fill="#5A6B73" data-page-node-id="n5t2">State / Memory</text>
+        <g stroke="#0F6E8C" stroke-width="2" marker-end="url(#gu2)" data-page-node-id="arr">
+          <line x1="430" y1="58" x2="468" y2="135" data-page-node-id="a1"/>
+          <line x1="560" y1="170" x2="560" y2="213" data-page-node-id="a2"/>
+          <line x1="470" y1="240" x2="212" y2="240" data-page-node-id="a3"/>
+          <line x1="120" y1="170" x2="120" y2="213" data-page-node-id="a4"/>
+          <line x1="120" y1="120" x2="210" y2="58" data-page-node-id="a5"/>
+        </g>
+        <text x="612" y="200" font-size="11" fill="#F27A4E" data-page-node-id="hx">求助→人工反馈</text>
+        <line x1="600" y1="195" x2="650" y2="195" stroke="#F27A4E" stroke-width="2" marker-end="url(#gu2)" data-page-node-id="hl"/>
+        <text x="340" y="320" text-anchor="middle" font-size="12" fill="#F27A4E" data-page-node-id="cap">继续 / 完成 / 求助：策略护栏与人工反馈在关键节点把循环拉回可控边界</text>
+      </svg>
+      <span class="cap" data-page-node-id="GD-C2"><b>图1-2</b>　标准智能体循环核心组件（节选自权威指南 图1-5）</span>
+    </figure>
+
+    <div class="pptgrid" data-cnt="3" data-page-node-id="MIWGkD3IAx8Q61xVtxKk8c">
+      <figure class="wxfig" data-page-node-id="HJfBYXskqKT0ovvcj902Qx">
+  <img src="media/coze/p004.jpg" alt="课件第 4 页" loading="lazy" data-page-node-id="XQPf9NnVge1cp2VkLe3fX4">
+</figure>
+      <figure class="wxfig" data-page-node-id="QCNDslIlbxqtnFS200LjIU">
+  <img src="media/coze/p006.jpg" alt="课件第 6 页" loading="lazy" data-page-node-id="cMcaP24Wbeoa6DsaYHvl52">
+</figure>
+      <figure class="wxfig" data-page-node-id="VAhwGOluaXflqHwBu4ac2q">
+  <img src="media/coze/p037.jpg" alt="课件第 37 页" loading="lazy" data-page-node-id="jDwFXC8xi5roSCv5i6OAeP">
+</figure>
+    </div>
+
+      
+    <span class="mod mod-kb" data-page-node-id="GD-T4">延伸 · 智能体认知层级 L1–L5（教学分层模型）</span>
+    <p>智能体的能力并非"有或无"的二元对立，而是连续光谱。权威指南给出五级教学模型，按"单体系统通常承担的能力复杂度"组织：</p>
+    <table data-page-node-id="GD-TB4">
+      <thead><tr><th>层级</th><th>定位</th><th>核心特征 (Key Logic)</th><th>人类对标</th><th>常见实现要素</th></tr></thead>
+      <tbody>
+        <tr><td><b>L1</b></td><td>助理</td><td>Talk（对话）</td><td>图书馆员</td><td>RAG, 提示词工程</td></tr>
+        <tr><td><b>L2</b></td><td>工人</td><td>Do（执行）</td><td>实习生</td><td>ReAct, Tool Use, CoT</td></tr>
+        <tr><td><b>L3</b></td><td>自主</td><td>Learn（学习）</td><td>工程师</td><td>向量数据库(Memory), Reflexion</td></tr>
+        <tr><td><b>L4</b></td><td>进化</td><td>Evolve（进化）</td><td>科学家/极客</td><td>Self-Coding, APE</td></tr>
+        <tr><td><b>L5</b></td><td>群体</td><td>Connect（连接）</td><td>公司/社会</td><td>多智能体框架, SOP</td></tr>
+      </tbody>
+    </table>
+
+    <figure class="figure" data-page-node-id="GD-F3">
+      <svg viewBox="0 0 680 300" role="img" aria-label="智能体认知层级L1-L5" data-page-node-id="GD-S3">
+        <defs><marker id="gu3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="gu3d"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C" data-page-node-id="gu3p"/></marker></defs>
+        <g font-size="12" fill="#FFFFFF" text-anchor="middle" data-page-node-id="bars">
+          <rect x="40" y="240" width="110" height="40" rx="8" fill="#8FD3DF" data-page-node-id="b1"/><text x="95" y="258" fill="#0E2F3A" data-page-node-id="bt1">L1 辅助型</text><text x="95" y="273" fill="#0E2F3A" data-page-node-id="bt1b">Talk</text>
+          <rect x="160" y="185" width="110" height="40" rx="8" fill="#3FB0C0" data-page-node-id="b2"/><text x="215" y="203" fill="#FFFFFF" data-page-node-id="bt2">L2 执行型</text><text x="215" y="218" fill="#FFFFFF" data-page-node-id="bt2b">Do</text>
+          <rect x="280" y="130" width="110" height="40" rx="8" fill="#1497A8" data-page-node-id="b3"/><text x="335" y="148" fill="#FFFFFF" data-page-node-id="bt3">L3 自主型</text><text x="335" y="163" fill="#FFFFFF" data-page-node-id="bt3b">Learn</text>
+          <rect x="400" y="75" width="110" height="40" rx="8" fill="#0F6E8C" data-page-node-id="b4"/><text x="455" y="93" fill="#FFFFFF" data-page-node-id="bt4">L4 进化型</text><text x="455" y="108" fill="#FFFFFF" data-page-node-id="bt4b">Evolve</text>
+          <rect x="520" y="20" width="110" height="40" rx="8" fill="#0E2F3A" data-page-node-id="b5"/><text x="575" y="38" fill="#FFFFFF" data-page-node-id="bt5">L5 群体型</text><text x="575" y="53" fill="#FFFFFF" data-page-node-id="bt5b">Connect</text>
+        </g>
+        <g stroke="#F27A4E" stroke-width="2" fill="none" marker-end="url(#gu3)" data-page-node-id="rise">
+          <path d="M150,260 L160,225" data-page-node-id="r1"/>
+          <path d="M270,205 L280,170" data-page-node-id="r2"/>
+          <path d="M390,150 L400,115" data-page-node-id="r3"/>
+          <path d="M510,95 L520,60" data-page-node-id="r4"/>
+        </g>
+        <text x="625" y="150" font-size="13" fill="#0F6E8C" font-weight="bold" data-page-node-id="ax">能力 ↑</text>
+        <text x="625" y="270" font-size="12" fill="#5A6B73" data-page-node-id="axb">对话</text>
+      </svg>
+      <span class="cap" data-page-node-id="GD-C3"><b>图1-3</b>　智能体认知层级光谱 L1–L5（节选自权威指南 图 认知层级）</span>
+    </figure>
+
+    <div class="callout tip" data-page-node-id="GD-TIP1">💡 <b>设计启示</b>：不要盲目追求高层级。L1 足够好（知识库问答不必上 L2，以免增加幻觉风险）；L2 是大多数企业级应用的基石；L3 慎用于高可靠场景（如金融交易）；L4/L5 目前仍主要处于研究原型阶段，落地需审慎评估。</div>
+
+    <h3 class="sec-h" id="s14" data-page-node-id="6U3QMRUf9XbG7VMubt24H6">1.4　扣子（Coze）低代码开发环境</h3>
+    <p data-page-node-id="rLQM1LBBugf7YfXtzoaeSp"><span class="term" data-def="扣子 Coze：字节跳动推出的低代码 AI 智能体开发平台，无需编程即可搭建、调试并发布智能体。" data-page-node-id="n6NCtnotjE92uQPA0TYmlK">扣子（Coze）</span>
+       是本课程的统一实践平台。它的核心优势是<b data-page-node-id="ezMmuJ6oMNFe9iPAu55EjO">低代码</b>：你不需要写 Python，只要在可视化界面里"填人设、加知识、接插件、拖工作流"，就能产出一个可用智能体。</p>
+    <p data-page-node-id="pPGe7cxwDvDzbzjL2vNDcY">其工作空间主要包含：① <b data-page-node-id="kpZIOzeSJqHuE15cezDrx4">Bot 编排页</b>（配置人设与提示词、知识、插件）；② <b data-page-node-id="EypV1FHVNjUQzfCe8RpZjE">工作流画布</b>（用节点拖拽表达业务逻辑）；
+       ③ <b data-page-node-id="5zPLBlqOETcdXJQ0YqunPl">预览与调试</b>面板；④ <b data-page-node-id="UPHBiGrUuYcZcbUBIpAMCo">发布渠道</b>（豆包、飞书、API 等）。对零编程基础的信息资源管理学生，这套界面把"系统设计"直观地变成了"搭积木"。</p>
+
+    
+    <div class="pptgrid" data-cnt="14" data-page-node-id="FcV6GBfpgveoy6LEPDa96R">
+      <figure class="wxfig" data-page-node-id="W4pZC69UnJzysPoz9hRcfU">
+  <img src="media/coze/p013.jpg" alt="课件第 13 页" loading="lazy" data-page-node-id="j6NqR72JXp0XmeBiHGssX9">
+</figure>
+      <figure class="wxfig" data-page-node-id="g0CYR2Aay2LwyBEgMFOpZC">
+  <img src="media/coze/p014.jpg" alt="课件第 14 页" loading="lazy" data-page-node-id="ZTz4EXLTcgrbv2JWdYdaop">
+</figure>
+      <figure class="wxfig" data-page-node-id="eqrjm5Xmk3nl9VljPfGgzb">
+  <img src="media/coze/p015.jpg" alt="课件第 15 页" loading="lazy" data-page-node-id="ifQ90gFOYi3ioRna5jkc7l">
+</figure>
+      <figure class="wxfig" data-page-node-id="lkDZOWVlahSy0ABRHO9Wuy">
+  <img src="media/coze/p016.jpg" alt="课件第 16 页" loading="lazy" data-page-node-id="n9Bv3iHAk8HIJ9VxO1y9Fq">
+</figure>
+      <figure class="wxfig" data-page-node-id="d2GBhFjvHjnfCdPN6AeQf1">
+  <img src="media/coze/p017.jpg" alt="课件第 17 页" loading="lazy" data-page-node-id="yGr3SBmIWQwjM84TKBNNOY">
+</figure>
+      <figure class="wxfig" data-page-node-id="WbDrfwSVCYXCigiqubJ76d">
+  <img src="media/coze/p018.jpg" alt="课件第 18 页" loading="lazy" data-page-node-id="AblGrsVuWhqR8CU743lk0D">
+</figure>
+      <figure class="wxfig" data-page-node-id="gCwHNKtJUXPbLNfKMOQ7r9">
+  <img src="media/coze/p019.jpg" alt="课件第 19 页" loading="lazy" data-page-node-id="AsM4LuR9VeC4bXLf7bneVG">
+</figure>
+      <figure class="wxfig" data-page-node-id="1HcesfQGv3OBDdOhMBMOMQ">
+  <img src="media/coze/p020.jpg" alt="课件第 20 页" loading="lazy" data-page-node-id="03dieSNYLQ37W8DdXoA4W3">
+</figure>
+      <figure class="wxfig" data-page-node-id="9IQobEVHlUULFkMXbXeypH">
+  <img src="media/coze/p022.jpg" alt="课件第 22 页" loading="lazy" data-page-node-id="RXxcYz3WwrhHTnTEctnG9Q">
+</figure>
+      <figure class="wxfig" data-page-node-id="rvOzWT21vbBOvLsEPkQAPJ">
+  <img src="media/coze/p023.jpg" alt="课件第 23 页" loading="lazy" data-page-node-id="6Q8JPU23FWAbJ9dmt5ImvX">
+</figure>
+      <figure class="wxfig" data-page-node-id="sxO4cZJ4xPbvmB8Ffsftcc">
+  <img src="media/coze/p024.jpg" alt="课件第 24 页" loading="lazy" data-page-node-id="3dAZW82e7xkPKLjzWjpCA2">
+</figure>
+      <figure class="wxfig" data-page-node-id="UYROInPwZiqF3fUH67IvRO">
+  <img src="media/coze/p025.jpg" alt="课件第 25 页" loading="lazy" data-page-node-id="tYwl5D1Ao6OddpPxErny2W">
+</figure>
+      <figure class="wxfig" data-page-node-id="Dqy45BvBRJpDP68f6qkTz1">
+  <img src="media/coze/p027.jpg" alt="课件第 27 页" loading="lazy" data-page-node-id="FoNq1YF5l8GZLI8yMMytnS">
+</figure>
+      <figure class="wxfig" data-page-node-id="LBeWBW6qXZGcsAyHwrsAJl">
+  <img src="media/coze/p028.jpg" alt="课件第 28 页" loading="lazy" data-page-node-id="EeM4nZekFYHua5q3i4Y9jk">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s15" data-page-node-id="Dakepk4LyXRnOq2tneIGGN">1.5　智能体基本开发流程</h3>
+    <p data-page-node-id="4BT45rs7meu1b5Hex0zkkg">无论复杂与否，开发一个智能体都遵循一条主线：</p>
+    <ol data-page-node-id="Jy8L8G1KJ3oU9brrsBv0UT">
+      <li data-page-node-id="O5jNSywqnC6UyJaRH3vvoj"><b data-page-node-id="MbC8rC0aUkzURGmundO0hG">定义目标</b>：这个智能体替谁、解决什么问题？（对应系统规划）</li>
+      <li data-page-node-id="yHeX6jQxfGmkq9ZB1Ehc3h"><b data-page-node-id="ttaxOAmphsB97r1eIbxhNv">设计人设与提示词</b>：用自然语言写清它的角色、语气、能力边界。（对应需求/设计）</li>
+      <li data-page-node-id="zn4HBCgsv0e30rpAkm7nVA"><b data-page-node-id="ndxw5mIaySOugK2GXM5kBp">添加知识与插件</b>：挂载专属资料库、接入外部工具。（对应系统设计/集成）</li>
+      <li data-page-node-id="dF0N5knxTpA01YJ7i8okfO"><b data-page-node-id="KBLsGGNhza5eFTYHzvziIu">编排工作流</b>：把多步逻辑用节点串起来。（对应详细设计）</li>
+      <li data-page-node-id="knFC0cFrg5qziMj9wDW3RF"><b data-page-node-id="8Hpv425dAMfZoAIZFDQv1N">测试与调优</b>：用真实问题验证效果，迭代提示词。（对应系统测试）</li>
+      <li data-page-node-id="OTpxqg18wko0bFah2DcoPW"><b data-page-node-id="nUR6pHcEuZJ0GVrLXiNwDz">发布</b>：部署到对话平台或业务系统。（对应实施）</li>
+    </ol>
+    <p data-page-node-id="IYWm1L36C9Qso3pu8KXfLR">注意：这条流程与信息系统生命周期（SDLC）高度同构——<b data-page-node-id="EJz2yx3pSea3iw3EyjooJe">智能体开发不是"另起炉灶"，而是用新工具重走一遍 ISAD</b>。这正是本课程改革的设计初衷。</p>
+
+          
+    <span class="mod mod-theory" data-page-node-id="GD-T5">延伸 · 智能体工作流四大模式（节选自权威指南 1.5）</span>
+    <p>智能体工作流强调"迭代、自主、目标导向"。与传统单次提示词相比，差异如下表：</p>
+    <table data-page-node-id="GD-TB5">
+      <thead><tr><th>维度</th><th>传统提示词</th><th>智能体工作流</th></tr></thead>
+      <tbody>
+        <tr><td>交互模式</td><td>单次请求-响应</td><td>多轮迭代执行</td></tr>
+        <tr><td>控制权</td><td>用户完全控制</td><td>AI 自主决策</td></tr>
+        <tr><td>执行时间</td><td>毫秒〜秒级</td><td>秒级〜分钟级</td></tr>
+        <tr><td>能力边界</td><td>模型内在知识</td><td>工具扩展后的能力</td></tr>
+        <tr><td>结果质量</td><td>依赖提示词质量</td><td>可通过迭代改进</td></tr>
+      </tbody>
+    </table>
+    <p>典型模式：① <b>规划-执行</b>（先定计划再逐步执行，适合结构化任务）② <b>ReAct</b>（推理+行动交替，适合探索性任务）③ <b>反思-改进</b>（执行后自我评估，适合质量把控）④ <b>多智能体协作</b>（角色分工协同，适合复杂项目）。其共同底座是：状态管理、工具接入、终止条件、可观测性与人机协作护栏。</p>
+<div class="callout src">📚 来源：yeasy《智能体 AI 权威指南》第1章《智能体范式革命》（v1.0.0, 2026-08-18, CC BY-NC-SA 4.0）。以下为节选与教学化改写。</div>
+    <h3 class="sec-h" id="s16" data-page-node-id="kur4XA2i6awbXteMWp20bZ">1.6　主流智能体开发平台选型（信息资源管理视角）</h3>
+    <p data-page-node-id="ismIeg0MF0kl8b8WAnr06n">除 Coze 外，业界还有 Dify、文心智能体、通义星尘、豆包、以及面向开发者的 LangChain 等。选型时建议从三个角度判断：</p>
+    <table data-page-node-id="KoB6pOEPE9peNaDyLnrExw">
+      <thead data-page-node-id="y4aJHwGz5WY905BvRjq8P8"><tr data-page-node-id="VlUYxbIeUBaCPQzt6IPTcn"><th data-page-node-id="0SMVArakYopNhNwVanwQos">平台</th><th data-page-node-id="Wh8aWysj96RxvtKlZGWwPm">零代码友好度</th><th data-page-node-id="OKEjs76iHwFD2BObjpnl4X">知识库能力</th><th data-page-node-id="BaCtUDaXRTzWJR2PeCrXOz">合规与本地化</th></tr></thead>
+      <tbody data-page-node-id="jq7tBQap7AvlBxcfk4tEWS">
+        <tr data-page-node-id="Cw1aHaAZPnyDHsxZMoDEMW"><td data-page-node-id="rLz5v8J5N3dX8YivLBMjbg">扣子 Coze</td><td data-page-node-id="Cxaq8pLJpQnpeBRimm9sz4">高</td><td data-page-node-id="UgpZdF7jzMe9yWaHnHHYRj">强（多格式）</td><td data-page-node-id="bfkr4P8eioipUgfUotGBrR">国内合规、易发布</td></tr>
+        <tr data-page-node-id="cD7kLmB8lGqV5kHg1jS1im"><td data-page-node-id="kXeBiwgMiCEmOlZGI0sr3Q">Dify</td><td data-page-node-id="ETkXPHlAD20JWUwxyvgDj4">中（可私有部署）</td><td data-page-node-id="5vqCBHpVYPqBbQILHeCfjW">强</td><td data-page-node-id="XSelpch0DdMTdGrh2Gvm5B">支持本地化部署</td></tr>
+        <tr data-page-node-id="uZOQGvFydtK5n1D1Iko3YP"><td data-page-node-id="uuuw1dGAshggINFbBD5jYz">文心 / 通义 / 豆包</td><td data-page-node-id="Fne4KOFo2avyU0sB05haNB">高</td><td data-page-node-id="erMUBFxZPPbkKXPw4cZ83y">中</td><td data-page-node-id="IYctFro2Fz5SOCfMrTMiR5">国内合规</td></tr>
+        <tr data-page-node-id="U0OAOOYhUXOnC9ZeOoPAWW"><td data-page-node-id="Y9UwggnefBMhrVoozWmvho">LangChain</td><td data-page-node-id="vtrSUCx0ld2ICu6N8nohOK">低（需编程）</td><td data-page-node-id="Bvr5EMth3aGF5NVxsNPLEo">灵活</td><td data-page-node-id="wzU6ZJ2CpVe8cvkU1MdGOC">依赖自建</td></tr>
+      </tbody>
+    </table>
+    <p data-page-node-id="xTFc8TN6JPHBKFs5L5aHso">对<b data-page-node-id="F80BBVM1vBybMI5SAtplc3">信息资源管理者</b>，我们更看重"知识库是否能管好自有资料""是否国内合规可落地"——这恰是档案、方志、知识库建设的专业关切。</p>
+
+    <!-- C. 理论基石 -->
+    
+    <div class="pptgrid" data-cnt="2" data-page-node-id="YqF53wsSsGacDjGfauE7Ak">
+      <figure class="wxfig" data-page-node-id="XFmX4bfic1fYMxipQXNoyY">
+  <img src="media/coze/p021.jpg" alt="课件第 21 页" loading="lazy" data-page-node-id="LMtZWcIopjGGlVR5PZT9q2">
+</figure>
+      <figure class="wxfig" data-page-node-id="fQEP6V0mXY3wTQOBlovCVu">
+  <img src="media/coze/p026.jpg" alt="课件第 26 页" loading="lazy" data-page-node-id="aKA8xf3lCBdQKDVAZsrVFX">
+</figure>
+    </div>
+
+      
+
+    <!-- E. 知识拓展与前沿 -->
+    
+    <h3 class="ppt-src-h">第2章《信息、管理与信息系统》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p02_005.jpg" alt="第2章 P.5"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_006.jpg" alt="第2章 P.6"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_007.jpg" alt="第2章 P.7"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_008.jpg" alt="第2章 P.8"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_009.jpg" alt="第2章 P.9"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_010.jpg" alt="第2章 P.10"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_011.jpg" alt="第2章 P.11"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_012.jpg" alt="第2章 P.12"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_013.jpg" alt="第2章 P.13"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_014.jpg" alt="第2章 P.14"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_015.jpg" alt="第2章 P.15"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_016.jpg" alt="第2章 P.16"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_017.jpg" alt="第2章 P.17"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_018.jpg" alt="第2章 P.18"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_019.jpg" alt="第2章 P.19"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_020.jpg" alt="第2章 P.20"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_021.jpg" alt="第2章 P.21"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_022.jpg" alt="第2章 P.22"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_023.jpg" alt="第2章 P.23"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_024.jpg" alt="第2章 P.24"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_025.jpg" alt="第2章 P.25"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_026.jpg" alt="第2章 P.26"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_027.jpg" alt="第2章 P.27"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_028.jpg" alt="第2章 P.28"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_029.jpg" alt="第2章 P.29"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_030.jpg" alt="第2章 P.30"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_031.jpg" alt="第2章 P.31"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_032.jpg" alt="第2章 P.32"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_033.jpg" alt="第2章 P.33"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_034.jpg" alt="第2章 P.34"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_035.jpg" alt="第2章 P.35"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_036.jpg" alt="第2章 P.36"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_037.jpg" alt="第2章 P.37"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_038.jpg" alt="第2章 P.38"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_039.jpg" alt="第2章 P.39"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_040.jpg" alt="第2章 P.40"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_041.jpg" alt="第2章 P.41"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_042.jpg" alt="第2章 P.42"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_043.jpg" alt="第2章 P.43"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_044.jpg" alt="第2章 P.44"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_045.jpg" alt="第2章 P.45"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_046.jpg" alt="第2章 P.46"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_047.jpg" alt="第2章 P.47"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_048.jpg" alt="第2章 P.48"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_049.jpg" alt="第2章 P.49"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_050.jpg" alt="第2章 P.50"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_051.jpg" alt="第2章 P.51"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_052.jpg" alt="第2章 P.52"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_053.jpg" alt="第2章 P.53"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_054.jpg" alt="第2章 P.54"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_055.jpg" alt="第2章 P.55"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_056.jpg" alt="第2章 P.56"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_057.jpg" alt="第2章 P.57"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_058.jpg" alt="第2章 P.58"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_059.jpg" alt="第2章 P.59"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_060.jpg" alt="第2章 P.60"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_061.jpg" alt="第2章 P.61"></figure>
+      <figure><img loading="lazy" src="images/ppt/p02_062.jpg" alt="第2章 P.62"></figure>
+    </div>
+<h2 class="part p3" data-page-node-id="jT45iqqAKWGzmUFLH9F0EO">第三部分　拓展练习</h2>
+      <h3 class="sec-h" id="kb" data-page-node-id="zfnYri8GNtFUlMa2cbS8Yv">知识拓展与行业前沿</h3>
+    <span class="mod mod-kb" data-page-node-id="MPo47a8wyLDzzDUYUwZGSJ">拓展 · 智能体的严格定义与四要素</span>
+    <p data-page-node-id="rUPAwQMcqhWTFCoHqZ93vj">学界常从四个属性刻画智能体：<b data-page-node-id="1Q7NgJFCHXxQT2VzMjDVAl">自主性</b>（无需持续干预）、<b data-page-node-id="x8VpZKAfa6BXXeDvC9oA5C">反应性</b>（感知并响应环境）、
+       <b data-page-node-id="kqHyLEFvBvnFJKlWSpsEgo">社会性</b>（能与其他智能体/人协作）、<b data-page-node-id="5hpdxhtMz7PSP39d2hFRCk">主动性</b>（主动发起达成目标的行为）。这比 1.2 的"能力"视角更偏"行为属性"。</p>
+    <span class="mod mod-kb" data-page-node-id="IqRbbPoWkKs9bjXr7hf12m">前沿 · 从传统智能体到 LLM 驱动新范式</span>
+    <p data-page-node-id="yrcLzlktzI817TLdP8dCGW">传统智能体多为"符号规则 + 规划器"；LLM 驱动范式把"策略"交给了大模型——
+       <b data-page-node-id="h4LK8GqhEKycrKGDyBLgR3">提示词即策略（prompt as policy）</b>。这使得非程序员也能通过自然语言"编程"，也带来了可解释性、稳定性等新挑战。</p>
+    <span class="mod mod-kb" data-page-node-id="dmlC7YNUHzFXBUR4ziE91T">拓展 · 智能体的三种分类维度</span>
+    <p data-page-node-id="sFlrS2qjLhQzA2cRH4xMqR">① 按能力：简单响应式 / 任务型 / 多智能体协作型；② 按自主性：辅助型 / 自主型；
+       ③ 按场景：客服、研发、数据分析、知识管理。本课程主线落在<b data-page-node-id="idm5tVN4BHD01XT8XXcP8K">知识管理型任务智能体</b>。</p>
+    <div class="callout src" data-page-node-id="AHOFOiY0yFHybzFmflz2Ce">📚 来源：ima 知识库《智能体宇宙》。后续章节将持续引用该库与《AI前沿研究报告》。</div>
+
+    <!-- F. 课程思政 -->
+    
+<div class="casebox" data-page-node-id="CITSj24t7ZmNVxOcwkIhhl">
+  <h4 data-page-node-id="yCHPbwwZGgCNVTClf1h31G">🗂️ 案例 · 网络语言智能系统（课程贯穿项目）</h4>
+  <ul data-page-node-id="gCpjqSX8op1wBCE6xKF3iT">
+    <li data-page-node-id="yRoj5tkdg8FHZCfsuzqtAE">🎯 <b data-page-node-id="F3iygICNmF9EZT45NYfdkC">场景</b>：把 2004–2026 年的互联网流行语与心灵鸡汤，建成一个"年度热词档案馆"智能体。用户说"讲讲 2021 年"，它从知识库检索该年热词，输出「词 + 含义 + 来源场景 + 情感基调」。</li>
+    <li data-page-node-id="FlHu3v3yVIdDIHX7nqJigD">🤖 <b data-page-node-id="boumw8C00RIS4xlBh5FvJb">四要素映射</b>：角色=热词讲解员；工具=RAG 检索；行动=汇总成卡片；完成条件=覆盖该年 Top 热词。这正是本章"智能体=嵌入业务流的能力单元"的第一个可触摸例子。</li>
+    <li data-page-node-id="HGWOs2YBpcO3On8BEGOifr">🧩 <b data-page-node-id="MaVs6D722HFbeGQDzw2pfD">对应能力</b>：本章"信息系统的智能体化"主线——你不必先写代码，而是先想清楚"目标是什么、需要哪些工具、何时算完成"。</li>
+  </ul>
+</div>
+<div class="callout tip" data-page-node-id="0GKHe88QOGjqFGIVIhCHEe">💡 <b data-page-node-id="6Ez0BMGywhoHMsq2432RCm">算法冷知识</b>：把全部热词按年份聚合，画一条"内卷→躺平→松弛感"的情感时间序列，就是"数据→信息→知识"的 DIKW 可视化；用 Coze 上传《流行语编年表》为知识库即可零代码跑起来。</div>
+
+<span class="mod mod-kb" id="lit" data-page-node-id="TVOSsevmq1HkfYHdUHahiu">前沿文献 · 近三年精选（2023–2026）</span>
+    <p data-page-node-id="1U9bqeW86mBI17jOxMP2p8">以下文献反映本章主题在智能体时代的最新进展，供学有余力的同学延伸阅读（链接指向原文/预印本）。</p>
+          <div class="callout src" data-page-node-id="NiVAqK04UGRO185elfjHZD">🎓 <b data-page-node-id="Q9HHENmFHPoH8KPXvjZ3xk">学界观点</b>：张晓林（2024）在《中国图书馆学报》提出“Library-Inside”，主张把图情的知识组织与情报能力内嵌到科研与学习工作流中；叶鹰等（2024）进一步以 AIGPT 技术生态探讨“全面知识管理”（TKM = IM × AI）。这与本课程“智能体即嵌入业务流的能力单元”主线高度契合。</div>
+<ul class="lit-list" data-page-node-id="jl3SBSoGWwxriIqiFf7jF1">
+      <li data-page-node-id="MUEmF2u9k1mFG0dTuHEiGy"><a href="https://arxiv.org/abs/2309.02186" target="_blank" rel="noopener" data-page-node-id="uQciHPsmTrcGU3IhArcB6A">大语言模型智能体的崛起与潜力：综述（The Rise and Potential of Large Language Model Based Agents: A Survey）</a>
+        <div class="lit-meta" data-page-node-id="D4lraTmrSVVJtwIS9DhxgV">Xi et al., 2023, arXiv:2309.02186</div>
+        <div class="lit-note" data-page-node-id="yVDqvP8vnmMkIRaNbzGxrT">奠定“脑–感知–行动”智能体栈，最常被引用的入门综述</div></li>
+
+      <li data-page-node-id="Tr6AHCSOdmMMiI4AfDDwAJ"><a href="https://arxiv.org/abs/2308.11432" target="_blank" rel="noopener" data-page-node-id="No0IIBVE1OlbGOuieYIsHG">基于大语言模型的自主智能体综述（A Survey on Large Language Model based Autonomous Agents）</a>
+        <div class="lit-meta" data-page-node-id="XL0s2iczGDP34oGkyizQVZ">Wang et al., 2024, Frontiers of Computer Science (arXiv:2308.11432)</div>
+        <div class="lit-note" data-page-node-id="VaB5zcWvPNrb6CW2gu8V46">单智能体规划 / 多智能体协作 / 人在回路的系统分类</div></li>
+
+      <li data-page-node-id="gn3WHwF3kEdXaraglufDW6"><a href="https://arxiv.org/abs/2508.17281" target="_blank" rel="noopener" data-page-node-id="s2jXp9Gk2RhqMtsDFFioGA">从语言到行动：LLM 作为自主智能体与工具使用者的综述（From Language to Action: A Review of LLMs as Autonomous Agents and Tool Users）</a>
+        <div class="lit-meta" data-page-node-id="ms3SsOi5ZMvyazcrneDYtv">Chowa et al., 2025/2026, Artificial Intelligence Review (arXiv:2508.17281)</div>
+        <div class="lit-note" data-page-node-id="LfKPLW84ZeLw8hneq3a66j">聚焦 2023–2025 A*/A 会议与 Q1 期刊，覆盖架构/工具/认知机制</div></li>
+
+      <li data-page-node-id="O00hqBla7C29rxSkCEb2tB"><a href="https://www.deepnlp.org/store/ai-agent/autonomous-agent/pub-xinzhel/llm-agent-survey" target="_blank" rel="noopener" data-page-node-id="ZorFxq9h1dF9hK1LdG9XKc">LLM 智能体三大范式综述：工具使用、规划与反馈学习（A Review of Prominent Paradigms for LLM-Based Agents: Tool Use, Planning, and Feedback Learning）</a>
+        <div class="lit-meta" data-page-node-id="h0c1ufX9j5KodaKbvhiNGH">Li, X., 2025, COLING 2025</div>
+        <div class="lit-note" data-page-node-id="ap6eg3zgAPNdsvlZCk5vtV">工具使用(含RAG)/规划/反馈学习三大范式</div></li>
+
+      <li data-page-node-id="UpFsxAZsGQrxk6sP3sbZOd"><a href="https://scholar.google.com/scholar?q=LLM-Based+Agents+for+Tool+Learning%3A+A+Survey" target="_blank" rel="noopener" data-page-node-id="CHoAyMjOEGnoHTbKi6YJZ2">面向工具学习的 LLM 智能体综述（LLM-Based Agents for Tool Learning: A Survey）</a>
+        <div class="lit-meta" data-page-node-id="8b003RP6JZGDrox7nQPHoB">Sun et al., 2025, arXiv</div>
+        <div class="lit-note" data-page-node-id="mPwfFpwlQ2ROOcWgLaD08s">200+ 工具增强智能体工作的统一评测协议</div></li>
+
+          <li data-page-node-id="HGCbShrmAzUGRaFqMvjPkf"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=Library-Inside%EF%BC%9A%E9%9D%A2%E5%90%91%E7%A7%91%E7%A0%94%E4%B8%8E%E5%AD%A6%E4%B9%A0%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%9A%84%E7%9F%A5%E8%AF%86%E6%9C%8D%E5%8A%A1%E5%B5%8C%E5%85%A5" target="_blank" rel="noopener" data-page-node-id="S4iiiBpc044zZhHxJEYtmo">Library-Inside：面向科研与学习工作流的知识服务嵌入</a>
+        <div class="lit-meta" data-page-node-id="EFeLVOLF5bAN6rgZmG9Yvv">张晓林. Library-Inside：面向科研与学习工作流的知识服务嵌入[J]. 中国图书馆学报, 2024, 50(3): 4-14.</div>
+        <div class="lit-note" data-page-node-id="PxmJH22F0DlH2OnYaVRHgD">提出将图书馆能力嵌入用户工作流的“馆内嵌”理念，呼应智能体即嵌入式能力</div></li>
+
+      <li data-page-node-id="2Rfn8KjFvUEVKhGCVGpPpx"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=AIGPT%20%E6%8A%80%E6%9C%AF%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E7%94%9F%E6%80%81%E4%B8%8B%E5%AE%9E%E7%8E%B0%E5%85%A8%E9%9D%A2%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%BC%95%E8%AE%BA" target="_blank" rel="noopener" data-page-node-id="4yZ3HnapXJONZhvRiDhbM8">AIGPT 技术及其应用生态下实现全面知识管理引论</a>
+        <div class="lit-meta" data-page-node-id="bpaURnF76pDToZmHJBjHYq">叶鹰, 王涵洁. AIGPT 技术及其应用生态下实现全面知识管理引论[J]. 中国图书馆学报, 2024, 50(6): 15-26.</div>
+        <div class="lit-note" data-page-node-id="bCYQJunOnsLbQwBQvKGaUp">给出 TKM = IM × AI 公式，界定大模型时代知识管理新内涵</div></li>
+
+      <li data-page-node-id="OwgbSrWqZm1NhfTaKE7lwq"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E6%99%BA%E6%85%A7%E5%9B%BE%E4%B9%A6%E9%A6%86%E4%B8%8E%E6%99%BA%E8%83%BD%E7%9F%A5%E8%AF%86%E6%9C%8D%E5%8A%A1%EF%BC%9A%E4%BB%8E%E6%A6%82%E5%BF%B5%E5%88%B0%E8%8C%83%E5%BC%8F" target="_blank" rel="noopener" data-page-node-id="UUoFudg2AViPdeH3UqnjzL">智慧图书馆与智能知识服务：从概念到范式</a>
+        <div class="lit-meta" data-page-node-id="dFUrLlzLAFwa5WYT90J4WU">初景利, 等. 智慧图书馆与智能知识服务：从概念到范式[J]. 大学图书馆学报, 2023, 41(4): 12-20.</div>
+        <div class="lit-note" data-page-node-id="ek6EuwkjhArSnhimUbEoET">刻画智慧图书馆的智能服务框架，对应本章信息系统概述与智能体定位</div></li>
+
+    </ul>
+        <div class="callout tip" data-page-node-id="RliiLh3qGrSS2ADmE3L7AZ">💡 <b data-page-node-id="n6LtkM2RTBPJ85Dg9nc5oT">软考/职业考点</b>：本章对应软考高项「信息化发展 / 信息系统治理」、CISA「IT 治理(D2)」。信息系统从来不是纯技术，治理与战略是其顶层视角。</div>
+
+          <!-- G3. 知识巩固与提高 -->
+    <h3 class="sec-h" id="review">知识巩固与提高</h3>
+    <div class="btnrow">
+      <a class="btn" href="课堂测试_第01章.pptx" target="_blank" rel="noopener">📂 第01章 课堂测试（PPT · 16 题 · 点击打开）</a>
+    </div>
+<!-- H. 上机实验 + 小结 -->
+    <div class="callout method" data-page-node-id="UKWHb2wjn00B89qO0MVcZo">
+      <span class="m-tag" data-page-node-id="xZcoXRchUQkfFtKU1zB62V">本章学习方法 · 费曼学习法（Feynman Technique）</span>
+      <p data-page-node-id="gnDtRhXa258JUU4tZGWOGn"><b data-page-node-id="zXulIODnTP2g1hhmR4yotM">核心理念：</b>真懂的标志是"能讲给外行听明白"。本章把费曼法<b data-page-node-id="6NLCOn74FB97tvlu1b7tnV">翻转应用</b>——不是你读完了做测验，而是<b data-page-node-id="sLj2mGEZYpEe2JsKaIcH6m">你录屏讲解自己的实验</b>，讲不清的地方就是你没真懂的地方。</p>
+      <p data-page-node-id="Eyorm4gILuX9L7MUCqYbce"><b data-page-node-id="ukYx92LybBK4jIoImkX4w4">四步闭环：</b>① <b data-page-node-id="jaU6OtNulCB1mJPuLCCKGA">选概念</b>（挑一个你以为懂了的术语，如"感知—决策—行动循环"）② <b data-page-node-id="zXPHJaDaE9BfvZHAabQvjS">讲出来</b>（假装教外行，大白话+画图）③ <b data-page-node-id="9ZAOTCCXAaMNFcke5Lm4gr">找漏洞</b>（卡壳处即盲区，回去补）④ <b data-page-node-id="IcQ3Lbi05AArh5cCCojbi3">简化</b>（用一句生活类比收尾）。每章的"实验录屏"都是一次费曼演练。</p>
+    </div>
+
+          <h3 class="sec-h" id="exp" data-page-node-id="A8mbE6vI5gDG0ACsLHDwTv">上机实验 · 创建你的第一个智能体</h3>
+    <div class="labtask" data-page-node-id="pvG95bW3xxaWGXj6Yea2WI">
+      <h3 data-page-node-id="ULWVNKTbmh11G655IjAgFV">📋 实验任务书</h3>
+      <p data-page-node-id="TvK4bxwcQ2R4n9zLmUOYaz"><b data-page-node-id="6dDBQOJSztfamUv0JXtfKD">目标：</b>在 Coze 中独立创建一个"图书推荐助手"（或旅行助手），跑通"目标→人设→知识→插件→发布"全流程。</p>
+      <p data-page-node-id="I6OLp6ZWmsVI0cXMKtl2Gv"><b data-page-node-id="aa09rAPlwFUL8oYWLxVxCD">环境：</b>扣子 Coze 工作空间（自备账号）。</p>
+      <p data-page-node-id="Lr4aGzHaK7BnUoKVvQ28nb"><b data-page-node-id="vPhGyExunDFfDlUpagIGQG">步骤：</b>① 新建 Bot 并撰写人设；② 上传一份书目/攻略资料作知识库；③ 绑定 1 个插件；④ 用 3 个真实问题调试；⑤ 发布到豆包并截图。</p>
+      <p data-page-node-id="oLaGLJNCc4cMIZkuEnpKXN"><b data-page-node-id="cUVQ8FTpFJouZoHz9wpexb">交付物：</b>Bot 链接 + 调试对话截图（≥3 组）+ 100 字反思（提示词如何影响回答质量）。</p>
+      <p data-page-node-id="7q2CW5OKz0FtWdUczgUj45"><b data-page-node-id="r5H9MSqkXkRWsMf1lJztoA">评分点：</b>人设清晰(20%) · 知识库相关(20%) · 插件调用正确(20%) · 回答质量(25%) · 反思深度(15%)。</p>
+    </div>
+
+    <h3 class="sec-h" id="labexp">🛠 分步操作 · 5 分钟第一个智能体（旅行助手）</h3>
+    <span class="mod mod-lab" data-page-node-id="ZLqKrpywMEQpF2TpOlrFnC">动手 · 分步操作</span>
+    <ol data-page-node-id="OxXE4ZrKyZ0Ss9FssZF2Ak">
+      <li data-page-node-id="v7cTEWZnWgH260XvyiGXrH"><b data-page-node-id="H4cQDXAYf4ayHp1OqnvSoK">登录</b> Coze 工作空间，点击"新建 Bot"。</li>
+      <li data-page-node-id="NjjqBofkk1B8H1uzEBOUKD"><b data-page-node-id="BrVo70dRycQIMQGNDQsqqy">写人设与开场白</b>：例如"你是一名资深旅行规划师，语气亲切，擅长根据预算与天数定制行程"。</li>
+      <li data-page-node-id="51U0RFWlBgkrCcJ3y8tYe2"><b data-page-node-id="XoIJLd92979OTGPbpCzKyF">加知识</b>：上传一份本地"城市攻略.docx"作为知识库，让智能体基于真实资料回答。</li>
+      <li data-page-node-id="8KAAFIzWZLZ68tTx7wr8pl"><b data-page-node-id="74AOwyis47XmD6Ox9cWrxn">绑插件</b>：添加"天气查询""网页搜索"插件，赋予实时信息能力。</li>
+      <li data-page-node-id="l8cA58T0MocZSguTCetoAk"><b data-page-node-id="z30EGb8KuA4cG3SAUwGh1f">预览调试</b>：在右侧对话框问"三天两夜、预算 2000，去成都怎么玩？"观察回答质量。</li>
+      <li data-page-node-id="6UHzgR0FkbSq1pnGcm4XLI"><b data-page-node-id="MB6MZdqon5owI5Ui4RtYc1">发布</b>：选择"豆包"等渠道，得到可分享的链接。</li>
+    </ol>
+    <details class="fold" data-page-node-id="Z4b2cewoiTOGzbKhCeOCsh">
+      <summary data-page-node-id="UjrdwFOobgWH9VcNGD5zxh">📝 提示词模板（可直接套用）</summary>
+      <p data-page-node-id="ngNKmPa5eb4SHRIHJArPvH">角色：你是一名[领域]助手。<br data-page-node-id="DZlShSBdyXTt259jCZIPDW">
+      能力：能完成[任务A]、[任务B]，必要时调用[插件]。<br data-page-node-id="KO6miHSNADGgmuV2pkvez6">
+      约束：仅基于[知识库]回答；不确定的事主动说明；语气[风格]。<br data-page-node-id="Z5SaFH2Zud3conpjcFrUBe">
+      开场白：[一句引导用户提问的话]。</p>
+    </details>
+<h3 class="exp-h" data-page-node-id="I3UF1WsxetG3J0R6NbXukv">🔬 扩展实验（选做 2–3 项，巩固费曼讲解能力）</h3>
+    <div class="expext" data-page-node-id="AARl1bDVONlXS9XdjId2yA">
+      <h4 data-page-node-id="xBvMKc5GvNyqobJyxVT0Q9">扩展实验 1 · 插件能力对比<span class="tag" data-page-node-id="K6TcLigOFTkGuF76oZEo78">感知 / 行动</span></h4>
+      <p data-page-node-id="baDcLyR5x4G5NOfVsRahDW"><b data-page-node-id="Mql55Ls5oQJzBrwSWitIsA">任务：</b>为"图书推荐助手"分别绑定「网页搜索」与「天气查询」两个插件，针对同一问题（如"适合雨天读的书"）观察回答差异。</p>
+      <p data-page-node-id="QZHh2bfEo0kUwnQ3suauKT"><b data-page-node-id="BySqVUC52rvjq67U873yTl">交付：</b>一张对比表（插件 / 是否用到实时信息 / 回答质量），并<b data-page-node-id="GxD5Nkh7ypsDPrD8BjksXc">用费曼法录屏讲清"插件如何扩展智能体的行动能力"</b>。</p>
+    </div>
+    <div class="expext" data-page-node-id="9ras9MV0Fo2gCkH30dWHNR">
+      <h4 data-page-node-id="3ME3GqZd25kMpGBRkUQH7s">扩展实验 2 · 人设对比实验<span class="tag" data-page-node-id="KUo0FDPUzI4v1wZHNUkmLd">认知 / 提示词</span></h4>
+      <p data-page-node-id="K3kaoru1ZVncKahFd6QHfU"><b data-page-node-id="ggAGXvcl5qxTCG9S2h2qp0">任务：</b>复制同一 Bot，仅修改"人设语气"（严肃学者 vs 亲切朋友），用同一组 3 个问题测试，记录回答风格差异。</p>
+      <p data-page-node-id="M19fYNLng49jmEEEAyscle"><b data-page-node-id="hv33P2G9k3uCXkk3ZxPPDa">交付：</b>截图对比 + 一句费曼式总结："提示词如何像开关一样改变智能体的行为策略"。</p>
+    </div>
+    <div class="expext" data-page-node-id="PxZ6ncg0KC0Cwg9DnFTIXI">
+      <h4 data-page-node-id="IZPrs5yBPqr6qkWM53fwQ7">扩展实验 3 · 平台选型调研<span class="tag" data-page-node-id="fuC8xHySuDVbyIs1jBgzCJ">决策 / 选型</span></h4>
+      <p data-page-node-id="5njQpFszf0o9T0BdfFQpLQ"><b data-page-node-id="zCcYxjBHNquSoQ3AIClxJR">任务：</b>注册试用 Coze 与 Dify（或文心/通义）的免费版，各建一个最小 Bot，从"零代码友好度 / 知识库能力 / 合规"三维度打分。</p>
+      <p data-page-node-id="ZRZKl9dfDeVDkoq3F7wOEE"><b data-page-node-id="HEPE8tmOTJC4sODLlOoh4d">交付：</b>一份选型评分表，并录屏讲解"为什么信息资源管理者更看重知识库与合规"。</p>
+    </div>
+
+    
+    <h2 class="part p4" data-page-node-id="lyy3CpwR1eiGJwlKYAO8JM">第四部分　本章小结</h2>
+      <h3 class="sec-h" id="sum" data-page-node-id="cNCVZYStfHHo8CtXyB7Roz">本章小结</h3>
+    <div class="summary" data-page-node-id="A8622EGjwS0rzC8v0rFDFq">
+            <h4 data-page-node-id="vnUYUalUrqnEiz5wGKJNnn">核心要点回顾</h4>
+      <ul data-page-node-id="I3ddr47fBnxNG6UdVmehP5">
+        <li data-page-node-id="MEgCRMGF3smePJwUNThxrM">智能体 = LLM 为脑 + 感知/认知/行动/记忆四能力的自适应系统。</li>
+        <li data-page-node-id="pdIbJtJScEkbmihoov1bAp">其运行是"感知—决策—行动"反馈闭环，区别于瀑布式单向开发。</li>
+        <li data-page-node-id="I7aAkbjAVozdNCE4RsACmh">四能力 ↔ 信息系统"采集—处理—输出—存储"职能同构；开发流程 ↔ SDLC 同构。</li>
+        <li data-page-node-id="xS5EomYIBIDnIMAt0HvGgu">Coze 等低代码平台让零基础者也能实践 ISAD 全流程；选型看重知识库与合规。</li>
+        <li data-page-node-id="ENfVpoa5OFSS7slhCsrVEE">科技自立自强：做平台的使用者，更做技术主权与数据主权的理解者。</li>
+      </ul>
+      <p class="progress-txt" data-page-node-id="qFSC0H1KMx3jPTVl4oDLkg">延伸阅读：ima 知识库《智能体宇宙》"智能体的严格定义"；《信息系统分析与设计》教材第 1 章；人民日报关于科技自立自强的评论员文章。</p>
+    </div>
+      <h3 class="sec-h" id="caseext">拓展案例 · 天工超级智能体</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B2-06</span> <b>天工超级智能体（Skywork Super Agents）</b><br><span class="cunit">申报单位：昆仑万维科技股份有限公司</span></p>
+        <p>天工超级智能体（Skywork Super Agents）是昆仑万维于2025 年5 月22 日全球发布的“AI Office 智能体”。它基于 AI Agent 架构与 Deep Research 技术，旨在颠覆传统 Office 工作流，首发即在 GAIA 榜单以 82.42 分超越 OpenAI 与 Manus，位列全球第一。平台采用“5+1”架构：5 个专家智能体分别专注于文档、PPT、表格、网页、播客的一站式生成，1 个通用智能体接入数十个 MCP 工具，处理图片、音乐、视频等多模态创意任务。</p>
+        <p><b>看点</b>：天工把“先问清楚再动手”做成了产品机制——澄清卡片，并把所有产出都挂上可验证来源。对照本章 1.5 的智能体开发流程看，它等于把需求澄清与结果溯源两步前置并固化。</p>
+        <h4>延伸思考题</h4>
+        <ol>
+          <li>天工的“澄清卡片”在任务启动前主动追问目标、背景与限制条件，并生成待办清单供二次确认。对照本章“智能体基本开发流程”，这套机制相当于把哪一步前置了？如果把它移植到 Coze 的人设与回复逻辑中，你会怎么写这段提示词？</li>
+          <li>天工为文档、PPT、表格三类产出都提供了来源溯源。请以信息资源管理的专业视角说明：为什么“可追溯”是信息系统可信性的必要条件？缺失溯源会带来哪些具体风险？</li>
+          <li>“5+1”架构中，通用智能体接入了数十个 MCP 工具。若让你为一个“校园图书馆咨询智能体”规划工具集，你会选哪 3 个？说明选择依据与调用顺序。</li>
+        </ol>
+        
+      </div>
+
+      
+<!-- AGENT-LIT-INJECT -->
+    <span class="mod mod-kb">📚 智能体工程必读文献 · 基础层 · 任何 Agent 工程师都该读</span>
+    <ul class="lit-list">
+      <li>
+        <a href="https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/" target="_blank" rel="noopener">Zaharia et al.《The Shift from Models to Compound AI Systems》</a>
+        <div class="lit-meta">Berkeley BAIR 博客, 2024-02-18（技术博客，无 DOI）</div>
+        <div class="lit-note">复合 AI 系统范式：把智能体视为“多组件编排”而非单一大模型</div>
+      </li>
+      <li>
+        <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener">Anthropic《Building Effective Agents》</a>
+        <div class="lit-meta">Anthropic 工程博客, 2024-12-19（技术博客，无 DOI）</div>
+        <div class="lit-note">工作流 vs 智能体、提示链/路由/并行/编排–工作器/评估–优化等基础模式</div>
+      </li>
+      <li>
+        <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener">Anthropic《Effective Context Engineering for AI Agents》</a>
+        <div class="lit-meta">Anthropic 工程博客, 2025-09-29（技术博客，无 DOI）</div>
+        <div class="lit-note">上下文工程：动态写/选/压缩上下文，是 Agent 记忆与推理的底座</div>
+      </li>
+      <li>
+        <a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener">Yao et al.《ReAct: Synergizing Reasoning and Acting in Language Models》(ICLR 2023)</a>
+        <div class="lit-meta">arXiv:2210.03629 · DOI https://doi.org/10.48550/arXiv.2210.03629</div>
+        <div class="lit-note">Thought→Action→Observation 循环，现代 Agent 控制流的事实标准</div>
+      </li>
+    </ul>
+<!-- /AGENT-LIT-INJECT -->
+
+<div class="btnrow" data-page-node-id="1mSefO3aIMStD89eGbosDG">
+      <button class="btn" id="exportPdf" data-page-node-id="sTDti5yjizF70ihLG0CZ62">⬇ 导出本章 PDF</button>
+      <a class="btn ghost" href="index.html" data-page-node-id="3zY8Y9GHkCXKsCiqvDtrOF">← 返回门户</a>
+    </div>
+
+    <div class="readbox" data-page-node-id="pJWhFgkuykjZt5GKRVm6i2">
+      <span class="dot" id="readDot" data-page-node-id="z6fjRN7esqUefAHKDHOHnD"></span>
+      <button class="btn ghost" id="markRead" data-ch="1" data-page-node-id="Pux0D5C3tWin8CUedTJmAT">标记为已读</button>
+    </div>
+</main>
+</div>
+
+<div id="termtip" data-page-node-id="0G9o879Nxy7oa0x1ve0FNQ"></div>
+<script src="app.js"></script>
+</body>
+</html>
+<!-- ISAD-GUIDE-CH1-INJECTED -->

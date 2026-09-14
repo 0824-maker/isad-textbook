@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="kgB4aCPjYrLcBRmQ5iTEeP">
+<head data-page-node-id="sT9CVLeOfvkXzubfpbaMiq">
+<meta charset="UTF-8" data-page-node-id="ybdvx40TpKuaPYhA09NZyX">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="retzuwdTUy5aO4Lw52gpCS">
+<title>第9章 系统实施测试与项目管理 · 数字教材</title>
+<link rel="stylesheet" href="style.css" data-page-node-id="GwaOqhtz5JuNYZrbGwFU4u">
+</head>
+<body data-page-node-id="5PW7RfbaAgM6YWZ5lMqVLB">
+<header class="topbar" data-page-node-id="nNcylhxlW8Qdhb4D8WSqj9">
+  <div class="wrap" data-page-node-id="rWSiRm6OTGEgIIJF25GeHP">
+    <div class="brand" data-page-node-id="rLhwbfdv7A3xacLJG5ppTq">《信息系统分析与设计》· 数字教材
+      <small data-page-node-id="vSvRHvGR5azHmzmap9Z9Xz">智能体实战主线 · 信息资源管理专业</small></div>
+    <nav data-page-node-id="43396CcILwebsS2OdoYnhM">
+      <a href="index.html" data-page-node-id="oh6Gu4s0yXaHDmjnx4MTlQ">门户</a>
+      <a href="ch08.html" data-page-node-id="m0ppFkNMNStjBXLC7vP1Bd">第8章</a>
+      <a href="ch09.html" data-page-node-id="PCtbgufnWvv2GiNv3ZE7ZV">第9章</a>
+      <a href="appendix.html" data-page-node-id="UvluYQuIBPRMpYIdTT4uKc">附录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc" data-page-node-id="ADFUdPl2dd0KX2hIfY1xHK">
+  <aside class="side" data-page-node-id="QnHekVWia7sDMot7VQe6Ri">
+    <h4 data-page-node-id="vQ4cwdCKfGloLjYzzYtBq4">第 9 章 目录</h4>
+    <a href="#lead" class="cur" data-page-node-id="f8IGKNLnJbTE8cE2dDyQbn">导语与学习目标</a>
+    <span class="navpart p1" data-page-node-id="9PwCngUWNqGDkbnmDuNup6">第一部分　课程导学</span>
+    <a href="#theory" data-page-node-id="ozuwKlfT4dphC4ADuZ1fJ2">理论基石</a>
+    <a href="#ideo" data-page-node-id="ujYevsHKTdYT68HuzmYzqe">课程思政</a>
+    <a href="#casein" data-page-node-id="HRZ513o1ZAFSuAvzuNR9vJ">案例导入</a>
+    <span class="navpart p2" data-page-node-id="SYDmvjAiwOydYSiPVQGMpb">第二部分　课程内容</span>
+    <a href="#s91" data-page-node-id="HW37F3ntsDuXZDEbrTvYyq">9.1 实施与发布</a>
+    <a href="#s92" data-page-node-id="5lvMWSBV4HiATa0vJB6SBh">9.2 测试策略</a>
+    <a href="#s93" data-page-node-id="H2aGZydsK7rZ7RwdcVB0nU">9.3 运行维护</a>
+    <a href="#s94" data-page-node-id="rNZBFcm5kpxDexMHH1Ljlm">9.4 综合项目</a>
+    <a href="#s95" data-page-node-id="XFZ7RtAQGLGbVAypMeuMyC">9.5 治理与认证视野</a>
+    <span class="navpart p3" data-page-node-id="HuOvvoJeRhUmediN1aj8TX">第三部分　拓展练习</span>
+    <a href="#kb" data-page-node-id="4Q6jUYCzAN1s2ioNbnrBPa">知识拓展与前沿</a>
+    <a href="#lit" data-page-node-id="KEgB7xdpbrBCLgQyCxBM4G">↳ 前沿文献</a>
+    <a href="#exp" data-page-node-id="Pb3a784CwUL6XH4b8tkY3q">上机实验</a>
+    <span class="navpart p4" data-page-node-id="QBNLS8Ar8yvbhBAn9zBQKY">第四部分　本章小结</span>
+    <a href="#sum" data-page-node-id="hlpwdxObGGJD92i2qoRyUo">本章小结</a>
+    <a href="#caseext" data-page-node-id="VDn7QD8xe0Y8vAwCb25cLZ">拓展案例 · 延伸思考</a>
+  </aside>
+
+  <main class="content" data-page-node-id="lzb69HXAHXclfWsGzlzrNn">
+    <h1 data-page-node-id="8dHUyXsWdRvMDk2MV4tAV9">第 9 章　系统实施、测试与项目管理</h1>
+    <p class="progress-txt" data-page-node-id="bOBQlTxaUWS7pBRPm9onGP">把好最后一关：实施发布、测试策略与综合项目收官。本章把蓝图变成可用系统，用严谨测试与项目管理为全程课程画上句号。</p>
+
+    
+
+    <h2 class="part p1" id="lead" data-page-node-id="UHjM9MnWCsVV3f4Ncfpt7S">第一部分　课程导学</h2>
+
+<span class="mod mod-lead" data-page-node-id="n1WUpqr61Q1fGaNfD6nrlt">导语 · 本章定位</span>
+    <p data-page-node-id="o2BK3CNMwU732eLhvyDPGD">前面八章造出了能跑的智能体，本章负责"交付得好"。实施发布让系统触达用户，测试策略守住质量底线，项目管理让综合项目（Capstone）按时保质收官。这是工程师对用户的承诺，也是全课程能力的综合检验。</p>
+
+    <span class="mod mod-lead" data-page-node-id="tfT1RThCDVp2y588PTO0ZG">三维学习目标</span>
+    <div class="goals" data-page-node-id="fe0jFdJtv7No5WMbS4mrd5">
+      <div class="goal" data-page-node-id="2d5SXjEd5QUb8kisUKqghZ"><b data-page-node-id="lpMeF7NA6dESortFwPm9st">知识</b><br data-page-node-id="d7AxnvANA95iWDIMTFv0Dt">了解实施与发布渠道；掌握智能体测试策略；理解项目管理与维护。</div>
+      <div class="goal" data-page-node-id="SmotBreXWuzeXlzs9FBqvT"><b data-page-node-id="pdJDCChCdjsW0WMl2uxLJq">能力</b><br data-page-node-id="cC0u1A8Em6DDA5EO8rWvVI">能制定测试方案并撰写报告；能完成综合项目从规划到发布；能复盘与答辩。</div>
+      <div class="goal" data-page-node-id="RnBihCLEaBYO9VSzXj9Iqb"><b data-page-node-id="V4g0yEYUKPgvA2ijdZyBLX">价值</b><br data-page-node-id="S4iQyTj68aYpFS16c7h756">培养质量意识与责任心；理解数据生命周期管理；提升协作与表达能力。</div>
+    </div>
+
+            
+    
+      <h3 class="sec-h" id="theory" data-page-node-id="oVtn76b2gDlUnMIjW2k8gC">理论基石 · 信息系统分析与设计</h3>
+    <span class="mod mod-theory" data-page-node-id="FADFyxQNMR5ZyEDyfxDfq4">理论 · 系统实施与转换策略</span>
+    <p data-page-node-id="fWeCCvmfViU2QeSA3x5KUG">转换策略：直接切换 / 并行 / 分段 / 试点；用户培训（变革管理与赋能）；上线切换（数据迁移、接口对接、灰度发布）；运维审计（日志与合规审计）。</p>
+    <span class="mod mod-theory" data-page-node-id="fD8F5KshMN12YHeKjwiHcz">理论 · 软件测试理论体系</span>
+    <p data-page-node-id="2ilI4MuzRmEsRFxXWudCaF">测试级别：单元 / 集成 / 系统 / 验收；测试方法：黑盒（等价类/边界值）/ 白盒（语句/分支覆盖）；测试模型：V 模型、TDD、持续测试；智能体测试：任务成功率 / 工具调用正确性 / 轨迹评估。</p>
+    <span class="mod mod-theory" data-page-node-id="HCI2ZMrPny0Ix2FcFNZKCI">理论 · 项目管理（PMBOK 视角）</span>
+    <p data-page-node-id="J9rtdFVu9KlWGWRgLU2ytn">十大知识领域：范围/进度/成本/质量/资源/沟通/风险/采购/干系人/整合；进度工具：甘特图、关键路径法 CPM、PERT 三点估算；质量与风险：QA/QC、风险登记册；Capstone 是需求→设计→实现→测试的全流程闭环。</p>
+    <span class="mod mod-theory" data-page-node-id="80vegsG21imh5DowWYBuFk">理论 ↔ 智能体能力 映射</span>
+    <div class="two" data-page-node-id="gZk8CMHyGYFFmwxcWA9SDF">
+      <div class="card" data-page-node-id="nxepPAQfR6Qog7vHTpRQRR"><b data-page-node-id="vFqw5cPOtgCzKgWOUWOPCh">转换策略（并行/分段/试点）</b> ↔ 智能体灰度发布、并行运行与试点推广</div>
+      <div class="card" data-page-node-id="NA5Y6adUYoNQbudNk83iQY"><b data-page-node-id="huxwN7UeIyKBQGLNIg49UE">测试级别（单元/集成/系统/验收）</b> ↔ 工具调用/轨迹/端到端/用户验收四级评测</div>
+      <div class="card" data-page-node-id="bLHIqNPP544UGiY15CwFxe"><b data-page-node-id="t8Q6BPeYposMbM1at1zRt0">V 模型 / TDD</b> ↔ 先定义评测指标再开发，测试驱动</div>
+      <div class="card" data-page-node-id="ERQyfJf3WnEwC4AYpjDI2I"><b data-page-node-id="3uysyZPng9FLvGA7BGcioN">PMBOK / CPM</b> ↔ Capstone 进度规划与关键路径管理</div>
+      <div class="card" data-page-node-id="rsCRsnnPKt35vgJnuVlmGK"><b data-page-node-id="iuwreVbtdjs4IAWtGdqcw4">运维与审计</b> ↔ 发布管理、日志监控与合规审计闭环</div>
+    </div>
+    <span class="mod mod-theory" data-page-node-id="Rtx77DoY7NH1CJV2EiUWEc">理论可视化 · 信息系统相关图形（4 幅）</span>
+
+    <figure class="figure" data-page-node-id="MzAlzr6BxPBVBXZZqmYF5K">
+      <svg viewBox="0 0 680 180" role="img" aria-label="系统转换策略" data-page-node-id="gsVuXdBpZT8NZ2cyQfTUUQ">
+        <g font-size="13" fill="#0E2F3A" text-anchor="middle" data-page-node-id="oZt4Ad6yiNblQYaMelqQvc">
+          <rect x="30" y="50" width="150" height="56" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="q6l0tk5sBHQYsrkqjsxWKN"/><text x="105" y="72" data-page-node-id="P3NAQl1IJ3HlYGbzdQo7jm">直接切换</text><text x="105" y="92" font-size="10" fill="#5A6B73" data-page-node-id="r51PUXSYV0u08jxiddxW3Q">风险高</text>
+          <rect x="200" y="50" width="150" height="56" rx="9" fill="#eaf7ef" stroke="#2E8B57" data-page-node-id="y8Y7QSoKVXeIKxOXuxpUP9"/><text x="275" y="72" data-page-node-id="S75zQHPqn6IRx6G66prcHY">并行转换</text><text x="275" y="92" font-size="10" fill="#5A6B73" data-page-node-id="NO0QuwtNJAgY1Zwq7W3D5d">风险最低</text>
+          <rect x="370" y="50" width="150" height="56" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="0qP1W00IQ6et5xvCfCxSGU"/><text x="445" y="72" data-page-node-id="VoRnEQD5zVJZXQwRRQjfRX">分段转换</text><text x="445" y="92" font-size="10" fill="#5A6B73" data-page-node-id="E81P1m6HR6D9BQNhFTWaj4">分模块</text>
+          <rect x="540" y="50" width="110" height="56" rx="9" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="8TLkwmNngHsEWocDShNl7D"/><text x="595" y="72" data-page-node-id="fLTUamhvplyl7wDiFVe6zW">试点</text><text x="595" y="92" font-size="10" fill="#5A6B73" data-page-node-id="VGzirqEWJuuXGoVU84oUNv">小范围</text>
+        </g>
+      </svg>
+      <span class="cap" data-page-node-id="L0op1SfUnzeuoa4OQDFavd"><b data-page-node-id="daKVCc5idUbN6tAxnkWZfi">图1</b>　系统转换策略（直接 / 并行 / 分段 / 试点）</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="NS9lD9DCWdt2C5ZBfaCXdK">
+      <svg viewBox="0 0 680 220" role="img" aria-label="V模型测试级别" data-page-node-id="wfiGbDnGKCHO8xfxicY8Vb">
+        <defs data-page-node-id="UK3itGwRRuBNjsORdRHXnZ"><marker id="m9b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="j1pSZQD5CF3o2wEGzTlilp"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C" data-page-node-id="uqXr2oJ0nvydfNaopq7uFI"/></marker></defs>
+        <g font-size="12" fill="#0E2F3A" text-anchor="middle" data-page-node-id="SRlfmNVMcJQB2vjYVViYyo">
+          <rect x="40" y="20" width="150" height="40" rx="8" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="I5jvhdki7lTRqkDwxc3WB5"/><text x="115" y="45" data-page-node-id="JYSdjj9hRFOTQGz6BXfW9z">需求</text>
+          <rect x="40" y="80" width="150" height="40" rx="8" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="hZmn7bcFDFbb3fsRqFdyWi"/><text x="115" y="105" data-page-node-id="KARkmEfZGmj7MDItyD68V6">设计</text>
+          <rect x="40" y="140" width="150" height="40" rx="8" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="AQZaxtMajg1Ojyr1Eb4FdP"/><text x="115" y="165" data-page-node-id="LaTDPhXEad35tAX24UwQ6q">实现</text>
+          <rect x="490" y="20" width="150" height="40" rx="8" fill="#eaf7ef" stroke="#2E8B57" data-page-node-id="gQWYqXmtXhfDp4DeMJHHX7"/><text x="565" y="45" data-page-node-id="Fmfn8ZENee8JDQJtFvhnYp">验收测试</text>
+          <rect x="490" y="80" width="150" height="40" rx="8" fill="#eaf7ef" stroke="#2E8B57" data-page-node-id="q2KISqzUZctMN5je6E5JPB"/><text x="565" y="105" data-page-node-id="r4wuWV6T4CEDMzDdq9eEvX">系统测试</text>
+          <rect x="490" y="140" width="150" height="40" rx="8" fill="#eaf7ef" stroke="#2E8B57" data-page-node-id="M6gTRuJTwURQmnjYclE9M6"/><text x="565" y="165" data-page-node-id="NCAIPy1Xz9y5bKYyNAv8hj">单元测试</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="1.5" fill="none" marker-end="url(#m9b)" data-page-node-id="kxVgINw0ZAgqHUW2BvYA35">
+          <line x1="190" y1="40" x2="488" y2="40" data-page-node-id="C5Mb7EXMgs2IBARzffzxNY"/>
+          <line x1="190" y1="100" x2="488" y2="100" data-page-node-id="fDEXr91a6QrfHPI5G6agQg"/>
+          <line x1="190" y1="160" x2="488" y2="160" data-page-node-id="Pfj5E1ntpEnLFIFdSJnZDC"/>
+        </g>
+        <text x="340" y="200" text-anchor="middle" font-size="11" fill="#5A6B73" data-page-node-id="YRNgQgLK5HLDxEepE5qSmM">V 模型：每个开发阶段对应一级测试（左→右）</text>
+      </svg>
+      <span class="cap" data-page-node-id="EpbfYDdsNoCDIizUEB5Hk7"><b data-page-node-id="XR9qG2Pj8dAzzmBn8IGhuf">图2</b>　V 模型：开发阶段与测试级别一一对应</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="FXWEVwxfuT1nHu4GXMNYEh">
+      <svg viewBox="0 0 680 200" role="img" aria-label="PMBOK与进度工具" data-page-node-id="S40lEQbyxN7xBzn1kUQyxL">
+        <g font-size="13" fill="#0E2F3A" text-anchor="middle" data-page-node-id="8iCZvynVQTjBuxrpAJQ9bx">
+          <rect x="40" y="40" width="290" height="56" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="h34u2QiZtIEGRiBydqWl4m"/><text x="185" y="62" data-page-node-id="GMy3KWQygq68JjnP2sK1vo">PMBOK 十大知识领域</text><text x="185" y="82" font-size="10" fill="#5A6B73" data-page-node-id="fFc1dSIHlVT1pHQcAZIafr">范围/进度/成本/质量…</text>
+          <rect x="350" y="40" width="290" height="56" rx="9" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="2JENQaJEzZnaov5FmxxdiZ"/><text x="495" y="62" data-page-node-id="s4YGQb60jUcA0aoyvgWTzH">进度工具</text><text x="495" y="82" font-size="10" fill="#5A6B73" data-page-node-id="ICVF9FZDvLHAtISpVbnEuq">甘特图 / CPM / PERT</text>
+          <rect x="40" y="120" width="290" height="50" rx="9" fill="#eaf7ef" stroke="#2E8B57" data-page-node-id="GBSykJPDVlt3lUQErVFNZF"/><text x="185" y="150" data-page-node-id="tPy7cBMzDTbRxKvWaY4gyA">质量与风险：QA/QC、风险登记册</text>
+          <rect x="350" y="120" width="290" height="50" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="uNqYG6ASGH2ZbQqAHC9icj"/><text x="495" y="150" data-page-node-id="tl3LQ4dgO6hruZ6DItwsZB">Capstone 全流程闭环</text>
+        </g>
+      </svg>
+      <span class="cap" data-page-node-id="HCV2C8viPRDRWAUD5wROL6"><b data-page-node-id="A3P1HS9B5RUZnubDBciNr7">图3</b>　项目管理框架（PMBOK / 进度工具 / 质量风险 / Capstone）</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="alGQKEwn9DT05D6O6awXjk">
+      <svg viewBox="0 0 680 300" role="img" aria-label="UML状态图生命周期" data-page-node-id="ICZx0u0ADpqr2URCTuYJ7H">
+        <defs data-page-node-id="Xlk5yMN8OTkk3UUE7DVeEg"><marker id="m9d" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="jwQzFqPgENPuYloFQ1o7rv"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C" data-page-node-id="YugorylVDgI7xa3fB4XihY"/></marker></defs>
+        <g font-size="12" fill="#0E2F3A" text-anchor="middle" data-page-node-id="fGLGNwXdmWg6HyYjRnoVv1">
+          <ellipse cx="340" cy="30" rx="44" ry="18" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="LZJUffNcYaiYGqSUpD2zGX"/><text x="340" y="34" data-page-node-id="bvJwRY9dN5XSzKRIZBBp5G">开始</text>
+          <rect x="270" y="70" width="140" height="36" rx="8" fill="#fff" stroke="#0F6E8C" data-page-node-id="BVsdGNLgMivWRCmFhG7uzx"/><text x="340" y="93" data-page-node-id="B7J721up0eSWVA3jBUMmr4">开发中</text>
+          <rect x="270" y="125" width="140" height="36" rx="8" fill="#fff" stroke="#0F6E8C" data-page-node-id="Y8wZwI1FbsFCHLwbs2J8im"/><text x="340" y="148" data-page-node-id="9ukWCFOAcNhhUQLg0zQFL9">测试中</text>
+          <rect x="270" y="180" width="140" height="36" rx="8" fill="#eaf7ef" stroke="#2E8B57" data-page-node-id="4CicVZjBgr4glMhTnDjF53"/><text x="340" y="203" data-page-node-id="vhx4RVWNHLAjfFmvtOSubn">上线试运行</text>
+          <rect x="270" y="235" width="140" height="36" rx="8" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="H2zAEk06B9EVUQHhfcGyK9"/><text x="340" y="258" data-page-node-id="gXn52tPt8UeZvqMFxiuaZH">运维优化</text>
+          <ellipse cx="560" cy="120" rx="44" ry="18" fill="#fdecec" stroke="#C0392B" data-page-node-id="nsJthByMCJo9gwfAzDLpae"/><text x="560" y="124" data-page-node-id="G0A6CL4zNddMzcBBeC29eQ">退役</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="2" fill="none" marker-end="url(#m9d)" data-page-node-id="WQlkBZr64c9Fdrx3j04d3p">
+          <line x1="340" y1="48" x2="340" y2="68" data-page-node-id="fr8re9Rc4zWFaAImxOo6bk"/>
+          <line x1="340" y1="106" x2="340" y2="123" data-page-node-id="M2AsLbeCXw6po3YZQ9LfTC"/>
+          <line x1="340" y1="161" x2="340" y2="178" data-page-node-id="DG8ZgpWWip5OY6U6NNYmBm"/>
+          <line x1="340" y1="216" x2="340" y2="233" data-page-node-id="qWWiFw0EeBBVnGFuUi9HDz"/>
+          <line x1="410" y1="200" x2="515" y2="122" data-page-node-id="eqw3CsiBOGOrotdFu8qsjP"/>
+          <line x1="410" y1="253" x2="515" y2="126" data-page-node-id="T5f6jH2xwAEF2XT1tOCNxi"/>
+        </g>
+      </svg>
+      <span class="cap" data-page-node-id="FWnXYxm0fZFhawqbK4G9fw"><b data-page-node-id="TzsbydACnjtUBc9UboSoMi">图4</b>　UML 状态图：系统/智能体生命周期（含回退与退役）</span>
+    </figure>
+
+          <div class="callout method" id="classicmap" data-page-node-id="vbYdQGgQwIx2ZIcPUCwv1t"><span class="m-tag" data-page-node-id="vquBjCJGWSZRlAUdwa8oBb">经典方法论对照 · 运维与治理</span><p data-page-node-id="0FJCCAHh3Z6ofvs0pINtND">原版 ch15-16 与 ch17 的实施运维硬核：<b data-page-node-id="N4Ij65lbbN4TeypVlZt7Z2">测试级别（单元/集成/系统/验收）、黑盒白盒、部署与迁移</b>（ch15）；<b data-page-node-id="vCOdLpYttDEj5dlkCx1Xb7">ITSM/ITIL/COBIT/ITSS/DevOps/AIOps、监理与审计</b>（ch16）；<b data-page-node-id="BPKHnGFfp2cQ34qw1ghuZm">数据驱动与 CRISP-DM</b>（ch17）。智能体时代升级为 <b data-page-node-id="RIxUz6arL8dqRkPMu9QIvZ">LLMOps 与 AI 治理</b>；<b data-page-node-id="inZDzv18fs5gpB7QvFjkjb">非功能需求</b>（H.8）直接决定系统 SLA。</p></div>
+
+<h3 class="sec-h" id="ideo" data-page-node-id="8TdrGonOxUojAPQjieEV9D">课程思政 · 价值引领</h3>
+    
+<!-- wxfig-inject -->
+<figure class="wxfig" data-page-node-id="vjUR2UpVcBEVd8gjw4CY4L">
+  <img src="media/weixin/ch09_enterprise_landing.png" alt="ch09_enterprise_landing.png" loading="lazy" data-page-node-id="xPEEinazNiiuV6s3vQX6Cy">
+  <figcaption data-page-node-id="QHqYdukGUuGwxCRuSoM9KG">
+    <strong data-page-node-id="EO2VSuW8buoSjfzSycacfM">图：企业级 AI Agent 落地实操（2025→2026）</strong><br data-page-node-id="ywOsms2m5c3zVbmWWqx0kD">企业 Agent 三大支柱：多智能体协同(Multi-Agent Systems)、MCP 协议、长期记忆与经验沉淀；2025→2026 水平对比：任务成功率 68%→89%，记忆窗口从短期会话进化为长期经验沉淀。
+    <span class="src" data-page-node-id="HfJnpwSYFbzjeiZWgRZDFw">来源：公众号·大模型助理</span>
+  </figcaption>
+</figure>
+<span class="mod mod-kb" data-page-node-id="4n6dz85lvOw5iLA8TFvK7m">前沿动态 · 行业速递（2026-08）</span>
+<div class="callout frontier" data-page-node-id="EPRakC1IHG1idJpG6W8ijn">
+  <span class="f-tag" data-page-node-id="HjjhhHIxbIe4SEUP8vq8z2">动态更新 2026-08</span>
+  <p data-page-node-id="HipNauVxzRgdlOwch1zVDy"><b data-page-node-id="aDpFObr3FrlUfC55AsARvJ">1</b> 多智能体安全凸显：间接提示注入可经“手交机制”横向渗透（读邮件 agent 到 数据库 agent）；三重防御——密码学工具溯源、语义防火墙、临时沙箱（Wasm 微 VM）。</p>
+  <p data-page-node-id="qkJT2neREdKvzMgkHM9MyR"><b data-page-node-id="N8wxVGR62m9Xz9YVic1prT">2</b> 授权优先检索（Authorization-First Retrieval, AFR）：在语义检索前先用 ACL 约束候选集，彻底消除结构性数据泄露。</p>
+  <p data-page-node-id="HPFoD7HyLqFhbzANgcrhHU"><b data-page-node-id="9HK27MbqOdl1GmWQt4nr4k">3</b> 可观测性与自动化测试：Saksoft 用多智能体将测试周期从 8 周压缩到 2.5 周、覆盖率达 92%；事件流审计成为生产标配。</p>
+  <p class="src" data-page-node-id="m7Hi5d8KyD80XLh6UMXHmr">来源：superiordatascience 2026、yonbaos Agentic AI 安全、Saksoft / Lyzr 案例</p>
+</div>
+
+<span class="mod mod-ideo" data-page-node-id="Fhz8iDGxteWi9UMMZerRzI">精神坐标 · 人民日报金句</span>
+    <div class="callout quote" data-page-node-id="OclRpgss4baT5Ax7E7nrlf">"征程万里风正劲，重任千钧再出发。"——人民日报金句库</div>
+    <div class="callout quote" data-page-node-id="bhxIJDBbw0hxbbZBiIqhpM">"历史只会眷顾坚定者、奋进者、搏击者，而不会等待犹豫者、懈怠者、畏难者。"</div>
+    <p data-page-node-id="ksJAfnpPiRXqFLT10oAaId"><b data-page-node-id="NwuLc6gv7IP8yEOMgtd7Xo">本章映射：</b>实施与测试是把蓝图变成可用系统的"最后一公里"。严谨的单元/集成/系统/验收测试，是工程师对用户的承诺；稳健运维与合规审计，是"答卷人"的责任担当——行则将至，做则必成。</p>
+    <span class="mod mod-ideo" data-page-node-id="9nsBSvJyCZe4yeqnhcL6P4">名校范式 · 清华课程思政案例</span>
+    <div class="callout warn" data-page-node-id="TtbmoFF76HrBE61F4ZOYPB">🎓 清华计算机系国旗下演讲《热血铸就英雄梦》+ 邓俊辉批判思维：实施测试是"最后一公里"，是工程师对用户的承诺；"步步最优，未必整体最优"——系统级优化而非局部最优；引导将个人理想融入国家需要，担当自主可控技术使命。</div>
+    <p data-page-node-id="Bc1Xlj9wCiCBo5vUuW9mpK"><b data-page-node-id="5qHVF8HWJ51KLQ3KaLoUIB">本章映射：</b>实施测试与项目管理是工程责任的"最后一公里"。严谨测试是"答卷人"的责任担当；稳健运维与合规审计，要在系统全局而非局部最优中守住质量底线。</p>
+
+    
+<span class="mod mod-ideo" data-page-node-id="BXasnbq1CnHdPTj8q2nn94">课程思政案例 · IMA 知识库</span>
+<div class="kbcase" data-page-node-id="ir2RtQrZQhB5kmGGNBoYP9">
+  <h4 data-page-node-id="Jibiu1UNuoCCDHaysrT2z1">从测试到治理：交付一个"有益、安全、公平"的系统</h4>
+  <ul data-page-node-id="pU9M1hFVQautsdi90c6A21">
+    <li data-page-node-id="UQLiMvjx0aMGbJu4nCsVaG">智能系统的风险（算法偏见、数据伦理、安全）贯穿全生命周期，测试与运维是最后一道护栏。</li>
+    <li data-page-node-id="MiD3cDxwlnBKC9BIQPJp70">本章 9.5 治理视野（软考高项 / CISA / 监理）与"有益、安全、公平"的 AI 治理目标同构。</li>
+  </ul>
+  <span class="src" data-page-node-id="pp4OE682BHMVQQG8MCfWEb">来源：IMA 知识库《课程思政示范案例》+《AI思政课》· 韩燕霞/陈翠(算法偏见、数据伦理)；习近平"有益、安全、公平"论述</span>
+  <span class="think" data-page-node-id="nsghpHKWPTNdYAAKSnamvs"><b data-page-node-id="bmQfEsRYn1CFTCAC28Yupg">本章映射：</b>测试策略里要加"伦理测试"：公平性、隐私、可解释性回归；运维要建数据生命周期与问责机制——让智能体在被监管中可信。</span>
+</div>
+      <h3 class="sec-h" id="casein" data-page-node-id="cZYCcnkTk1foGa8B253oyw">案例导入 · 类Claw 智能体全生命周期安全治理</h3>
+      <div class="casebox" data-page-node-id="xLNgG3B7MGly36cJ2TlQ3V">
+        <p data-page-node-id="6pA8lelITu5Qhn9LCs3FOv"><span class="tagx" data-page-node-id="lt0UOZq6AC3RHVB3k9Z7Hl">案例 B8-03</span> <b data-page-node-id="yYLFmAUvYhBdaTG8q9R5KJ">面向类Claw 智能体的全生命周期安全治理实践</b><br data-page-node-id="Fdg9lJ4kDjjkdjxunBHqhj"><span class="cunit" data-page-node-id="ZaifGR81liPdFkXTDDeouL">申报单位：北京兴云数科技术有限公司</span></p>
+        <p data-page-node-id="493zSGUroMENvF3WPUkiIH">【术语说明】本文中“类Claw 智能体”泛指以OpenClaw 开源框架为基础框架的动态自主执行型AI 智能体； “Co-Claw”、“Co-ClawSec”为本方案产品代号。类Claw 智能体凭借本地优先运行、高权限操作、动态自主执行、开源生态扩展的特性，彻底突破传统网络边界防护体系，衍生新型安全风险，行业现有传统安全防护体系完全无法适配其治理需求。针对该行业共性痛点，本案例自研Co-Claw 原生安全智能体与Co-ClawSec 全生命周期防护体系，创新打造“安全内生于智能体、防护轻量化无感”的治理新范式，填补国内类Claw 智能体全流程安全治理技术空白。</p>
+        <p data-page-node-id="qxq54kOSV9QBXTvbHmB1HP"><b data-page-node-id="4hMCjSokcaAs4SOUHdWLPx">导学解读 · 与本章的对接</b>：本章讲实施、测试与项目管理，很多同学会以为“上线即结束”。本案例给出了反例：类 Claw 智能体具备本地优先运行、高权限操作、动态自主执行、开源生态扩展等特征，传统网络边界防护体系完全无法适配，治理必须做成<b data-page-node-id="wG5pW5WTXjZWv41ratVfUR">全生命周期</b>——运行环境、平台、交互、Skill 供应链、数据、运营六位一体。请把“平台累计上架 1400 余项安全认证 Skill 插件、累计下载 53 万次”读成一条供应链管理要求：智能体的能力来自第三方插件，那么<b data-page-node-id="WkZIewUTliJLeaModrXbVg">供应商准入、版本审计、调用溯源</b>就必须纳入项目管理的范围。它也重申了本章的测试观：智能体的测试对象不再只是代码，还包括提示词、工具与安全策略。</p>
+        
+      </div>
+
+    <h3 class="ppt-src-h" data-page-node-id="TzcXPOkkgzM1DVywm3kFRy">第15章《系统实施》</h3>
+    <div class="ppt-gallery" data-page-node-id="YF2aNkW96DAUWrKsg2SqDn">
+      <figure data-page-node-id="LwmC0iLDF8vVfQHDNYrUob"><img loading="lazy" src="images/ppt/p15_005.jpg" alt="第15章 P.5" data-page-node-id="ybV5U6AfVsLhWfQXgGwMvx"></figure>
+      <figure data-page-node-id="eSbTGSk6GEKOOT7tNlyObu"><img loading="lazy" src="images/ppt/p15_006.jpg" alt="第15章 P.6" data-page-node-id="uEgEXUxxbyq7yMkYhoIBgG"></figure>
+      <figure data-page-node-id="lVNw6R1jmC6hweBcf4QelW"><img loading="lazy" src="images/ppt/p15_007.jpg" alt="第15章 P.7" data-page-node-id="gUCF7OWDDHWTKNQJFQFhkp"></figure>
+      <figure data-page-node-id="yV8fLy1E7X4WVvYEFFXuP1"><img loading="lazy" src="images/ppt/p15_008.jpg" alt="第15章 P.8" data-page-node-id="pYsfdvOTQBtHFCAhtWboPF"></figure>
+      <figure data-page-node-id="AuexFPNqFdTKjPzxa4WedF"><img loading="lazy" src="images/ppt/p15_009.jpg" alt="第15章 P.9" data-page-node-id="Rxr6YPJmXZjWJTfQM3orKG"></figure>
+      <figure data-page-node-id="GqFkhQuUHGHjaFOf2FquOP"><img loading="lazy" src="images/ppt/p15_010.jpg" alt="第15章 P.10" data-page-node-id="pVBHbIVWHAHcGkKCYJhr6G"></figure>
+      <figure data-page-node-id="phgZQlu5YVSgya1YpvoUsv"><img loading="lazy" src="images/ppt/p15_011.jpg" alt="第15章 P.11" data-page-node-id="XhsOIpeNK1b2rYMQuG6Csa"></figure>
+      <figure data-page-node-id="jz4IuW30UyKV9UC3gXSD5E"><img loading="lazy" src="images/ppt/p15_012.jpg" alt="第15章 P.12" data-page-node-id="jKSQUPHoI0XcJucvhK1IKO"></figure>
+      <figure data-page-node-id="KCezLa1t99Xgxi5isgFFDk"><img loading="lazy" src="images/ppt/p15_013.jpg" alt="第15章 P.13" data-page-node-id="GH84DCbS596eDIV5EPPZwH"></figure>
+      <figure data-page-node-id="GZYuK8txQ3ZzSEpRXZ1Mzm"><img loading="lazy" src="images/ppt/p15_014.jpg" alt="第15章 P.14" data-page-node-id="JIHE8tQ6b3EIELXS1RuX9Q"></figure>
+      <figure data-page-node-id="EGJJsgwVsfSsYNZSgvz7z8"><img loading="lazy" src="images/ppt/p15_015.jpg" alt="第15章 P.15" data-page-node-id="r0B2hibhpcXcjJHz8Hi3QB"></figure>
+      <figure data-page-node-id="esEeir5GZgNrOtjNfSQEJZ"><img loading="lazy" src="images/ppt/p15_016.jpg" alt="第15章 P.16" data-page-node-id="e0PfKCDSQ7Ujb7tEW7VEDO"></figure>
+      <figure data-page-node-id="gaIDEa00TJwR1HbEd68BCy"><img loading="lazy" src="images/ppt/p15_017.jpg" alt="第15章 P.17" data-page-node-id="oGlkH8MXhEEFgCqpFIfg9o"></figure>
+      <figure data-page-node-id="e0UdHbvN9gvZgEqfx9CNnd"><img loading="lazy" src="images/ppt/p15_018.jpg" alt="第15章 P.18" data-page-node-id="tSN6KEgekAVQOojKF6wAL8"></figure>
+      <figure data-page-node-id="VJe37yZErBDEH66KHmM4tT"><img loading="lazy" src="images/ppt/p15_019.jpg" alt="第15章 P.19" data-page-node-id="pYwtriBVUkHxB2jkJkrYPK"></figure>
+      <figure data-page-node-id="oSboDBa0qLtL86ksjsqNV2"><img loading="lazy" src="images/ppt/p15_020.jpg" alt="第15章 P.20" data-page-node-id="dCrWuHyCdFBlsqCclvhO2z"></figure>
+      <figure data-page-node-id="glyexHNSNLaK9n8kCmqKrc"><img loading="lazy" src="images/ppt/p15_021.jpg" alt="第15章 P.21" data-page-node-id="BGJ3kubV9wd35fvJ8cCjkR"></figure>
+      <figure data-page-node-id="APNZAWJQEhxOu0RHpi2QQv"><img loading="lazy" src="images/ppt/p15_022.jpg" alt="第15章 P.22" data-page-node-id="u1SM5jh4OkkFuklj2gGMBG"></figure>
+      <figure data-page-node-id="UntOz4kqAk8OpoksjZ4uV2"><img loading="lazy" src="images/ppt/p15_023.jpg" alt="第15章 P.23" data-page-node-id="N7lvi0hcLX1ENsBvajngjz"></figure>
+      <figure data-page-node-id="zjqWW4ugFwEO0wAnEKC42h"><img loading="lazy" src="images/ppt/p15_024.jpg" alt="第15章 P.24" data-page-node-id="qKKV3g5ZzIhgm0rzkMrus2"></figure>
+      <figure data-page-node-id="L4JI54cp0aytYOEPZeegtR"><img loading="lazy" src="images/ppt/p15_025.jpg" alt="第15章 P.25" data-page-node-id="mCBsPiKr9faWMimblqVXMp"></figure>
+      <figure data-page-node-id="4y9WyDr2nIkzNBoCYAcEwp"><img loading="lazy" src="images/ppt/p15_026.jpg" alt="第15章 P.26" data-page-node-id="kGteJtCRxCNFgsOMCl1hTt"></figure>
+      <figure data-page-node-id="ADUQnMrJ2JpB99N9QwJSdC"><img loading="lazy" src="images/ppt/p15_027.jpg" alt="第15章 P.27" data-page-node-id="Bo65L0xtJglv7zOLtPEDY5"></figure>
+      <figure data-page-node-id="Ng1GOEw0AOdXp0wOHkccng"><img loading="lazy" src="images/ppt/p15_028.jpg" alt="第15章 P.28" data-page-node-id="v095qFhzCCnVbKo9zcfMVn"></figure>
+      <figure data-page-node-id="04SsXlfaGAo3lw17zsuT4h"><img loading="lazy" src="images/ppt/p15_029.jpg" alt="第15章 P.29" data-page-node-id="AkWIa2auAqIx8TpKoPmMMQ"></figure>
+      <figure data-page-node-id="ezdWvZXMtWHevwEv3uu0D0"><img loading="lazy" src="images/ppt/p15_030.jpg" alt="第15章 P.30" data-page-node-id="81JMfe3ldA2R1WWbjEMkDC"></figure>
+      <figure data-page-node-id="djeAHGsae47MbhOp1MsxBC"><img loading="lazy" src="images/ppt/p15_031.jpg" alt="第15章 P.31" data-page-node-id="FEbhG2guezYbRzUJXYEKi5"></figure>
+      <figure data-page-node-id="zfDvtVtVMF0okSraZ03sXv"><img loading="lazy" src="images/ppt/p15_032.jpg" alt="第15章 P.32" data-page-node-id="Y6gxGmCE9bGr24Ags7SD6N"></figure>
+      <figure data-page-node-id="CMBw6Xc2JlCKT8joIiIiF7"><img loading="lazy" src="images/ppt/p15_033.jpg" alt="第15章 P.33" data-page-node-id="df2Pp2IfBh9Mx9hUw9bi9M"></figure>
+      <figure data-page-node-id="tTQysawE7aR5NHHjonAnrG"><img loading="lazy" src="images/ppt/p15_034.jpg" alt="第15章 P.34" data-page-node-id="K6xBbv9oqidOwBNYEryExL"></figure>
+      <figure data-page-node-id="R8m4QOBwcw18Vgh48o4FdI"><img loading="lazy" src="images/ppt/p15_035.jpg" alt="第15章 P.35" data-page-node-id="OC2U0sbnrYweEy8ZlHTTS6"></figure>
+      <figure data-page-node-id="5hiflANdFIE6Ybm7Gr7ES5"><img loading="lazy" src="images/ppt/p15_036.jpg" alt="第15章 P.36" data-page-node-id="KlbDKHzkiYTvep91BckDfj"></figure>
+      <figure data-page-node-id="x2yiQeykoWCb2cx8jQOIkZ"><img loading="lazy" src="images/ppt/p15_037.jpg" alt="第15章 P.37" data-page-node-id="spUuDbQhP8u8Tmwmmy01Di"></figure>
+      <figure data-page-node-id="CGTd0J82uBbUs7Q6tOyo9n"><img loading="lazy" src="images/ppt/p15_038.jpg" alt="第15章 P.38" data-page-node-id="atWNavIO8eh2CHw1dR1mZX"></figure>
+      <figure data-page-node-id="v5m5a5fLAhqwASHdNKUa80"><img loading="lazy" src="images/ppt/p15_039.jpg" alt="第15章 P.39" data-page-node-id="KODeajUqWjVuHEdCRsAVUY"></figure>
+      <figure data-page-node-id="HjfwrUiLNk83d9kW5smxhc"><img loading="lazy" src="images/ppt/p15_040.jpg" alt="第15章 P.40" data-page-node-id="gGu7nxu5xsFWenY0YYR5hZ"></figure>
+      <figure data-page-node-id="JTDVwl8wBeQ9uoyKN9XTCe"><img loading="lazy" src="images/ppt/p15_041.jpg" alt="第15章 P.41" data-page-node-id="t1qItvm3ObOrFQ5PsbFETK"></figure>
+      <figure data-page-node-id="ybiNwcMRxSjFzl24GFr7DS"><img loading="lazy" src="images/ppt/p15_042.jpg" alt="第15章 P.42" data-page-node-id="czDcnZNYAtToA0yRKl8513"></figure>
+      <figure data-page-node-id="637t9wWGsQ4Viuh31vtFmn"><img loading="lazy" src="images/ppt/p15_043.jpg" alt="第15章 P.43" data-page-node-id="IkFfOa8PrU1RjY4FItsybu"></figure>
+      <figure data-page-node-id="CBIdtAI4TFzf1yURBNvkj8"><img loading="lazy" src="images/ppt/p15_044.jpg" alt="第15章 P.44" data-page-node-id="dh6T9EIQ7RhMZF8JDgOyXE"></figure>
+      <figure data-page-node-id="6RryI7bjPNB1ADFsEp2m2a"><img loading="lazy" src="images/ppt/p15_045.jpg" alt="第15章 P.45" data-page-node-id="39UH7ylOEAOd3eMTpdiMir"></figure>
+      <figure data-page-node-id="kh4FejzVJYDhwVOXTcXoXS"><img loading="lazy" src="images/ppt/p15_046.jpg" alt="第15章 P.46" data-page-node-id="I2OI46jqGIeNolIRDaLfAb"></figure>
+      <figure data-page-node-id="G23hPJZQ0z1S9fLrqcyno9"><img loading="lazy" src="images/ppt/p15_047.jpg" alt="第15章 P.47" data-page-node-id="CsYzBhe98Q9JcNEc0TsIRw"></figure>
+      <figure data-page-node-id="DxoRI7uqzxndvGcSHUbZLM"><img loading="lazy" src="images/ppt/p15_048.jpg" alt="第15章 P.48" data-page-node-id="SN85BRSorNrYsJgSSu7LL8"></figure>
+      <figure data-page-node-id="oK5gdDiUnaKsoMJvwZqAfX"><img loading="lazy" src="images/ppt/p15_049.jpg" alt="第15章 P.49" data-page-node-id="HzQUa4OC3eBPpQiAG2SDFp"></figure>
+      <figure data-page-node-id="ag5yjpbrpgokJQVQGfLXgl"><img loading="lazy" src="images/ppt/p15_050.jpg" alt="第15章 P.50" data-page-node-id="Ksjs6HdKCST0Hhk4GfCQFI"></figure>
+      <figure data-page-node-id="imj96Din37ZvsKnbQDGvuv"><img loading="lazy" src="images/ppt/p15_051.jpg" alt="第15章 P.51" data-page-node-id="48vv3NolyT2bPWYnhQZreU"></figure>
+      <figure data-page-node-id="xHV1fzxmqDX0anwlMzSIDC"><img loading="lazy" src="images/ppt/p15_052.jpg" alt="第15章 P.52" data-page-node-id="YZKKKVhcsubDtlKuEePSos"></figure>
+      <figure data-page-node-id="jNdmwHkC4OBWdBrPw8pOrA"><img loading="lazy" src="images/ppt/p15_053.jpg" alt="第15章 P.53" data-page-node-id="TWhiFXgD0d49wNOMQGvs7V"></figure>
+      <figure data-page-node-id="QnQHHKGs65bhGqBL7bXTbU"><img loading="lazy" src="images/ppt/p15_054.jpg" alt="第15章 P.54" data-page-node-id="rB4a7LEh6lwlE2u03qrORD"></figure>
+      <figure data-page-node-id="PGEPwnQjKu0WMYXwTJqca7"><img loading="lazy" src="images/ppt/p15_055.jpg" alt="第15章 P.55" data-page-node-id="tOXAHGs1fG545FkNC8E5OB"></figure>
+      <figure data-page-node-id="KJ8e0EI4n1DDHgzXWb42C8"><img loading="lazy" src="images/ppt/p15_056.jpg" alt="第15章 P.56" data-page-node-id="T3pUzcT6NpwOKaq6RSMqAG"></figure>
+      <figure data-page-node-id="jKWPPZA6l1Nx6wIAbypTL1"><img loading="lazy" src="images/ppt/p15_057.jpg" alt="第15章 P.57" data-page-node-id="W9Zh7GitVuTMlvexXKvXEu"></figure>
+      <figure data-page-node-id="iNosSiTPwRz07AiBLhL0AP"><img loading="lazy" src="images/ppt/p15_058.jpg" alt="第15章 P.58" data-page-node-id="3QumAJEwzujk6qPNcm3Nqh"></figure>
+      <figure data-page-node-id="YfWw1Y3JtpeFwfBHS403Zj"><img loading="lazy" src="images/ppt/p15_059.jpg" alt="第15章 P.59" data-page-node-id="gR9uWTct54iVutNu7eCnSI"></figure>
+    </div>
+<h2 class="part p2" data-page-node-id="AMGU4DNdgfo23E6FC2G0Rs">第二部分　课程内容</h2>
+      <h3 class="sec-h" id="s91" data-page-node-id="acoPYFO5nFHZoi8G04k4WR">9.1　实施与发布渠道</h3>
+    <p data-page-node-id="2TAVspD6qCLMR5ir9tzgpd">发布步骤：编排页"发布"→输版本记录→勾选渠道→等审核→生成记录。<b data-page-node-id="DZMxo3ZRZ069qOZaDUZrv4">发布管理</b>可看数据统计与分析、下架或更新。渠道含：扣子商店/豆包/飞书/微信（社交办公生态）、API/SDK（集成进自有系统）、Web/小程序（一套逻辑多端）、私有化 Coze Studio（满足数据安全与高并发）。</p>
+
+    
+    <div class="pptgrid" data-cnt="6" data-page-node-id="SjGfqgBpzNM2g0FPdlrOxK">
+      <figure class="wxfig" data-page-node-id="iWBrYHk3QfopOITZ91lgow">
+  <img src="media/coze/p107.jpg" alt="课件第 107 页" loading="lazy" data-page-node-id="Bh8zCWVkMYczheMK02BJlv">
+</figure>
+      <figure class="wxfig" data-page-node-id="gdivDhMjpp0TsTWBtMX3YY">
+  <img src="media/coze/p208.jpg" alt="课件第 208 页" loading="lazy" data-page-node-id="lCFlCUBKuwHOEqb8Q9anDM">
+</figure>
+      <figure class="wxfig" data-page-node-id="qVpe9AwDY8GIAxSlj5oVZc">
+  <img src="media/coze/p276.jpg" alt="课件第 276 页" loading="lazy" data-page-node-id="PIt5kCMISywBu1kbEyMTbh">
+</figure>
+      <figure class="wxfig" data-page-node-id="9E8bp9SSBKtg4g2K6gc41d">
+  <img src="media/coze/p277.jpg" alt="课件第 277 页" loading="lazy" data-page-node-id="ORTJYT9aIfZE6upf6KFYn7">
+</figure>
+      <figure class="wxfig" data-page-node-id="DWCXFTXukd9f9eyouj2VbF">
+  <img src="media/coze/p278.jpg" alt="课件第 278 页" loading="lazy" data-page-node-id="sc9pdRZeHCpC8pgRKb41CV">
+</figure>
+      <figure class="wxfig" data-page-node-id="gJYVhuJUqMo8WYsj0FuGho">
+  <img src="media/coze/p279.jpg" alt="课件第 279 页" loading="lazy" data-page-node-id="HDhHbz3IxCaZB58DPGo0M6">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s92" data-page-node-id="UlxLp40YRPeJou3OMLoP71">9.2　智能体测试策略</h3>
+    <ul data-page-node-id="Gn7X6qlFKcc58MQwPNqYcx">
+      <li data-page-node-id="x3Ou4QH1T6goLGsczOT3jH"><b data-page-node-id="IX9tikjq87CoDOKuP8YhwV">功能测试</b>：覆盖各分支、插件路径、工作流节点；用"调试详情"调用树看路径，火焰图看耗时。</li>
+      <li data-page-node-id="GkubwiHQE7S2FWhVEbRqNl"><b data-page-node-id="phKxL5VsCzyvH9LE3GTGfY">边界测试</b>：异常输入、超长文本、缺失参数、敏感词；验证兜底分支（选择器"否则"）与友好提示。</li>
+      <li data-page-node-id="LNl6TDNAlg7IqKzWkcgZ6o"><b data-page-node-id="u07EM7x6ELlp1SChDJcvb3">一致性测试</b>：同一问题多次回答是否稳定、是否符合人设。</li>
+      <li data-page-node-id="6GjctJOew2PF2zOgofKz16"><b data-page-node-id="CO5gF4x0A1f2eAs9J7j3L8">幻觉与合规</b>：核查知识库回答是否准确引用；缺失内容应明确说明而非编造。</li>
+      <li data-page-node-id="hUsHzamMBVhfSg4AXjTNuA"><b data-page-node-id="Vj8qxGsJsHcLTwcAFOAlmc">回归测试</b>：变更后重新验证原有功能，保留测试用例集随版本回归。</li>
+    </ul>
+
+    
+    <div class="pptgrid" data-cnt="9" data-page-node-id="Ww9IqDy21KaAz3Xit9XFTb">
+      <figure class="wxfig" data-page-node-id="lMckIymUx7CG4MqDJk3ZIr">
+  <img src="media/coze/p199.jpg" alt="课件第 199 页" loading="lazy" data-page-node-id="wMEeQ7FF6mxE9AjL84NavG">
+</figure>
+      <figure class="wxfig" data-page-node-id="67bxvIUrgBYf7nvc2D1Wiq">
+  <img src="media/coze/p200.jpg" alt="课件第 200 页" loading="lazy" data-page-node-id="MxIzkkfDzPAB4CTHXhDTQl">
+</figure>
+      <figure class="wxfig" data-page-node-id="psueG6flxZsSJiYQN96dHU">
+  <img src="media/coze/p201.jpg" alt="课件第 201 页" loading="lazy" data-page-node-id="TyFhOkfVwp1Eq5dVbXRHib">
+</figure>
+      <figure class="wxfig" data-page-node-id="BRnMGTXyPvylQHEFYGzXdQ">
+  <img src="media/coze/p202.jpg" alt="课件第 202 页" loading="lazy" data-page-node-id="gpdtaQ1GJNzvWoC0eWFQXi">
+</figure>
+      <figure class="wxfig" data-page-node-id="YZowtBVg1kkVBscupFK09h">
+  <img src="media/coze/p203.jpg" alt="课件第 203 页" loading="lazy" data-page-node-id="r7WDZQl9vRlQrNSOOGbO2A">
+</figure>
+      <figure class="wxfig" data-page-node-id="6H8divhZSOihYtcfWfZejy">
+  <img src="media/coze/p204.jpg" alt="课件第 204 页" loading="lazy" data-page-node-id="ly55Dyj1JwBMEc5GmTOacU">
+</figure>
+      <figure class="wxfig" data-page-node-id="LG68HxhaLJKr3crbB0YpCY">
+  <img src="media/coze/p205.jpg" alt="课件第 205 页" loading="lazy" data-page-node-id="soA6kBDyGLkgUyTNzhcilc">
+</figure>
+      <figure class="wxfig" data-page-node-id="FvJNDzixNPkgcmENhkYAkj">
+  <img src="media/coze/p206.jpg" alt="课件第 206 页" loading="lazy" data-page-node-id="5ofYnxPpHz5pD6X0M59Yyh">
+</figure>
+      <figure class="wxfig" data-page-node-id="Re88JAlkHDDr0NlafPuBIc">
+  <img src="media/coze/p207.jpg" alt="课件第 207 页" loading="lazy" data-page-node-id="LVhSC5hPzkurr2SQ216SVW">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s93" data-page-node-id="YDKNRkjC9Zxfu7jny8HWQH">9.3　运行维护与数据生命周期</h3>
+    <p data-page-node-id="JvXLPnuGfWQxo677zOpdIb"><b data-page-node-id="X6flqK8yesUsv1xKGYAWZ0">数据隔离</b>：测试与线上数据分离、不同渠道隔离；<b data-page-node-id="BgclzfA4YvnpyAnQI89V5l">运行监控</b>：发布管理看活跃/对话分布/满意度；<b data-page-node-id="aJbYCfskrNBfJuV4tWPGX8">热更新</b>：知识库/提示词修改即时生效无须重发；<b data-page-node-id="jGGsDQ1Jz5zORE1BXpLpc9">项目复盘</b>：记录故障点与恢复机制，沉淀防御性设计资产与可回退版本。</p>
+
+          <h3 class="sec-h" id="s94" data-page-node-id="bf002nWMvJLI8gdAqA5wAf">9.4　综合项目（Capstone）与项目管理</h3>
+    <ol data-page-node-id="NIgt5dALP5tneagYGy61vx">
+      <li data-page-node-id="oowMq7rbwUiylfgGqihWvD"><b data-page-node-id="bHyoDZ3NNzP9AXn59OAuf6">选题立项</b>：沿用前 8 章成果，明确范围与边界，避免蔓延。</li>
+      <li data-page-node-id="qR7LW6v3RdTdLgt5N4kxUY"><b data-page-node-id="9dEGOphpJX3koFMLWpSHl5">敏捷迭代</b>：小步快跑、分模块交付（规划→需求→架构→知识→工作流→产品化）。</li>
+      <li data-page-node-id="v3o6DQTRKlkxT8iulhaVJc"><b data-page-node-id="KImD8YrG3HWHiClHjj7K2J">测试报告</b>：功能/边界/一致性/合规全覆盖，含用例、预期与实际、缺陷与修复。</li>
+      <li data-page-node-id="zYPkGRemBVC8mVMomhczfn"><b data-page-node-id="c5vZeXRMzcOLjhN7QRV3vq">答辩复盘</b>：讲清设计决策与价值、不足与改进；同伴互评+教师点评。</li>
+    </ol>
+
+          <h3 class="sec-h" id="s95" data-page-node-id="chsqXJAdsCZEaVz9MkB1pY">9.5　治理与认证视野（软考高项 / CISA / 监理）</h3>
+<span class="mod mod-gov" data-page-node-id="GUrrHJpyQojH0On63XBkSL">拓展 · 治理、审计与职业资格</span>
+<p data-page-node-id="FgWtu6wOSAaqbScMCrv6Mu">信息系统不只是"做出来"，更要"管得好、审得清、合规范"。本小节把课堂方法论与行业职业资格（软考高项、CISA、信息系统监理）打通，为大二同学提供一张"能力—认证"地图：课堂的综合项目实践，正是这些职业认证的雏形。</p>
+
+<h3 data-page-node-id="owl3dJHvettiyhRWXv6arn">9.5.1　项目管理十大知识领域（软考高项视角）</h3>
+<p data-page-node-id="5IR1BHW1F2GQfNdVFyy74u">软考高级「信息系统项目管理师」（俗称高项）以 <b data-page-node-id="4khEiCZC6OH7HC2JFmWsXr">PMBOK 十大知识领域</b> 为主线。下表给出每个领域的作用，及其与本书的对应点：</p>
+<table class="gtable" data-page-node-id="06fEbweX3B8Z3rXhSbNVSD">
+<thead data-page-node-id="HbFyq59IG16ZMni3wXfKBc"><tr data-page-node-id="YwKU0V6MfWPhcDLCeipye0"><th data-page-node-id="vtLDvixTJDwIZL4lXOthVd">知识领域</th><th data-page-node-id="hAwgbGgBidkNKIDoAAiq1Z">核心作用</th><th data-page-node-id="17JPLLjqTEkCvANuqo4p91">本书对应</th></tr></thead>
+<tbody data-page-node-id="9iRjN9xzVbRq9EE3v4SdHO">
+<tr data-page-node-id="yGQ6CuOCi1DtYZ4DU6Do71"><td data-page-node-id="axj8qq9Nyq3bRNcy0J4VBo">整合管理</td><td data-page-node-id="sqzVNhDCUfoUgaHL8MD3Rn">统筹各要素、制定章程与计划、收尾</td><td data-page-node-id="wJOwrqVsEq7bQ2eeqdkihr">9.4 Capstone 整合交付</td></tr>
+<tr data-page-node-id="L2EnhUh03IDdHWUp80enXs"><td data-page-node-id="FfptzPDfbwnzy3femIFT4V">范围管理</td><td data-page-node-id="EUTj9cFIqqQy6HUWrFSJUF">明确"做什么"，控制范围蔓延</td><td data-page-node-id="ObXBdSym9EizvS5RBoLQyF">2.2 立项范围、第3章需求</td></tr>
+<tr data-page-node-id="PehnryDaHaXrT9WP1gIE4M"><td data-page-node-id="SsiE17v9ug73UGuAOSt6O0">进度管理</td><td data-page-node-id="mGSxnJBBOFRSLbdIITUUUS">排期、关键路径、进度控制</td><td data-page-node-id="1HyiB09qRDqnXxFXbM5HhE">9.4 敏捷迭代排期</td></tr>
+<tr data-page-node-id="4vpt0TSMGjulJewiYsIdIL"><td data-page-node-id="4uJqIRF7QgizBXB3INlZmx">成本管理</td><td data-page-node-id="v5ThQmWb9LxHE4YTJrDPkQ">估算 / 预算 / 控制成本</td><td data-page-node-id="Hg5krvvFZKhk6ldjcG8Mok">2.3 经济可行性</td></tr>
+<tr data-page-node-id="dT3JUCI8Yd3NQH1XDjHPSd"><td data-page-node-id="wC1wXRoeAtuzJ6I3beaMBX">质量管理</td><td data-page-node-id="pUahtezjsWJquUa1GeTWWE">规划 / 保证 / 控制质量</td><td data-page-node-id="621O7pq7HwKWVMAGBbcto9">9.2 测试策略</td></tr>
+<tr data-page-node-id="oC79IhBTNIhdRE4OBPhm0d"><td data-page-node-id="uvMJh7utNJ3JdHUKx94cYP">资源管理</td><td data-page-node-id="39GA1wsBAR554ZU3CJdgAH">组建团队、分配与激励</td><td data-page-node-id="zZcb2Uu7rVrY7EH4WPwggG">9.4 协作分工</td></tr>
+<tr data-page-node-id="kVy5sK4if5ogqDF2aYshpI"><td data-page-node-id="WQkchc3HrXjkL8SmjyeHhe">沟通管理</td><td data-page-node-id="q0Fx0Xx0cr9QB6K5Ktr8cd">规划与执行信息分发</td><td data-page-node-id="JvjBEdP5SyqJViAME79JrM">第4章 人设 / 回复逻辑</td></tr>
+<tr data-page-node-id="GWKJvq4vcu8R5WITIewCKp"><td data-page-node-id="DG2R7ovreEX2DJwipD28km">风险管理</td><td data-page-node-id="ZoYBaVpDJyt8Fma14oiaVo">识别 / 分析 / 应对风险</td><td data-page-node-id="EoaKDSWpsdLa48rBczfzeS">4.4 防御性设计</td></tr>
+<tr data-page-node-id="NAyda7Yl3BPqgWY7q6Ftd0"><td data-page-node-id="mS1O6F3Ch4npi08DmnBeyE">采购管理</td><td data-page-node-id="zHgI2YzAKxS0TP96ub8ZbQ">供方选择、合同管理</td><td data-page-node-id="tyXrELXVWPhCoxP05y7Ear">2.2 立项（招标雏形）</td></tr>
+<tr data-page-node-id="sSt7vq4UroaxMDUDAxbGGN"><td data-page-node-id="tdQHZQCDSCpsoU7hsgmC5A">干系人管理</td><td data-page-node-id="uWlJPnLnoraiVVNWSNBaGE">识别与满足干系人期望</td><td data-page-node-id="heHVeIlF6pj28ysrEAfnkk">2.2 目标用户</td></tr>
+</tbody>
+</table>
+<p data-page-node-id="wX1jlMDc3oszcN1rfp5EKI">十大领域贯穿 <b data-page-node-id="62oD68oRNtzt7YG5wq3sd8">五大过程组</b>：启动 → 规划 → 执行 → 监控 → 收尾，共 49 个过程。课堂综合项目即一次微缩的"整合 + 范围 + 进度 + 质量 + 风险"实践。</p>
+
+<h3 data-page-node-id="uyjYadhVO9ulh0R8cDqGfn">9.5.2　信息系统审计基础（CISA 视角）</h3>
+<p data-page-node-id="jEk1wVPSOaDS1OdjXliDX6">信息系统审计师（CISA，ISACA 认证）从"独立验证"角度审视 IT 系统。<b data-page-node-id="Tzf9IdHTHaLe8jhGdYc0WX">CISA 五大领域</b>：</p>
+<ul data-page-node-id="eCPo5kWPZpIOlkR1gvomQl">
+<li data-page-node-id="n2pP9CuXTeNm8ze8ACyCW8"><b data-page-node-id="YEfL2tA4CU7sryHm9IoKo2">D1 信息系统审计流程</b>：审计章程、风险导向、证据获取与报告。</li>
+<li data-page-node-id="qfWAbGJPpCGCRcNnHepYlx"><b data-page-node-id="CalHqXOviCnrPUg9vMZVOB">D2 IT 治理与管理</b>：战略对齐、价值交付、COBIT 框架。</li>
+<li data-page-node-id="LuQKzgsvOaxJZPzks29glh"><b data-page-node-id="G3E1IPxxlaATiily8Fl9OI">D3 信息系统的购置、开发与实施</b>：需求 / 设计 / 开发阶段的<strong data-page-node-id="Sck9cItIU2kIGWvHpAkiMT">设计评审与审计</strong>——呼应第3、4章。</li>
+<li data-page-node-id="KnhcXqrmNJ4Llc8KNVaarZ"><b data-page-node-id="MUoJOwYzl6t54EPb9ZhP7B">D4 信息系统的运营与业务恢复能力</b>：运维、连续性、灾备——呼应 9.3 运行维护。</li>
+<li data-page-node-id="CrWMWBiNFayXLuAYoEM3Vz"><b data-page-node-id="NV7n8qXfAGyPmkiXCI6zX9">D5 保护信息资产</b>：安全框架、数据分级、隐私保护——呼应第5、6章的数据与记忆治理。</li>
+</ul>
+<p data-page-node-id="xGjhyZ10m2IdkqlKqgxCS1">常用框架：<b data-page-node-id="Sc3F1hTwws98UxRy1akeEy">COBIT</b>（IT 治理）、<b data-page-node-id="RJWp0kfML4JSEc2vPUBWJu">ISO/IEC 27001</b>（信息安全管理体系）、<b data-page-node-id="p3O7hYo92Uc4csIlMKeGQx">网络安全等级保护</b>。测试（9.2）本质上就是"运营与合规核查"的工程师视角雏形。</p>
+
+<h3 data-page-node-id="4ULhtxfORMlWu9oddvFw8S">9.5.3　信息系统监理（三控两管一协调）</h3>
+<p data-page-node-id="xIngPGI0mqd8PaTj7rEZRz">信息化工程常引入<strong data-page-node-id="SfAQv3RqJFefb38am8CBQC">第三方监理</strong>把关质量与进度。监理核心职责可记为"三控两管一协调"：</p>
+<ul data-page-node-id="0tsjshovRc9qjiyppdruez">
+<li data-page-node-id="dEemFrFWffwo82eaOht0kj"><b data-page-node-id="NueqoHi1Q9afmOce5JVAQc">三控</b>：质量控制、进度控制、投资（成本）控制；</li>
+<li data-page-node-id="2BecalumBMSmEeAl9fPyKK"><b data-page-node-id="kaqLiOq27NO0xtCONAFfDK">两管</b>：合同管理、信息管理；</li>
+<li data-page-node-id="Xw40Xeyxk7lkddEw0J1BO1"><b data-page-node-id="TL6QSiM1WCrjxkN4BO85w2">一协调</b>：组织协调（建设方、承建方、监理方等多方）。</li>
+</ul>
+<div class="callout warn" data-page-node-id="UAbVi7MccVruVHscrpLC2Y">说明：本小节为<b data-page-node-id="E2AEKMwAqrZ4t5MHymmWZJ">公开通用知识</b>。原定参考的「信息系统监理」知识库当前无访问权限（"你已不在该知识库"），内容待你恢复共享后补充。</div>
+
+<h3 data-page-node-id="0zYXjQexLICNyvvK5I3KKX">9.5.4　职业资格与职业发展（给你指条路）</h3>
+<ul data-page-node-id="hbURxZhEvWc86QEAjW37Ea">
+<li data-page-node-id="TjkMoaPrgmfqFITSgGtAq9"><b data-page-node-id="BKlLME9cy4tRL4reQGHfMH">软考高级·信息系统项目管理师（高项）</b>：以考代评，可用于评职称、落户、招投标加分；科目＝综合知识 ＋ 案例分析 ＋ 论文。</li>
+<li data-page-node-id="ON3SZB2IzXHCE1Oweqvk8w"><b data-page-node-id="U1vDrf57j9vcBYpcw4bhs6">CISA</b>：IT 审计国际认证，适合信息安全、审计、合规方向。</li>
+<li data-page-node-id="e9fyuiHf0ejm7DuqbRp5uL"><b data-page-node-id="SObYeFENn39zYOt4wSN7KT">信息系统监理师（软考中级）</b>：监理方向，与"三控两管一协调"对应。</li>
+</ul>
+<p data-page-node-id="NuGvsl21y3smjRaEWJX1Xi">建议路线：大二打牢 ISAD ＋ 智能体基础 → 大三考软考中 / 高级 → 按兴趣选 CISA / 监理深化。本书的方法论，正是这些认证的知识底座。</p>
+    <p data-page-node-id="03dpSBbOFTNz2sLbReNN4X"><b data-page-node-id="8jsCcovFPcoG89yaGHHBhs">把“职业”和“资格”连起来看</b>：上表的三类资格，恰好对应《国家职业分类大典》中的具体岗位——软考高项 ↔ 信息系统分析工程技术人员（2-02-10-05）/ 信息系统运行维护工程技术人员（2-02-10-08）；CISA ↔ 信息安全工程技术人员（2-02-10-07）/ 数据安全工程技术人员（2-02-38-12）；监理 ↔ 信息系统适配验证师（4-04-05-09）。而本课程的智能体主线，正落在 2024 年新增的「生成式人工智能系统应用员」（4-04-05-13 S）、「人工智能训练师」（4-04-05-05）等数字职业上。完整 37 项职业地图见附录 F。</p>
+
+<div class="callout src" data-page-node-id="gKGOr59Cdr5b14ZePN3yin">📚 来源：十大管理 / 软考高项内容提炼自 ima 知识库《高项-信息系统项目管理师》《信息系统项目管理师（高级）》《软考高级信息系统项目管理师》《我想考个软考高项》；CISA 内容提炼自《CISA信息系统审计指南》。监理为公开常识（KB 无权限）。</div>
+
+      
+
+    
+    <h3 class="ppt-src-h" data-page-node-id="GlDt2lX0JXvNU8UcoNmrAT">第16章《系统运维与管理》</h3>
+    <div class="ppt-gallery" data-page-node-id="LcmX4qHa00uDljtbepRqiH">
+      <figure data-page-node-id="nZ1EmHPdPs4A2ADdjFZo8y"><img loading="lazy" src="images/ppt/p16_005.jpg" alt="第16章 P.5" data-page-node-id="YLmTAicAFcywxq7tcv0qC5"></figure>
+      <figure data-page-node-id="d4TwbOq0s01YU08nUEgJat"><img loading="lazy" src="images/ppt/p16_006.jpg" alt="第16章 P.6" data-page-node-id="jsme5nreE0Z1h3ABERk0nX"></figure>
+      <figure data-page-node-id="cioorG0qpGgKSFcitAW4rj"><img loading="lazy" src="images/ppt/p16_007.jpg" alt="第16章 P.7" data-page-node-id="ttD3fHckdZ7qhkX2yzV3KR"></figure>
+      <figure data-page-node-id="pAEsF02XehwiE5YuBBWN9y"><img loading="lazy" src="images/ppt/p16_008.jpg" alt="第16章 P.8" data-page-node-id="sA7SdzPIEqO2hjkZ1MKGWw"></figure>
+      <figure data-page-node-id="EBVjAI31a73iPkHEGx8Akv"><img loading="lazy" src="images/ppt/p16_009.jpg" alt="第16章 P.9" data-page-node-id="7Ln14dLFeE8WARQAdjGila"></figure>
+      <figure data-page-node-id="xoONrM60S1uqucAdOt2tJy"><img loading="lazy" src="images/ppt/p16_010.jpg" alt="第16章 P.10" data-page-node-id="F7iMHkQUpkMVfeSbYgu0Yf"></figure>
+      <figure data-page-node-id="aFHuiO6FDruum4gFO6yOal"><img loading="lazy" src="images/ppt/p16_011.jpg" alt="第16章 P.11" data-page-node-id="RzlKp9xqTiJ17q1uG1SQFV"></figure>
+      <figure data-page-node-id="f6A4CFTmNeijLZhlSnG7no"><img loading="lazy" src="images/ppt/p16_012.jpg" alt="第16章 P.12" data-page-node-id="Lo7CZzb1zUcGJFhwaaINZD"></figure>
+      <figure data-page-node-id="l9UcPfXy9I9EYsBqeyVikx"><img loading="lazy" src="images/ppt/p16_013.jpg" alt="第16章 P.13" data-page-node-id="qcA3e2CCXUOAAx4LVqI1sZ"></figure>
+      <figure data-page-node-id="vp7ODOwe2Ywd4YaSZS5PH1"><img loading="lazy" src="images/ppt/p16_014.jpg" alt="第16章 P.14" data-page-node-id="wDmJQzKkKpLgOqX2FIi1Lw"></figure>
+      <figure data-page-node-id="nC2yH8ZX3boZXDChWBYE5X"><img loading="lazy" src="images/ppt/p16_015.jpg" alt="第16章 P.15" data-page-node-id="JPWeFuue4ryUQkGY0I8RHH"></figure>
+      <figure data-page-node-id="7rYAHyAR8wNih1hApfW1LW"><img loading="lazy" src="images/ppt/p16_016.jpg" alt="第16章 P.16" data-page-node-id="jyXHAqsS4Towkhpwrenglb"></figure>
+      <figure data-page-node-id="TGFID0TQATXuMEDQZtjclg"><img loading="lazy" src="images/ppt/p16_017.jpg" alt="第16章 P.17" data-page-node-id="xlrpCPV9Egbd8oBX8ia6te"></figure>
+      <figure data-page-node-id="FqbwCDkAZloGlZB79uEOxQ"><img loading="lazy" src="images/ppt/p16_018.jpg" alt="第16章 P.18" data-page-node-id="WujpvXEAEGj81nGHomySwa"></figure>
+      <figure data-page-node-id="QsaBg6sGtSzhQccPsZhQGl"><img loading="lazy" src="images/ppt/p16_019.jpg" alt="第16章 P.19" data-page-node-id="mNHB38nzlTqxZI6Dam0Lcw"></figure>
+      <figure data-page-node-id="A6cL1JIlFaTXig3S5tvdSl"><img loading="lazy" src="images/ppt/p16_020.jpg" alt="第16章 P.20" data-page-node-id="GNTOczqHhjcVW4Vln00kQq"></figure>
+      <figure data-page-node-id="0kPw0JLGkvPBHPl6AQJCRN"><img loading="lazy" src="images/ppt/p16_021.jpg" alt="第16章 P.21" data-page-node-id="TBO2lxRRDJsmBcnBJsz6HI"></figure>
+      <figure data-page-node-id="IWlD4Hyxwx7uxyRZId3WJB"><img loading="lazy" src="images/ppt/p16_022.jpg" alt="第16章 P.22" data-page-node-id="yLyNpfS6Dx4BaOThzJsZMa"></figure>
+      <figure data-page-node-id="juIFHexy5hJ3YImPZJeNP7"><img loading="lazy" src="images/ppt/p16_023.jpg" alt="第16章 P.23" data-page-node-id="obdbd6y5ymUxcXJDqHBU2c"></figure>
+      <figure data-page-node-id="Kv6aRk3FXKHL7JgN52DDFn"><img loading="lazy" src="images/ppt/p16_024.jpg" alt="第16章 P.24" data-page-node-id="Il0RjFzYBCDmrHc3wtcujg"></figure>
+      <figure data-page-node-id="m0RVMlb4cvwwRYx053HK25"><img loading="lazy" src="images/ppt/p16_025.jpg" alt="第16章 P.25" data-page-node-id="uDegD5rHMFF08aFzSNDguZ"></figure>
+      <figure data-page-node-id="TpgFIIt0d040sbOPI1r5un"><img loading="lazy" src="images/ppt/p16_026.jpg" alt="第16章 P.26" data-page-node-id="OYND43NgzTrBHX7YMeYD9f"></figure>
+      <figure data-page-node-id="1CtGGiRjFVMqR8AY0fCTDf"><img loading="lazy" src="images/ppt/p16_027.jpg" alt="第16章 P.27" data-page-node-id="6gXE7j6kaCNuFmvmsahOJn"></figure>
+      <figure data-page-node-id="Br1K5ECftvg1k8VYCYGQcD"><img loading="lazy" src="images/ppt/p16_028.jpg" alt="第16章 P.28" data-page-node-id="8q0rjXXQdHlvMrLsjpw7e2"></figure>
+      <figure data-page-node-id="B2Xhya2iBGPomPt9f3Dj0x"><img loading="lazy" src="images/ppt/p16_029.jpg" alt="第16章 P.29" data-page-node-id="Bpy1AIOho13XEyL3WxW8jl"></figure>
+      <figure data-page-node-id="l1aNArkUG6spdYnZN7lDAv"><img loading="lazy" src="images/ppt/p16_030.jpg" alt="第16章 P.30" data-page-node-id="GtZ7PXTHDG4zSdVB3eH8jo"></figure>
+      <figure data-page-node-id="UFFOAvjWm2vAjlNFgF2ptJ"><img loading="lazy" src="images/ppt/p16_031.jpg" alt="第16章 P.31" data-page-node-id="gQPJkzx9yJvtl94cYmRefu"></figure>
+      <figure data-page-node-id="fqHHTW5jZQK6nxcDNquqJD"><img loading="lazy" src="images/ppt/p16_032.jpg" alt="第16章 P.32" data-page-node-id="m78lrCtjTlFatyvF4HOkMc"></figure>
+      <figure data-page-node-id="ta8lhtGdZSNleNIjXivOR3"><img loading="lazy" src="images/ppt/p16_033.jpg" alt="第16章 P.33" data-page-node-id="HHsOGaBOR80LlnfUj3FiDz"></figure>
+      <figure data-page-node-id="uB7tsB7HYdSRYCGRBAoxNv"><img loading="lazy" src="images/ppt/p16_034.jpg" alt="第16章 P.34" data-page-node-id="ap7iY7m1cPhExUDgPXUDsA"></figure>
+      <figure data-page-node-id="pIDXThEFSl0EqKh2zbPRX0"><img loading="lazy" src="images/ppt/p16_035.jpg" alt="第16章 P.35" data-page-node-id="kEJojpiAno3D31ky3mLEUh"></figure>
+      <figure data-page-node-id="i1wce4ReAw7ZhKFG5IVrPa"><img loading="lazy" src="images/ppt/p16_036.jpg" alt="第16章 P.36" data-page-node-id="CtJAxdBgniCLG7K9bIoOAW"></figure>
+    </div>
+<h3 class="ppt-src-h" data-page-node-id="jwIH7MJB3BfQavp2cVptPy">第17章《数据驱动型系统的建设》</h3>
+    <div class="ppt-gallery" data-page-node-id="cSgrrJSNMOR3guf5FkLkVN">
+      <figure data-page-node-id="k3dyZWLcqD46ck8wjGL04D"><img loading="lazy" src="images/ppt/p17_005.jpg" alt="第17章 P.5" data-page-node-id="lrDVWtLBEvBqZI9xvpiGoj"></figure>
+      <figure data-page-node-id="Xltoc0bd9too4TGMLe76a8"><img loading="lazy" src="images/ppt/p17_006.jpg" alt="第17章 P.6" data-page-node-id="IPqNrBd6TplmHwKgxU8PYN"></figure>
+      <figure data-page-node-id="3uYJpnQWJLftK3ILBN1Fkz"><img loading="lazy" src="images/ppt/p17_007.jpg" alt="第17章 P.7" data-page-node-id="HyZecLVBasqG1m8v3X2So2"></figure>
+      <figure data-page-node-id="QRFGGKHvUbgAVJ4ly7DhyC"><img loading="lazy" src="images/ppt/p17_008.jpg" alt="第17章 P.8" data-page-node-id="JnZBYMrw6zlBH2umnMA37M"></figure>
+      <figure data-page-node-id="KPu6HZWOz55fJcgEC8oOGP"><img loading="lazy" src="images/ppt/p17_009.jpg" alt="第17章 P.9" data-page-node-id="zw1SNA8ZgwtpZI1CNxjU8S"></figure>
+      <figure data-page-node-id="tXZ2EfYBMpquJzqk4dyL8l"><img loading="lazy" src="images/ppt/p17_010.jpg" alt="第17章 P.10" data-page-node-id="EICAYDaJWvhFjEJqjsgW6V"></figure>
+      <figure data-page-node-id="BAI2dWukidEiwGkXQhcrGt"><img loading="lazy" src="images/ppt/p17_011.jpg" alt="第17章 P.11" data-page-node-id="ZoyrW8ptprGL5HtLogTHmb"></figure>
+      <figure data-page-node-id="uciBG5q32l48erg69FwrmF"><img loading="lazy" src="images/ppt/p17_012.jpg" alt="第17章 P.12" data-page-node-id="LXUV9b4ohRvjVyxE1CvIvV"></figure>
+      <figure data-page-node-id="hnkCLYz2PcBSzPAiBS5q6b"><img loading="lazy" src="images/ppt/p17_013.jpg" alt="第17章 P.13" data-page-node-id="oxxHSQyH1WVtawW43sR1Xk"></figure>
+      <figure data-page-node-id="pbMy8DvxVEon7hnT3siBtW"><img loading="lazy" src="images/ppt/p17_014.jpg" alt="第17章 P.14" data-page-node-id="qfh3HLY76ZNFYCzJPKuBDV"></figure>
+      <figure data-page-node-id="XEentv3ujPXvQxF8kjW9cP"><img loading="lazy" src="images/ppt/p17_015.jpg" alt="第17章 P.15" data-page-node-id="EEUeyGWqdpmkuYf7HRBJMH"></figure>
+      <figure data-page-node-id="64XE635FMmTkhbjokRsluK"><img loading="lazy" src="images/ppt/p17_016.jpg" alt="第17章 P.16" data-page-node-id="EVetGRKf3Nrw8INRsYGlcl"></figure>
+      <figure data-page-node-id="bUMzrbmE08ZBFrqhqBcm1l"><img loading="lazy" src="images/ppt/p17_017.jpg" alt="第17章 P.17" data-page-node-id="5PEW7ABFtiHDkLTzkLsEic"></figure>
+      <figure data-page-node-id="HqGQQw6oWZnMCxJVnrrJfB"><img loading="lazy" src="images/ppt/p17_018.jpg" alt="第17章 P.18" data-page-node-id="blkt6YmoH7FrDvRQNc9WSe"></figure>
+      <figure data-page-node-id="b0QQZUI5b2qzORxH94BCgn"><img loading="lazy" src="images/ppt/p17_019.jpg" alt="第17章 P.19" data-page-node-id="xb7LVdE9fIliJWGVFo0Slm"></figure>
+      <figure data-page-node-id="ydcjOkK0CuZSefNJDke0tw"><img loading="lazy" src="images/ppt/p17_020.jpg" alt="第17章 P.20" data-page-node-id="eqFk1IDxKsxsTzGRDIdqo5"></figure>
+      <figure data-page-node-id="7Zetg4zuOlAB3PJbcCQJea"><img loading="lazy" src="images/ppt/p17_021.jpg" alt="第17章 P.21" data-page-node-id="fiumMG3y4r3DFowU2Xdtcy"></figure>
+      <figure data-page-node-id="IAKoeEJH8VpCEapHknUFLi"><img loading="lazy" src="images/ppt/p17_022.jpg" alt="第17章 P.22" data-page-node-id="PfxPlzpjKrE167sfTHE7Uo"></figure>
+      <figure data-page-node-id="ac68AjwQOdypbbcFTQd6Pn"><img loading="lazy" src="images/ppt/p17_023.jpg" alt="第17章 P.23" data-page-node-id="ZUxbS0lGsrzE0ogQGzOV2e"></figure>
+      <figure data-page-node-id="FaIQzKpaqsX3KR00SUC8HH"><img loading="lazy" src="images/ppt/p17_024.jpg" alt="第17章 P.24" data-page-node-id="DKGAQQah2ahA9UDDV47bvj"></figure>
+      <figure data-page-node-id="tJXCMh1mCEhwyJhT4ZfEMP"><img loading="lazy" src="images/ppt/p17_025.jpg" alt="第17章 P.25" data-page-node-id="Glbcc3Wv0w2wZ8pbGuOKtf"></figure>
+      <figure data-page-node-id="MGpp3kFqQvk4enAEHxgaHG"><img loading="lazy" src="images/ppt/p17_026.jpg" alt="第17章 P.26" data-page-node-id="UFXbCOdvmt2UHw5jQwehQC"></figure>
+      <figure data-page-node-id="zpSwdaA7MxAephkSCOOlv3"><img loading="lazy" src="images/ppt/p17_027.jpg" alt="第17章 P.27" data-page-node-id="VdyCWI4oxgbjOtsl4UMrA9"></figure>
+      <figure data-page-node-id="8bmGnSBk42BH6Yw5GnNykV"><img loading="lazy" src="images/ppt/p17_028.jpg" alt="第17章 P.28" data-page-node-id="KwzbqD1ICNS3HbQhpikNGT"></figure>
+      <figure data-page-node-id="65EYKCrciPYcPHHzUMmyBI"><img loading="lazy" src="images/ppt/p17_029.jpg" alt="第17章 P.29" data-page-node-id="Ru9F7L5KehHBuC3HMYDd1G"></figure>
+    </div>
+<h2 class="part p3" data-page-node-id="C3wvOFq1wz3fxY8W3FvNeh">第三部分　拓展练习</h2>
+      <h3 class="sec-h" id="kb" data-page-node-id="4z1OYYYLGBWHFY7ENpU5nT">知识拓展与前沿</h3>
+    <span class="mod mod-kb" data-page-node-id="0xbXQBr9Hg70wylsxw1pNL">拓展 · 智能体评测方法论</span>
+    <p data-page-node-id="vwzwrTNiE882kzlO4ybqTg">为何难评：输出概率性、路径多样、多步工具调用。维度：任务成功率、步骤效率、工具调用正确性、成本与时延。方法：可复现任务集 + 端到端评估 + 轨迹分析；LLM-as-Judge 与人工抽检结合。评测应贯穿全周期：单元→集成→端到端。</p>
+    <span class="mod mod-kb" data-page-node-id="qcsmtDYjelwhq1Z2n6aBFa">前沿 · 智能体安全与防护</span>
+    <p data-page-node-id="3GVXGl2RoER7Em1PGe7C9n">自主性↑→可靠性↓，需主动护栏；权限最小化并持续审查 Agent 权限；高风险/敏感决策保留人工兜底；面向"智能威胁时代"重建网络抵抗力（安全左移、设计即安全）。</p>
+    <span class="mod mod-kb" data-page-node-id="zGHScX5z2vvoxeFTeo9EKx">案例 · 企业级智能体快速落地路径</span>
+    <p data-page-node-id="ATUXQJnA8Gzwdu3VuEdl9E">选场景（高频、规则清晰、价值可量化）→ 搭原型（低代码+知识库+工作流）→ 设护栏（权限/审计/复核/重试）→ 上生产（灰度→监控→数据回流迭代）。</p>
+    <div class="callout src" data-page-node-id="Vg8GhyybPUDScE9uXjTvAk">📚 来源：ima 知识库《智能体宇宙》《AI前沿研究报告》（Anthropic 评测、2026 安全设计相关报告）。</div>
+
+    
+<div class="termbox" data-page-node-id="ZCvgBXGIEQitoKooiG58dK">
+  <h4 data-page-node-id="bSUZ1v6KjRulT3XYkQMdF0">📌 实施测试与项目管理 · 核心术语</h4>
+  <ul data-page-node-id="jwgIec8Ha7Iz1d8GDtIMoa">
+    <li data-page-node-id="7sQgHRbrHoRCk0ngRKGkry"><span class="term" data-def="修改后重跑已有用例，确认新改动未破坏原有功能。" data-page-node-id="n5kX6wgLjrCX5AqEQ1RtLH">回归测试</span></li>
+    <li data-page-node-id="Y3uO6yaL9zK8ukAFDB0H63"><span class="term" data-def="大模型生成与事实不符或知识库无关内容的现象，需通过测试与约束抑制。" data-page-node-id="cB9kQ4dY64hIZiMv76KWDA">幻觉</span></li>
+    <li data-page-node-id="HGqfQbyKztr7eXm2FQchEb"><span class="term" data-def="隔离的运行环境，用于安全测试智能体调用外部工具的行为。" data-page-node-id="QK0mW5SrXUf3dNf5HRqT7S">沙盒</span></li>
+    <li data-page-node-id="07MZezpX2wt8lGGuI6YtLb"><span class="term" data-def="频繁合并代码并自动构建/测试，尽早暴露集成问题。" data-page-node-id="DjDGYoE6crmZCRBHgnh0ju">持续集成 CI</span></li>
+    <li data-page-node-id="TuXbO85dMylaZqWAT0nJqb"><span class="term" data-def="按需求规格由用户/甲方确认系统是否达到交付标准的测试。" data-page-node-id="5jcsKQXTHSTOf2d9DHzHfs">验收测试</span></li>
+  </ul>
+</div>
+
+<div class="casebox" data-page-node-id="rfoee1zhwqRDXLQEaOZuzQ">
+  <h4 data-page-node-id="BiECdSowJzepBb9H0PU3f2">🧩 案例 · 上线前的智能体测试清单</h4>
+  <ul data-page-node-id="LcOWlAWK4QArUh9Fzc7CcM">
+    <li data-page-node-id="gX9tE4EjL5uNzGHlq2PQct"><b data-page-node-id="OUN3cj3RwEsaYM278tJwlo">场景：</b>一个政策问答智能体发布前：功能测试（能否查到）、边界测试（空问/乱码）、一致性测试（同问同答）、幻觉与合规核查（是否编造文号）。</li>
+    <li data-page-node-id="O4Xbv84EtQ0d56pdit4wkt"><b data-page-node-id="JAdI852HMdsEhUUEZN8MPp">回归：</b>改了提示词后重跑旧用例，确认没“修一个漏一个”——回归测试保住已有能力。</li>
+    <li data-page-node-id="fdjE4MNl5GVijnkWfY2NsT"><b data-page-node-id="84nR3UdIAokjDJXM8nOmnW">映射：</b>测试即‘用证据说话’；测试报告也是综合项目答辩最硬的底气。</li>
+  </ul>
+</div>
+
+<span class="mod mod-kb" id="lit" data-page-node-id="vVWFvWiKDdw0VOlFiszt6C">前沿文献 · 近三年精选（2023–2026）</span>
+    <p data-page-node-id="QlfFB0aSk9S96UbbYiX3Fl">以下文献反映本章主题在智能体时代的最新进展，供学有余力的同学延伸阅读（链接指向原文/预印本）。</p>
+          <div class="callout src" data-page-node-id="VGXdI0cYWa3FoqDa7yuxQc">🎓 <b data-page-node-id="xFWYKj5Daw7pmg7UjJKWbI">学界观点</b>：刘力超等（2025）用大模型驱动档案开放审核；王玉珏等（2025）从批判视角审视 AI 时代的档案工作。二者共同提醒：实施、测试与治理是把蓝图变成可用系统的“最后一公里”，也是信息资源管理者的责任底线。</div>
+<ul class="lit-list" data-page-node-id="WEofQfPbHnF7R6ve74aU3T">
+      <li data-page-node-id="WLYVXq3D5NqZqMvamKSMwC"><a href="https://arxiv.org/abs/2511.21382" target="_blank" rel="noopener" data-page-node-id="TDjGQkBihtDbaURxunbLUA">面向单元测试生成的 LLM：成就、挑战与机遇（Large Language Models for Unit Test Generation: Achievements, Challenges, and Opportunities）</a>
+        <div class="lit-meta" data-page-node-id="oUXDWpop8jhRwSHccG6otx">Chu et al., 2025/2026, arXiv:2511.21382</div>
+        <div class="lit-note" data-page-node-id="bMIw1JuoAGYIGKgBzuefOb">115 篇文献(2021–2025)系统综述，自主测试智能体路线</div></li>
+
+      <li data-page-node-id="jBEnkHoz9ZdzejVrVyDzGM"><a href="https://arxiv.org/abs/2509.25043" target="_blank" rel="noopener" data-page-node-id="D3C88gV95G7C9NukMsnnSn">面向软件测试的 LLM：研究路线图（Large Language Models for Software Testing: A Research Roadmap）</a>
+        <div class="lit-meta" data-page-node-id="83lw4tJcCNmzqzeMbyaY83">Augusto et al., 2025, arXiv:2509.25043</div>
+        <div class="lit-note" data-page-node-id="YKVFUoPOGGBCvwu5we7Jm5">LLM 测试半系统综述+研究路线</div></li>
+
+      <li data-page-node-id="PBUKQSrEe6NoMAsayzJjLB"><a href="https://cloud.tencent.com/developer/article/2677210" target="_blank" rel="noopener" data-page-node-id="eD0J8AtZHO2pNxKX3KuxCq">TAPD AI：全链路敏捷研发效能提升（TAPD AI: Quantified Efficiency Gains in End-to-End Agile R&D）</a>
+        <div class="lit-meta" data-page-node-id="j4TxzEgo3yzI4C3m5PN80i">腾讯, 2025, 产业实践</div>
+        <div class="lit-note" data-page-node-id="CTB4xZlCdxGXkF5UB5PjKu">AI 重构研发流程：需求→DevOps 量化效能</div></li>
+
+      <li data-page-node-id="Fl5SYncg4VVqFnUFHFn6c0"><a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_03268cd723b32652" target="_blank" rel="noopener" data-page-node-id="tNNpo8S800zAsOTOd7wqrU">Testin XAgent：大模型+多模态智能体的“无人测试”（Testin XAgent: LLM + Multimodal Agent for Unmanned Testing）</a>
+        <div class="lit-meta" data-page-node-id="CMoKAfNf3kJypqs0CQjF6E">Testin 云测, 2025, 产业实践</div>
+        <div class="lit-note" data-page-node-id="Seij42DTfENxqLpXsHQt5L">自然语言生成测试+探索式测试</div></li>
+
+      <li data-page-node-id="t68d6qD2EyBelmhHkUreNc"><a href="https://arxiv.org/abs/2308.15276" target="_blank" rel="noopener" data-page-node-id="vtoByEQrylcHkNfkAtORw4">面向故障定位的大语言模型（Large Language Models in Fault Localisation）</a>
+        <div class="lit-meta" data-page-node-id="6PM2mllwDEOmeUzPwFEAHF">Wu et al., 2023, arXiv:2308.15276</div>
+        <div class="lit-note" data-page-node-id="W2bpBhzzIgXAHgY0w7nXUT">LLM 故障定位</div></li>
+
+          <li data-page-node-id="G3hSLB39BO80vrHhC8jwPJ"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%A9%B1%E5%8A%A8%E7%9A%84%E6%A1%A3%E6%A1%88%E5%BC%80%E6%94%BE%E6%99%BA%E8%83%BD%E5%AE%A1%E6%A0%B8%E6%96%B9%E6%B3%95%E7%A0%94%E7%A9%B6" target="_blank" rel="noopener" data-page-node-id="VF8JFP7IDM59QNOleKHl96">大模型驱动的档案开放智能审核方法研究</a>
+        <div class="lit-meta" data-page-node-id="jR2Lx00knbDVn2QsqWadMi">刘力超, 等. 大模型驱动的档案开放智能审核方法研究[J]. 档案学研究, 2025(2): 20-29.</div>
+        <div class="lit-note" data-page-node-id="mLngS3hgDTu6QMi3y2IWmS">以大模型辅助开放审核，对应本章实施落地与质量保障</div></li>
+
+      <li data-page-node-id="1XAUGV6zkdTJUwpu4ARZuF"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E6%89%B9%E5%88%A4%E8%A7%86%E8%A7%92%E4%B8%8B%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%97%B6%E4%BB%A3%E7%9A%84%E6%A1%A3%E6%A1%88%E5%B7%A5%E4%BD%9C" target="_blank" rel="noopener" data-page-node-id="BackOYkwXy9ZpwmZpCzJAf">批判视角下人工智能时代的档案工作</a>
+        <div class="lit-meta" data-page-node-id="mjDsOcthPMsRD1i54fAHX1">王玉珏, 等. 批判视角下人工智能时代的档案工作[J]. 档案学研究, 2025(3): 4-12.</div>
+        <div class="lit-note" data-page-node-id="PmrphS8ij4Wqb8jXjXLlVR">从伦理与边界反思 AI 对档案职业的影响，呼应治理与合规</div></li>
+
+      <li data-page-node-id="2EiDcRLCb34z1pCE6EV3Xi"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E6%95%B0%E6%99%BA%E6%97%B6%E4%BB%A3%E6%A1%A3%E6%A1%88%E5%B7%A5%E4%BD%9C%E7%9A%84%E8%BE%B9%E7%95%8C%E9%87%8D%E5%A1%91%E4%B8%8E%E8%81%8C%E4%B8%9A%E8%BD%AC%E5%9E%8B" target="_blank" rel="noopener" data-page-node-id="J4wzqpw58RSIIhGBACezLH">数智时代档案工作的边界重塑与职业转型</a>
+        <div class="lit-meta" data-page-node-id="L4Nb5gezvz93Cy1mdDrdi1">黄霄羽, 等. 数智时代档案工作的边界重塑与职业转型[J]. 档案学通讯, 2024(4): 14-22.</div>
+        <div class="lit-note" data-page-node-id="prfdqstraFAU8y0EhqiODJ">讨论档案职业在智能化背景下的能力重构，对应课程职业地图</div></li>
+
+    </ul>
+        <div class="callout tip" data-page-node-id="eGRoh5YctSU0TzNSfrQqBs">💡 <b data-page-node-id="hxvcWsTBb3qejW6e1nTSzo">软考/职业考点</b>：本章对应软考高项「十大管理领域（质量/风险/沟通/干系人）」、CISA「运营与业务恢复(D4) / 保护信息资产(D5)」、监理「三控两管一协调」。详见 9.5。</div>
+
+      <!-- 本章学习方法 -->
+    <div class="callout method" data-page-node-id="eGLLsxXCAGIM1JjeXzecaC">
+      <span class="m-tag" data-page-node-id="fvzThHJWxqlatEgFNMmRB6">本章学习方法 · PDCA 循环（Plan-Do-Check-Act）</span>
+      <p data-page-node-id="tatogUFM0MGYhbVmziYaUQ"><b data-page-node-id="1Mpyk9YxdhUwIFEtCfLE1O">核心理念：</b>用「计划-执行-检查-处理」持续迭代，每次上线都复盘改进，项目质量螺旋上升。</p>
+      <p data-page-node-id="qwrPDTWCGkTQMjgxGGGpPe"><b data-page-node-id="bCgjLjSDSsTKRXO5ipPHUu">四步/要点：</b>① Plan 计划定目标、范围与实施方案　② Do 执行小步实施，快速出可用版本　③ Check 检查测试与度量，收集真实数据　④ Act 处理复盘问题并标准化、再迭代</p>
+      <p data-page-node-id="5KmAKiMGGDfycvis5wbFNY"><b data-page-node-id="UgFKvMGC8JCYT8VIBhIykJ">与录屏结合：</b>录屏讲解你综合项目时，用 PDCA 四步展示「上线前测试清单如何闭环保障质量」。</p>
+    </div>
+
+              <!-- G3. 知识巩固与提高 -->
+    <h3 class="sec-h" id="review">知识巩固与提高</h3>
+    <div class="btnrow">
+      <a class="btn" href="课堂测试_第09章.pptx" target="_blank" rel="noopener">📂 第09章 课堂测试（PPT · 16 题 · 点击打开）</a>
+    </div>
+<h3 class="sec-h" id="exp" data-page-node-id="dIWoWXTsSGJE8sVFf7JKIx">上机实验 · 综合项目完整交付</h3>
+    <div class="labtask" data-page-node-id="OuLWoPHYGFPGSJwx74zaw8">
+      <h3 data-page-node-id="B3VGooWQFoqtTr2szXcSHt">📋 实验任务书</h3>
+      <p data-page-node-id="8xAv7KB4JMB0UidHAEv5pZ"><b data-page-node-id="D2df3WpSKbBlfcfXTcTNO6">目标：</b>整合前 8 章成果，交付一个可发布、经测试的完整智能体/低代码应用。</p>
+      <p data-page-node-id="Q0svY4lpTZutXMH9KV4oRJ"><b data-page-node-id="15rucNS8J9qNiUOYNX4Xnk">环境：</b>扣子 Coze（全能力）+ 测试方案模板。</p>
+      <p data-page-node-id="N1IG0tMQ1dBY2spDIEDL81"><b data-page-node-id="yoFDAjPILp3e00PEYGWpQX">步骤：</b>① 整合成品（知识库+工作流+界面）；② 写测试方案并执行四类测试；③ 准备 3 分钟答辩；④ 同伴互评+教师点评。</p>
+      <p data-page-node-id="sFnxXlbIZMGqrBAGmqqY2c"><b data-page-node-id="W4N25CfE6ZMge5NYchxufQ">交付物：</b>综合项目成品（链接/截图）+ 测试报告 + 答辩 PPT（≤8 页）与反思。</p>
+      <p data-page-node-id="xy2etCay9dmlM6dCZ0Q4JT"><b data-page-node-id="uXF4L9n86RfdgONTSqUhme">评分点：</b>功能完整(25%) · 测试报告(25%) · 架构合理(20%) · 答辩表达(20%) · 反思深度(10%)。</p>
+    </div>
+    <h3 class="sec-h" id="labexp">🛠 分步操作 · 综合项目：从规划到发布的完整交付</h3>
+    <span class="mod mod-lab" data-page-node-id="GCmrz02vg6A0TdiDSJT2IP">动手 · 分步操作</span>
+    <ol data-page-node-id="RzpKXKkaUFq30CGE4f5uPD">
+      <li data-page-node-id="LOB3zfcLxz5iyBONWkmhPe">整合前 8 章成果，完成一个完整智能体/低代码应用（含知识库、工作流、界面）。</li>
+      <li data-page-node-id="mzHcgFtmnFXzr7LuLO1GDd">撰写测试方案并执行：功能/边界/一致性/合规，形成测试报告。</li>
+      <li data-page-node-id="7AthSFN9nZ8hVQGax2DGJv">准备 3 分钟答辩：讲清需求→架构→关键设计决策→价值与不足。</li>
+      <li data-page-node-id="bLnlEfdsiUUDT0MYDeWZhX">同伴互评 + 教师点评，沉淀防御性设计清单。</li>
+    </ol>
+    <details class="fold" data-page-node-id="LgDUNn2CdfqEYO8CA6cOUK">
+      <summary data-page-node-id="TCiicnf7fACEDCIqPs6sRk">📝 测试报告模板</summary>
+      <p data-page-node-id="bzCMVyj6nUAXeUInyuzGWo">一、测试范围（功能/边界/一致性/合规）<br data-page-node-id="rWXVOVEqVlPEDVXFS80g7r">二、用例表（编号/输入/预期/实际/结论）<br data-page-node-id="oNEvSPkznq849P5wMCbvKa">三、缺陷与修复记录<br data-page-node-id="5cSajJ5rdrrcyt6Kd7BrbM">四、回归结论与发布建议</p>
+    </details>
+<h3 class="exp-h" data-page-node-id="OoeIsztN2lOpMGlD7Ai71y">🔬 扩展实验（选做 2–3 项，巩固本章学法）</h3>
+    <div class="expext" data-page-node-id="cxTclA5jPR7eAFNYEHmZ3W">
+      <h4 data-page-node-id="5GNDayTBcWkg0xL64KCXh4">扩展实验 1 · 安全测试<span class="tag" data-page-node-id="nZ6xCWf734KPi8YeCj2GmT">质量</span></h4>
+      <p data-page-node-id="utfQ9XinFQ0oxb0uZ8QzrI"><b data-page-node-id="PlbV0k3dqTC3H3KTCnkdNc">任务：</b>对综合项目做一轮安全测试(越权/注入/敏感词)，列问题清单。</p>
+      <p data-page-node-id="rSzF1Pd5hFEBDQuwjwELpy"><b data-page-node-id="6TneAlV4ju0CC6M1hI34E1">交付：</b>费曼式讲清「测试为何必要」，录屏演示。</p>
+    </div>
+    <div class="expext" data-page-node-id="Cq3Uo8qxAVhsSj6WKnFg9W">
+      <h4 data-page-node-id="siGhkwpXEPzZzQ3MV7mmK2">扩展实验 2 · 提示注入防御<span class="tag" data-page-node-id="8xpfjD7PlzZDgeBQWhYYbF">安全</span></h4>
+      <p data-page-node-id="T4jg3Wtwg4jyf2Pn7ISkZI"><b data-page-node-id="LEM7RvBW4Q6CYAjWmuU9jo">任务：</b>设计 3 条注入攻击样例并验证防御。</p>
+      <p data-page-node-id="KTjlyPA8z80phzKI03B4HT"><b data-page-node-id="IUIdVuOmxvIiHJwBKUepkg">交付：</b>录屏讲解「如何给智能体加护栏」，给出加固项。</p>
+    </div>
+    <div class="expext" data-page-node-id="xLqSFvbHVFejMvTG8rasaI">
+      <h4 data-page-node-id="gFQNoGwaIdxhGIunkFTtdC">扩展实验 3 · 可观测性<span class="tag" data-page-node-id="QxQzvHfFvriC2opJlJAkMg">运维</span></h4>
+      <p data-page-node-id="apAq4BeC138icpJ0rADURJ"><b data-page-node-id="BsjfjaJpEbMIJyjq9gS9Yt">任务：</b>配置日志/监控看板，对比「无监控 vs 有监控」的排障效率。</p>
+      <p data-page-node-id="slP5hMA7pnNCNdN3vpfcO7"><b data-page-node-id="LU9WzrWKKRR0MdBjXyZ2AG">交付：</b>总结上线要点，录屏演示看板。</p>
+    </div>
+
+    <h2 class="part p4" data-page-node-id="WH9gZl0kHktJSmAPdyLaBb">第四部分　本章小结</h2>
+      <h3 class="sec-h" id="sum" data-page-node-id="46VD7f9jXFyJn0FcrSuXF1">本章小结</h3>
+    <div class="summary" data-page-node-id="AQVsAVoV8vN7uxOpnDAZ46">
+            <h4 data-page-node-id="nraNk7aqAToptLqIijDAzg">核心要点回顾</h4>
+      <ul data-page-node-id="L3HL9uDucmSRJYUG9zZcbI">
+        <li data-page-node-id="7628Ouu6Ejjj9gkuVYmWEl">实施发布：商店/API/Web/小程序/私有化多端可选。</li>
+        <li data-page-node-id="wkGVvB6PhiiIs5tsJwMHBA">测试四类型：功能/边界/一致性/合规幻觉。</li>
+        <li data-page-node-id="pwP51Jr6ARzpPGP5OzN6Pd">数据隔离与热更新降低运维成本。</li>
+        <li data-page-node-id="0Jte8U6JW7ZDxlWmYcA2bK">项目管理：敏捷迭代 + 测试报告 + 答辩复盘。</li>
+        <li data-page-node-id="w03hcED16357jiHPmcyMDf">9 章主线：规划→需求→设计→知识/记忆/多模态→复杂系统→产品化→实施。</li>
+        <li data-page-node-id="I28GyefUWRlpEtyEhkBeRe">恭喜完成《信息系统分析与设计》智能体实战！</li>
+      </ul>
+      <p class="progress-txt" data-page-node-id="ahElrbeRH3EkbZGM7yvm9f">延伸阅读：ima 知识库《智能体宇宙》"智能体评测方法论"；软件测试理论（单元/集成/系统/验收、V 模型、TDD）；PMBOK 项目管理；清华《热血铸就英雄梦》国旗下演讲与邓俊辉批判思维材料。</p>
+    </div>
+      <h3 class="sec-h" id="caseext" data-page-node-id="Wmp6HY5Wu5igDCsxSEzSTg">拓展案例 · 江小智一站式数智赋能</h3>
+      <div class="casebox" data-page-node-id="A9ocgIfVVXtbUqFPMAZncU">
+        <p data-page-node-id="DVaY2AnoIEXwZBcDhZ5ol4"><span class="tagx" data-page-node-id="oN8CevjeTzhNq4oCyqYs1Z">案例 B8-02</span> <b data-page-node-id="Bc1DtMdKUhG0FmzNQRzLE9">江小智一站式数智赋能创新实践</b><br data-page-node-id="0SG6OEhFqGztJ4GP1FJidQ"><span class="cunit" data-page-node-id="pTO1jRf5yNjWcPs6Dr1Evj">申报单位：中国移动通信集团江西有限公司</span></p>
+        <p data-page-node-id="dWDOLbf9Chck3g5CW9oYjc">为落实央企数智化转型部署及集团“AI+”行动计划，江西移动针对AI 能力分散、业务流程繁琐、技术与业务融合不深等核心痛点，打造“江小智”一站式数智赋能体系，有效推动AI 技术与核心业务深度融合。构建统一数智赋能能力底座，实现从“数、算、模、台”的端到端支撑，让数据高效流转、模型便捷调用、算力统一调度、应用快速上线，推动智能应用规模化落地。打造“一站式”AI 服务统一门户，降低应用门槛，实现AI 能力集中化供给与高效调用，支撑落地60 余项高价值AI 应用，核心业务效率显著提升。</p>
+        <p data-page-node-id="4mZ08G12pnnt0Mi0zirZAG"><b data-page-node-id="vTLeD4kZx9jMzuYRg9T8lB">看点</b>：江小智走的是“统一底座—统一门户—标杆场景—规模推广”的路线，60 余项应用、2 万+ 用户、累计调用 2000 万次。这是一份可以直接当作项目管理范例的落地样本。</p>
+        <h4 data-page-node-id="O5P1WgyoOtYH0fWCuwAWsL">延伸思考题</h4>
+        <ol data-page-node-id="gyWjS2DB468wOZVrkeVfOO">
+          <li data-page-node-id="mP1NFcDa8vkQYI1Ey8bQEV">江小智以“整合能力底座 → 打造统一门户 → 深耕标杆场景 → 规模推广”的路径落地。请把它改写为一份项目里程碑计划，须包含阶段、交付物与验收标准三列。</li>
+          <li data-page-node-id="TcggfljREbdysogPHOAAtC">案例同时给出“AI 能力累计调用 2000 万次”与“网格智能体赋能一线提效 35%”两类指标。请区分哪类是过程指标、哪类是结果指标，并说明项目验收应以何者为主、为什么。</li>
+          <li data-page-node-id="CeC7jTbFpehO5Gl0ZEkEUO">“大模型挂载小模型、小模型驱动大模型”的 RAG 开放平台需要长期运营。请列出三项运维期关键活动，并指明各自的责任人角色。</li>
+        </ol>
+        
+      </div>
+
+      
+<!-- AGENT-LIT-INJECT -->
+    <span class="mod mod-kb">📚 智能体工程必读文献 · 评测层 · 最易被忽视却最重要</span>
+    <ul class="lit-list">
+      <li>
+        <a href="https://arxiv.org/abs/2507.02825" target="_blank" rel="noopener">Zhu et al.《Establishing Best Practices for Building Rigorous Agentic Benchmarks》</a>
+        <div class="lit-meta">arXiv:2507.02825 · DOI https://doi.org/10.48550/arXiv.2507.02825</div>
+        <div class="lit-note">如何构建严谨的 Agent 基准测试，避免“刷分陷阱”</div>
+      </li>
+      <li>
+        <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener">Anthropic《Demystifying Evals for AI Agents》</a>
+        <div class="lit-meta">Anthropic 工程博客, 2026-01-09（技术博客，无 DOI）</div>
+        <div class="lit-note">任务/试验/评分器/轨迹/结果，Agent 评估的方法论总纲</div>
+      </li>
+      <li>
+        <a href="https://arxiv.org/abs/2512.17267" target="_blank" rel="noopener">Ryan et al.《AutoMetrics》（自动生成评估器）</a>
+        <div class="lit-meta">arXiv:2512.17267 · DOI https://doi.org/10.48550/arXiv.2512.17267</div>
+        <div class="lit-note">用 LLM 自动生成评估指标，降低评测成本</div>
+      </li>
+    </ul>
+    <span class="mod mod-kb">📚 智能体工程必读文献 · 安全层 · 间接提示注入</span>
+    <ul class="lit-list">
+      <li>
+        <a href="https://openai.com/index/prompt-injections" target="_blank" rel="noopener">OpenAI《Understanding Prompt Injections》</a>
+        <div class="lit-meta">OpenAI 安全博客（技术博客，无 DOI）</div>
+        <div class="lit-note">直接提示注入的成因与缓解，第9章安全治理的必读</div>
+      </li>
+      <li>
+        <a href="https://arxiv.org/abs/2302.12173" target="_blank" rel="noopener">Greshake et al.《Not what you’ve signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection》</a>
+        <div class="lit-meta">arXiv:2302.12173 · DOI https://doi.org/10.48550/arXiv.2302.12173</div>
+        <div class="lit-note">间接提示注入（通过检索内容注入）的开山论文</div>
+      </li>
+    </ul>
+    <span class="mod mod-kb">📚 智能体工程必读文献 · 延伸资源 · 书籍与手册</span>
+    <ul class="lit-list">
+      <li>
+        <a href="https://github.com/fanqingsong/Agentic-Design-Patterns" target="_blank" rel="noopener">Antonio Gulli &amp; Mauro Sauco《Agentic Design Patterns》（《智能体设计模式》）· 英文完整版 PDF</a>
+        <div class="lit-meta">GitHub: fanqingsong/Agentic-Design-Patterns（book/Agentic_Design_Patterns_Complete.pdf，424 页）</div>
+        <div class="lit-note">系统梳理 Agent 设计模式；英文原版可整本下载</div>
+      </li>
+      <li>
+        <a href="https://jimmysong.io/zh/book/agentic-design-patterns/" target="_blank" rel="noopener">Antonio Gulli &amp; Mauro Sauco《Agentic Design Patterns》· 中文翻译（Jimmy Song）</a>
+        <div class="lit-meta">中文在线版：jimmysong.io/zh/book/agentic-design-patterns/（另有 GitHub xindoo/agentic-design-patterns）</div>
+        <div class="lit-note">中文读者友好，可在线阅读</div>
+      </li>
+      <li>
+        <a href="https://mp.weixin.qq.com/s/aEtpB4OIqWgcEI9JEOe6zQ" target="_blank" rel="noopener">GLG 格理集团《2026智能体AI实战手册：100位企业领导者战略洞见》</a>
+        <div class="lit-meta">来源：GLG 官方发布页 https://glginsights.com/de/news/glg-publishes-agentic-ai-report-featuring-implementation-playbook/</div>
+        <div class="lit-note">100 位企业 AI 负责人的落地实证：流程规范/数据/跨职能/岗位重塑</div>
+      </li>
+    </ul>
+<!-- /AGENT-LIT-INJECT -->
+
+<div class="btnrow" data-page-node-id="K8wKIgCcdqxLmDLewhm8u8">
+      <button class="btn" id="exportPdf" data-page-node-id="OUtkFLxqgDX07mRsARxsjx">⬇ 导出本章 PDF</button>
+      <a class="btn ghost" href="index.html" data-page-node-id="hqleIVzHS9dyBMhf9highK">← 返回门户</a>
+    </div>
+
+    <div class="readbox" data-page-node-id="5BBrYDd4WlDfT7ewaWR67F">
+      <span class="dot" id="readDot" data-page-node-id="lPOU5oyKzCo7fuBIY3kmXc"></span>
+      <button class="btn ghost" id="markRead" data-ch="9" data-page-node-id="v70EPZ0AodILkaTKGUel1W">标记为已读</button>
+    </div>
+</main>
+</div>
+
+<div id="termtip" data-page-node-id="oD13CrCkBa3zCTNdv3Svw9"></div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第3章 系统需求分析 · 数字教材</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">《信息系统分析与设计》· 数字教材
+      <small>智能体实战主线 · 信息资源管理专业</small></div>
+    <nav>
+      <a href="index.html">门户</a>
+      <a href="ch02.html">第2章</a>
+      <a href="ch03.html">第3章</a>
+      <a href="ch09.html">第9章</a>
+      <a href="appendix.html">附录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc">
+  <aside class="side">
+    <h4>第 3 章 目录</h4>
+    <a href="#lead" class="cur">导语与学习目标</a>
+    <span class="navpart p1">第一部分　课程导学</span>
+    <a href="#theory">理论基石</a>
+    <a href="#ideo">课程思政</a>
+    <a href="#casein">案例导入</a>
+    <span class="navpart p2">第二部分　课程内容</span>
+    <a href="#s31">3.1 需求获取</a>
+    <a href="#s32">3.2 功能 vs 非功能</a>
+    <a href="#s33">3.3 提示词即规格</a>
+    <a href="#s34">3.4 KB 资源</a>
+    <span class="navpart p3">第三部分　拓展练习</span>
+    <a href="#kb">知识拓展与前沿</a>
+    <a href="#lit">↳ 前沿文献</a>
+    <a href="#exp">上机实验</a>
+    <span class="navpart p4">第四部分　本章小结</span>
+    <a href="#sum">本章小结</a>
+    <a href="#caseext">拓展案例 · 延伸思考</a>
+  </aside>
+
+  <main class="content">
+    <h1>第 3 章　系统需求分析</h1>
+    <p class="progress-txt">把模糊的业务期望，转化为清晰、可验证的智能体需求规格。本章学会"以用户为中心"地获取需求，并用提示词把需求直接变成可运行的规格。</p>
+
+    
+
+    <h2 class="part p1" id="lead">第一部分　课程导学</h2>
+
+<span class="mod mod-lead">导语 · 本章定位</span>
+    <p>需求分析是"翻译"——把用户嘴里含糊的"我想要个能帮忙的"翻译成系统能执行的精确规格。本章先讲经典的需求获取与分类方法，再落到智能体最妙的一点：<b>在 Coze 里，系统提示词天然就是一份可运行的需求规格</b>。你写提示词的过程，就是在做需求分析。</p>
+
+    <span class="mod mod-lead">三维学习目标</span>
+    <div class="goals">
+      <div class="goal"><b>知识</b><br>掌握需求获取基本方法；区分功能与非功能需求；理解用例与用户故事。</div>
+      <div class="goal"><b>能力</b><br>能编写用例/用户故事；能把需求转化为智能体角色与提示词；会用对话式方法探索需求。</div>
+      <div class="goal"><b>价值</b><br>培养"以用户为中心"的分析思维；理解需求质量决定系统质量；善用提示词作为需求载体。</div>
+    </div>
+
+            
+    
+      <h3 class="sec-h" id="theory">理论基石 · 信息系统分析与设计</h3>
+    <span class="mod mod-theory">理论 · 结构化需求分析（SA）</span>
+    <p>① <span class="term" data-def="数据流图（DFD）：自顶向下分层刻画数据在系统中流动与加工关系的图形工具。">数据流图 DFD</span>：自顶向下分层（顶层/0层/逐层细化）；② 数据字典 DD：定义数据流、数据项、加工、文件的精确含义；③ 加工逻辑：结构化语言/决策树/决策表；④ ER 建模：实体—联系图刻画数据对象关系。</p>
+    <span class="mod mod-theory">理论 · 面向对象需求分析（OOA）</span>
+    <p>用例图（参与者、用例及其包含/扩展/泛化）、用例规约（前置/后置条件、主成功与扩展场景）、活动图与状态图；需求规格说明书 <b>SRS（IEEE 830 模板）</b>。这与"提示词即规格"呼应——智能体把需求直接表达为提示。</p>
+    <span class="mod mod-theory">理论 ↔ 智能体能力 映射</span>
+    <div class="two">
+      <div class="card"><b>结构化分析 DFD/数据字典</b> ↔ 把业务流程拆成可编排的数据流与加工节点</div>
+      <div class="card"><b>用例图</b> ↔ 智能体即"对象/角色"，用例刻画其能力边界</div>
+      <div class="card"><b>需求规格 SRS</b> ↔ 系统提示词 = 智能体的需求规格说明书</div>
+      <div class="card"><b>活动图/状态图</b> ↔ 工作流节点=活动；会话状态机=状态图</div>
+      <div class="card"><b>对话式需求获取</b> ↔ 自然语言提示即轻量需求获取方式</div>
+    </div>
+    <span class="mod mod-theory">理论可视化 · 信息系统相关图形（4 幅）</span>
+    <p>以下矢量图把需求分析方法"画出来"，建立可视化心智模型。</p>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 240" role="img" aria-label="功能与非功能需求">
+        <defs><marker id="m3a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C"/></marker></defs>
+        <circle cx="250" cy="120" r="100" fill="#EAF4F6" stroke="#0F6E8C" stroke-width="1.5"/>
+        <circle cx="430" cy="120" r="100" fill="#FDF3E3" stroke="#E0A82E" stroke-width="1.5"/>
+        <text x="200" y="115" text-anchor="middle" font-size="15" font-weight="bold" fill="#0F6E8C">功能需求</text>
+        <text x="200" y="138" text-anchor="middle" font-size="11" fill="#5A6B73">必须做什么</text>
+        <text x="430" y="115" text-anchor="middle" font-size="15" font-weight="bold" fill="#b9841b">非功能需求</text>
+        <text x="430" y="138" text-anchor="middle" font-size="11" fill="#5A6B73">做得有多好</text>
+        <text x="340" y="120" text-anchor="middle" font-size="12" fill="#0E2F3A">交集</text>
+        <text x="340" y="225" text-anchor="middle" font-size="11" fill="#5A6B73">用例需同时描述"做什么"与"多好"</text>
+      </svg>
+      <span class="cap"><b>图1</b>　功能需求与非功能需求（关注点互补）</span>
+    </figure>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 320" role="img" aria-label="UML用例图">
+        <g stroke="#0E2F3A" stroke-width="2" fill="none">
+          <circle cx="80" cy="80" r="14"/>
+          <line x1="80" y1="94" x2="80" y2="150"/>
+          <line x1="60" y1="114" x2="100" y2="114"/>
+          <line x1="80" y1="150" x2="63" y2="190"/>
+          <line x1="80" y1="150" x2="97" y2="190"/>
+        </g>
+        <text x="80" y="215" text-anchor="middle" font-size="13" fill="#0E2F3A">用户</text>
+        <g font-size="13" fill="#0E2F3A">
+          <ellipse cx="450" cy="50" rx="105" ry="22" fill="#EAF4F6" stroke="#0F6E8C"/><text x="450" y="55" text-anchor="middle">上传图片识别</text>
+          <ellipse cx="450" cy="105" rx="105" ry="22" fill="#EAF4F6" stroke="#0F6E8C"/><text x="450" y="110" text-anchor="middle">查询专业代码</text>
+          <ellipse cx="450" cy="160" rx="105" ry="22" fill="#EAF4F6" stroke="#0F6E8C"/><text x="450" y="165" text-anchor="middle">获取安全分析</text>
+          <ellipse cx="450" cy="215" rx="105" ry="22" fill="#eaf7ef" stroke="#2E8B57"/><text x="450" y="220" text-anchor="middle">«扩展» 异常处理</text>
+        </g>
+        <g stroke="#5A6B73" stroke-width="1.5">
+          <line x1="98" y1="140" x2="343" y2="50"/>
+          <line x1="98" y1="140" x2="343" y2="105"/>
+          <line x1="98" y1="140" x2="343" y2="160"/>
+          <line x1="345" y1="160" x2="345" y2="193"/>
+        </g>
+      </svg>
+      <span class="cap"><b>图2</b>　UML 用例图：用户与智能体的用例关联（含扩展关系）</span>
+    </figure>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 260" role="img" aria-label="DFD分层">
+        <defs><marker id="m3c" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C"/></marker></defs>
+        <g font-size="13" fill="#0E2F3A" text-anchor="middle">
+          <rect x="40" y="30" width="600" height="46" rx="8" fill="#EAF4F6" stroke="#0F6E8C"/><text x="340" y="58">顶层：外部实体 ⇄ 系统（上下文）</text>
+          <rect x="40" y="100" width="600" height="46" rx="8" fill="#fff" stroke="#0F6E8C"/><text x="340" y="128">0 层：加工1 采集 → 加工2 处理 → 加工3 输出</text>
+          <rect x="60" y="170" width="180" height="40" rx="8" fill="#FDF3E3" stroke="#E0A82E"/><text x="150" y="195">加工1.1 校验</text>
+          <rect x="260" y="170" width="180" height="40" rx="8" fill="#FDF3E3" stroke="#E0A82E"/><text x="350" y="195">加工1.2 解析</text>
+          <rect x="460" y="170" width="180" height="40" rx="8" fill="#FDF3E3" stroke="#E0A82E"/><text x="550" y="195">加工1.3 入库</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="2" fill="none" marker-end="url(#m3c)">
+          <line x1="340" y1="76" x2="340" y2="98"/>
+          <line x1="340" y1="146" x2="150" y2="168"/>
+          <line x1="340" y1="146" x2="350" y2="168"/>
+          <line x1="340" y1="146" x2="550" y2="168"/>
+        </g>
+      </svg>
+      <span class="cap"><b>图3</b>　数据流图 DFD 自顶向下分层（顶层 / 0层 / 加工细化）</span>
+    </figure>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 300" role="img" aria-label="UML类图Agent">
+        <g font-size="13" fill="#0E2F3A">
+          <rect x="230" y="20" width="220" height="120" rx="8" fill="#EAF4F6" stroke="#0F6E8C"/>
+          <text x="340" y="42" text-anchor="middle" font-weight="bold">智能体 Agent</text>
+          <line x1="230" y1="52" x2="450" y2="52" stroke="#0F6E8C"/>
+          <text x="244" y="72">- 名称 : String</text>
+          <text x="244" y="92">- 角色 : String</text>
+          <text x="244" y="112">- 目标 : String</text>
+          <text x="244" y="132">+ 感知()</text>
+          <text x="340" y="132">+ 推理()  + 行动()</text>
+          <rect x="40" y="180" width="160" height="70" rx="8" fill="#fff" stroke="#0F6E8C"/>
+          <text x="120" y="202" text-anchor="middle" font-weight="bold">工具 Tool</text>
+          <line x1="40" y1="212" x2="200" y2="212" stroke="#0F6E8C"/>
+          <text x="54" y="234">+ 执行()</text>
+          <rect x="260" y="180" width="160" height="70" rx="8" fill="#fff" stroke="#0F6E8C"/>
+          <text x="340" y="202" text-anchor="middle" font-weight="bold">知识库 KB</text>
+          <line x1="260" y1="212" x2="420" y2="212" stroke="#0F6E8C"/>
+          <text x="274" y="234">+ 检索()</text>
+          <rect x="480" y="180" width="160" height="70" rx="8" fill="#fff" stroke="#0F6E8C"/>
+          <text x="560" y="202" text-anchor="middle" font-weight="bold">记忆 Memory</text>
+          <line x1="480" y1="212" x2="640" y2="212" stroke="#0F6E8C"/>
+          <text x="494" y="234">+ 读取() + 写入()</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="2" fill="none">
+          <line x1="230" y1="140" x2="200" y2="180"/>
+          <line x1="340" y1="140" x2="340" y2="180"/>
+          <line x1="450" y1="140" x2="560" y2="180"/>
+        </g>
+        <text x="150" y="170" font-size="11" fill="#5A6B73">使用 1..*</text>
+        <text x="450" y="170" font-size="11" fill="#5A6B73">检索 1</text>
+      </svg>
+      <span class="cap"><b>图4</b>　UML 类图：面向对象分析落到智能体（Agent 类及其关联）</span>
+    </figure>
+
+          <div class="callout method" id="classicmap"><span class="m-tag">经典方法论对照 · 需求建模</span><p>原版 ch5-7 的需求硬核：<b>需求调查四法</b>（访谈/问卷/原型/观察）、<b>需求规格说明书 SRS</b>、<b>DFD 数据流图、数据字典、判定表/判定树</b>（ch6），以及<b>用例图、用户故事、INVEST 原则</b>（ch7）。这些是"把用户说不清的话变成可工程化规格"的经典武器；深度符号与画法见 <a href="appendix.html#modeling">附录 H.1-H.2</a>。</p></div>
+
+<h3 class="sec-h" id="ideo">课程思政 · 价值引领</h3>
+    
+<!-- wxfig-inject -->
+<figure class="wxfig">
+  <img src="media/weixin/ch03_agent_01_flow.png" alt="ch03_agent_01_flow.png" loading="lazy">
+  <figcaption>
+    <strong>图：Agent 0-1 搭建全流程</strong><br>从明确项目目标与需求出发，经过技术选型，构建 Single-Path / Multi-Path Reasoning 循环，形成 Human ↔ LLM Call ↔ Environment 的反馈闭环。
+    <span class="src">来源：公众号·大模型助理</span>
+  </figcaption>
+</figure>
+<span class="mod mod-kb">前沿动态 · 行业速递（2026-08）</span>
+<div class="callout frontier">
+  <span class="f-tag">动态更新 2026-08</span>
+  <p><b>1</b> Anthropic 2026 趋势报告：核心能力从“会写代码”转向“需求拆解、架构判断、AI 产出审查、领域知识”。</p>
+  <p><b>2</b> AI 编程工具（Cursor / Trae / Claude Code）正在重写“程序员”角色的下限与上限。</p>
+  <p><b>3</b> 对需求分析启示：用户故事与提示词即规格，需求获取可与 AI 协同完成初稿。</p>
+  <p class="src">来源：CSDN AI 编程工具横评 2026、Anthropic 编码趋势报告</p>
+</div>
+
+<span class="mod mod-ideo">精神坐标 · 人民日报金句</span>
+    <div class="callout quote">"民之所忧，我必念之；民之所盼，我必行之。"——人民日报金句库</div>
+    <div class="callout quote">"树木在森林中相依偎而生长，星辰在银河中因辉映而璀璨。"</div>
+    <p><b>本章映射：</b>需求分析的本质是"以用户为中心"——听见、记准、落地用户的真实诉求。系统观念提醒我们：需求彼此关联，要用整体视角而非孤立地看功能点。</p>
+    <span class="mod mod-ideo">名校范式 · 清华课程思政案例</span>
+    <div class="callout warn">🎓 清华计算机系 邓俊辉《标杆课中的立德树人》（算法课）：善用典故譬喻——"愚公移山"引出"减而治之"分治、"曹冲称象"引出规约；通情达理追慕大师至善至美；点题"步步最优，未必整体最优"。</div>
+    <p><b>本章映射：</b>需求分析要"咀嚼和品味"——透过表象重构完整图景，警惕"局部最优≠整体最优"。对话式需求获取，同样始于对真实诉求的敬畏与全局审视。</p>
+
+    
+<span class="mod mod-ideo">课程思政案例 · IMA 知识库</span>
+<div class="kbcase">
+  <h4>以人民为中心的需求获取：需求即责任</h4>
+  <ul>
+    <li>《数据结构与算法》课程思政强调：把所学知识转化为内在德行与素养，注重个人发展与社会发展、国家发展相统一。</li>
+    <li>用 AI 撰写需求/申报书时要警惕"无中生有""华而不实"——需求分析必须基于真实用户，而非凭空想象。</li>
+  </ul>
+  <span class="src">来源：IMA 知识库《课程思政示范案例》· 《数据结构与算法》课程思政教学案例(谭定英等)；陈翠《人工智能赋能学校教科研管理》</span>
+  <span class="think"><b>本章映射：</b>对话式需求（提示词即规格）也要"以用户为中心 = 以人民为中心"：把隐私、公平、可及性写进需求规格，从源头避免"算法偏见"。</span>
+</div>
+      <h3 class="sec-h" id="casein">案例导入 · 申通地铁热线工单处置</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B5-13</span> <b>申通地铁热线工单处置智能体创新实践</b><br><span class="cunit">申报单位：联通数据智能有限公司</span></p>
+        <p>上海申通地铁集团作为全球规模最大的城市轨道交通运营商之一，每日要高效处理来自“12345”市民热线工单，传统人工操作面临着跨系统录入繁琐、分类标准不统一、处理周期长等挑战。本案例基于RPA 与大模型融合技术，利用智能体平台构建了一套智能化工单处理系统。系统以RPA 为核心执行引擎，通过模拟人工操作实现热线工单自动提取，再利用智能体平台驱动大模型完成智能分类、责任定位、话术匹配等全流程处理。系统已在上海申通地铁监督热线平台完成部署上线。实测数据表明：单张工单RPA+AI全流程处理仅约3分钟，配置多个AI 员工的情况下，实现单日坐席从2-4 人减少至1 人，AI 分类准确率≥95%。</p>
+        <p><b>导学解读 · 与本章的对接</b>：需求分析的起点往往不是“用户想要什么”，而是“现有流程哪里痛”。本案例把痛点写成了三条可验证的陈述：跨系统录入繁琐、分类标准不统一、处理周期长——这正是需求规格说明中“问题定义”应有的写法。随后形成的 6 大类 30+ 子类、200+ 规则与车站管辖单位映射表，则是把模糊诉求转化为<b>结构化需求模型</b>的过程，可与本章的用例建模、业务规则梳理对照阅读。还有一个细节值得记下：系统采用“大模型 + 小模型”双引擎，约 80% 的高频工单交给轻量级分类模型，置信度低的再交给大模型深度推理。这是需求分类场景里典型的<b>成本—精度权衡</b>，也是本章需求优先级方法的现实版。</p>
+        
+      </div>
+
+    <h2 class="part p2">第二部分　课程内容</h2>
+      <h3 class="sec-h" id="s31">3.1　需求获取常用方法</h3>
+    <p>获取需求不能只靠脑袋想，常用四法：① <b>访谈与问卷</b>（问清痛点与目标）；② <b>观察与文档</b>（分析现有流程、制度，发现隐性需求）；③ <b>原型与卡片</b>（用模板快速出可交互原型，边看边改）；④ <b>对话式探索</b>（以 AI 提示词引导需求收敛，一句话需求→需求文档）。</p>
+
+    
+    <div class="pptgrid" data-cnt="6">
+      <figure class="wxfig">
+  <img src="media/coze/p064.jpg" alt="课件第 64 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p065.jpg" alt="课件第 65 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p246.jpg" alt="课件第 246 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p247.jpg" alt="课件第 247 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p248.jpg" alt="课件第 248 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p249.jpg" alt="课件第 249 页" loading="lazy">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s32">3.2　功能需求 vs 非功能需求</h3>
+    <p><b>功能需求</b>回答"系统必须做什么"——如"上传配料表图片并给出安全分析"；<b>非功能需求</b>回答"做得有多好"——如回答准确性、幻觉控制、响应时延、合规。信息资源场景中，检索准确率、知识库引用可追溯、隐私合规同属非功能要点。</p>
+    <p>用例要素：<b>参与者 + 目标 + 主成功场景 + 扩展（异常分支）</b>。用户故事模板：<b>「作为&lt;角色&gt;，我想要&lt;功能&gt;，以便&lt;价值&gt;」</b>，便于拆解与验收。</p>
+
+    
+    <div class="pptgrid" data-cnt="2">
+      <figure class="wxfig">
+  <img src="media/coze/p066.jpg" alt="课件第 66 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p067.jpg" alt="课件第 67 页" loading="lazy">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s33">3.3　对话式需求：提示词即规格</h3>
+    <p>在 Coze 中，<span class="term" data-def="系统提示词：开发者编写的全局角色与规则，稳定影响所有对话，本质上就是智能体的需求规格。">系统提示词</span>天然承担"需求规格"角色，且可立即运行验证。提示词基本组成：角色设定 / 功能和流程 / 限制 / 回复格式——正好对应需求主体、功能、非功能边界与输出约定。</p>
+    <div class="callout tip">💡 写法要点：用 Markdown 分级标题、列表、代码块；用 Jinja 模板 {{变量}} 动态插入；用 {} 引用已添加技能。需求写得越结构，智能体越可靠。</div>
+
+          <h3 class="sec-h" id="s34">3.4　知识库赋能：需求探索提示词</h3>
+    <p>KB《AI 辅助下的需求探索》能把原始业务描述补全为完整需求文档；其"角色/技能/限制"三段式即需求三类约束；《金字塔表达引擎》强调结论先行、归类分组；《费曼式深问器》纵向到底检验是否真懂需求本质。善用这些 KB 提示词，需求收敛又快又准。</p>
+
+          
+
+    
+    <h2 class="part p3">第三部分　拓展练习</h2>
+      <h3 class="sec-h" id="kb">知识拓展与前沿</h3>
+    <span class="mod mod-kb">拓展 · Workflow 还是 Agent？需求边界四问</span>
+    <p>① 任务是否足够复杂需适应性决策？② 更简单的 AI 辅助（如不带 Agent 的 RAG）能否达到同样效果？③ 是否涉及不确定性、变化条件或多步推理？④ 赋予自主性会带来哪些风险？由此界定：哪些做成固定工作流，哪些交给智能体。</p>
+    <span class="mod mod-kb">拓展 · Workflow vs Agent 需求对比</span>
+    <p>工作流式（确定性）：步骤/判断可精确定义（如费用报销审批），强调可靠、可预测、可审计；智能体式（自主性）：目标明确但路径不确定（如规划一次旅行），需规划、工具调用、反思迭代。</p>
+    <span class="mod mod-kb">案例 · Deep Research 研究助手</span>
+    <p>目标明确但路径开放：主动澄清目标、连续查询多数据源、边检索边整合、据新发现调整计划——对应任务分解、动态规划、网页浏览工具、长上下文/记忆等需求。</p>
+    <div class="callout src">📚 来源：ima 知识库《智能体宇宙》。</div>
+
+    
+<div class="casebox">
+  <h4>🧩 案例 · 用用户故事锁定智能体需求</h4>
+  <ul>
+    <li><b>场景：</b>校务问答智能体：用户故事‘作为新生，我想查奖助贷政策，以便提前准备材料’——价值清晰，需求不跑偏。</li>
+    <li><b>非功能：</b>响应要快（<2s）、回答要准（幻觉少）、要能识别“我答不上来”（不编造）——这些是非功能需求，也是测试红线。</li>
+    <li><b>映射：</b>智能体的系统提示词，本质就是把‘需求规格’写给人设/技能/限制/格式四段里；提示词即需求文档。</li>
+  </ul>
+</div>
+
+<span class="mod mod-kb" id="lit">前沿文献 · 近三年精选（2023–2026）</span>
+    <p>以下文献反映本章主题在智能体时代的最新进展，供学有余力的同学延伸阅读（链接指向原文/预印本）。</p>
+    <ul class="lit-list">
+      <li><a href="https://arxiv.org/abs/2509.11446" target="_blank" rel="noopener">面向需求工程的 LLM：系统文献综述（LLMs for Requirements Engineering: A Systematic Literature Review）</a>
+        <div class="lit-meta">Zadenoori et al., 2025, arXiv:2509.11446</div>
+        <div class="lit-note">74 篇主研究(2023–2024)的系统综述，含提示策略/评估方法</div></li>
+
+      <li><a href="https://frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2025.1519437/full" target="_blank" rel="noopener">LLM 在软件需求工程中应用方向综述（Research directions for using LLM in software requirement engineering: a systematic review）</a>
+        <div class="lit-meta">Hemmat et al., 2025, Frontiers in Computer Science</div>
+        <div class="lit-note">SLR，含提示策略与评估方法</div></li>
+
+      <li><a href="https://doi.org/10.1007/s00766-024-00416-3" target="_blank" rel="noopener">提升需求完整性：基于 LLM 的自动化辅助（Improving requirements completeness: Automated assistance through large language models）</a>
+        <div class="lit-meta">Luitel et al., 2024, Requirements Engineering, 29, 73–95</div>
+        <div class="lit-note">需求完整性自动辅助</div></li>
+
+      <li><a href="https://www.connectedpapers.com/main/ba71fb0fa68ab7d566dd4bbc6ab27efe7a1ff4a9/Using-ChatGPT-in-Software-Requirements-Engineering%3A-A-Comprehensive-Review/graph" target="_blank" rel="noopener">ChatGPT 辅助需求获取的潜力研究（Investigating ChatGPT's Potential to Assist in Requirements Elicitation Processes）</a>
+        <div class="lit-meta">Ronanki et al., 2023, 会议</div>
+        <div class="lit-note">需求获取辅助</div></li>
+
+      <li><a href="https://scholar.google.com/scholar?q=ReqInOne+Large+Language+Model-Based+Agent+for+Software+Requirements+Specification+Generation" target="_blank" rel="noopener">ReqInOne：基于 LLM 的智能体自动生成软件需求规格（ReqInOne: A Large Language Model-Based Agent for Software Requirements Specification Generation）</a>
+        <div class="lit-meta">Zhu et al., 2025, arXiv</div>
+        <div class="lit-note">智能体自动生成软件需求规格</div></li>
+
+    </ul>
+        <div class="callout tip">💡 <b>软考/职业考点</b>：本章对应软考高项「收集需求（范围管理）」、CISA「购置与开发(D3) 需求阶段审计」。需求质量决定系统质量，也是审计重点。</div>
+
+      <!-- 本章学习方法 -->
+    <div class="callout method">
+      <span class="m-tag">本章学习方法 · 用户故事地图法（User Story Mapping）</span>
+      <p><b>核心理念：</b>用「用户活动→用户故事→优先级」的地图，把零散需求组织成有叙事顺序的待办，避免「需求清单一堆却不知先做哪」。</p>
+      <p><b>四步/要点：</b>① 列用户活动沿主干写出用户完成目标的大步骤　② 写用户故事在活动下补充分支故事(角色+目标+价值)　③ 排优先级按重要/紧迫给故事标序　④ 切行走骨骼圈出本迭代必做的「最小可用」故事</p>
+      <p><b>与录屏结合：</b>录屏时，先画一张本章需求的用户故事地图，再挑一条故事讲清「智能体如何满足它」。</p>
+    </div>
+
+              <!-- G3. 知识巩固与提高 -->
+    <h3 class="sec-h" id="review">知识巩固与提高</h3>
+    <div class="btnrow">
+      <a class="btn" href="课堂测试_第03章.pptx" target="_blank" rel="noopener">📂 第03章 课堂测试（PPT · 19 题 · 点击打开）</a>
+    </div>
+<h3 class="sec-h" id="exp">上机实验 · 把需求转化为角色与提示词</h3>
+    <div class="labtask">
+      <h3>📋 实验任务书</h3>
+      <p><b>目标：</b>将第 2 章立项场景的需求，落到可运行的智能体提示词。</p>
+      <p><b>环境：</b>扣子 Coze + KB《AI 辅助下的需求探索》。</p>
+      <p><b>步骤：</b>① 列 3 功能 + 2 非功能需求；② 写 2 个用户故事并用 KB 产出需求清单；③ 固化为系统提示词（角色/技能/限制/格式）；④ 创建智能体预览测试；⑤ 记录最难落地的需求。</p>
+      <p><b>交付物：</b>需求清单 + 系统提示词初稿 + 测试反馈（需求覆盖度自评）。</p>
+      <p><b>评分点：</b>需求完整(30%) · 提示词结构清晰(30%) · 用户故事合理(20%) · 测试反思(20%)。</p>
+    </div>
+    <h3 class="sec-h" id="labexp">🛠 分步操作 · 把需求转化为角色与提示词</h3>
+    <span class="mod mod-lab">动手 · 分步操作</span>
+    <ol>
+      <li>选择第 2 章立项的场景，列出 3 个功能需求与 2 个非功能需求。</li>
+      <li>编写 2 个用户故事，并用 KB 需求探索提示词产出需求清单。</li>
+      <li>将需求固化为系统提示词：角色 + 技能 + 限制 + 格式。</li>
+      <li>在 Coze 创建该智能体，粘贴提示词并预览测试。</li>
+      <li>记录：哪条需求最难落地，原因是什么。</li>
+    </ol>
+    <details class="fold">
+      <summary>📝 系统提示词初稿模板</summary>
+      <p># 角色<br>你是[领域]助手，[语气/职责]。<br>## 技能<br>1. [功能A] 2. [功能B]<br>## 限制<br>- 仅基于[知识库]回答<br>- 不确定的事主动说明<br>- 响应时延目标 &lt; 2 秒<br>## 回复格式<br>使用 Markdown：[结论]→[依据]→[下一步]</p>
+    </details>
+<h3 class="exp-h">🔬 扩展实验（选做 2–3 项，巩固本章学法）</h3>
+    <div class="expext">
+      <h4>扩展实验 1 · 对话式需求采集<span class="tag">需求 / 访谈</span></h4>
+      <p><b>任务：</b>用 3 轮对话向「用户」收集需求，整理成用户故事地图。</p>
+      <p><b>交付：</b>费曼式讲清「提示词即需求规格」，录屏演示采集过程。</p>
+    </div>
+    <div class="expext">
+      <h4>扩展实验 2 · 提示词即规格<span class="tag">设计</span></h4>
+      <p><b>任务：</b>把一条用户故事直接写成提示词模板，对比「模糊需求 vs 精确提示词」的输出差异。</p>
+      <p><b>交付：</b>录屏总结「好提示词 = 好需求」的三条经验。</p>
+    </div>
+    <div class="expext">
+      <h4>扩展实验 3 · 用例图绘制<span class="tag">建模</span></h4>
+      <p><b>任务：</b>用 UML 用例图表达参与者与用例关系。</p>
+      <p><b>交付：</b>录屏讲解「为何用例图能暴露遗漏需求」，标出至少 1 处补漏。</p>
+    </div>
+
+    <h2 class="part p4">第四部分　本章小结</h2>
+      <h3 class="sec-h" id="sum">本章小结</h3>
+    <div class="summary">
+            <h4>核心要点回顾</h4>
+      <ul>
+        <li>需求获取：访谈/观察/原型/对话式探索。</li>
+        <li>功能需求定"做什么"，非功能需求定"多好"。</li>
+        <li>用例与用户故事便于拆解与验证。</li>
+        <li>Coze 提示词 = 可运行的需求规格。</li>
+        <li>KB 需求探索提示词能加速需求收敛。</li>
+        <li>下一章：系统设计——把需求落成智能体架构。</li>
+      </ul>
+      <p class="progress-txt">延伸阅读：ima 知识库《智能体宇宙》"Workflow 还是 Agent"；结构化与面向对象需求分析方法相关教材；人民日报关于"以人民为中心"的论述。</p>
+    </div>
+      <h3 class="sec-h" id="caseext">拓展案例 · 猎聘 AI 求职伙伴</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B3-25</span> <b>猎聘AI 求职伙伴</b><br><span class="cunit">申报单位：同道猎聘集团</span></p>
+        <p>猎聘AI 求职伙伴是同道猎聘集团旗下面向C 端用户打造的AI 求职助手，基于大语言模型与猎聘亿级求职数据训练，为求职者提供从简历诊断、职位推荐到智能投递、模拟面试的全流程服务。猎聘AI 求职伙伴创新构建“AI 深度交互+ 人机协同”服务模式：通过智能诊断发现问题、语音访谈深度挖掘亮点、自动生成优化简历，实现千人千面的个性化求职辅导；同时提供AI 模拟面试服务，涵盖押题练习与全真面试场景，帮助求职者提升实战能力。该项目获得了天津市“海河英才”人力资源服务创新创业优秀项目奖。</p>
+        <p><b>看点</b>：猎聘把服务路径规划为“简历诊断→深度访谈→优化生成→职位推荐→智能投递”，每一环都对应一类被识别出来的用户需求。请把这条链路当作需求建模的练习题：它覆盖了谁的需求？又漏掉了谁？</p>
+        <h4>延伸思考题</h4>
+        <ol>
+          <li>请用本章的需求建模方法，分别画出“求职者”与“就业指导老师”两类角色的用例要点，并指出至少一个被当前方案遗漏的干系人及其诉求。</li>
+          <li>案例中“针对政府场景定制 AI 服务话术与输出格式，确保专业性与合规性”属于需求变更还是需求约束？请结合需求基线（baseline）的概念说明你的判断。</li>
+          <li>模拟面试报告会被求职者直接采信。请从需求的“可验证性”出发，提出三项该报告必须满足的质量要求，并说明将如何验收。</li>
+        </ol>
+        
+      </div>
+
+      <section class="ppt-compare">
+    <h2 class="part">原版课件对照（第5版）</h2>
+    <p class="ppt-compare-note">以下为《信息系统分析与设计（第5版）》原版课件对应页（已裁剪空白），供与本章「智能体 / 低代码」重构内容对照学习。点击图片可放大查看。</p>
+    <h3 class="ppt-src-h">第5章《系统分析概述》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p05_005.jpg" alt="第5章 P.5"><figcaption>第5章 P.5</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_006.jpg" alt="第5章 P.6"><figcaption>第5章 P.6</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_007.jpg" alt="第5章 P.7"><figcaption>第5章 P.7</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_008.jpg" alt="第5章 P.8"><figcaption>第5章 P.8</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_009.jpg" alt="第5章 P.9"><figcaption>第5章 P.9</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_010.jpg" alt="第5章 P.10"><figcaption>第5章 P.10</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_011.jpg" alt="第5章 P.11"><figcaption>第5章 P.11</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_012.jpg" alt="第5章 P.12"><figcaption>第5章 P.12</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_013.jpg" alt="第5章 P.13"><figcaption>第5章 P.13</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_014.jpg" alt="第5章 P.14"><figcaption>第5章 P.14</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_015.jpg" alt="第5章 P.15"><figcaption>第5章 P.15</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_016.jpg" alt="第5章 P.16"><figcaption>第5章 P.16</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_017.jpg" alt="第5章 P.17"><figcaption>第5章 P.17</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_018.jpg" alt="第5章 P.18"><figcaption>第5章 P.18</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_019.jpg" alt="第5章 P.19"><figcaption>第5章 P.19</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_020.jpg" alt="第5章 P.20"><figcaption>第5章 P.20</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_021.jpg" alt="第5章 P.21"><figcaption>第5章 P.21</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_022.jpg" alt="第5章 P.22"><figcaption>第5章 P.22</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_023.jpg" alt="第5章 P.23"><figcaption>第5章 P.23</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_024.jpg" alt="第5章 P.24"><figcaption>第5章 P.24</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_025.jpg" alt="第5章 P.25"><figcaption>第5章 P.25</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_026.jpg" alt="第5章 P.26"><figcaption>第5章 P.26</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_027.jpg" alt="第5章 P.27"><figcaption>第5章 P.27</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_028.jpg" alt="第5章 P.28"><figcaption>第5章 P.28</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_029.jpg" alt="第5章 P.29"><figcaption>第5章 P.29</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_030.jpg" alt="第5章 P.30"><figcaption>第5章 P.30</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_031.jpg" alt="第5章 P.31"><figcaption>第5章 P.31</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_032.jpg" alt="第5章 P.32"><figcaption>第5章 P.32</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_033.jpg" alt="第5章 P.33"><figcaption>第5章 P.33</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p05_034.jpg" alt="第5章 P.34"><figcaption>第5章 P.34</figcaption></figure>
+    </div>
+    <h3 class="ppt-src-h">第6章《流程建模》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p06_005.jpg" alt="第6章 P.5"><figcaption>第6章 P.5</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_006.jpg" alt="第6章 P.6"><figcaption>第6章 P.6</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_007.jpg" alt="第6章 P.7"><figcaption>第6章 P.7</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_008.jpg" alt="第6章 P.8"><figcaption>第6章 P.8</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_009.jpg" alt="第6章 P.9"><figcaption>第6章 P.9</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_010.jpg" alt="第6章 P.10"><figcaption>第6章 P.10</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_011.jpg" alt="第6章 P.11"><figcaption>第6章 P.11</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_012.jpg" alt="第6章 P.12"><figcaption>第6章 P.12</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_013.jpg" alt="第6章 P.13"><figcaption>第6章 P.13</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_014.jpg" alt="第6章 P.14"><figcaption>第6章 P.14</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_015.jpg" alt="第6章 P.15"><figcaption>第6章 P.15</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_016.jpg" alt="第6章 P.16"><figcaption>第6章 P.16</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_017.jpg" alt="第6章 P.17"><figcaption>第6章 P.17</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_018.jpg" alt="第6章 P.18"><figcaption>第6章 P.18</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_019.jpg" alt="第6章 P.19"><figcaption>第6章 P.19</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_020.jpg" alt="第6章 P.20"><figcaption>第6章 P.20</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_021.jpg" alt="第6章 P.21"><figcaption>第6章 P.21</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_022.jpg" alt="第6章 P.22"><figcaption>第6章 P.22</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_023.jpg" alt="第6章 P.23"><figcaption>第6章 P.23</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_024.jpg" alt="第6章 P.24"><figcaption>第6章 P.24</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_025.jpg" alt="第6章 P.25"><figcaption>第6章 P.25</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_026.jpg" alt="第6章 P.26"><figcaption>第6章 P.26</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_027.jpg" alt="第6章 P.27"><figcaption>第6章 P.27</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_028.jpg" alt="第6章 P.28"><figcaption>第6章 P.28</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_029.jpg" alt="第6章 P.29"><figcaption>第6章 P.29</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_030.jpg" alt="第6章 P.30"><figcaption>第6章 P.30</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_031.jpg" alt="第6章 P.31"><figcaption>第6章 P.31</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_032.jpg" alt="第6章 P.32"><figcaption>第6章 P.32</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_033.jpg" alt="第6章 P.33"><figcaption>第6章 P.33</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_034.jpg" alt="第6章 P.34"><figcaption>第6章 P.34</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_035.jpg" alt="第6章 P.35"><figcaption>第6章 P.35</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_036.jpg" alt="第6章 P.36"><figcaption>第6章 P.36</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_037.jpg" alt="第6章 P.37"><figcaption>第6章 P.37</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_038.jpg" alt="第6章 P.38"><figcaption>第6章 P.38</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_039.jpg" alt="第6章 P.39"><figcaption>第6章 P.39</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_040.jpg" alt="第6章 P.40"><figcaption>第6章 P.40</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_041.jpg" alt="第6章 P.41"><figcaption>第6章 P.41</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_042.jpg" alt="第6章 P.42"><figcaption>第6章 P.42</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_043.jpg" alt="第6章 P.43"><figcaption>第6章 P.43</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_044.jpg" alt="第6章 P.44"><figcaption>第6章 P.44</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_045.jpg" alt="第6章 P.45"><figcaption>第6章 P.45</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_046.jpg" alt="第6章 P.46"><figcaption>第6章 P.46</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_047.jpg" alt="第6章 P.47"><figcaption>第6章 P.47</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_048.jpg" alt="第6章 P.48"><figcaption>第6章 P.48</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_049.jpg" alt="第6章 P.49"><figcaption>第6章 P.49</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_050.jpg" alt="第6章 P.50"><figcaption>第6章 P.50</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_051.jpg" alt="第6章 P.51"><figcaption>第6章 P.51</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_052.jpg" alt="第6章 P.52"><figcaption>第6章 P.52</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_053.jpg" alt="第6章 P.53"><figcaption>第6章 P.53</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_054.jpg" alt="第6章 P.54"><figcaption>第6章 P.54</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_055.jpg" alt="第6章 P.55"><figcaption>第6章 P.55</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_056.jpg" alt="第6章 P.56"><figcaption>第6章 P.56</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_057.jpg" alt="第6章 P.57"><figcaption>第6章 P.57</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_058.jpg" alt="第6章 P.58"><figcaption>第6章 P.58</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_059.jpg" alt="第6章 P.59"><figcaption>第6章 P.59</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_060.jpg" alt="第6章 P.60"><figcaption>第6章 P.60</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_061.jpg" alt="第6章 P.61"><figcaption>第6章 P.61</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_062.jpg" alt="第6章 P.62"><figcaption>第6章 P.62</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_063.jpg" alt="第6章 P.63"><figcaption>第6章 P.63</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_064.jpg" alt="第6章 P.64"><figcaption>第6章 P.64</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_065.jpg" alt="第6章 P.65"><figcaption>第6章 P.65</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_066.jpg" alt="第6章 P.66"><figcaption>第6章 P.66</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_067.jpg" alt="第6章 P.67"><figcaption>第6章 P.67</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_068.jpg" alt="第6章 P.68"><figcaption>第6章 P.68</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_069.jpg" alt="第6章 P.69"><figcaption>第6章 P.69</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_070.jpg" alt="第6章 P.70"><figcaption>第6章 P.70</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_071.jpg" alt="第6章 P.71"><figcaption>第6章 P.71</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_072.jpg" alt="第6章 P.72"><figcaption>第6章 P.72</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_073.jpg" alt="第6章 P.73"><figcaption>第6章 P.73</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_074.jpg" alt="第6章 P.74"><figcaption>第6章 P.74</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_075.jpg" alt="第6章 P.75"><figcaption>第6章 P.75</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_076.jpg" alt="第6章 P.76"><figcaption>第6章 P.76</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_077.jpg" alt="第6章 P.77"><figcaption>第6章 P.77</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_078.jpg" alt="第6章 P.78"><figcaption>第6章 P.78</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_079.jpg" alt="第6章 P.79"><figcaption>第6章 P.79</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_080.jpg" alt="第6章 P.80"><figcaption>第6章 P.80</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_081.jpg" alt="第6章 P.81"><figcaption>第6章 P.81</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_082.jpg" alt="第6章 P.82"><figcaption>第6章 P.82</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_083.jpg" alt="第6章 P.83"><figcaption>第6章 P.83</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_084.jpg" alt="第6章 P.84"><figcaption>第6章 P.84</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_085.jpg" alt="第6章 P.85"><figcaption>第6章 P.85</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_086.jpg" alt="第6章 P.86"><figcaption>第6章 P.86</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_087.jpg" alt="第6章 P.87"><figcaption>第6章 P.87</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_088.jpg" alt="第6章 P.88"><figcaption>第6章 P.88</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_089.jpg" alt="第6章 P.89"><figcaption>第6章 P.89</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_090.jpg" alt="第6章 P.90"><figcaption>第6章 P.90</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_091.jpg" alt="第6章 P.91"><figcaption>第6章 P.91</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_092.jpg" alt="第6章 P.92"><figcaption>第6章 P.92</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_093.jpg" alt="第6章 P.93"><figcaption>第6章 P.93</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_094.jpg" alt="第6章 P.94"><figcaption>第6章 P.94</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_095.jpg" alt="第6章 P.95"><figcaption>第6章 P.95</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_096.jpg" alt="第6章 P.96"><figcaption>第6章 P.96</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_097.jpg" alt="第6章 P.97"><figcaption>第6章 P.97</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_098.jpg" alt="第6章 P.98"><figcaption>第6章 P.98</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_099.jpg" alt="第6章 P.99"><figcaption>第6章 P.99</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_100.jpg" alt="第6章 P.100"><figcaption>第6章 P.100</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_101.jpg" alt="第6章 P.101"><figcaption>第6章 P.101</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_102.jpg" alt="第6章 P.102"><figcaption>第6章 P.102</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_103.jpg" alt="第6章 P.103"><figcaption>第6章 P.103</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_104.jpg" alt="第6章 P.104"><figcaption>第6章 P.104</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_105.jpg" alt="第6章 P.105"><figcaption>第6章 P.105</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p06_106.jpg" alt="第6章 P.106"><figcaption>第6章 P.106</figcaption></figure>
+    </div>
+    <h3 class="ppt-src-h">第7章《用例建模》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p07_005.jpg" alt="第7章 P.5"><figcaption>第7章 P.5</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_006.jpg" alt="第7章 P.6"><figcaption>第7章 P.6</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_007.jpg" alt="第7章 P.7"><figcaption>第7章 P.7</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_008.jpg" alt="第7章 P.8"><figcaption>第7章 P.8</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_009.jpg" alt="第7章 P.9"><figcaption>第7章 P.9</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_010.jpg" alt="第7章 P.10"><figcaption>第7章 P.10</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_011.jpg" alt="第7章 P.11"><figcaption>第7章 P.11</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_012.jpg" alt="第7章 P.12"><figcaption>第7章 P.12</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_013.jpg" alt="第7章 P.13"><figcaption>第7章 P.13</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_014.jpg" alt="第7章 P.14"><figcaption>第7章 P.14</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_015.jpg" alt="第7章 P.15"><figcaption>第7章 P.15</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_016.jpg" alt="第7章 P.16"><figcaption>第7章 P.16</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_017.jpg" alt="第7章 P.17"><figcaption>第7章 P.17</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_018.jpg" alt="第7章 P.18"><figcaption>第7章 P.18</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_019.jpg" alt="第7章 P.19"><figcaption>第7章 P.19</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_020.jpg" alt="第7章 P.20"><figcaption>第7章 P.20</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_021.jpg" alt="第7章 P.21"><figcaption>第7章 P.21</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_022.jpg" alt="第7章 P.22"><figcaption>第7章 P.22</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_023.jpg" alt="第7章 P.23"><figcaption>第7章 P.23</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_024.jpg" alt="第7章 P.24"><figcaption>第7章 P.24</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_025.jpg" alt="第7章 P.25"><figcaption>第7章 P.25</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_026.jpg" alt="第7章 P.26"><figcaption>第7章 P.26</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_027.jpg" alt="第7章 P.27"><figcaption>第7章 P.27</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_028.jpg" alt="第7章 P.28"><figcaption>第7章 P.28</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_029.jpg" alt="第7章 P.29"><figcaption>第7章 P.29</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_030.jpg" alt="第7章 P.30"><figcaption>第7章 P.30</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_031.jpg" alt="第7章 P.31"><figcaption>第7章 P.31</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_032.jpg" alt="第7章 P.32"><figcaption>第7章 P.32</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_033.jpg" alt="第7章 P.33"><figcaption>第7章 P.33</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_034.jpg" alt="第7章 P.34"><figcaption>第7章 P.34</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_035.jpg" alt="第7章 P.35"><figcaption>第7章 P.35</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_036.jpg" alt="第7章 P.36"><figcaption>第7章 P.36</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_037.jpg" alt="第7章 P.37"><figcaption>第7章 P.37</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_038.jpg" alt="第7章 P.38"><figcaption>第7章 P.38</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_039.jpg" alt="第7章 P.39"><figcaption>第7章 P.39</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_040.jpg" alt="第7章 P.40"><figcaption>第7章 P.40</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_041.jpg" alt="第7章 P.41"><figcaption>第7章 P.41</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_042.jpg" alt="第7章 P.42"><figcaption>第7章 P.42</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_043.jpg" alt="第7章 P.43"><figcaption>第7章 P.43</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_044.jpg" alt="第7章 P.44"><figcaption>第7章 P.44</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_045.jpg" alt="第7章 P.45"><figcaption>第7章 P.45</figcaption></figure>
+      <figure><img loading="lazy" src="images/ppt/p07_046.jpg" alt="第7章 P.46"><figcaption>第7章 P.46</figcaption></figure>
+    </div>
+  </section>
+<div class="btnrow">
+      <button class="btn" id="exportPdf">⬇ 导出本章 PDF</button>
+      <a class="btn ghost" href="index.html">← 返回门户</a>
+    </div>
+
+    <div class="readbox">
+      <span class="dot" id="readDot"></span>
+      <button class="btn ghost" id="markRead" data-ch="3">标记为已读</button>
+    </div>
+</main>
+</div>
+
+<div id="termtip"></div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第2章 信息系统规划与可行性分析 · 数字教材</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">《信息系统分析与设计》· 数字教材
+      <small>智能体实战主线 · 信息资源管理专业</small></div>
+    <nav>
+      <a href="index.html">门户</a>
+      <a href="ch01.html">第1章</a>
+      <a href="ch02.html">第2章</a>
+      <a href="ch09.html">第9章</a>
+      <a href="appendix.html">附录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc">
+  <aside class="side">
+    <h4>第 2 章 目录</h4>
+    <a href="#lead" class="cur">导语与学习目标</a>
+    <span class="navpart p1">第一部分　课程导学</span>
+    <a href="#theory">理论基石</a>
+    <a href="#ideo">课程思政</a>
+    <a href="#casein">案例导入</a>
+    <span class="navpart p2">第二部分　课程内容</span>
+    <a href="#s21">2.1 系统生命周期</a>
+    <a href="#s22">2.2 系统规划与立项</a>
+    <a href="#s23">2.3 可行性四维度</a>
+    <a href="#s24">2.4 智能体项目特殊考量</a>
+    <a href="#s25">2.5 课程主线</a>
+    <span class="navpart p3">第三部分　拓展练习</span>
+    <a href="#kb">知识拓展与前沿</a>
+    <a href="#lit">↳ 前沿文献</a>
+    <a href="#exp">上机实验</a>
+    <span class="navpart p4">第四部分　本章小结</span>
+    <a href="#sum">本章小结</a>
+    <a href="#caseext">拓展案例 · 延伸思考</a>
+  </aside>
+
+  <main class="content">
+    <h1>第 2 章　信息系统规划与可行性分析</h1>
+    <p class="progress-txt">在动手之前，先学会像系统分析师一样规划与立项。本章把"为什么要建、为谁建、能不能建"想清楚，并用智能体项目的视角重写规划与可行性分析。</p>
+
+    
+
+    <h2 class="part p1" id="lead">第一部分　课程导学</h2>
+
+<span class="mod mod-lead">导语 · 本章定位</span>
+    <p>很多初学者一上来就写提示词、拖工作流，结果做到一半发现：目标没说清、范围无限膨胀、合规出问题。信息系统的教训告诉我们——<b>规划与可行性分析是项目成败的"先手棋"</b>。本章用经典 SDLC 的规划阶段作为骨架，落到智能体项目的立项书、可行性四维与 MVP 验证，让"先想清楚"成为你的工程习惯。</p>
+
+    <span class="mod mod-lead">三维学习目标</span>
+    <div class="goals">
+      <div class="goal"><b>知识</b><br>掌握信息系统生命周期；理解系统规划与立项流程；掌握可行性分析的维度（技术/经济/操作/法律）。</div>
+      <div class="goal"><b>能力</b><br>能为智能体项目撰写立项说明；能做四维度可行性分析；能界定范围与边界，避免范围蔓延。</div>
+      <div class="goal"><b>价值</b><br>培养工程化规划思维；树立成本意识与数据合规意识；理解技术永远服务于业务。</div>
+    </div>
+
+            
+    
+      <h3 class="sec-h" id="theory">理论基石 · 信息系统分析与设计</h3>
+    <span class="mod mod-theory">理论 · 信息系统生命周期（SDLC）</span>
+    <p>经典 SDLC 五阶段：① 规划（目标、范围、可行性、立项）；② 分析（需求获取、建模与规格说明）；③ 设计（总体与详细设计）；④ 实施（编码、测试、转换与上线）；⑤ 运维（运行维护、评价与持续改进）。</p>
+    <span class="mod mod-theory">理论 · 信息系统战略规划方法</span>
+    <p>战略落地有四把钥匙：<b>CSF</b>（关键成功因素法，自上而下识别少数关键目标）、<b>SST</b>（战略集合转化法，组织战略→信息系统战略）、<b>BSP</b>（企业系统规划法，自上而下规划、自下而上实施）、<b>价值链</b>（Porter 价值链分析，识别增值与赋能环节）。治理上常参考 COBIT（治理与控制）与 ITIL（服务管理）。</p>
+    <span class="mod mod-theory">理论 · 可行性多维框架</span>
+    <p>除技术/经济/操作/法律四维度外，还可补充：管理与组织可行性（流程、权责、变革承受度）、运行可行性（与现有系统、运维体系兼容）。</p>
+    <span class="mod mod-theory">理论 ↔ 智能体能力 映射</span>
+    <div class="two">
+      <div class="card"><b>SDLC 规划</b> ↔ 智能体立项：界定人设、技能边界与成功标准</div>
+      <div class="card"><b>可行性四维</b> ↔ 平台选型：零代码能否实现？成本可控？合规否？</div>
+      <div class="card"><b>CSF/SST/BSP</b> ↔ 从组织战略推导智能体能力地图与优先级</div>
+      <div class="card"><b>价值链分析</b> ↔ 识别最值得智能化的高价值/高重复环节</div>
+      <div class="card"><b>COBIT/ITIL</b> ↔ 智能体上线后的监控、审计与持续运维</div>
+    </div>
+    <span class="mod mod-theory">理论可视化 · 信息系统相关图形（4 幅）</span>
+    <p>以下矢量图把规划与可行性分析"画出来"，便于建立可视化心智模型。</p>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 250" role="img" aria-label="SDLC生命周期循环">
+        <defs><marker id="m2a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C"/></marker></defs>
+        <circle cx="340" cy="120" r="92" fill="#EAF4F6" stroke="#0F6E8C" stroke-width="1.5"/>
+        <g font-size="14" fill="#0E2F3A" text-anchor="middle" font-weight="bold">
+          <text x="340" y="92">规划</text>
+          <text x="416" y="128">需求</text>
+          <text x="392" y="186">设计</text>
+          <text x="288" y="186">实施</text>
+          <text x="264" y="128">维护</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="2" fill="none" marker-end="url(#m2a)">
+          <path d="M412,96 A92,92 0 0 1 388,176"/>
+          <path d="M372,184 A92,92 0 0 1 308,184"/>
+          <path d="M292,176 A92,92 0 0 1 268,104"/>
+          <path d="M284,112 A92,92 0 0 1 372,96"/>
+        </g>
+        <text x="340" y="122" text-anchor="middle" font-size="11" fill="#5A6B73">闭环迭代</text>
+      </svg>
+      <span class="cap"><b>图1</b>　信息系统生命周期（SDLC）五阶段循环</span>
+    </figure>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 220" role="img" aria-label="战略规划四法">
+        <g font-size="14" fill="#0E2F3A" text-anchor="middle">
+          <rect x="40" y="50" width="280" height="60" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="180" y="78">CSF 关键成功因素法</text><text x="180" y="98" font-size="11" fill="#5A6B73">自上而下识别少数关键目标</text>
+          <rect x="360" y="50" width="280" height="60" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="500" y="78">SST 战略集合转化法</text><text x="500" y="98" font-size="11" fill="#5A6B73">组织战略→信息系统战略</text>
+          <rect x="40" y="130" width="280" height="60" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="180" y="158">BSP 企业系统规划法</text><text x="180" y="178" font-size="11" fill="#5A6B73">自上而下规划、自下而上实施</text>
+          <rect x="360" y="130" width="280" height="60" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="500" y="158">价值链分析</text><text x="500" y="178" font-size="11" fill="#5A6B73">识别增值与赋能环节</text>
+        </g>
+      </svg>
+      <span class="cap"><b>图2</b>　信息系统战略规划四法（CSF / SST / BSP / 价值链）</span>
+    </figure>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 230" role="img" aria-label="可行性四维">
+        <g font-size="14" fill="#0E2F3A" text-anchor="middle">
+          <rect x="40" y="40" width="290" height="70" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="185" y="68">技术可行性</text><text x="185" y="90" font-size="11" fill="#5A6B73">平台/模型能否支撑</text>
+          <rect x="350" y="40" width="290" height="70" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="495" y="68">经济可行性</text><text x="495" y="90" font-size="11" fill="#5A6B73">成本—效益 TCO/ROI</text>
+          <rect x="40" y="130" width="290" height="70" rx="9" fill="#FDF3E3" stroke="#E0A82E"/><text x="185" y="158">操作可行性</text><text x="185" y="180" font-size="11" fill="#5A6B73">用户易用、培训成本</text>
+          <rect x="350" y="130" width="290" height="70" rx="9" fill="#FDF3E3" stroke="#E0A82E"/><text x="495" y="158">法律可行性</text><text x="495" y="180" font-size="11" fill="#5A6B73">数据合规、版权、隐私</text>
+        </g>
+      </svg>
+      <span class="cap"><b>图3</b>　可行性分析四维度（技术 / 经济 / 操作 / 法律）</span>
+    </figure>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 300" role="img" aria-label="UML活动图规划流程">
+        <defs><marker id="m2d" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C"/></marker></defs>
+        <g font-size="13" fill="#0E2F3A" text-anchor="middle">
+          <ellipse cx="120" cy="40" rx="46" ry="20" fill="#EAF4F6" stroke="#0F6E8C"/><text x="120" y="44">开始</text>
+          <rect x="60" y="90" width="220" height="40" rx="8" fill="#fff" stroke="#0F6E8C"/><text x="170" y="115">识别业务需求与机会</text>
+          <rect x="60" y="150" width="220" height="40" rx="8" fill="#fff" stroke="#0F6E8C"/><text x="170" y="175">战略分析 CSF/SST/BSP</text>
+          <rect x="60" y="210" width="220" height="40" rx="8" fill="#fff" stroke="#0F6E8C"/><text x="170" y="235">可行性：技术·经济·组织·法律</text>
+          <rect x="430" y="150" width="190" height="40" rx="8" fill="#eaf7ef" stroke="#2E8B57"/><text x="525" y="175">立项 → 进入设计</text>
+          <rect x="430" y="230" width="190" height="40" rx="8" fill="#fdecec" stroke="#C0392B"/><text x="525" y="255">重新评估 / 否决</text>
+          <diamond cx="340" cy="230" r="26" fill="#FDF3E3" stroke="#E0A82E"/><text x="340" y="234">可行?</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="2" fill="none" marker-end="url(#m2d)">
+          <line x1="120" y1="60" x2="170" y2="88"/>
+          <line x1="170" y1="130" x2="170" y2="148"/>
+          <line x1="170" y1="190" x2="170" y2="204"/>
+          <line x1="280" y1="230" x2="312" y2="230"/>
+          <line x1="366" y1="230" x2="428" y2="170"/>
+          <line x1="366" y1="230" x2="428" y2="250"/>
+        </g>
+      </svg>
+      <span class="cap"><b>图4</b>　UML 活动图：规划与可行性分析流程（含「可行?」判定）</span>
+    </figure>
+
+          <div class="callout method" id="classicmap"><span class="m-tag">经典方法论对照 · 规划工具箱</span><p>原版 ch4 的规划四件套——<b>SST（战略集转化）、BSP（企业系统规划）、U-C 矩阵、CSF（关键成功因素）、价值链分析</b>，以及<b>可行性四维度</b>（技术/经济/操作/法律）——本书 ch02 已融入主文。其符号与画法速查见 <a href="appendix.html#modeling">附录 H</a>；规划的制度理性与诺兰模型参见 ch01 对照框。</p></div>
+
+<h3 class="sec-h" id="ideo">课程思政 · 价值引领</h3>
+    <span class="mod mod-kb">前沿动态 · 行业速递（2026-08）</span>
+<div class="callout frontier">
+  <span class="f-tag">动态更新 2026-08</span>
+  <p><b>1</b> 开源 + 低价策略使 AI 选型从“是否用开源”变为“用哪个开源”，企业落地门槛持续下降（2026-07）。</p>
+  <p><b>2</b> OpenAI 因国产模型价格压力大幅下调 API 价格，推理成本快速走低。</p>
+  <p><b>3</b> 对可行性分析启示：技术可行性不再是主要瓶颈，经济可行性与合规风险成为新焦点。</p>
+  <p class="src">来源：诚通证券研报 2026-08-01、yunthe.com 2026-08</p>
+</div>
+
+<span class="mod mod-ideo">精神坐标 · 人民日报金句</span>
+    <div class="callout quote">"志不求易者成，事不避难者进。"——人民日报金句库</div>
+    <div class="callout quote">"不要高估短期的热闹，也不要低估长期的寂寞。当你慢下来，沉下心，慢慢打磨自己，时间会沉淀出真正的价值。"</div>
+    <p><b>本章映射：</b>系统规划与可行性分析拒绝"拍脑袋"，必须以调查研究、多维论证为本——这是工程伦理里的"踏实"。直面"难而正确"的问题，把可行性做扎实，系统才能行稳致远。</p>
+    <span class="mod mod-ideo">名校范式 · 清华课程思政案例</span>
+    <div class="callout warn">🎓 清华《计算机程序设计基础》课程思政（黄永峰，电子系）：课程特点引申"基础性·实践性·协作性·严谨性"；在"严谨性"中引导学生培养严谨认真的科学态度与求实精神。思政四维：家国情怀·大国工匠·科学精神·人类价值。</div>
+    <p><b>本章映射：</b>规划与可行性分析拒绝"拍脑袋"，正对应"严谨性"引申的求实科学态度。把可行性做扎实，系统才能行稳致远。</p>
+
+    
+<span class="mod mod-ideo">课程思政案例 · IMA 知识库</span>
+<div class="kbcase">
+  <h4>新质生产力：把国家战略写进立项书</h4>
+  <ul>
+    <li>新质生产力以科技创新为核心引擎，数字经济与实体经济深度融合是重要路径——信息系统规划，正是为数字中国做顶层设计。</li>
+    <li>立项的"战略可行性"维度，应把服务国家战略、惠及人民群众作为顶层目标，与可行性四维度（技术/经济/操作/法律）并列。</li>
+  </ul>
+  <span class="src">来源：IMA 知识库《AI思政课》· 时事报告专题《新质生产力"新"在哪里》；习近平关于新质生产力重要论述</span>
+  <span class="think"><b>本章映射：</b>做可行性分析时，建议补上"伦理与社会可行性"：一个智能体项目是否惠及人民、是否符合国家战略，应在立项阶段就评估，而非上线后补救。</span>
+</div>
+      <h3 class="sec-h" id="casein">案例导入 · 充电桩规划多智能体系统</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B3-10</span> <b>多模态智能决策充电桩规划系统</b><br><span class="cunit">申报单位：中国移动通信集团广西有限公司</span></p>
+        <p>本案例面向充电设施选址规划与运营难题，构建了以“规-建-营”一体化为核心的多智能体协同调度系统。系统支持语音、文本等多模态输入，输出涵盖选址热力图、收益分析图表、结构化报告等多模态结果，实现从自然语言意图到专业决策报告的端到端转换。架构上，中心智能体作为调度中枢统一编排任务队列与动态优先级，选址规划智能体负责站点评估，运营管理智能体执行定价与收益分析，用户服务智能体处理预约与支付，终端智能体完成设备控制与状态上报，五层智能体通过协同调度与动态优先级机制实现高效协作。已在广西电网落地应用，带动经济效益1300 万元，试点充电站利用率提升18%，用户排队时长下降23%。</p>
+        <p><b>导学解读 · 与本章的对接</b>：这是“系统规划”一章的标准样本。它的规划对象虽是物理站点而非软件模块，却完整走过了 ISAD 的规划链路：现状调查（多源时空数据）→ 需求与约束识别（语音、文本多模态输入）→ 方案生成（选址热力图）→ 可行性论证（收益分析图表）→ 成果交付（结构化报告）。请特别注意一组数字：规划周期从 30 天以上压缩到 3 天以内。这<b>不是省略了步骤</b>，而是把步骤交给了智能体编排——中心智能体维护任务队列与依赖，专业智能体各司其职。本章要回答的正是：哪些规划活动可以被自动化，哪些判断必须由人保留。</p>
+        
+      </div>
+
+    <h3 class="ppt-src-h">第3章《信息系统建设概论》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p03_005.jpg" alt="第3章 P.5"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_006.jpg" alt="第3章 P.6"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_007.jpg" alt="第3章 P.7"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_008.jpg" alt="第3章 P.8"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_009.jpg" alt="第3章 P.9"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_010.jpg" alt="第3章 P.10"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_011.jpg" alt="第3章 P.11"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_012.jpg" alt="第3章 P.12"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_013.jpg" alt="第3章 P.13"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_014.jpg" alt="第3章 P.14"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_015.jpg" alt="第3章 P.15"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_016.jpg" alt="第3章 P.16"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_017.jpg" alt="第3章 P.17"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_018.jpg" alt="第3章 P.18"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_019.jpg" alt="第3章 P.19"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_020.jpg" alt="第3章 P.20"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_021.jpg" alt="第3章 P.21"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_022.jpg" alt="第3章 P.22"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_023.jpg" alt="第3章 P.23"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_024.jpg" alt="第3章 P.24"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_025.jpg" alt="第3章 P.25"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_026.jpg" alt="第3章 P.26"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_027.jpg" alt="第3章 P.27"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_028.jpg" alt="第3章 P.28"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_029.jpg" alt="第3章 P.29"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_030.jpg" alt="第3章 P.30"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_031.jpg" alt="第3章 P.31"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_032.jpg" alt="第3章 P.32"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_033.jpg" alt="第3章 P.33"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_034.jpg" alt="第3章 P.34"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_035.jpg" alt="第3章 P.35"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_036.jpg" alt="第3章 P.36"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_037.jpg" alt="第3章 P.37"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_038.jpg" alt="第3章 P.38"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_039.jpg" alt="第3章 P.39"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_040.jpg" alt="第3章 P.40"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_041.jpg" alt="第3章 P.41"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_042.jpg" alt="第3章 P.42"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_043.jpg" alt="第3章 P.43"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_044.jpg" alt="第3章 P.44"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_045.jpg" alt="第3章 P.45"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_046.jpg" alt="第3章 P.46"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_047.jpg" alt="第3章 P.47"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_048.jpg" alt="第3章 P.48"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_049.jpg" alt="第3章 P.49"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_050.jpg" alt="第3章 P.50"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_051.jpg" alt="第3章 P.51"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_052.jpg" alt="第3章 P.52"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_053.jpg" alt="第3章 P.53"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_054.jpg" alt="第3章 P.54"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_055.jpg" alt="第3章 P.55"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_056.jpg" alt="第3章 P.56"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_057.jpg" alt="第3章 P.57"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_058.jpg" alt="第3章 P.58"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_059.jpg" alt="第3章 P.59"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_060.jpg" alt="第3章 P.60"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_061.jpg" alt="第3章 P.61"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_062.jpg" alt="第3章 P.62"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_063.jpg" alt="第3章 P.63"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_064.jpg" alt="第3章 P.64"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_065.jpg" alt="第3章 P.65"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_066.jpg" alt="第3章 P.66"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_067.jpg" alt="第3章 P.67"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_068.jpg" alt="第3章 P.68"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_069.jpg" alt="第3章 P.69"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_070.jpg" alt="第3章 P.70"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_071.jpg" alt="第3章 P.71"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_072.jpg" alt="第3章 P.72"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_073.jpg" alt="第3章 P.73"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_074.jpg" alt="第3章 P.74"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_075.jpg" alt="第3章 P.75"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_076.jpg" alt="第3章 P.76"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_077.jpg" alt="第3章 P.77"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_078.jpg" alt="第3章 P.78"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_079.jpg" alt="第3章 P.79"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_080.jpg" alt="第3章 P.80"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_081.jpg" alt="第3章 P.81"></figure>
+      <figure><img loading="lazy" src="images/ppt/p03_082.jpg" alt="第3章 P.82"></figure>
+    </div>
+<h2 class="part p2">第二部分　课程内容</h2>
+      <h3 class="sec-h" id="s21">2.1　系统生命周期：规划是第一站</h3>
+    <p>任何信息系统都要经历一条生命线——<span class="term" data-def="信息系统生命周期（SDLC）：系统从规划、分析、设计、实施到运行维护的全过程。">信息系统生命周期（SDLC）</span>。它通常分为五段：<b>规划 → 需求 → 设计 → 实施 → 维护</b>。规划阶段回答"为什么要建、为谁服务、解决什么痛点"，产出<span class="term" data-def="立项书：说明项目背景、目标、范围、可行性与预算的正式文档，是规划阶段的核心产出。">立项书</span>。</p>
+    <div class="callout tip">💡 一句话：规划定方向，需求定内容，设计定结构，实施定落地，维护定长久。智能体项目的"定义目标→设计人设→搭工作流→发布→迭代"正对应这条生命线。</div>
+
+    
+    <div class="pptgrid" data-cnt="1">
+      <figure class="wxfig">
+  <img src="media/coze/p060.jpg" alt="课件第 60 页" loading="lazy">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s22">2.2　系统规划与立项说明</h3>
+    <p>立项不是写感想，而是一份结构化清单。智能体项目立项书至少包含六要素：① 背景与目标；② 目标用户；③ 核心功能；④ 技术选型；⑤ 数据来源；⑥ 合规与成本估算。</p>
+    <p>例如"校园失物招领智能助手"：面向师生，整合公告与图像识别，数据来自校园公告与用户上传。关键还在于<b>范围管理</b>——明确"做什么"与"不做什么"，避免<span class="term" data-def="范围蔓延（Scope Creep）：项目范围在过程中无控制地扩大，导致成本超支、进度失控。">范围蔓延（scope creep）</span>。对初学者，首选 Coze 低代码模式，快速验证、低成本迭代。</p>
+
+          <h3 class="sec-h" id="s23">2.3　可行性分析四维度</h3>
+    <p>光有热情不够，立项还要回答"能不能做"。可行性通常从四个维度论证：</p>
+    <table>
+      <thead><tr><th>维度</th><th>核心问题</th><th>智能体项目中的落点</th></tr></thead>
+      <tbody>
+        <tr><td><b>技术可行性</b></td><td>现有技术/平台能否支撑？</td><td>零代码能否实现核心流程？模型/插件/工作流够用吗？</td></tr>
+        <tr><td><b>经济可行性</b></td><td>成本—效益划算吗？</td><td>平台积分消耗、是否降本增效、长期调用成本可控？</td></tr>
+        <tr><td><b>操作可行性</b></td><td>用户会用、易用吗？</td><td>界面交互是否友好、培训成本高不高？</td></tr>
+        <tr><td><b>法律可行性</b></td><td>合规吗？</td><td>数据合规、版权授权、隐私保护与平台条款是否过关？</td></tr>
+      </tbody>
+    </table>
+
+    
+    <div class="pptgrid" data-cnt="2">
+      <figure class="wxfig">
+  <img src="media/coze/p062.jpg" alt="课件第 62 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p063.jpg" alt="课件第 63 页" loading="lazy">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s24">2.4　智能体项目的特殊考量</h3>
+    <p>相比传统系统，智能体项目有三个"生命线级"风险点：</p>
+    <ul>
+      <li><b>数据合规</b>：个人数据需授权，知识库素材注意版权——这是不可逾越的红线。</li>
+      <li><b>调用成本</b>：大模型/插件通常消耗平台积分，立项时就要估算长期成本。</li>
+      <li><b>范围界定</b>：先用<span class="term" data-def="最小可行产品（MVP）：具备核心功能、可最快验证假设的最小版本，用于低成本试错。">最小可行智能体（MVP）</span>验证，再逐步扩展能力。</li>
+    </ul>
+    <div class="callout tip">💡 可借助知识库《AI 辅助下的需求探索》提示词，用对话式方法收敛需求，避免"想当然"。</div>
+
+    
+    <div class="pptgrid" data-cnt="1">
+      <figure class="wxfig">
+  <img src="media/coze/p061.jpg" alt="课件第 61 页" loading="lazy">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s25">2.5　课程主线：为何用智能体重构 ISAD</h3>
+    <p>从生成式 AI 到智能体 AI，AI 从"被动生成工具"进化为"主动理解、规划、执行的数字行动者"，正成为新质生产力引擎。本课程用智能体贯穿 ISAD 各环节——规划、需求、设计、实施都可落到<b>可运行的智能体</b>，而非停留在文档。对信息资源管理专业，<b>知识库=知识组织、记忆=用户画像、多模态=信息资源富媒体化</b>，让方法论"看得见、跑得通"。</p>
+
+          <h3 class="sec-h" id="s26">2.6　立项与可行性：对齐软考高项</h3>
+<span class="mod mod-gov">拓展 · 工程标准对照</span>
+<p>课堂的立项与可行性分析，与软考高项「项目立项管理」「可行性研究」完全同构。把作业对标行业标尺，能让你的大二项目书更接近真实工程。</p>
+<ul>
+<li><b>立项管理</b>：立项建议书 → 初步可行性研究 → 详细可行性研究 → 项目章程 → 获批启动。2.2 的"立项书要素清单"即其简化版。</li>
+<li><b>可行性研究分层</b>：初步可行性（粗筛，是否值得做）→ 详细可行性（精算，能否做成），二者都从四维度展开。</li>
+<li><b>四维度对齐</b>：技术可行性 ↔ 2.3 技术可行性；经济可行性 ↔ 成本 / 收益估算（高项"成本管理"雏形）；运行（操作）可行性 ↔ 用户易用性；法律可行性 ↔ 合规与知识产权。</li>
+<li><b>延伸</b>：立项获批后的"招标与合同"（高项采购管理）是大型信息化工程的下一步，理解它有助于看懂 2.2 的"平台选型"决策。</li>
+</ul>
+<div class="callout tip">💡 一句话：立项是工程的起点，也是软考高项与本书共同的"第一道题"。把本章立项书写规范，等于提前演练了高项案例题的"背景段"。</div>
+
+      
+
+    
+    <h3 class="ppt-src-h">第4章《信息系统规划》</h3>
+    <div class="ppt-gallery">
+      <figure><img loading="lazy" src="images/ppt/p04_005.jpg" alt="第4章 P.5"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_006.jpg" alt="第4章 P.6"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_007.jpg" alt="第4章 P.7"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_008.jpg" alt="第4章 P.8"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_009.jpg" alt="第4章 P.9"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_010.jpg" alt="第4章 P.10"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_011.jpg" alt="第4章 P.11"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_012.jpg" alt="第4章 P.12"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_013.jpg" alt="第4章 P.13"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_014.jpg" alt="第4章 P.14"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_015.jpg" alt="第4章 P.15"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_016.jpg" alt="第4章 P.16"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_017.jpg" alt="第4章 P.17"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_018.jpg" alt="第4章 P.18"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_019.jpg" alt="第4章 P.19"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_020.jpg" alt="第4章 P.20"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_021.jpg" alt="第4章 P.21"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_022.jpg" alt="第4章 P.22"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_023.jpg" alt="第4章 P.23"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_024.jpg" alt="第4章 P.24"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_025.jpg" alt="第4章 P.25"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_026.jpg" alt="第4章 P.26"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_027.jpg" alt="第4章 P.27"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_028.jpg" alt="第4章 P.28"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_029.jpg" alt="第4章 P.29"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_030.jpg" alt="第4章 P.30"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_031.jpg" alt="第4章 P.31"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_032.jpg" alt="第4章 P.32"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_033.jpg" alt="第4章 P.33"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_034.jpg" alt="第4章 P.34"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_035.jpg" alt="第4章 P.35"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_036.jpg" alt="第4章 P.36"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_037.jpg" alt="第4章 P.37"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_038.jpg" alt="第4章 P.38"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_039.jpg" alt="第4章 P.39"></figure>
+      <figure><img loading="lazy" src="images/ppt/p04_040.jpg" alt="第4章 P.40"></figure>
+    </div>
+<h2 class="part p3">第三部分　拓展练习</h2>
+      <h3 class="sec-h" id="kb">知识拓展与行业前沿</h3>
+    <span class="mod mod-kb">前沿 · 2025—2026 是「智能体元年」</span>
+    <p>AI 正从 L2（Copilot 辅助）向 L3（自主 Agent）加速演进；BC 两端应用（企业级流程自动化 + 个人助理）百花齐放；企业级智能体进入价值验证期，商业化路径逐渐清晰。对信息资源管理专业：<b>智能体是新一代信息系统的主流形态</b>。</p>
+    <span class="mod mod-kb">拓展 · 企业级智能体价值评估维度</span>
+    <p>① 业务价值（降本增效、体验提升、可量化 ROI）；② 技术可行（模型能力、知识库质量、工具生态）；③ 数据与合规（可得性、隐私、监管）；④ 组织就绪（流程再造意愿、人员技能、治理能力）。</p>
+    <span class="mod mod-kb">拓展 · 面向企业的智能体选型</span>
+    <p>明确任务边界（确定性规则 vs 自主决策）；评估平台能力（低代码、知识库、工作流、多模态、可观测性）；关注可靠性与防护（权限最小化、护栏 Guardrails、人工兜底）；核算总拥有成本 TCO（调用、维护、重试与人工复核）。</p>
+    <div class="callout src">📚 来源：ima 知识库《AI前沿研究报告》《智能体宇宙》。</div>
+
+    
+<div class="casebox">
+  <h4>🧩 案例 · 智能体立项可行性四维度</h4>
+  <ul>
+    <li><b>场景：</b>学生想做“考研资讯智能体”：技术可行（Coze 足够）、经济可行（零成本）、操作可行（用户会用微信）、法律可行（资讯公开、不碰隐私）——四维度一过，立项成立。</li>
+    <li><b>映射：</b>本章‘可行性四维度’直接等于第9章综合项目立项书骨架；也是软考高项‘项目立项管理/可行性研究’的案例雏形。</li>
+    <li><b>动手：</b>在 Coze 新建一个空白智能体，仅写人设与开场白，体验‘先立项、再逐步充实’的迭代节奏。</li>
+  </ul>
+</div>
+
+<span class="mod mod-kb" id="lit">前沿文献 · 近三年精选（2023–2026）</span>
+    <p>以下文献反映本章主题在智能体时代的最新进展，供学有余力的同学延伸阅读（链接指向原文/预印本）。</p>
+    <ul class="lit-list">
+      <li><a href="https://doi.org/10.1177/21582440241275957" target="_blank" rel="noopener">加纳组织战略信息系统规划(SISP)实施成效评估（Assessing the Implementation Success of Strategic Information Systems Planning (SISP) in Ghanaian Organizations）</a>
+        <div class="lit-meta">Owusu, A., 2024, SAGE Open, 14(3)</div>
+        <div class="lit-note">业务–IT 战略对齐、高层承诺、跨部门协作是 SISP 成功关键</div></li>
+
+      <li><a href="https://doi.org/10.1016/j.jsis.2024.101853" target="_blank" rel="noopener">公共部门数字化转型：设计战略信息系统（Digital transformation of the public sector: Designing strategic information systems）</a>
+        <div class="lit-meta">Carter, L. et al., 2024, Journal of Strategic Information Systems, 33(3)</div>
+        <div class="lit-note">数字政府背景下的战略信息系统设计</div></li>
+
+      <li><a href="https://doi.org/10.1016/j.jsis.2024.101848" target="_blank" rel="noopener">领域知识与机器学习融合：公共部门视角（Fusing domain knowledge with machine learning: A public sector perspective）</a>
+        <div class="lit-meta">Sundberg, L., Holmström, J., 2024, JSIS, 33(3)</div>
+        <div class="lit-note">领域知识+ML 融合对 IS 规划的影响</div></li>
+
+      <li><a href="https://doi.org/10.1016/j.jsis.2024.101849" target="_blank" rel="noopener">金融科技生态中的政府主导数字化转型（Government-Led digital transformation in FinTech ecosystems）</a>
+        <div class="lit-meta">Senyo, P.K. et al., 2024, JSIS, 33(3)</div>
+        <div class="lit-note">金融科技生态中的政府主导数字化转型</div></li>
+
+      <li><a href="https://www.sciencedirect.com/science/article/pii/S1947818625000328" target="_blank" rel="noopener">Veolia 企业级 SISP 框架实施案例（Implementing a SISP Framework at Veolia）</a>
+        <div class="lit-meta">Sabir, S., 2025, ScienceDirect</div>
+        <div class="lit-note">企业级 SISP 落地案例（BSP→SISP，CMMI 五级）</div></li>
+
+    </ul>
+        <div class="callout tip">💡 <b>软考/职业考点</b>：本章对应软考高项「项目立项管理 / 可行性研究（技术·经济·运行·法律）」。课堂立项书即高项案例题的“背景段”雏形。</div>
+
+      <!-- 本章学习方法 -->
+    <div class="callout method">
+      <span class="m-tag">本章学习方法 · 康奈尔笔记法（Cornell Notes）</span>
+      <p><b>核心理念：</b>把一页笔记分「线索区 / 笔记区 / 总结区 / 提问区」，强迫自己在课后用一句话提炼与提问，比抄书有效得多。</p>
+      <p><b>四步/要点：</b>① 笔记区课上/阅读时记录要点，不追求工整，重完整　② 线索区左侧写关键词 / 问题线索，便于回看定位　③ 总结区页底用 1–2 句概括整页核心　④ 提问区写下「我还不懂什么」，驱动下一次探究</p>
+      <p><b>与录屏结合：</b>录屏讲解时，先展示你的康奈尔笔记页，再照「线索→笔记→总结→提问」的顺序讲清立项与可行性分析。</p>
+    </div>
+
+              <!-- G3. 知识巩固与提高 -->
+    <h3 class="sec-h" id="review">知识巩固与提高</h3>
+    <div class="btnrow">
+      <a class="btn" href="课堂测试_第02章.pptx" target="_blank" rel="noopener">📂 第02章 课堂测试（PPT · 15 题 · 点击打开）</a>
+    </div>
+<h3 class="sec-h" id="exp">上机实验 · 撰写立项与可行性分析</h3>
+    <div class="labtask">
+      <h3>📋 实验任务书</h3>
+      <p><b>目标：</b>为你的智能体项目产出一份真实可用的立项与可行性分析文档。</p>
+      <p><b>环境：</b>扣子 Coze 工作空间 + 文档编辑器。</p>
+      <p><b>步骤：</b>① 选定场景；② 写立项说明（背景/用户/功能/选型）；③ 完成四维度可行性（各 2–3 句）；④ 说明数据来源与合规；⑤ 用 KB 需求探索提示词收敛需求。</p>
+      <p><b>交付物：</b>立项与可行性简析文档（≥500 字）+ 项目范围清单（做/不做）+ 需求要点列表。</p>
+      <p><b>评分点：</b>目标清晰(20%) · 四维度完整(30%) · 合规说明(25%) · 范围边界明确(25%)。</p>
+    </div>
+    <h3 class="sec-h" id="labexp">🛠 分步操作 · 为你的智能体撰写立项与可行性分析</h3>
+    <span class="mod mod-lab">动手 · 分步操作</span>
+    <ol>
+      <li>从校园或专业领域选一个真实场景（如课程答疑、图书推荐、活动助手）。</li>
+      <li>撰写一页<b>立项说明</b>：背景、目标用户、核心功能、技术选型。</li>
+      <li>完成<b>可行性四维度</b>分析（技术/经济/操作/法律），各写 2–3 句。</li>
+      <li>特别说明<b>数据来源与合规措施</b>（个人数据授权、素材版权）。</li>
+      <li>用 KB《AI 辅助下的需求探索》提示词，与 AI 对话收敛需求要点。</li>
+    </ol>
+    <details class="fold">
+      <summary>📝 立项说明模板（可直接套用）</summary>
+      <p><b>项目名称：</b>[名称]<br>
+      <b>背景与目标：</b>[解决什么痛点，达到什么效果]<br>
+      <b>目标用户：</b>[谁用，规模如何]<br>
+      <b>核心功能：</b>[列出 3–5 项]<br>
+      <b>技术选型：</b>Coze 低代码 + [插件/工作流/知识库]<br>
+      <b>数据来源与合规：</b>[来源]；[授权/版权措施]<br>
+      <b>不做的事（范围边界）：</b>[明确排除]</p>
+    </details>
+<h3 class="exp-h">🔬 扩展实验（选做 2–3 项，巩固本章学法）</h3>
+    <div class="expext">
+      <h4>扩展实验 1 · 竞品分析<span class="tag">决策 / 调研</span></h4>
+      <p><b>任务：</b>选一个已有的同类智能体，从功能 / 价格 / 合规三维度做对比表。</p>
+      <p><b>交付：</b>费曼式讲清「它解决了什么需求」，录屏演示对比结论。</p>
+    </div>
+    <div class="expext">
+      <h4>扩展实验 2 · 合规清单<span class="tag">法律 / 合规</span></h4>
+      <p><b>任务：</b>为你的智能体项目列一张《合规自检清单》(数据来源 / 隐私 / 版权)。</p>
+      <p><b>交付：</b>录屏讲解「为何信管专业必须重合规」，并给出 3 条整改项。</p>
+    </div>
+    <div class="expext">
+      <h4>扩展实验 3 · 成本估算<span class="tag">经济 / 运营</span></h4>
+      <p><b>任务：</b>用简易模板估算项目人力 + API 调用成本。</p>
+      <p><b>交付：</b>对比「自建 vs 调用 Coze 插件」，录屏总结成本权衡。</p>
+    </div>
+
+    <h2 class="part p4">第四部分　本章小结</h2>
+      <h3 class="sec-h" id="sum">本章小结</h3>
+    <div class="summary">
+            <h4>核心要点回顾</h4>
+      <ul>
+        <li>生命周期：规划→需求→设计→实施→维护，规划定方向。</li>
+        <li>立项书六要素：背景、用户、功能、选型、数据、合规与成本。</li>
+        <li>可行性四维：技术/经济/操作/法律，论证"能不能做"。</li>
+        <li>智能体项目须特别关注数据合规与调用成本。</li>
+        <li>先用 MVP 验证，再逐步扩展；范围管理防蔓延。</li>
+        <li>下一章：把需求真正分析清楚——用例、用户故事与提示词。</li>
+      </ul>
+      <p class="progress-txt">延伸阅读：ima 知识库《AI前沿研究报告》"Agent 元年"系列；信息系统生命周期与战略规划方法相关教材章节；人民日报关于调查研究与实干精神的评论员文章。</p>
+    </div>
+      <h3 class="sec-h" id="caseext">拓展案例 · 临港智算中心算电协同</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B3-26</span> <b>临港智算中心算电协同项目</b><br><span class="cunit">申报单位：上海达卯科技有限公司</span></p>
+        <p>商汤临港智算中心作为中国最大单体智算中心，年用电量超1.78 亿度，电力成本占总运营成本70% 以上。智算负载波动性高达30%，新能源发电同样存在间歇性，两者匹配难度极大。达卯科技基于全自研能源大模型，构建算电协同平台，通过每15 分钟精准预测、每5 分钟动态修正的机制，对算力任务与储能、蓄冷等灵活资源进行联合调度，实现“以电强算、以算促电”的双向闭环。项目聚合UPS、蓄冷罐及36MWh 锂电池储能，可调节能力覆盖全中心100% 负荷，在保障安全稳定运行前提下，年度PUE 优化至1.28 以内，度电成本降低9.73% 以上，年节约用电成本超千万元。</p>
+        <p><b>看点</b>：算电协同项目给出了教科书式的可行性论证：痛点可量化（年用电 1.78 亿度、电费占运营成本 70%）、方案可测量（PUE、度电成本）、收益可核算（年省千万元）。请把它当作本章可行性分析报告的范例来读。</p>
+        <h4>延伸思考题</h4>
+        <ol>
+          <li>项目给出“年度 PUE 优化至 1.28 以内”“度电成本降低 9.73% 以上”“年节约用电成本超千万元”三组数据。请分别指出它们属于技术可行性、经济可行性还是操作可行性证据，并说明还缺少哪一类可行性论证。</li>
+          <li>“每 15 分钟精准预测、每 5 分钟动态修正”意味着系统必须与既有电力监控、动力环境、电力交易系统对接。请列出至少三项接口与数据约束，并说明在可行性研究阶段应如何尽早识别它们。</li>
+          <li>若把该方案移植到本校数据中心（规模相差约三个数量级），哪些成本项会失效、哪些约束会放松？请重做一次粗略的投入产出判断并给出结论（可行／暂缓／不可行）。</li>
+        </ol>
+        
+      </div>
+
+      
+<div class="btnrow">
+      <button class="btn" id="exportPdf">⬇ 导出本章 PDF</button>
+      <a class="btn ghost" href="index.html">← 返回门户</a>
+    </div>
+
+    <div class="readbox">
+      <span class="dot" id="readDot"></span>
+      <button class="btn ghost" id="markRead" data-ch="2">标记为已读</button>
+    </div>
+</main>
+</div>
+
+<div id="termtip"></div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# ===== 重建 / 临时脚本与计数文件（不对外）=====
+_req*.py
+_review_counts.json
+*.bak*
+
+# ===== 编辑 / 请求备份目录（不对外）=====
+.edit_backup*/
+.req*_backup*/
+.req12_final_backup/
+.wpp_backup/
+
+# ===== WorkBuddy 项目数据（不对外）=====
+.workbuddy/
+
+# ===== 操作系统 / 编辑器垃圾文件 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+
+# 说明：本仓库刻意保留 chNN.html、index.html、appendix.html、style.css、app.js、
+# images/、media/、*.docx、*.md、*.pptx 以及 数字教材_离线版.zip（均为站点内容）。

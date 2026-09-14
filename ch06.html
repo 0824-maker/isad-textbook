@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="kXsIVHyfyaot6u6OMvUBql">
+<head data-page-node-id="g65NJG1GLGIy1kB0gTRKr6">
+<meta charset="UTF-8" data-page-node-id="FsqEgTubOONjimxB2SakyH">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="ocaKDuttQlhWRmtP7VcCI5">
+<title>第6章 智能体记忆与多模态设计 · 数字教材</title>
+<link rel="stylesheet" href="style.css" data-page-node-id="FIHcNAx1sMusfbztIvvMhc">
+</head>
+<body data-page-node-id="eSTFkSNLARUxsBaL2BeHOG">
+<header class="topbar" data-page-node-id="rkDwwxkh8KD8bU3FCftUGk">
+  <div class="wrap" data-page-node-id="7xSsrEB3E1vPEDZ7FkAVde">
+    <div class="brand" data-page-node-id="TR1EPvzQHvzCiNKcDsmhUs">《信息系统分析与设计》· 数字教材
+      <small data-page-node-id="y3U65WkQeRTjUOB7YCZm1B">智能体实战主线 · 信息资源管理专业</small></div>
+    <nav data-page-node-id="PKNZZjx6VzwDTmwZNfUHJn">
+      <a href="index.html" data-page-node-id="MWKiNZQPZobSzhGpg8fvpw">门户</a>
+      <a href="ch05.html" data-page-node-id="XqvT6SM5P2RpE8f8F2qBrR">第5章</a>
+      <a href="ch06.html" data-page-node-id="Ofrh1VgWOZxfb7DBsVEz2f">第6章</a>
+      <a href="ch09.html" data-page-node-id="XFJQZBsQPBZtcJBNHHEHTr">第9章</a>
+      <a href="appendix.html" data-page-node-id="3NSnXCUEHJkEAaSFY3heqF">附录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc" data-page-node-id="MDwESndDgiDkkJFPBfggbU">
+  <aside class="side" data-page-node-id="UDPY9ubZzG6aYNCnOEoNRp">
+    
+    <a href="#lead" class="cur" data-page-node-id="l9gfJqFmBsJkfsp7guMnT2">导语与学习目标</a>
+    <span class="navpart p1">第一部分　课程导学</span>
+    <a href="#theory" data-page-node-id="gSfjcs3PvSoOyLSJ3uUd5e">理论基石</a>
+    <a href="#ideo" data-page-node-id="sbtru5tMWBNRxhoAnGkATu">课程思政</a>
+    <a href="#casein">案例导入</a>
+    <span class="navpart p2">第二部分　课程内容</span>
+    <a href="#s61" data-page-node-id="T6tDyNIKBFhxbDSMrbWz4u">6.1 记忆三大工具</a>
+    <a href="#s62" data-page-node-id="11GesYko5y8Ef6Mh5fQt6x">6.2 记忆 vs 知识</a>
+    <a href="#s63" data-page-node-id="5NDHEq3ZcZNEmO0LGDwwjs">6.3 多模态能力</a>
+    <a href="#s64" data-page-node-id="Yk3rYJHWa22290Cl8oJrIZ">6.4 KB 资源</a>
+    <a href="#s65" data-page-node-id="TwlfKLGm4n6vcDNWpW4tSu">6.5 选型判据</a>
+    <span class="navpart p3">第三部分　拓展练习</span>
+    <a href="#kb" data-page-node-id="81MytXnYIT73cFwt1Bl5yF">知识拓展与前沿</a>
+    <a href="#lit" data-page-node-id="klkHXIWs8Gj7FerYttEQ8v">↳ 前沿文献</a>
+    <a href="#exp" data-page-node-id="gH0ULoeHOEtw96KFFWfdVE">上机实验</a>
+    <span class="navpart p4">第四部分　本章小结</span>
+    <a href="#sum" data-page-node-id="uH3P8Kf6M9f3nnaA2yNwS3">本章小结</a>
+    <a href="#caseext">拓展案例 · 延伸思考</a>
+  </aside>
+
+  <main class="content" data-page-node-id="WZNwaxGPhCe4snl1vPywoW">
+    <h1 data-page-node-id="aAtWkLkNz1yVghbGbW3hJ5">第 6 章　智能体记忆与多模态设计</h1>
+    <p class="progress-txt" data-page-node-id="uT4x9A2HBKlG7FSJ4Q0GCn">让智能体记住用户、看懂世界——记忆与多模态能力。本章厘清变量/数据库/记忆库的区别，以及记忆与知识的边界，并认识多模态智能体。</p>
+
+    
+
+    <h2 class="part p1" id="lead">第一部分　课程导学</h2>
+
+<span class="mod mod-lead" data-page-node-id="UCW7b27HnDGeRtE73AtszI">导语 · 本章定位</span>
+    <p data-page-node-id="VIYhnX2nd87JIToDjK16sJ">一个不会"记住你"的智能体，每次都从零开始，体验割裂。本章讲清三种记忆工具（变量/数据库/记忆库）的分工，并用认知科学与知识组织理论（分类法、叙词表、本体、图谱）为"记忆 vs 知识"提供学理支撑——这正是信息资源管理专业的"老本行"。</p>
+
+    <span class="mod mod-lead" data-page-node-id="qJUZESq8a3CwRPnW8AizAH">三维学习目标</span>
+    <div class="goals" data-page-node-id="RCevZSVzQxxnvTClHHC3MY">
+      <div class="goal" data-page-node-id="XeSXFO4dDGjMW82LH9sQoZ"><b data-page-node-id="qqN4itWEqy5Kdp43bNNEuP">知识</b><br data-page-node-id="AhPOkJM02uM3GIhDfoNyb9">理解短期与长期记忆；区分变量/数据库/记忆库；了解多模态能力。</div>
+      <div class="goal" data-page-node-id="hQNtOPaee5M2c9oU5kF8aa"><b data-page-node-id="g1qn5XUXhhpnwsEXSza9GV">能力</b><br data-page-node-id="ZI6yzSjSNJ3eAM1oQYxcvk">能用变量/数据库实现个性化；能创建图片/音频类能力；理解记忆与知识的区别。</div>
+      <div class="goal" data-page-node-id="nspHOwiAvBiMTq54EXv4VB"><b data-page-node-id="Mh55cIpP2w4MnV1s2v0mbX">价值</b><br data-page-node-id="nn1KjHoEaeLQ2ODoIcP5os">强化数据生命周期管理思维；重视用户隐私与安全；培养媒体融合工程思维。</div>
+    </div>
+
+            
+    
+      <h3 class="sec-h" id="theory">理论基石 · 信息系统分析与设计</h3>
+    <span class="mod mod-theory" data-page-node-id="efZX4GXpA6STROTCK21uCA">理论 · 记忆 vs 知识（认知视角）</span>
+    <p data-page-node-id="JWAjKdfE8KXRlxwayh4Uhz">人类：感官记忆（瞬时）→ 短时记忆（工作记忆、容量有限）→ 长时记忆（语义/情节/程序）；智能体：上下文窗口（瞬时）→ 短期记忆（会话内历史）→ 长期记忆（跨会话，借向量库持久化）。</p>
+    <span class="mod mod-theory" data-page-node-id="xDpzjvOUq5HDSqKma8k5gb">理论 · 知识组织与分类理论</span>
+    <p data-page-node-id="W8vBE5GNyTRRKY3OOMlmAr">分类法 Taxonomy（等级体系）、叙词表 Thesaurus（规范词、用/代/属/分/参关系）、本体 Ontology（概念/关系/公理形式化，OWL）、知识图谱（实体—关系网络，支持推理）。</p>
+    <span class="mod mod-theory" data-page-node-id="Xt1E4uJGoGE7RuueQkQuzm">理论 · 多模态信息组织</span>
+    <p data-page-node-id="m2drgSJsrbRKPlgROnqCPc">多媒体特征（文本/图像/音频/视频及其元数据）；跨模态表示学习（映射到统一语义空间）；元数据与标注标准（Dublin Core、Schema.org）；信息资源管理视角下的采集、描述、组织与保存。</p>
+    <span class="mod mod-theory" data-page-node-id="YWRbikry3lgs2NApiYEXcn">理论 ↔ 智能体能力 映射</span>
+    <div class="two" data-page-node-id="CT2HZXUqAqnoUDDzYCYBhz">
+      <div class="card" data-page-node-id="FEtJMagAd3Caw3iSfXGkmP"><b data-page-node-id="r0qljrBFJw2AVLgDuO5cOj">记忆 vs 知识（认知）</b> ↔ 智能体短期/长期记忆对应感官/长时记忆</div>
+      <div class="card" data-page-node-id="P8AfwXJQKgfVOf2js03dIn"><b data-page-node-id="HJocRH871B5vJeHl7Tvqiw">分类法/叙词表/本体</b> ↔ 知识组织方法支撑语义检索与消歧</div>
+      <div class="card" data-page-node-id="rcdo31FdZputKFNCkukfEa"><b data-page-node-id="hYxlAUbSJ6WPHmkfcCCFfi">知识图谱</b> ↔ 实体—关系网络支撑推理与多跳链接</div>
+      <div class="card" data-page-node-id="PxQOWLoQH18tjkTWhdaRAD"><b data-page-node-id="yG9avIWZ4kkUGPtXmEOAsC">多模态信息组织</b> ↔ 多模态智能体统一表征文本/图像/音视频</div>
+      <div class="card" data-page-node-id="mKCE7EoDb7wQ8yBTD6RndP"><b data-page-node-id="ImkF62dWuEjCwwsji6PLEj">元数据标准</b> ↔ 资源的描述、标注与可发现性治理</div>
+    </div>
+    <span class="mod mod-theory" data-page-node-id="vQAZy1bOG6KUqOlYkjprxu">理论可视化 · 信息系统相关图形（4 幅）</span>
+
+    <figure class="figure" data-page-node-id="8XhaHHhJCrplGcTkXSeYgE">
+      <svg viewBox="0 0 680 250" role="img" aria-label="记忆层级人类与智能体" data-page-node-id="Pf7uVafmgJ6HmhpKtsDVn3">
+        <defs data-page-node-id="UtqSKHiiJ2zY6FtkEoJ0a8"><marker id="m6a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="cbrBHs8cejZm8OiG8mo2CD"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C" data-page-node-id="mhYJ0lp9v7zBRUaxIEXDkA"/></marker></defs>
+        <g font-size="12" fill="#0E2F3A" data-page-node-id="WqPA3oKe7BqKH1G7FBMG9y">
+          <text x="150" y="28" text-anchor="middle" font-weight="bold" fill="#0F6E8C" data-page-node-id="WwxcohsHJ2nbCNVvVTmr0u">人类记忆</text>
+          <rect x="40" y="40" width="220" height="40" rx="8" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="2qcYnLpvFHby32YYxW4iig"/><text x="150" y="65" data-page-node-id="xi0ImJFg986dV3pKI5gfRm">感官记忆（瞬时登记）</text>
+          <rect x="40" y="95" width="220" height="40" rx="8" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="qHCDrjHXo7lIKdHy5PUxAf"/><text x="150" y="120" data-page-node-id="fGJ0DvJ8PqrRlpXAH28hiF">短时记忆（工作记忆）</text>
+          <rect x="40" y="150" width="220" height="40" rx="8" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="FqqlZPOzRaknpaGSbe6L8Z"/><text x="150" y="175" data-page-node-id="S8MBBFmgXFVgZSogwgfBLT">长时记忆（语义/情节/程序）</text>
+          <text x="530" y="28" text-anchor="middle" font-weight="bold" fill="#0F6E8C" data-page-node-id="tcadPk0nZlEEj3YcovZB17">智能体记忆</text>
+          <rect x="420" y="40" width="220" height="40" rx="8" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="YB2wdUAYhdoZXaTqGkJOmL"/><text x="530" y="65" data-page-node-id="vshkUHSw9fBHPftDGYcTUL">上下文窗口（瞬时）</text>
+          <rect x="420" y="95" width="220" height="40" rx="8" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="EkCJiXumSueGin2Cpsf6vR"/><text x="530" y="120" data-page-node-id="DXyQDBUbg5rpmUVNSxMG8f">短期记忆（会话内历史）</text>
+          <rect x="420" y="150" width="220" height="40" rx="8" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="Z9WwqefEpZmnkUmAZwZEZb"/><text x="530" y="175" data-page-node-id="UEdcHFSDdbtHEKWQcajVOz">长期记忆（向量库持久化）</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="2" fill="none" marker-end="url(#m6a)" data-page-node-id="xLOemnJXtjdWrjkpWW6995">
+          <line x1="150" y1="80" x2="150" y2="93" data-page-node-id="cttObauX1ou0gDBEfVIVNI"/>
+          <line x1="150" y1="135" x2="150" y2="148" data-page-node-id="l2u5fDldtHlpbiACBh567m"/>
+          <line x1="530" y1="80" x2="530" y2="93" data-page-node-id="g5dDEDC5z4Z9cz8YB6RNAd"/>
+          <line x1="530" y1="135" x2="530" y2="148" data-page-node-id="Ejd70oaHy7Xtnx6nccY7o1"/>
+        </g>
+      </svg>
+      <span class="cap" data-page-node-id="BWZghO27I0qenpPoXotNRE"><b data-page-node-id="SeRXSqKLMykFEqse22oJeB">图1</b>　人类记忆层级 ↔ 智能体记忆层级</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="uGQypysbUvYJ4YRWq8bCcZ">
+      <svg viewBox="0 0 680 200" role="img" aria-label="记忆vs知识" data-page-node-id="cri8e2jSR75plZQowtwy5U">
+        <g font-size="13" fill="#0E2F3A" text-anchor="middle" data-page-node-id="pxDcWw2mL90JXAVI6MzZx5">
+          <rect x="40" y="40" width="290" height="120" rx="9" fill="#eaf7ef" stroke="#2E8B57" data-page-node-id="W3D6RIPxclyw13q84asBkD"/>
+          <text x="185" y="68" font-weight="bold" fill="#2E8B57" data-page-node-id="ESN89mPEt04HtF1luCeUCv">记忆 Memory</text>
+          <text x="185" y="92" data-page-node-id="JzQFEXf8QnH3paxP2vCCDt">数据：用户使用中产生（动态）</text>
+          <text x="185" y="114" data-page-node-id="9F3WFZFXKLpeQiVGuVkibN">每个用户不同，个性化强</text>
+          <text x="185" y="136" data-page-node-id="nbtOMJhjLEuKIw87kxHhzt">作用：连贯、个性化体验</text>
+          <rect x="350" y="40" width="290" height="120" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="MachZGkLktDBhBS86k2OV8"/>
+          <text x="495" y="68" font-weight="bold" fill="#0F6E8C" data-page-node-id="LQvCqO55FIC90HXDBCiDUu">知识 Knowledge</text>
+          <text x="495" y="92" data-page-node-id="vs8x6GwMb3lS9o7OyGRHIs">数据：开发者预先提供（静态）</text>
+          <text x="495" y="114" data-page-node-id="aERhTRrdR3gkipF0yvL3wh">所有用户共享</text>
+          <text x="495" y="136" data-page-node-id="WJe8mnMSGrGilltSrLO7Mo">作用：专业、准确领域知识</text>
+        </g>
+        <text x="340" y="190" text-anchor="middle" font-size="12" fill="#5A6B73" data-page-node-id="QBw27Q5FqKG7PTDmSmgADy">二者互补而非替代：记忆管"动态个性化"，知识管"静态专业"</text>
+      </svg>
+      <span class="cap" data-page-node-id="LExkrsZOJApZwWZ0IyUIhD"><b data-page-node-id="k3lmac4d0TSgbU88ilkP0X">图2</b>　记忆能力 vs 知识能力（数据性质对比）</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="jdoun7SRlsB9kNFBYEkHpj">
+      <svg viewBox="0 0 680 220" role="img" aria-label="知识组织方法" data-page-node-id="qUgGym47lxva5iEK3fAtgV">
+        <defs data-page-node-id="ef3Ra6pWDD0Yrx9YCGPTgl"><marker id="m6c" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="2g5hfVbwMXlDsD9dKelV4e"><path d="M0,0 L7,3 L0,6 Z" fill="#1497A8" data-page-node-id="u5A7wfPu3TBn5rN0iigQc5"/></marker></defs>
+        <g font-size="13" fill="#0E2F3A" text-anchor="middle" data-page-node-id="uBfHnNjJfhF6zEmRYu6JPu">
+          <rect x="40" y="40" width="145" height="54" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="0OTlOPSEsbCnyW6RE5V60Q"/><text x="112" y="62" data-page-node-id="BtGTUKlkLF0CcYs3roBBPc">分类法</text><text x="112" y="82" font-size="10" fill="#5A6B73" data-page-node-id="Q010Rjxfpk0g50Z990X8YE">等级体系</text>
+          <rect x="200" y="40" width="145" height="54" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="YQ9wezScEcKrCxj9yrNLaH"/><text x="272" y="62" data-page-node-id="QURzTz3aIRwK2zI462Syas">叙词表</text><text x="272" y="82" font-size="10" fill="#5A6B73" data-page-node-id="xfgMKPGFhHEyKUEoxVezAu">用/代/属/分</text>
+          <rect x="360" y="40" width="145" height="54" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="FnAaGZrIL44SZVey1g5EuI"/><text x="432" y="62" data-page-node-id="hHxPgc6e1NSWS7hxmkS7wd">本体</text><text x="432" y="82" font-size="10" fill="#5A6B73" data-page-node-id="ZpqzQmOVRbXgV8POi13gxL">OWL 形式化</text>
+          <rect x="520" y="40" width="120" height="54" rx="9" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="mAdRF38j7VlXoGEEZU0nNJ"/><text x="580" y="62" data-page-node-id="s9WQN7JjAkCrXhRR7BcDPD">知识图谱</text><text x="580" y="82" font-size="10" fill="#5A6B73" data-page-node-id="Lxh0sb7BFsXG6HbganjF5M">实体—关系</text>
+        </g>
+        <text x="340" y="140" text-anchor="middle" font-size="12" fill="#5A6B73" data-page-node-id="5tVAlePne2mKGGgVdSWiq9">由"浅"规范到"深"语义：支撑语义检索、消歧与推理</text>
+        <g stroke="#1497A8" stroke-width="2" fill="none" marker-end="url(#m6c)" data-page-node-id="dxrpBmufR67PyETn837fj2">
+          <line x1="187" y1="94" x2="268" y2="40" data-page-node-id="MB8y5bf1d4Ai1C1maYw7C8"/>
+          <line x1="347" y1="94" x2="428" y2="40" data-page-node-id="Eo6aOajy9BS7oGN3guWLZW"/>
+          <line x1="505" y1="94" x2="520" y2="40" data-page-node-id="lgA32hMRFM81AUucoA1LNj"/>
+        </g>
+      </svg>
+      <span class="cap" data-page-node-id="NVEcJ6ojMqX8HTHT0DUohj"><b data-page-node-id="7Y6AGa3VV3XJH6NFkOAzGf">图3</b>　知识组织方法谱系（分类法→叙词表→本体→知识图谱）</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="y8tvzamgtzPGRfSYAd2UCb">
+      <svg viewBox="0 0 680 260" role="img" aria-label="UML部署图多模态" data-page-node-id="Iv0GYOGw3Y1GNxjVvZ7wr9">
+        <defs data-page-node-id="5FW47qyzETfXmxIfhPMxdw"><marker id="m6d" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="AVhWpoJ6AWBhCwz4NqnJQu"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C" data-page-node-id="f0UqRt4pblV3wemaoeUPck"/></marker></defs>
+        <g font-size="12" fill="#0E2F3A" text-anchor="middle" data-page-node-id="HqdttWwZgClmuMsWVjtq2Y">
+          <rect x="40" y="40" width="180" height="60" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="0Q7qOX7aRPDDmjSZ0ZJeVE"/><text x="130" y="62" data-page-node-id="ev9PGdYDcBG9DIfpUVx8If">«device» 用户终端</text><text x="130" y="82" font-size="11" fill="#5A6B73" data-page-node-id="V1ITFc8RZJOdJ7c0gDAilL">浏览器/App/微信</text>
+          <rect x="250" y="40" width="180" height="60" rx="9" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="bpR44zW3AQySCddgBRH1RV"/><text x="340" y="62" data-page-node-id="00TTQwGVfmEJk3iLcqCwXW">«cloud» 云端</text><text x="340" y="82" font-size="11" fill="#5A6B73" data-page-node-id="F0DKEgcKMwi8c4rxznT5hI">LLM推理+编排</text>
+          <rect x="460" y="40" width="180" height="60" rx="9" fill="#eaf7ef" stroke="#2E8B57" data-page-node-id="zWEDEeNf9E0vU0cCj6CFBO"/><text x="550" y="62" data-page-node-id="3s92elKwgFZNos8baLD9MR">«server» 本地/私有</text><text x="550" y2="82" y="82" font-size="11" fill="#5A6B73" data-page-node-id="BQzvYtYyRKaBOotbv13kcG">知识库+向量+记忆</text>
+          <text x="130" y="160" font-size="11" fill="#5A6B73" data-page-node-id="ApuPPqzCaONf94sZFpmT1T">调用/响应</text>
+          <text x="550" y="160" font-size="11" fill="#5A6B73" data-page-node-id="KW9RoYfQEVveUKq3Q0rHNj">检索/存取</text>
+          <rect x="230" y="190" width="220" height="40" rx="8" fill="#fff" stroke="#0F6E8C" data-page-node-id="Pot20SNw1NGtWpUH4izr5P"/><text x="340" y="215" data-page-node-id="5TVYBUNsDNeHlZeIncdOYG">多模态：文本/图像/音视频</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="2" fill="none" marker-end="url(#m6d)" data-page-node-id="wYzOXrR45gOqRWz0U151hj">
+          <line x1="130" y1="100" x2="330" y2="100" data-page-node-id="RcTtf2kfaRjrke1z38FZaT"/>
+          <line x1="550" y1="100" x2="370" y2="100" data-page-node-id="zJ3XjEa4w619iexlenXz84"/>
+          <line x1="340" y1="100" x2="340" y2="188" data-page-node-id="iYjQ4uVQlKkJtKjYBszONP"/>
+        </g>
+      </svg>
+      <span class="cap" data-page-node-id="UpsgowlDIO4idgaRzcNJ6C"><b data-page-node-id="MrXk0zvQeAMf2HBZYfree9">图4</b>　UML 部署图：多模态智能体系统的分布与边界</span>
+    </figure>
+
+          <div class="callout method" id="classicmap"><span class="m-tag">经典方法论对照 · 数据驱动</span><p>原版 ch17 的<b>大数据 4V、HDFS/MapReduce、Lambda/Kappa 架构、CRISP-DM 数据挖掘标准流程</b>，为智能体的多模态数据底座与评测提供方法论。把"业务问题到 ML 问题到特征到评测"的 CRISP-DM 范式直接套用到 Agent 优化。详见 <a href="appendix.html#modeling">附录 H.9</a>。</p></div>
+
+<h3 class="sec-h" id="ideo">课程思政 · 价值引领</h3>
+    <span class="mod mod-kb" data-page-node-id="rXvocf8k6r2u4ErUI2GE62">前沿动态 · 行业速递（2026-08）</span>
+<div class="callout frontier" data-page-node-id="8DiwrtzBQvujFhLZGfV3KU">
+  <span class="f-tag" data-page-node-id="IMJ8G8fVWwm9OTRvgLnyCn">动态更新 2026-08</span>
+  <p data-page-node-id="RGr5oSY0lrBioRgfWp9sxD"><b data-page-node-id="uLL2vAv6BvBpCwDHImF4Vt">1</b> 持久“记忆图”（memory graph，如 Neo4j）：多轮任务成功率由 65% 跃升至 92%，无需模型微调即可“学习”。</p>
+  <p data-page-node-id="ShQBpKeKHsDaC9iXmu1xyS"><b data-page-node-id="1mHx5Ig3voFh9DEmhwJlAn">2</b> 生产级记忆框架涌现：Mem0（多层记忆、p95 延迟 1.44s）、MemGPT / Letta（虚拟内存式自管理）、Cognee（知识图谱记忆）。</p>
+  <p data-page-node-id="GdlAjvnu72PeoxNCehsTOi"><b data-page-node-id="TntdKqLOFRRyo7DKxp1Q9g">3</b> 多模态联合嵌入检索（文本 / 图像 / 视频）：跨模态故障诊断准确率提升 42%。</p>
+  <p class="src" data-page-node-id="UYT5LiG43Ppgi9xrtOM63x">来源：CSDN Agent 记忆系统专栏、kwkr 四层架构、yonbaos 记忆图 2026</p>
+</div>
+
+<span class="mod mod-ideo" data-page-node-id="wWBD5KfAq9anG8RM2CYTS8">精神坐标 · 人民日报金句</span>
+    <div class="callout quote" data-page-node-id="sGgpnFoKzvtTtdXEblyao0">"伟大出自平凡，平凡造就伟大。"——人民日报金句库</div>
+    <p data-page-node-id="56RTuFuOjImKsMWqvMFIUH"><b data-page-node-id="iX3HxiEY0U2FiwEGeBcDmN">本章映射：</b>记忆与知识组织（分类法、本体、图谱、元数据）是慢功夫、真功夫。今天沉淀的每一条规范元数据，都会成为智能体未来"滔滔不绝"的源头；把平凡事做扎实，系统才有不平凡的底气。</p>
+    <span class="mod mod-ideo" data-page-node-id="YFNELFvRdoPkNU3wtTmxme">名校范式 · 清华课程思政案例</span>
+    <div class="callout warn" data-page-node-id="vmY0y1a8RzjOhZv1ngUMBf">🎓 清华《计算机程序设计基础》"严谨性/基础性"引申：基础性须慢下来夯实；严谨性反对粗枝大叶；在反复细致训练中培养认真踏实的科学素养。</div>
+
+    
+<span class="mod mod-ideo" data-page-node-id="iYKbJXDyNZQwyrHA4LqpT0">课程思政案例 · IMA 知识库</span>
+<div class="kbcase" data-page-node-id="iGrZXC6ViEDeDlyKdjbvlF">
+  <h4 data-page-node-id="kmXCqdkiH0B03Dxe2Um7YV">记忆与多模态里的偏见：透明度、公平性、隐私保护</h4>
+  <ul data-page-node-id="5eXHyjh8LRqleuU68t36QT">
+    <li data-page-node-id="vnWC4brBVkEbTgnSrjlXJu">韩燕霞《高职教师人工智能伦理的时代逻辑》基于联合国教科文组织、欧盟等 5 个国际文件比较，指出<b data-page-node-id="XYSYtn0A0j4H2pLJPRjMOh">透明度、公平性、隐私保护</b>是 AI 伦理素养的基本维度。</li>
+    <li data-page-node-id="waYNN9PnaBZQxNVDnE78SJ">智能体的"记忆"若只记住部分群体、"多模态"若带刻板印象，就会放大偏见。</li>
+  </ul>
+  <span class="src" data-page-node-id="1ZBvxPL5bFonYVVY1R0ptW">来源：IMA 知识库《AI思政课》· 韩燕霞《高职教师人工智能伦理的时代逻辑、要素框架与培育路径》</span>
+  <span class="think" data-page-node-id="WTNsXf5W3hvLqo4TxMkquS"><b data-page-node-id="wfQ9hAI19istBgfZ9obv2F">本章映射：</b>给智能体加记忆/多模态能力时，要审计训练与记忆数据的代表性；多模态输出要避免歧视性表达——能力越强，越要设边界。</span>
+</div>
+      <h3 class="sec-h" id="casein">案例导入 · 达医智影·平扫CT 一扫多筛</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B4-06</span> <b>达医智影-基于平扫CT 的“一扫多筛”医疗AI 平台</b><br><span class="cunit">申报单位：阿里巴巴达摩院</span></p>
+        <p>本项目构建了基于平扫CT+AI 的多病种一站式智能筛查平台，针对胰腺癌、胃癌、结直肠癌等恶性肿瘤起病隐匿、早期发现难、传统血清学或内镜筛查因成本高、依从性差，难以大规模普及等核心痛点，我们提出"平扫CT，一扫多筛"技术范式。该系统以人工智能算法为核心，通过对海量多模态医学数据的训练，实现仅凭一次平扫CT，即同步完成多种高发癌症（胰腺、胃、肝、食管、结直肠）及急慢病（急性主动脉综合征、脂肪肝、骨质疏松等）的风险评估。相关成果发表于《Nature Medicine》等权威期刊，并获美国FDA"突破性医疗器械"认定及中国 NMPA 创新通道资格。</p>
+        <p><b>导学解读 · 与本章的对接</b>：请把“平扫 CT，一扫多筛”理解为一次典型的多模态信息处理：设备输出的是影像（视觉模态），医生需要的是文字结论（语言模态），连接二者的是在海量多模态医学数据上训练出的模型。本章讲多模态智能体，核心命题正是<b>模态之间的转换与对齐</b>。另一个容易被忽略的看点是部署策略：模型对不同品牌、不同年代的 CT 设备都具备泛化兼容性，基层与县级医院占比超过 40%，无需更换硬件即可部署。它提醒我们，多模态系统的成败往往不在模型精度，而在<b>输入侧的异构适配</b>。这与本章“记忆”主题也相通——只有当跨机构、跨时间的检查结果能被统一理解，个体的健康记忆才真正连续。</p>
+        
+      </div>
+
+    <h2 class="part p2">第二部分　课程内容</h2>
+      <h3 class="sec-h" id="s61">6.1　记忆的三大工具</h3>
+    <table data-page-node-id="DSAad57XoOZUTJv71nwjQ6">
+      <thead data-page-node-id="l8pA4MzTyBSmsg9OVzsfAD"><tr data-page-node-id="KU40rKUlVZ7nqwvH7Xd4lP"><th data-page-node-id="VumY6ALyj4KqVxwnwUIhBO">工具</th><th data-page-node-id="BxqVo3Otj8wVHXSMQlnRpf">作用</th><th data-page-node-id="ye4HnJ9CcBkDpZ7vP6cu1H">典型场景</th></tr></thead>
+      <tbody data-page-node-id="NLPcneFe4evLoc1Ld8eMOT">
+        <tr data-page-node-id="FShJXLKjGk9SDxkXECAca8"><td data-page-node-id="p6vH5jbEM9AMaZqn8eBvDC"><b data-page-node-id="AWGcRsOrJSImm5k171cRsK">变量</b></td><td data-page-node-id="FfL8uZ4jxmFPivcEKXaHe7">用户变量键值对持久化（最多 10 个、仅 String），可"提示词访问"引用 {{name}}</td><td data-page-node-id="SODEpyvfRrvlLpYhHJsyrv">昵称、进度</td></tr>
+        <tr data-page-node-id="3Qyj4HxJ7HdPjrdyppoJCb"><td data-page-node-id="F2ds97OmuHNATCkLr1h3q3"><b data-page-node-id="dIzVl2erCX7ImiOGXE1RGv">数据库</b></td><td data-page-node-id="qLMjvQtf4zxvKHYYL96Pnw">创建数据表、NL2SQL 自然语言增删改查结构化业务数据</td><td data-page-node-id="8i2YuJAA6GeTy54kIEKkxS">订单台账</td></tr>
+        <tr data-page-node-id="7Lk9kj6Hsi3zt9eit3W3ox"><td data-page-node-id="8BtaonnoIUdteSSp8kOzsu"><b data-page-node-id="ql7hBzjajXEpc8HiqsIxY0">记忆库</b></td><td data-page-node-id="SZPKkLspxP8uFQsGUdoZgC">开启后自动从对话提取并沉淀用户画像，跨轮调用</td><td data-page-node-id="xyQZqdxg6cyvjeP2tGpVEO">长期偏好</td></tr>
+      </tbody>
+    </table>
+    <p data-page-node-id="1nXBYv7ErAf6Ql5qL9RYHS">协同示例：变量记对话 ID + 数据库查历史订单 + 记忆库感知偏好 = 贴心且精准的服务。</p>
+
+    
+    <div class="pptgrid" data-cnt="12" data-page-node-id="iBi4WMJyEBhCYCCYfVnt1h">
+      <figure class="wxfig" data-page-node-id="cEaCOTFadDVdP9RH6MudRZ">
+  <img src="media/coze/p049.jpg" alt="课件第 49 页" loading="lazy" data-page-node-id="hiZnKMfLTN5MGQ6dUpnubr">
+</figure>
+      <figure class="wxfig" data-page-node-id="AUYOIHXTEvDBjEML6NdNdQ">
+  <img src="media/coze/p050.jpg" alt="课件第 50 页" loading="lazy" data-page-node-id="C7ORB9XdaorAd3K4zCoGu5">
+</figure>
+      <figure class="wxfig" data-page-node-id="i1omOPuPKWqVSx4bBLW6zc">
+  <img src="media/coze/p051.jpg" alt="课件第 51 页" loading="lazy" data-page-node-id="MFgjg1gHzAzViWpE1X6blt">
+</figure>
+      <figure class="wxfig" data-page-node-id="2rFicgAGwLQfs1mEf9c6sI">
+  <img src="media/coze/p052.jpg" alt="课件第 52 页" loading="lazy" data-page-node-id="UgucfBqQOf2cV6ClwaqgTV">
+</figure>
+      <figure class="wxfig" data-page-node-id="LDNzcxsIBFETaPjkEFZi5g">
+  <img src="media/coze/p094.jpg" alt="课件第 94 页" loading="lazy" data-page-node-id="AMQCXgVBFxndwOBFJopDfd">
+</figure>
+      <figure class="wxfig" data-page-node-id="vqdCydcr6gSnCFITpuFIcF">
+  <img src="media/coze/p097.jpg" alt="课件第 97 页" loading="lazy" data-page-node-id="xVDIg7ib2vsBRQc6Prf9Qa">
+</figure>
+      <figure class="wxfig" data-page-node-id="Pc9pTUhmDX0ucra6jsUpsQ">
+  <img src="media/coze/p098.jpg" alt="课件第 98 页" loading="lazy" data-page-node-id="sDjqkQZ4vojGsJN4jpLd3J">
+</figure>
+      <figure class="wxfig" data-page-node-id="ZwUd5re40K7PhXdGNfSaoT">
+  <img src="media/coze/p100.jpg" alt="课件第 100 页" loading="lazy" data-page-node-id="0qB3733Tyx4AoiFPbAPmQ9">
+</figure>
+      <figure class="wxfig" data-page-node-id="3fHiGAWQcFMmIN5OUIBWip">
+  <img src="media/coze/p101.jpg" alt="课件第 101 页" loading="lazy" data-page-node-id="XFZwsZqm2fNPrimKRxmFz3">
+</figure>
+      <figure class="wxfig" data-page-node-id="u4vRwlL5axsBF4WZlFtr5o">
+  <img src="media/coze/p102.jpg" alt="课件第 102 页" loading="lazy" data-page-node-id="AbAPWIJtoiL8ud0UgUnmNa">
+</figure>
+      <figure class="wxfig" data-page-node-id="okdyyEwXHf6hPq6k1x4VKW">
+  <img src="media/coze/p150.jpg" alt="课件第 150 页" loading="lazy" data-page-node-id="Lc3IRoTvA1D2oMaNZ1HcCB">
+</figure>
+      <figure class="wxfig" data-page-node-id="Ob1g9AWBATH9RbCkaCJ6Cq">
+  <img src="media/coze/p162.jpg" alt="课件第 162 页" loading="lazy" data-page-node-id="A64ML9hgnr7sh9NL7QJuWA">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s62">6.2　记忆能力 vs 知识能力</h3>
+    <p data-page-node-id="DKfxCl5QGYNbBxjAYPQYQf"><b data-page-node-id="kgeFHGrBtoXV8g5TniMS5i">记忆</b>：用户使用中产生的动态数据，随使用积累、每个用户不同，提供连贯个性化体验（如偏好、历史查询）。<b data-page-node-id="aYGh1C7DXwTFDvBKEveQNg">知识</b>：开发者预先提供的静态数据，所有用户共享，提供专业准确领域知识（如手册、国标）。二者<b data-page-node-id="KaxeE8XGQLW14jSmjza6ow">互补而非替代</b>。</p>
+
+          <h3 class="sec-h" id="s63">6.3　多模态智能体能力</h3>
+    <ul data-page-node-id="6kJdXz0UU1ZEHjIE4y7uYq">
+      <li data-page-node-id="6Ru4HAHlwDCRByyAqdEanv"><b data-page-node-id="8j3Hg0Z37bGK7fzvBN76rR">图像类</b>：视觉理解、文生图、图像处理与画板排版（抠图/滤镜/海报）。</li>
+      <li data-page-node-id="nWK74e2QGjtaMjhExKPDWB"><b data-page-node-id="zPDCdNyGgYdH7Cd3rpBSJO">音频类</b>：语音识别、语音合成/播客、音视频通话、音乐生成。</li>
+      <li data-page-node-id="EDRhFvxCazkVMzao8Q9BW8"><b data-page-node-id="zAguDe7m9E4yD8Nu6RvE5o">视频类</b>：视频理解、抽帧提取、生成与剪辑合成。</li>
+      <li data-page-node-id="OTB7Gk20Lmy3Z9jsTU4Xfe">能力由"官方/第三方插件" + "豆包等多模态大模型"共同支撑，工作流节点图形化集成。</li>
+    </ul>
+
+    
+    <div class="pptgrid" data-cnt="53" data-page-node-id="QBOQZ6K7ZXlNvaw2rVdu7E">
+      <figure class="wxfig" data-page-node-id="y0fDRWmEQJHOQJDbFfwrAh">
+  <img src="media/coze/p144.jpg" alt="课件第 144 页" loading="lazy" data-page-node-id="RuAuR7lA9gUyGOrQ5IOHYs">
+</figure>
+      <figure class="wxfig" data-page-node-id="sWjw41aiAnLybnvM3TE45u">
+  <img src="media/coze/p147.jpg" alt="课件第 147 页" loading="lazy" data-page-node-id="dxTBeJxSfMHPNEdTl0lla4">
+</figure>
+      <figure class="wxfig" data-page-node-id="C6OlWJcSN6UXkj0F28t370">
+  <img src="media/coze/p148.jpg" alt="课件第 148 页" loading="lazy" data-page-node-id="DAUFDAXu6fd6CW2O2Hh9TL">
+</figure>
+      <figure class="wxfig" data-page-node-id="yKX7T5j1zzIwlgmSiy2tcj">
+  <img src="media/coze/p149.jpg" alt="课件第 149 页" loading="lazy" data-page-node-id="Rah6b5WSiBkqq2BksOLRdn">
+</figure>
+      <figure class="wxfig" data-page-node-id="kCTvc0reCIIriDDdVHZCx6">
+  <img src="media/coze/p152.jpg" alt="课件第 152 页" loading="lazy" data-page-node-id="hkoNSmpvpLI8gRsbzfn57g">
+</figure>
+      <figure class="wxfig" data-page-node-id="fvKaVSEcxTY9JmR74CPeNK">
+  <img src="media/coze/p153.jpg" alt="课件第 153 页" loading="lazy" data-page-node-id="a8Wqpc6cXLLoNdHLKObEQA">
+</figure>
+      <figure class="wxfig" data-page-node-id="CPPhEjLHMxSCH4ducW0Jnr">
+  <img src="media/coze/p154.jpg" alt="课件第 154 页" loading="lazy" data-page-node-id="e7VPYbQjUeT8xrMLpPKgmY">
+</figure>
+      <figure class="wxfig" data-page-node-id="ipzvDwgCmpEjOqUYLmwy9B">
+  <img src="media/coze/p155.jpg" alt="课件第 155 页" loading="lazy" data-page-node-id="MTwSyuNlTOBeBvVCgrkDA3">
+</figure>
+      <figure class="wxfig" data-page-node-id="E7lMR3XAlEsvhOvpyWP9d0">
+  <img src="media/coze/p156.jpg" alt="课件第 156 页" loading="lazy" data-page-node-id="0HjmRmv4KBAs879xVHUjCW">
+</figure>
+      <figure class="wxfig" data-page-node-id="WRiZptL4VH2bW0neURM6IV">
+  <img src="media/coze/p157.jpg" alt="课件第 157 页" loading="lazy" data-page-node-id="DLkZUBK68siX0qJxFjJG3W">
+</figure>
+      <figure class="wxfig" data-page-node-id="IT3qlWTGeZlHZakXFg4bSe">
+  <img src="media/coze/p158.jpg" alt="课件第 158 页" loading="lazy" data-page-node-id="PJFMozOr2ocDtDARfvtWdE">
+</figure>
+      <figure class="wxfig" data-page-node-id="6dO2mk4IOVL9Cidfx5xR79">
+  <img src="media/coze/p159.jpg" alt="课件第 159 页" loading="lazy" data-page-node-id="RiwJLM4veyRF6zJbZHyBHk">
+</figure>
+      <figure class="wxfig" data-page-node-id="7eSbb7Xr12x3TpYwoeEORh">
+  <img src="media/coze/p160.jpg" alt="课件第 160 页" loading="lazy" data-page-node-id="mJMrbq5Kz0PirRwx3Uhi29">
+</figure>
+      <figure class="wxfig" data-page-node-id="yayXXvWS8hGAolAofXAMxQ">
+  <img src="media/coze/p161.jpg" alt="课件第 161 页" loading="lazy" data-page-node-id="Ek4GDQyyJ5VHEpPNyNA8rO">
+</figure>
+      <figure class="wxfig" data-page-node-id="A6ar8jFNtyFK35MyEC9DI8">
+  <img src="media/coze/p163.jpg" alt="课件第 163 页" loading="lazy" data-page-node-id="JazoSGA1MneqfXEhkXIMXg">
+</figure>
+      <figure class="wxfig" data-page-node-id="17fpgFmTGxhUBUmMcy7I6e">
+  <img src="media/coze/p164.jpg" alt="课件第 164 页" loading="lazy" data-page-node-id="yqi6XugutwGozRoBAy1yK3">
+</figure>
+      <figure class="wxfig" data-page-node-id="AbyafPCV46DDziYR7fCqNx">
+  <img src="media/coze/p165.jpg" alt="课件第 165 页" loading="lazy" data-page-node-id="TQ3AkKXT5HZJnWHvlJSIxs">
+</figure>
+      <figure class="wxfig" data-page-node-id="D8FMM3suNDbjBrxDeJp0I8">
+  <img src="media/coze/p166.jpg" alt="课件第 166 页" loading="lazy" data-page-node-id="f0sQj61gI2BlccYv4yauKA">
+</figure>
+      <figure class="wxfig" data-page-node-id="vHQgNlmAG5M2W6aCUGW1XP">
+  <img src="media/coze/p167.jpg" alt="课件第 167 页" loading="lazy" data-page-node-id="XfrCCuCWmZlWsd2xG5uJcw">
+</figure>
+      <figure class="wxfig" data-page-node-id="kXAB5bs6sCHcInqGS3xzrw">
+  <img src="media/coze/p168.jpg" alt="课件第 168 页" loading="lazy" data-page-node-id="WHoqvUsWHyNbvKM0F7YDnC">
+</figure>
+      <figure class="wxfig" data-page-node-id="Y3A844LiUhRzxzyfyvPP4u">
+  <img src="media/coze/p169.jpg" alt="课件第 169 页" loading="lazy" data-page-node-id="5jwGju9c0kIKEMJNnoklCd">
+</figure>
+      <figure class="wxfig" data-page-node-id="QevUTA8REnUOL2ubaWAorQ">
+  <img src="media/coze/p170.jpg" alt="课件第 170 页" loading="lazy" data-page-node-id="rC9yHluvy91jESKQSPM6Ta">
+</figure>
+      <figure class="wxfig" data-page-node-id="gnwdtzrNCHyrxlGSX2Hq8v">
+  <img src="media/coze/p171.jpg" alt="课件第 171 页" loading="lazy" data-page-node-id="VwmnF8vtnn08BTVQGXyPt3">
+</figure>
+      <figure class="wxfig" data-page-node-id="DR4z6dhT5QBgy7FYlzoId6">
+  <img src="media/coze/p214.jpg" alt="课件第 214 页" loading="lazy" data-page-node-id="1kAveWXKaXnyBssKU6VqWk">
+</figure>
+      <figure class="wxfig" data-page-node-id="177u1RQp5kkQf7jQvrPzh3">
+  <img src="media/coze/p215.jpg" alt="课件第 215 页" loading="lazy" data-page-node-id="Vu2ElC4WUfAoz9Yoiu6Tmf">
+</figure>
+      <figure class="wxfig" data-page-node-id="hnGV5uqHPanZBWCN1fX9Zm">
+  <img src="media/coze/p216.jpg" alt="课件第 216 页" loading="lazy" data-page-node-id="RfF3UAFyyuCwrbY98TT6VV">
+</figure>
+      <figure class="wxfig" data-page-node-id="VJeuX0IxWa0dBhpUX7vDqn">
+  <img src="media/coze/p217.jpg" alt="课件第 217 页" loading="lazy" data-page-node-id="uMDYoXdpEGhYtL0fM6pbFg">
+</figure>
+      <figure class="wxfig" data-page-node-id="2GFlu4wLoPn41D2BRMP4eb">
+  <img src="media/coze/p218.jpg" alt="课件第 218 页" loading="lazy" data-page-node-id="ZUz6MXfFi68eko61YPl123">
+</figure>
+      <figure class="wxfig" data-page-node-id="ggwshiRuTywStzlxzGvfIy">
+  <img src="media/coze/p219.jpg" alt="课件第 219 页" loading="lazy" data-page-node-id="BFan3XH9uUa4uJKMyCLvlz">
+</figure>
+      <figure class="wxfig" data-page-node-id="ntybJoI8qtEr3FTuFtniam">
+  <img src="media/coze/p220.jpg" alt="课件第 220 页" loading="lazy" data-page-node-id="n4u7xaXNixSMzE8MUcohoA">
+</figure>
+      <figure class="wxfig" data-page-node-id="xPg8nEOl1DGSUixKZcBpFV">
+  <img src="media/coze/p221.jpg" alt="课件第 221 页" loading="lazy" data-page-node-id="SLHg8cv9unfynZc9lQXRqJ">
+</figure>
+      <figure class="wxfig" data-page-node-id="YNuN1aMsyNMfdGhBpCGdRZ">
+  <img src="media/coze/p222.jpg" alt="课件第 222 页" loading="lazy" data-page-node-id="oKiIE9aN8mATQp4vyPJC8H">
+</figure>
+      <figure class="wxfig" data-page-node-id="7Orfzm4EUFyXbrCR6wvmwh">
+  <img src="media/coze/p223.jpg" alt="课件第 223 页" loading="lazy" data-page-node-id="dPzD22NkmXcfbCgDbgckbP">
+</figure>
+      <figure class="wxfig" data-page-node-id="NQ1VHZjZMvg1ADVyErGzbn">
+  <img src="media/coze/p224.jpg" alt="课件第 224 页" loading="lazy" data-page-node-id="nAU0dQR8IB1lFkR9WR8lqG">
+</figure>
+      <figure class="wxfig" data-page-node-id="BIxH7zE4a3mcj5XfRwln7B">
+  <img src="media/coze/p225.jpg" alt="课件第 225 页" loading="lazy" data-page-node-id="MihIXTeV3cALfPddB3ZvCt">
+</figure>
+      <figure class="wxfig" data-page-node-id="abXOZFQmMcRUhKlQvfZJQ3">
+  <img src="media/coze/p226.jpg" alt="课件第 226 页" loading="lazy" data-page-node-id="vwVcPHrDTsMlbISrByEmsO">
+</figure>
+      <figure class="wxfig" data-page-node-id="JIGSZeAel7sobFhxuU3bgP">
+  <img src="media/coze/p227.jpg" alt="课件第 227 页" loading="lazy" data-page-node-id="ZAb9EFgH510tJa6O0Rtpf7">
+</figure>
+      <figure class="wxfig" data-page-node-id="BQfvv8SblqDlzBcTMYdeo2">
+  <img src="media/coze/p228.jpg" alt="课件第 228 页" loading="lazy" data-page-node-id="LUzFYuPUbhs7yiAXpVgChk">
+</figure>
+      <figure class="wxfig" data-page-node-id="Tx3kAoEMGXDalw4jhgkAar">
+  <img src="media/coze/p229.jpg" alt="课件第 229 页" loading="lazy" data-page-node-id="r6X7ApFhBvHAwCNrC1Tj7N">
+</figure>
+      <figure class="wxfig" data-page-node-id="d1kRokuOs4wimKwaZ2xm5j">
+  <img src="media/coze/p230.jpg" alt="课件第 230 页" loading="lazy" data-page-node-id="EV5we4vuR1wbD40VKFfNrV">
+</figure>
+      <figure class="wxfig" data-page-node-id="RJGQAPMpbixWIvFDXF2HOH">
+  <img src="media/coze/p231.jpg" alt="课件第 231 页" loading="lazy" data-page-node-id="o6ExtCj9Gp4bSJ6tWIprJt">
+</figure>
+      <figure class="wxfig" data-page-node-id="N01WL1zGItW6DWzrsFMt9H">
+  <img src="media/coze/p232.jpg" alt="课件第 232 页" loading="lazy" data-page-node-id="caD2alZIfKMPgWTAdeTgGx">
+</figure>
+      <figure class="wxfig" data-page-node-id="JewcmJC0e32iwQ0YABctx3">
+  <img src="media/coze/p233.jpg" alt="课件第 233 页" loading="lazy" data-page-node-id="bgPitBqliW7w1PEF2DDZlN">
+</figure>
+      <figure class="wxfig" data-page-node-id="sqYFnPBEiZbauFpgviq3jM">
+  <img src="media/coze/p234.jpg" alt="课件第 234 页" loading="lazy" data-page-node-id="1WqYjq9ffVdBYkGvd0oXHz">
+</figure>
+      <figure class="wxfig" data-page-node-id="DitQHasyQsqHGk4AZfFGpM">
+  <img src="media/coze/p235.jpg" alt="课件第 235 页" loading="lazy" data-page-node-id="4Nr8jM0xNIPZnQfEAGWtAd">
+</figure>
+      <figure class="wxfig" data-page-node-id="5gRtQKWiqcEr46U1oE4lCn">
+  <img src="media/coze/p236.jpg" alt="课件第 236 页" loading="lazy" data-page-node-id="uq7pHDyUloW5XWPbinEWRD">
+</figure>
+      <figure class="wxfig" data-page-node-id="hCLHLuZ8FSyvGaGYfRR5ol">
+  <img src="media/coze/p237.jpg" alt="课件第 237 页" loading="lazy" data-page-node-id="oQJsJNPrd0WXsSp3l9bhR2">
+</figure>
+      <figure class="wxfig" data-page-node-id="VdPSCsdDx9xBJkEDoklens">
+  <img src="media/coze/p238.jpg" alt="课件第 238 页" loading="lazy" data-page-node-id="f0rKCf4nCF76aGUaDrP4oP">
+</figure>
+      <figure class="wxfig" data-page-node-id="aD8YpebmG3IKpoUHqHxEZL">
+  <img src="media/coze/p239.jpg" alt="课件第 239 页" loading="lazy" data-page-node-id="N6wqHMBERZBSQ2Vmb3EWAp">
+</figure>
+      <figure class="wxfig" data-page-node-id="rBR0qWXEW45wSo6aQOR4nI">
+  <img src="media/coze/p240.jpg" alt="课件第 240 页" loading="lazy" data-page-node-id="V63vevKCE9xq6UunFAZe5b">
+</figure>
+      <figure class="wxfig" data-page-node-id="e8QrpPKxueFT8NkuSmJhJ5">
+  <img src="media/coze/p242.jpg" alt="课件第 242 页" loading="lazy" data-page-node-id="ZMPDi42GMeM4FCxJZyfseg">
+</figure>
+      <figure class="wxfig" data-page-node-id="uZUTsftnA6BTMY0sC3CXeE">
+  <img src="media/coze/p243.jpg" alt="课件第 243 页" loading="lazy" data-page-node-id="OgtqktyfXwKGydTnntrUEj">
+</figure>
+      <figure class="wxfig" data-page-node-id="PmKbhhpwA5kZkeh2gMzXtF">
+  <img src="media/coze/p244.jpg" alt="课件第 244 页" loading="lazy" data-page-node-id="oSC2ijbhP1ADrjZTqUlAmm">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s64">6.4　知识库赋能：表达与洞察提示词</h3>
+    <p data-page-node-id="dpGlOUlpjr1InNmtwE3SRG">KB《金字塔表达引擎》（结论先行、归类分组）、《费曼式深问器》（纵向到底检验真懂）、《类比嫁接器》（反差类比产生洞见）、《认知升维器》《知识化学反应器》（碎片炼成新观点）——提升智能体回复质量与文案深度。</p>
+
+          <h3 class="sec-h" id="s65">6.5　记忆 vs 知识：怎么选</h3>
+    <p data-page-node-id="Fm4dpWTgcjPBFEDQ0HXdvT">三条判据：① 数据是谁产生的（用户动态→记忆；开发者预置→知识）；② 是否每个用户不同（个性化强→记忆；共享→知识）；③ 是否需长期沉淀画像（偏好→记忆库；领域事实→知识库）。选用建议：个性化问候/进度→变量；业务台账→数据库；用户偏好→记忆库。</p>
+
+    
+    <div class="pptgrid" data-cnt="3" data-page-node-id="C7LFq8QmfkXxViK8HfQAYE">
+      <figure class="wxfig" data-page-node-id="68cialEP5PBVU3tED6VjOm">
+  <img src="media/coze/p145.jpg" alt="课件第 145 页" loading="lazy" data-page-node-id="BFtNmKITgFeh4RQxobMDXN">
+</figure>
+      <figure class="wxfig" data-page-node-id="D2zGV20bsg2l0hy72c3gzl">
+  <img src="media/coze/p146.jpg" alt="课件第 146 页" loading="lazy" data-page-node-id="MUgIqKACM20SELaR2LnqVL">
+</figure>
+      <figure class="wxfig" data-page-node-id="lMFJEvDAtkXOB4f1ONGD5U">
+  <img src="media/coze/p151.jpg" alt="课件第 151 页" loading="lazy" data-page-node-id="LQI411sUE6ja4Bvq25IobR">
+</figure>
+    </div>
+
+      
+
+    
+    <h2 class="part p3">第三部分　拓展练习</h2>
+      <h3 class="sec-h" id="kb">知识拓展与前沿</h3>
+    <span class="mod mod-kb" data-page-node-id="oOE0pKE9otkcJqNLSOwDqr">拓展 · 短期记忆 vs 长期记忆</span>
+    <p data-page-node-id="zWOAE7mhAHnnvGHHbCD2Gt">短期：存储即时信息（历史对话/中间结果），支撑当前决策，随会话结束清空，受上下文窗口限制。长期：跨会话积累，支撑个性化与能力提升，可将"经验/错误"编码入记忆，常借向量库持久化。</p>
+    <span class="mod mod-kb" data-page-node-id="xEimj48G6B2gMk7SVzW27Y">前沿 · 2025 智能体记忆架构分水岭</span>
+    <p data-page-node-id="pt7RBQ65rqAYADSSEHlHh1">趋势：从"上下文"走向"连续性"——记忆成为 Agent 核心竞争力；关键能力含写入/检索/遗忘策略、情景与语义记忆分层；反思+记忆实现持续自我改进；多模态记忆统一存取。记忆+反思 = 从"一次性执行"走向"持续学习"。</p>
+    <div class="callout src" data-page-node-id="ooN3yK9dejTyM5xlzr8thc">📚 来源：ima 知识库《智能体宇宙》《AI前沿研究报告》。</div>
+
+    
+<div class="casebox" data-page-node-id="pEFU3cMLGPuDww5Prg4NPo">
+  <h4 data-page-node-id="Kjgv41VRzKBZqbjxVfZMIF">🗂️ 案例 · "流行语知识图谱"</h4>
+  <ul data-page-node-id="8y3AfyL4rR1bJPmyxxI5DF">
+    <li data-page-node-id="J0qpzYcKFjcy9AyXeDbV1v">🎯 <b data-page-node-id="9sQ6hNxWLZZzBtAdFnCByA">场景</b>：给每个流行语打"年代/情感/来源平台"标签，构建流行语知识图谱。节点=词/年份/平台，边=同义/演化/共现。</li>
+    <li data-page-node-id="tsbQGpJEnkWNoDjVNxHeCu">🧩 <b data-page-node-id="MvaRR3SH3F25iRH8NEHVQh">知识组织落点</b>：实体"流行语"={词, 年份, 来源, 情感极性, 语义标签}；关系=同义（蓝瘦香菇≈难受想哭）、演化（打工人→班味）、反义。</li>
+    <li data-page-node-id="oYOIyQWhqoJ2zcFUoDMaT3">🧠 <b data-page-node-id="0KHQYplzoBuNOZ93P1V3Z2">记忆机制</b>：知识图谱即智能体的"长期记忆"——新词进来先匹配已有节点再建边，对应本章记忆模块。</li>
+  </ul>
+</div>
+<div class="callout tip" data-page-node-id="iuHAeNUHpCpdCRYZ39ST3w">💡 <b data-page-node-id="Htd78j7CqEmQwyMMU0w8D9">算法冷知识</b>：用 networkx 画图谱，可一眼看出"自嘲系"（打工人/内卷/班味）与"治愈系"（松弛感/活人感）两个社群；标签体系就是"元数据规范"的微型演练。</div>
+
+<div class="termbox" data-page-node-id="iIaEHrQhjKr3HqJAUJh8WE">
+  <h4 data-page-node-id="RPjWrCs0rY1RYeswrWl7ve">📌 智能体记忆与多模态 · 核心术语</h4>
+  <ul data-page-node-id="fiy80M2c4svBg1KMtXKFXs">
+    <li data-page-node-id="RK0TUWyj0qBzSo2YHpylFs"><span class="term" data-def="将文本/图像等映射为稠密向量的技术，使语义相近的内容在向量空间中距离更近，是多模态检索的基础。" data-page-node-id="sRyaUG1sFZumUGG8I63cP4">嵌入 Embedding</span></li>
+    <li data-page-node-id="gWpwMbVbRe5VfewhdPL1T1"><span class="term" data-def="以向量相似度检索为核心的数据库，用于存储嵌入并支持'以文搜文/以图搜图'。" data-page-node-id="wwLRZ0BNGQQ9egtId2pldB">向量数据库</span></li>
+    <li data-page-node-id="01Q11fUyFZhJ5WOzdPGzmD"><span class="term" data-def="跨多轮对话持久保存的用户画像与知识，区别于单次会话的短期上下文。" data-page-node-id="J3OrWbMIbHfS7eZm8sqQTi">长期记忆</span></li>
+    <li data-page-node-id="SFo57HfABKTnCI6pJIGnOR"><span class="term" data-def="系统同时理解与生成文本、图像、音频、视频中至少两种模态的能力。" data-page-node-id="6YOYvuKJHFhcmKoIrWUscv">多模态</span></li>
+    <li data-page-node-id="IBob6lZLYG96fOpzH4Ordt"><span class="term" data-def="智能体自动提取并沉淀用户长期画像的组件，隐性地形成'记得你是谁'。" data-page-node-id="FRDcvpGYAkXLKw92rKgihH">记忆库</span></li>
+  </ul>
+</div>
+
+<span class="mod mod-kb" id="lit" data-page-node-id="z0Q4XkC8UGroKq2vQ10FOF">前沿文献 · 近三年精选（2023–2026）</span>
+    <p data-page-node-id="tDU6Hp6LtzObBXtFu0trW4">以下文献反映本章主题在智能体时代的最新进展，供学有余力的同学延伸阅读（链接指向原文/预印本）。</p>
+          <div class="callout src" data-page-node-id="UF4xOBXOWXpCrkwlILjt2n">🎓 <b data-page-node-id="zVUxA9QANDzDZkZ7ljsMO6">学界观点</b>：范炜等（2024）提出文化遗产“智慧数据”的生成路径；窦永香等（2025）构建多模态知识图谱。二者说明：记忆与知识组织是“慢功夫、真功夫”，今天沉淀的每一条规范元数据，都会成为智能体未来持续学习的源头。</div>
+<ul class="lit-list" data-page-node-id="OS1Rn6C5YLhnY2YyqyLwUS">
+      <li data-page-node-id="kf647uOhDApDhIgalpDAru"><a href="https://arxiv.org/abs/2404.13565" target="_blank" rel="noopener" data-page-node-id="G5SzAWVJl9IUoDrn0fOih8">基于 LLM 的智能体记忆机制综述（A Survey on the Memory Mechanism of LLM based Agents）</a>
+        <div class="lit-meta" data-page-node-id="eFj6LspR50IEEgrECuplTD">Zhang et al., 2024, arXiv:2404.13565</div>
+        <div class="lit-note" data-page-node-id="DNaDyjjCsIR2or3FO0l8t0">记忆机制系统综述</div></li>
+
+      <li data-page-node-id="B5qxlNykxbAyTnvDaM7Pif"><a href="https://arxiv.org/abs/2502.12110" target="_blank" rel="noopener" data-page-node-id="94BVl02axtmro716hM1e8n">A-MEM：面向 LLM 智能体的智能体式记忆（A-MEM: Agentic Memory for LLM Agents）</a>
+        <div class="lit-meta" data-page-node-id="ZYKdjHIv5cSJ8ifLgVGfL0">Xu et al., 2025, arXiv:2502.12110</div>
+        <div class="lit-note" data-page-node-id="huSjUh5tN1lZRlFl74oZFd">Zettelkasten 式动态链接记忆，支持记忆演化</div></li>
+
+      <li data-page-node-id="HvzH3OaEpU4ZRDieTgL61m"><a href="https://arxiv.org/abs/2507.07957" target="_blank" rel="noopener" data-page-node-id="clE6PLPTrDSvcrJEbY5iNM">MIRIX：多模态智能体记忆系统（MIRIX: A Multimodal Agentic Memory System）</a>
+        <div class="lit-meta" data-page-node-id="g98RfIKwQvErnaLjcBinws">Wang et al., 2025, arXiv:2507.07957</div>
+        <div class="lit-note" data-page-node-id="GWH5pnbwdlQ9FB8EoIMAZ9">六类记忆+多智能体+多模态</div></li>
+
+      <li data-page-node-id="axXhJ4K1t5UCvDG2bJORhm"><a href="https://arxiv.org/abs/2508.09736" target="_blank" rel="noopener" data-page-node-id="b9RmOC2450ExxRWkPKaHyX">M3-Agent：具备长期记忆的多模态智能体（M3-Agent: A Multimodal Agent with Long-Term Memory）</a>
+        <div class="lit-meta" data-page-node-id="OiHwTESoCMMiV6yGUNE4g7">Long et al., 2025, arXiv:2508.09736</div>
+        <div class="lit-note" data-page-node-id="NYwnKs0MgTGAcFIppjWIWq">实体中心多模态长期记忆+强化学习</div></li>
+
+      <li data-page-node-id="bswtCISbyrFGZhUBjZ48Ks"><a href="https://arxiv.org/abs/2510.15261" target="_blank" rel="noopener" data-page-node-id="oRTQUHByDQy9JO8vv9wm5r">AUGUSTUS：具备情境化用户记忆的多模态智能体系统（AUGUSTUS: An LLM-Driven Multimodal Agent System with Contextualized User Memory）</a>
+        <div class="lit-meta" data-page-node-id="H0K4IbFVp5dGi8DuGLCg9u">Jain et al., 2025, LAW@NeurIPS 2025 (arXiv:2510.15261)</div>
+        <div class="lit-note" data-page-node-id="oIUThlBjqkJRNWmmCoJcdI">图结构多模态情境记忆</div></li>
+
+          <li data-page-node-id="PxrvunruQtCfk72SQ8SM0N"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=AI%20%E6%96%B0%E6%97%B6%E4%BB%A3%E9%9D%A2%E5%90%91%E6%96%87%E5%8C%96%E9%81%97%E4%BA%A7%E6%B4%BB%E5%8C%96%E5%88%A9%E7%94%A8%E7%9A%84%E6%99%BA%E6%85%A7%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90%E8%B7%AF%E5%BE%84%E6%8E%A2%E6%9E%90" target="_blank" rel="noopener" data-page-node-id="hj3fNWGfniDW7zcRkyvobc">AI 新时代面向文化遗产活化利用的智慧数据生成路径探析</a>
+        <div class="lit-meta" data-page-node-id="QHjsDnAYpneHAb4B4BpINE">范炜, 等. AI 新时代面向文化遗产活化利用的智慧数据生成路径探析[J]. 中国图书馆学报, 2024, 50(2): 30-42.</div>
+        <div class="lit-note" data-page-node-id="xSKhe0cG7eDkcSIrqK1rXh">从元数据到智慧数据的生成链路，对应本章知识组织与记忆</div></li>
+
+      <li data-page-node-id="851hmnHGcE6x7KkvZ0qS3p"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E5%9F%BA%E4%BA%8E%E5%BC%80%E6%BA%90%E7%A7%91%E6%8A%80%E9%A1%B9%E7%9B%AE%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA%E7%A0%94%E7%A9%B6" target="_blank" rel="noopener" data-page-node-id="5NR9dZtYaLkQFKJbtewuoo">基于开源科技项目数据的多模态知识图谱构建研究</a>
+        <div class="lit-meta" data-page-node-id="dSnsdddKzLgaA3ZFYjPROC">窦永香, 等. 基于开源科技项目数据的多模态知识图谱构建研究[J]. 情报理论与实践, 2025, 48(3): 70-80.</div>
+        <div class="lit-note" data-page-node-id="X9ET7MgMHbgmLLu5KGxAFx">多模态知识组织方法，呼应智能体长期记忆与多模态记忆</div></li>
+
+      <li data-page-node-id="tQisbmERBN1PQxF80DT4wW"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E9%A9%B1%E5%8A%A8%E7%9A%84%E5%9B%BE%E4%B9%A6%E9%A6%86%E6%99%BA%E8%83%BD%E7%9F%A5%E8%AF%86%E7%BB%84%E7%BB%87" target="_blank" rel="noopener" data-page-node-id="6GeoBAcMMtl9bZKJCqD5MS">知识图谱驱动的图书馆智能知识组织</a>
+        <div class="lit-meta" data-page-node-id="711ebqqkrBir0UNpzL3uTE">周力虹, 等. 知识图谱驱动的图书馆智能知识组织[J]. 图书情报知识, 2024, 42(3): 30-41.</div>
+        <div class="lit-note" data-page-node-id="GyXrE7s5B5JAkwomFoWoVf">以图谱支撑语义增强与智能服务，对应本章知识组织方法</div></li>
+
+    </ul>
+        <div class="callout tip" data-page-node-id="Z2nH9TBrJsmRmBksAx0v9O">💡 <b data-page-node-id="PPDRwTNPhZwXzzeWQlK7Q9">软考/职业考点</b>：本章对应 CISA「保护信息资产 / 隐私」与数据生命周期管理。记忆数据须合规留存、脱敏与最小必要。</div>
+
+      <!-- 本章学习方法 -->
+    <div class="callout method" data-page-node-id="xQliFnX2sEOTaB8DCcjGbn">
+      <span class="m-tag" data-page-node-id="TkLBWzElgHbWPHeBWnhB8r">本章学习方法 · 双重编码理论（Dual Coding）</span>
+      <p data-page-node-id="1HLfLu0L91tNhAywmdn4ld"><b data-page-node-id="AqjhxEJKZbzMtLXcd9C0Iy">核心理念：</b>同时用「语言 + 图像」两种通道编码，记忆留存显著提升；做多模态智能体时尤其要善用图文双通道。</p>
+      <p data-page-node-id="aOm7dvA1GSpRxxxiSXa6DC"><b data-page-node-id="0DKuqf0i4V1neCRQT585BQ">四步/要点：</b>① 概念配图关键概念都配一张示意图　② 图讲配文用图讲解，再补文字说明　③ 图文混合输出让智能体同时产出图与文　④ 图文互译复习复习时图文互相转译巩固</p>
+      <p data-page-node-id="Yhcu9Thy2PHQIrNwPxObWb"><b data-page-node-id="pHriPEqGDdToq6OxOs7wvK">与录屏结合：</b>录屏讲解记忆机制时，边画示意图边口述，演示双重编码如何帮「小白」秒懂。</p>
+    </div>
+
+              <!-- G3. 知识巩固与提高 -->
+    <h3 class="sec-h" id="review">知识巩固与提高</h3>
+    <div class="btnrow">
+      <a class="btn" href="课堂测试_第06章.pptx" target="_blank" rel="noopener">📂 第06章 课堂测试（PPT · 10 题 · 点击打开）</a>
+    </div>
+<h3 class="sec-h" id="exp">上机实验 · 加入记忆与多模态能力</h3>
+    <div class="labtask" data-page-node-id="6tMF8wBi9GAOb7btYUcIxa">
+      <h3 data-page-node-id="Ju52ZhGP7DoN0ZDxG4lUqq">📋 实验任务书</h3>
+      <p data-page-node-id="hkcl6CbSxQR5qppECpNMgk"><b data-page-node-id="mD3lpOz1JqTCAzYbFQmjQG">目标：</b>让你的智能体"记住用户"并具备一种多模态能力。</p>
+      <p data-page-node-id="2fvVeyuT5uyETuljDFmS1i"><b data-page-node-id="DIY7vGVHEzFQwrYhLUTGG6">环境：</b>扣子 Coze（变量/记忆库/多模态插件）。</p>
+      <p data-page-node-id="hS3Ibk4MvzYKb0FO1U3dJX"><b data-page-node-id="2wlRj7iE3WdakDwYyIheJW">步骤：</b>① 建用户变量实现个性化问候；② 开记忆库沉淀偏好；③ 扩展图像或音频能力；④ 用 KB 表达引擎优化回复结构并对比。</p>
+      <p data-page-node-id="64Uu26z8rzOigaLFuOUWJw"><b data-page-node-id="M3d8xitqy7m2bamIWD3s5w">交付物：</b>变量/记忆库配置截图 + 多模态演示 + 回复结构优化前后对比说明。</p>
+      <p data-page-node-id="jWICOGsCQ8CWgpaHKXdC5m"><b data-page-node-id="dacPN0AXBgG4CGHkYEpQ5g">评分点：</b>记忆配置(30%) · 多模态实现(30%) · 回复优化(25%) · 隐私说明(15%)。</p>
+    </div>
+    <h3 class="sec-h" id="labexp">🛠 分步操作 · 为项目加入记忆与多模态能力</h3>
+    <span class="mod mod-lab" data-page-node-id="dntFjVcLsttqmwtUxUO9N0">动手 · 分步操作</span>
+    <ol data-page-node-id="fEQXMTqZbufmnQj5qrFKoH">
+      <li data-page-node-id="fDDroRKAPEGbnupQQBCzaG">在 Coze 创建用户变量（如 name/progress），实现个性化问候与进度跟踪。</li>
+      <li data-page-node-id="NLsMTAQOnpiDX9thCWBMLG">配置记忆库，让智能体主动记录用户偏好并在后续对话中运用。</li>
+      <li data-page-node-id="xC9l6do1aPHL1CRIBIn7br">为项目扩展一个图像或音频能力：图片理解/文生图，或开启语音通话。</li>
+      <li data-page-node-id="P4fbvefTFqHmFTAX2XWXNK">用 KB《金字塔表达引擎》优化回复结构，对比优化前后。</li>
+    </ol>
+    <details class="fold" data-page-node-id="NPngTb2v2X70Tmu9U737z8">
+      <summary data-page-node-id="zpDPOKiGfC9xSXPcvBA9WW">📝 记忆/知识选型决策树</summary>
+      <p data-page-node-id="01aBhlnDpuS86wAY3s9QVr">数据随用户动态产生？ → 是：记忆（变量/记忆库）；否：知识库。<br data-page-node-id="tTHA3LaLS2sQD8hllqLzPg">需跨会话沉淀偏好？ → 是：记忆库；结构化业务台账？ → 数据库；临时个性化 → 变量。</p>
+    </details>
+<h3 class="exp-h" data-page-node-id="fdU9bt06jM0FC9jQPHPHkr">🔬 扩展实验（选做 2–3 项，巩固本章学法）</h3>
+    <div class="expext" data-page-node-id="wSjZayOncrzuQXxYCtVAwl">
+      <h4 data-page-node-id="EXajn5LNT0fD6YId86BVuN">扩展实验 1 · 记忆图谱<span class="tag" data-page-node-id="7WpFT5FK9os2Z8dxO0kBjv">记忆</span></h4>
+      <p data-page-node-id="RAA9HQ9axkfSRijhts7csv"><b data-page-node-id="126rjec0hObNgPcwTZmXir">任务：</b>为智能体设计一张「对话记忆图」(短期/长期/用户画像)。</p>
+      <p data-page-node-id="oA1L0cnP1gNsXf8flTLpsK"><b data-page-node-id="lsDD1bbXmvsS66PpqmSVQO">交付：</b>录屏讲清「记忆如何影响连续对话」，演示跨轮记忆。</p>
+    </div>
+    <div class="expext" data-page-node-id="328fVUOazMeIHmMnmOYZms">
+      <h4 data-page-node-id="EFBsvAkY9DiP4dmCPTEqiR">扩展实验 2 · 多模态检索<span class="tag" data-page-node-id="kuA6dDtxlKrSDlpuRyc9Ez">多模态</span></h4>
+      <p data-page-node-id="qqtdrl2B2JizprnN1BFI2Y"><b data-page-node-id="RDH3JRnGXj4VHACeJCmjbD">任务：</b>让智能体同时检索文本与图片，对比回答丰富度。</p>
+      <p data-page-node-id="7ObR4w84qpx7k9GiKFMILj"><b data-page-node-id="bTzGwfxhb1xZkIBgwjyPgP">交付：</b>录屏总结「何时该上多模态」。</p>
+    </div>
+    <div class="expext" data-page-node-id="ARGSx62fGh8WzAXLVsVAXk">
+      <h4 data-page-node-id="pME2K7fXuiNjul4HIZuzhJ">扩展实验 3 · 变量 vs 记忆库<span class="tag" data-page-node-id="plAVCkXBBdQOj2u7cCCp1t">存储</span></h4>
+      <p data-page-node-id="ox3Zn4vhe0hsthGvy1pgDr"><b data-page-node-id="UPDKT98YGcVO2tMa1r4nfy">任务：</b>对比「应用变量(临时)」与「记忆库(长期)」的适用场景。</p>
+      <p data-page-node-id="ZN9nriIYUsmXebFVbTUJol"><b data-page-node-id="pl8F4EgSKGQswzaUjaxuax">交付：</b>费曼式总结选型原则，录屏演示。</p>
+    </div>
+
+    <h2 class="part p4">第四部分　本章小结</h2>
+      <h3 class="sec-h" id="sum">本章小结</h3>
+    <div class="summary" data-page-node-id="3PG6El46R8D0yLRAMI6Y6L">
+            <h4>核心要点回顾</h4>
+      <ul data-page-node-id="sV51QKn60MrECWyjssBdFU">
+        <li data-page-node-id="G5V1gJRqtN2cTOzuN8bOFi">记忆三工具：变量(记事簿)/数据库(共享表)/记忆库(长期)。</li>
+        <li data-page-node-id="N7yV5CSCNXVYLPQkBlHAMT">记忆=动态个性化；知识=静态专业，二者互补。</li>
+        <li data-page-node-id="Nk0UlM1MruiDdQsKVe8F0v">多模态：图像/音频/视频，插件+模型共同支撑。</li>
+        <li data-page-node-id="DSpRpi0XZ5EC6coUrAZCxv">KB 表达与洞察提示词提升回复质量。</li>
+        <li data-page-node-id="BczpdI91kN46MESdSsktDp">隐私与安全是记忆能力的底线。</li>
+        <li data-page-node-id="kVtzFaFR1ydCP1eDPd14Zt">下一章：复杂工作流与多智能体系统。</li>
+      </ul>
+      <p class="progress-txt" data-page-node-id="CCy8lZegqFmY2Q4ayr24Rk">延伸阅读：ima 知识库《智能体宇宙》"短期记忆 vs 长期记忆"；认知科学与知识组织（分类法/叙词表/本体/图谱）相关教材；2025 记忆架构分水岭报告。</p>
+    </div>
+      <h3 class="sec-h" id="caseext">拓展案例 · 爱康 iKKie 健康管家</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B4-05</span> <b>爱康iKKie</b><br><span class="cunit">申报单位：天津爱康未来互联网医院有限公司</span></p>
+        <p>“爱康iKKie”是爱康于2023 年推出的首个AI 健康管家，可为客户提供覆盖检前定制、检中辅助、检后管理的全链路智能化服务体系。检前，可根据用户历史健康数据、家族遗传史、生活方式，精准匹配与生成筛查项目与体检套餐方案，从而真正实现“千人千面”个性化体检；检中，可实现智能导检，帮助用户知晓体检进度与时长、获取精准导检方案、实时查看体检结果等；检后，可进行体检报告专业解读、日常健康咨询、膳食营养分析等。2026 年2 月，爱康携手华为云达成技术协作，爱康iKKie 新增AI 测肤功能，并将相继上线智慧问诊、拍药搜药等功能入口，不断丰富服务场景，致力打造“全民私人健康管家”。</p>
+        <p><b>看点</b>：iKKie 覆盖检前、检中、检后全链路，是观察“记忆如何支撑连续服务”的最佳样本：没有历年报告与历史问答的累积，个性化体检方案与检后干预都无从谈起。</p>
+        <h4>延伸思考题</h4>
+        <ol>
+          <li>iKKie 的服务覆盖检前定制、检中辅助、检后管理。请指出其中哪些环节依赖<b>长期记忆</b>、哪些只依赖<b>短期上下文</b>，并说明若记忆丢失会造成怎样的体验断裂。</li>
+          <li>案例以“大模型 + 医疗知识库”双引擎和“专家规则 + AI 推理”双重校验来规避幻觉。请结合本章的记忆与检索机制，设计一套记忆的写入与淘汰策略（何时记、记什么、何时忘）。</li>
+          <li>iKKie 通过 OCR 与视觉语言模型解析第三方体检报告。请以“多模态输入治理”为主题，列出三项数据质量风险及对应处理办法。</li>
+        </ol>
+        
+      </div>
+
+    <!-- AGENT-LIT-INJECT -->
+    <span class="mod mod-kb">📚 智能体工程必读文献 · 工程层 · 记忆系统（MemGPT）</span>
+    <ul class="lit-list">
+      <li>
+        <a href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noopener">Packer et al.《MemGPT: Towards LLMs as Operating Systems》</a>
+        <div class="lit-meta">arXiv:2310.08560 · DOI https://doi.org/10.48550/arXiv.2310.08560</div>
+        <div class="lit-note">虚拟上下文管理+分层记忆，第6章“记忆机制”的学术原点</div>
+      </li>
+    </ul>
+<!-- /AGENT-LIT-INJECT -->
+
+<div class="btnrow" data-page-node-id="MPlDj0MZ977tvF3taS8zJM">
+      <button class="btn" id="exportPdf" data-page-node-id="MvhG5ufELJnCg6mtiUCDni">⬇ 导出本章 PDF</button>
+      <a class="btn ghost" href="index.html" data-page-node-id="pFpJyyiCLbpZULRdZ0LIl4">← 返回门户</a>
+    </div>
+
+    <div class="readbox" data-page-node-id="qTpXD371c5m16urvCITLS0">
+      <span class="dot" id="readDot" data-page-node-id="Av7Ih4qlKbeOE6IhX8AefK"></span>
+      <button class="btn ghost" id="markRead" data-ch="6" data-page-node-id="EPLRMREIeD8jUqwwBQSoQX">标记为已读</button>
+    </div>
+
+  </main>
+</div>
+
+<div id="termtip" data-page-node-id="BzGV93INvradwPHZoKtzLO"></div>
+<script src="app.js"></script>
+</body>
+</html>

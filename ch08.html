@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第8章 低代码应用开发与AI编程 · 数字教材</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">《信息系统分析与设计》· 数字教材
+      <small>智能体实战主线 · 信息资源管理专业</small></div>
+    <nav>
+      <a href="index.html">门户</a>
+      <a href="ch07.html">第7章</a>
+      <a href="ch08.html">第8章</a>
+      <a href="ch09.html">第9章</a>
+      <a href="appendix.html">附录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc">
+  <aside class="side">
+    <h4>第 8 章 目录</h4>
+    <a href="#lead" class="cur">导语与学习目标</a>
+    <span class="navpart p1">第一部分　课程导学</span>
+    <a href="#theory">理论基石</a>
+    <a href="#ideo">课程思政</a>
+    <a href="#casein">案例导入</a>
+    <span class="navpart p2">第二部分　课程内容</span>
+    <a href="#s81">8.1 智能体 vs 低代码</a>
+    <a href="#s82">8.2 低代码开发流程</a>
+    <a href="#s83">8.3 界面与事件绑定</a>
+    <a href="#s84">8.4 AI 编程模式</a>
+    <a href="#s85">8.5 落地关键</a>
+    <span class="navpart p3">第三部分　拓展练习</span>
+    <a href="#kb">知识拓展与前沿</a>
+    <a href="#lit">↳ 前沿文献</a>
+    <a href="#exp">上机实验</a>
+    <span class="navpart p4">第四部分　本章小结</span>
+    <a href="#sum">本章小结</a>
+    <a href="#caseext">拓展案例 · 延伸思考</a>
+  </aside>
+
+  <main class="content">
+    <h1>第 8 章　低代码应用开发与 AI 编程</h1>
+    <p class="progress-txt">从"对话伙伴"到"产品形态"：让智能体可部署、可交互。本章掌握低代码应用开发流程、事件绑定与 AI 编程（描述即开发）。</p>
+
+    
+
+    <h2 class="part p1" id="lead">第一部分　课程导学</h2>
+
+<span class="mod mod-lead">导语 · 本章定位</span>
+    <p>智能体是"对话伙伴"，低代码应用是"产品形态"。当用户要的不只是聊天，而是带界面、能填表、出报告的系统，就需要低代码应用与 AI 编程。本章把智能体能力封装为可部署的产品，让非计算机专业也能交付完整应用——这正是信息资源管理学生的"产品化"跃迁。</p>
+
+    <span class="mod mod-lead">三维学习目标</span>
+    <div class="goals">
+      <div class="goal"><b>知识</b><br>理解低代码应用特点；掌握开发流程；了解 AI 编程模式。</div>
+      <div class="goal"><b>能力</b><br>能设计简单应用 UI 并绑定事件；能发布到多端；能用自然语言开发 AI 项目。</div>
+      <div class="goal"><b>价值</b><br>培养产品化思维；培养创新精神与动手能力；树立成本与数据合规意识。</div>
+    </div>
+
+            
+    
+      <h3 class="sec-h" id="theory">理论基石 · 信息系统分析与设计</h3>
+    <span class="mod mod-theory">理论 · 软件开发方法演进</span>
+    <p>结构化（瀑布/SDLC）→ 面向对象（OOA/OOD、UML、构件化）→ 敏捷/Scrum（迭代增量、用户故事、看板）→ DevOps（CI/CD）→ 低代码（模型驱动、可视化、描述即开发）。</p>
+    <span class="mod mod-theory">理论 · 软件工程核心概念</span>
+    <p>过程模型（瀑布/V/增量/螺旋/敏捷）；原型法（抛弃型验证需求、演化型长成系统）；架构模式（MVC/MVVM 关注点分离）；低代码理论（MDD 模型驱动、可视化编程）。</p>
+    <span class="mod mod-theory">理论 · 低代码与 AI 编程的定位</span>
+    <p>低代码/无代码以模型与可视化代替手写代码；AI 编程以自然语言即规格、模型生成/修改/调试代码；二者叠加让非计算机专业也能快速交付应用。治理要点：可维护性、可移植性、厂商锁定与标准兼容。</p>
+    <span class="mod mod-theory">理论 ↔ 智能体能力 映射</span>
+    <div class="two">
+      <div class="card"><b>方法演进（结构化→OO→敏捷→DevOps）</b> ↔ 低代码与 AI 编程是交付新阶段</div>
+      <div class="card"><b>原型法（抛弃/演化）</b> ↔ 低代码拖拽快速出可交互原型，边看边改</div>
+      <div class="card"><b>过程模型（V/螺旋/敏捷）</b> ↔ Agentic Coding：描述—生成—对话修正迭代</div>
+      <div class="card"><b>MVC/MVVM</b> ↔ 低代码 UI—逻辑—数据三层关注点分离</div>
+      <div class="card"><b>MDD 模型驱动</b> ↔ 自然语言即模型，AI 直接生成与修改代码</div>
+    </div>
+    <span class="mod mod-theory">理论可视化 · 信息系统相关图形（4 幅）</span>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 150" role="img" aria-label="开发方法演进">
+        <defs><marker id="m8a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C"/></marker></defs>
+        <g font-size="12" fill="#0E2F3A" text-anchor="middle">
+          <rect x="20" y="50" width="110" height="46" rx="8" fill="#EAF4F6" stroke="#0F6E8C"/><text x="75" y="78">结构化</text>
+          <rect x="160" y="50" width="110" height="46" rx="8" fill="#EAF4F6" stroke="#0F6E8C"/><text x="215" y="78">面向对象</text>
+          <rect x="300" y="50" width="110" height="46" rx="8" fill="#EAF4F6" stroke="#0F6E8C"/><text x="355" y="78">敏捷/Scrum</text>
+          <rect x="440" y="50" width="100" height="46" rx="8" fill="#EAF4F6" stroke="#0F6E8C"/><text x="490" y="78">DevOps</text>
+          <rect x="565" y="50" width="110" height="46" rx="8" fill="#FDF3E3" stroke="#E0A82E"/><text x="620" y="78">低代码/AI</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="2" fill="none" marker-end="url(#m8a)">
+          <line x1="130" y1="73" x2="158" y2="73"/>
+          <line x1="270" y1="73" x2="298" y2="73"/>
+          <line x1="410" y1="73" x2="438" y2="73"/>
+          <line x1="540" y1="73" x2="563" y2="73"/>
+        </g>
+      </svg>
+      <span class="cap"><b>图1</b>　软件开发方法演进时间线（结构化→低代码/AI 编程）</span>
+    </figure>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 190" role="img" aria-label="智能体vs低代码">
+        <g font-size="13" fill="#0E2F3A" text-anchor="middle">
+          <rect x="40" y="30" width="290" height="130" rx="9" fill="#eaf7ef" stroke="#2E8B57"/>
+          <text x="185" y="58" font-weight="bold" fill="#2E8B57">智能体</text>
+          <text x="185" y="82">核心：对话（LUI）</text>
+          <text x="185" y="104">快速搭建、对话强</text>
+          <text x="185" y="126">适用：客服/问答/助手</text>
+          <rect x="350" y="30" width="290" height="130" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/>
+          <text x="495" y="58" font-weight="bold" fill="#0F6E8C">低代码应用</text>
+          <text x="495" y="82">核心：独立 UI + 业务逻辑</text>
+          <text x="495" y="104">可部署 Web/小程序/API</text>
+          <text x="495" y="126">适用：表单/流程/报告</text>
+        </g>
+        <text x="340" y="182" text-anchor="middle" font-size="12" fill="#5A6B73">按场景选择交付形态：对话伙伴 vs 产品化应用</text>
+      </svg>
+      <span class="cap"><b>图2</b>　智能体 vs 低代码应用（形态对比）</span>
+    </figure>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 220" role="img" aria-label="MVC三层架构">
+        <defs><marker id="m8c" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C"/></marker></defs>
+        <g font-size="13" fill="#0E2F3A" text-anchor="middle">
+          <rect x="200" y="20" width="280" height="50" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="340" y="50">视图 View（UI 层）</text>
+          <rect x="200" y="95" width="280" height="50" rx="9" fill="#FDF3E3" stroke="#E0A82E"/><text x="340" y="125">控制器 Controller（逻辑层）</text>
+          <rect x="200" y="170" width="280" height="50" rx="9" fill="#eaf7ef" stroke="#2E8B57"/><text x="340" y="200">模型 Model（数据层）</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="2" fill="none" marker-end="url(#m8c)">
+          <line x1="340" y1="70" x2="340" y2="93"/>
+          <line x1="340" y1="145" x2="340" y2="168"/>
+        </g>
+        <text x="340" y="212" font-size="0" fill="#fff">.</text>
+      </svg>
+      <span class="cap"><b>图3</b>　MVC 架构：视图/控制器/模型 三层关注点分离</span>
+    </figure>
+
+    <figure class="figure">
+      <svg viewBox="0 0 680 280" role="img" aria-label="UML组件图低代码应用">
+        <defs><marker id="m8d" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#1497A8"/></marker></defs>
+        <g font-size="12" fill="#0E2F3A" text-anchor="middle">
+          <rect x="40" y="40" width="180" height="50" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="130" y="62">UI 组件层</text><text x="130" y="80" font-size="10" fill="#5A6B73">页面/表单/图表</text>
+          <rect x="40" y="110" width="180" height="50" rx="9" fill="#FDF3E3" stroke="#E0A82E"/><text x="130" y="132">逻辑层</text><text x="130" y="150" font-size="10" fill="#5A6B73">工作流/事件</text>
+          <rect x="40" y="180" width="180" height="50" rx="9" fill="#eaf7ef" stroke="#2E8B57"/><text x="130" y="202">数据层</text><text x="130" y="220" font-size="10" fill="#5A6B73">变量/数据库</text>
+          <rect x="430" y="75" width="200" height="50" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="530" y="97">AI 生成层</text><text x="530" y="115" font-size="10" fill="#5A6B73">自然语言→代码</text>
+          <rect x="430" y="175" width="200" height="50" rx="9" fill="#EAF4F6" stroke="#0F6E8C"/><text x="530" y="197">集成服务</text><text x="530" y="215" font-size="10" fill="#5A6B73">模型/存储/搜索</text>
+        </g>
+        <g stroke="#1497A8" stroke-width="2" fill="none" marker-end="url(#m8d)">
+          <line x1="220" y1="65" x2="428" y2="95"/>
+          <line x1="220" y1="135" x2="428" y2="195"/>
+          <line x1="220" y1="205" x2="428" y2="200"/>
+        </g>
+        <text x="130" y="260" font-size="11" fill="#5A6B73">UI→逻辑→数据 三层，由 AI 生成层与集成服务供给能力</text>
+      </svg>
+      <span class="cap"><b>图4</b>　UML 组件图：低代码应用架构（UI/逻辑/数据 + AI 生成层）</span>
+    </figure>
+
+          <div class="callout method" id="classicmap"><span class="m-tag">经典方法论对照 · 实施工程</span><p>原版 ch15 的<b>好程序标准、程序内部文档、调试、持续集成 CI、测试级别、部署/SaaS/系统迁移</b>（ch15）；低代码把"写代码"降为"拖拽+提示词"，但工程纪律不变：版本管理、可测试、可部署仍是硬要求。详见 <a href="appendix.html#modeling">附录 H</a> 与 ch09。</p></div>
+
+<h3 class="sec-h" id="ideo">课程思政 · 价值引领</h3>
+    <span class="mod mod-kb">前沿动态 · 行业速递（2026-08）</span>
+<div class="callout frontier">
+  <span class="f-tag">动态更新 2026-08</span>
+  <p><b>1</b> 2026 下半年 AI 编程工具横评：Claude Code（委派优先、1M 上下文）、Cursor（协作优先、多模型）、Trae（国内免费、中文友好）、Copilot。</p>
+  <p><b>2</b> “Builder 模式”使 MVP 搭建门槛极低：从点子到上线从数月缩短到数天。</p>
+  <p><b>3</b> 对低代码启示：会写代码不再是核心竞争力，架构设计与需求拆解才是；低代码 + AI 编程把“能用代码解决问题”前置给非专业开发者。</p>
+  <p class="src">来源：CSDN 2026 下半年 AI 编程工具横评、Anthropic 编码趋势报告</p>
+</div>
+
+<span class="mod mod-ideo">精神坐标 · 人民日报金句</span>
+    <div class="callout quote">"山再高，往上攀，总能登顶；路再长，走下去，定能到达。"——人民日报金句库</div>
+    <div class="callout quote">"凯歌而行，不以山海为远；乘势而上，不以日月为限。"</div>
+    <p><b>本章映射：</b>低代码与 AI 编程是软件工程的"新质生产力"。从"描述—生成—对话修正"的闭环，靠的是敢闯敢试的创新与脚踏实地的躬行——路再长，走下去定能到达。</p>
+    <span class="mod mod-ideo">名校范式 · 清华课程思政案例</span>
+    <div class="callout warn">🎓 清华 马昱春《计算机程序设计基础》国家级课程思政示范课 + 刘玉身 AI 博弈："P-PMCO"混合式教学——以项目（Project）导向贯穿各环节，实现"知识传授→能力培养→价值塑造"；AI 赋能，大一即思考"让程序自己做决策"。</div>
+    <p><b>本章映射：</b>低代码与 AI 编程是软件工程的"新质生产力"，也是"项目导向 + 价值塑造"的新工科范式。从"描述—生成—对话修正"闭环，靠的是躬身实践与敢闯敢试的创新。</p>
+
+    
+<span class="mod mod-ideo">课程思政案例 · IMA 知识库</span>
+<div class="kbcase">
+  <h4>自主可控与工程诚信：AI 编程不是"拿来主义"</h4>
+  <ul>
+    <li>AI 编程"描述即开发"极大提效，但也可能滋生"华而不实、无中生有"的工程形式主义。</li>
+    <li>把"卡脖子"变成"自主可控"，前提是自己理解生成的每一行逻辑。</li>
+  </ul>
+  <span class="src">来源：IMA 知识库《课程思政示范案例》· 科技自立自强主线；陈翠《人工智能赋能学校教科研管理》</span>
+  <span class="think"><b>本章映射：</b>用 AI 生成低代码应用/代码时，要能读懂、能复核、能标注来源；把"别人生成的"变成"自己负责的"——这是信息资源管理者的工程诚信。</span>
+</div>
+      <h3 class="sec-h" id="casein">案例导入 · AI 软件工厂 SDD 实践</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B3-03</span> <b>AI 软件工厂SDD 提效实践</b><br><span class="cunit">申报单位：杭州网易智企科技有限公司</span></p>
+        <p>抱谷科技作为企业数智化转型服务商，在AI Coding 落地中面临AI 幻觉导致质量失控、工具链分散管理困难、交付效率与质量难兼得三大挑战。基于网易智企CodeWave SDD 平台，抱谷科技采用“规约驱动开发 （Spec-Driven Development）”理念，构建了标准化“AI 软件工厂”。平台通过需求分析Agent、架构设计Agent、代码生成Agent、测试生成Agent、部署配置Agent 等多阶段协同智能体，覆盖需求→设计→开发→测试→发布全链路。每阶段采用“AI 辅助生成+ 人工审核决策” 的人机协同模式，并设置刚性质量门禁。</p>
+        <p><b>导学解读 · 与本章的对接</b>：低代码 + AI 编程最常见的失败姿势是“直接让 AI 写代码”。本案例给出的解药是 <b>SDD（Spec-Driven Development，规约驱动开发）</b>：先由需求分析 Agent 产出结构化 PRD，架构设计 Agent 产出数据库设计与接口文档，再进入代码生成，每一阶段都保留“AI 辅助生成 + 人工审核决策”的刚性质量门禁——也就是“先画图纸，再盖房子”。这与本章的低代码方法论完全一致：低代码的真正价值不在“少写代码”，而在<b>把设计资产结构化、可复用</b>。案例以 NASL 统一技术栈消除 AI 生成代码的框架漂移与风格混乱，更点破了 AI 编程的质量命门——约束先行，生成在后。</p>
+        
+      </div>
+
+    <h2 class="part p2">第二部分　课程内容</h2>
+      <h3 class="sec-h" id="s81">8.1　智能体 vs 低代码应用</h3>
+    <table>
+      <thead><tr><th>维度</th><th>智能体</th><th>低代码应用</th></tr></thead>
+      <tbody>
+        <tr><td>交互核心</td><td>对话（LUI）</td><td>独立 UI + 复杂业务逻辑</td></tr>
+        <tr><td>能力</td><td>快速搭建、对话强</td><td>可部署 Web/小程序/API</td></tr>
+        <tr><td>适用</td><td>客服、问答、个人助手</td><td>多步骤流程、表单、报告</td></tr>
+        <tr><td>形态</td><td>功能相对单一的 AI 伙伴</td><td>产品化的完整 AI 应用</td></tr>
+      </tbody>
+    </table>
+
+    
+    <div class="pptgrid" data-cnt="31">
+      <figure class="wxfig">
+  <img src="media/coze/p109.jpg" alt="课件第 109 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p113.jpg" alt="课件第 113 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p114.jpg" alt="课件第 114 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p115.jpg" alt="课件第 115 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p116.jpg" alt="课件第 116 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p117.jpg" alt="课件第 117 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p119.jpg" alt="课件第 119 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p120.jpg" alt="课件第 120 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p121.jpg" alt="课件第 121 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p122.jpg" alt="课件第 122 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p123.jpg" alt="课件第 123 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p125.jpg" alt="课件第 125 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p126.jpg" alt="课件第 126 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p282.jpg" alt="课件第 282 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p283.jpg" alt="课件第 283 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p284.jpg" alt="课件第 284 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p285.jpg" alt="课件第 285 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p286.jpg" alt="课件第 286 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p287.jpg" alt="课件第 287 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p288.jpg" alt="课件第 288 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p293.jpg" alt="课件第 293 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p296.jpg" alt="课件第 296 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p297.jpg" alt="课件第 297 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p298.jpg" alt="课件第 298 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p300.jpg" alt="课件第 300 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p301.jpg" alt="课件第 301 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p302.jpg" alt="课件第 302 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p303.jpg" alt="课件第 303 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p306.jpg" alt="课件第 306 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p308.jpg" alt="课件第 308 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p310.jpg" alt="课件第 310 页" loading="lazy">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s82">8.2　低代码应用开发流程</h3>
+    <ol>
+      <li><b>创建项目</b>：登录→项目开发→创建空白应用，AI 自动生成图标，进入 IDE。</li>
+      <li><b>编排逻辑</b>：用工作流/对话流处理业务；低代码应用内工作流无须单独发布即可调用，用"试运行"调试。</li>
+      <li><b>设计界面</b>：拖曳组件 + 事件绑定；选择桌面网页/小程序/H5。</li>
+      <li><b>测试发布</b>：预览实时测试→输入版本号与描述发布到商店/社交/API。</li>
+      <li><b>资源管理</b>：空间资源库(共享) vs 应用资源库(独享)；应用变量连接 UI 与数据流。</li>
+    </ol>
+
+    
+    <div class="pptgrid" data-cnt="14">
+      <figure class="wxfig">
+  <img src="media/coze/p108.jpg" alt="课件第 108 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p281.jpg" alt="课件第 281 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p289.jpg" alt="课件第 289 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p290.jpg" alt="课件第 290 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p291.jpg" alt="课件第 291 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p292.jpg" alt="课件第 292 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p294.jpg" alt="课件第 294 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p295.jpg" alt="课件第 295 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p299.jpg" alt="课件第 299 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p304.jpg" alt="课件第 304 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p305.jpg" alt="课件第 305 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p307.jpg" alt="课件第 307 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p309.jpg" alt="课件第 309 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p311.jpg" alt="课件第 311 页" loading="lazy">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s83">8.3　用户界面与事件绑定</h3>
+    <p>前端低代码编辑器：左资源/组件、中画布、右属性+事件。事件绑定（前后端联动）：选中按钮→事件"点击时"→执行"调用工作流"→参数绑定组件值。<b>应用变量</b>是 UI↔工作流的桥梁（内存变量，每次执行恢复默认）。多端适配：桌面网页/小程序/H5 一套逻辑多端运行。调试台"时间线"可追溯触发组件、事件、动作、耗时。</p>
+
+    
+    <div class="pptgrid" data-cnt="5">
+      <figure class="wxfig">
+  <img src="media/coze/p110.jpg" alt="课件第 110 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p111.jpg" alt="课件第 111 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p112.jpg" alt="课件第 112 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p118.jpg" alt="课件第 118 页" loading="lazy">
+</figure>
+      <figure class="wxfig">
+  <img src="media/coze/p124.jpg" alt="课件第 124 页" loading="lazy">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s84">8.4　AI 编程模式：描述即开发</h3>
+    <p>① <b>自然语言描述</b>：像点菜下单，AI 几分钟生成完整项目（需求五要素：功能/界面/输入/输出/特殊要求）；② <b>生成→调试→部署</b>：描述—预览—对话修正闭环，产物是代码文件可实时编辑；③ <b>技能与集成服务</b>：Skill=可见工具，集成服务=底层实现（模型/数据库/存储/搜索）；④ <b>版本控制</b>：每次对话修改自动生成历史版本，可回滚；⑤ <b>开发环境</b>：Web 云端 IDE（代码编辑器/终端/沙箱）。局限：需求描述依赖强、复杂项目需拆解——建议从低代码入手再过渡。</p>
+
+    
+    
+
+      <h3 class="sec-h" id="s85">8.5　低代码应用实战要点</h3>
+    <p>数据绑定：组件内容绑定工作流返回变量；"数据"选项卡新建界面变量解决跨页面传参。组件库：基础/输入/展示/AI 对话组件。预览调试闭环：预览→时间线追事件→"试运行"验证工作流。多端发布：单击发布到商店/小程序/Web。常见坑：模型下线改新版；页面直接调工作流拿不到参数（改用界面变量绑定）。</p>
+
+          
+
+    
+    <h2 class="part p3">第三部分　拓展练习</h2>
+      <h3 class="sec-h" id="kb">知识拓展与前沿</h3>
+    <span class="mod mod-kb">前沿 · AI 编程助手全景</span>
+    <p>GitHub Copilot（深度集成 VS Code）、Claude Code（终端自然语言编程、无交互 CI）、Cursor（AI 原生编辑器、理解整库）、Trae（轻量快速、频繁迭代）。</p>
+    <span class="mod mod-kb">拓展 · 从"生成代码"到"自主开发"</span>
+    <p>非 Agent 编程助手仅按模型生成代码；Agent 编程助手执行代码→读错误→迭代优化，可提交/发 PR，能把错误编码入长期记忆。<b>低代码 + AI 编程</b>让信息资源管理专业学生也能快速交付应用。</p>
+    <div class="callout src">📚 来源：ima 知识库《智能体宇宙》《AI前沿研究报告》（2026 Agentic Coding Trends Report）。</div>
+
+    
+<div class="casebox">
+  <h4>🗂️ 案例 · 低代码搭"鸡汤生成 / 鉴别器"</h4>
+  <ul>
+    <li>🎯 <b>场景</b>：用 Coze / 低代码平台，半小时拖出一个"鸡汤生成器"或"流行语小测验"小程序，无需写代码。</li>
+    <li>⚙️ <b>低代码落点</b>：拖拽"输入→知识库检索→生成→展示"四个节点完成原型；体会"低代码解决 80% 标准化场景"，但复杂算法仍需回到 Python。</li>
+    <li>🤖 <b>鉴别器（批判性教学）</b>：用规则给"鸡汤浓度 / AI 味"打分（排比密度 + 空话词表 + 正能量极性过高），呼应本团队《AIGC 数据保全研究》。</li>
+  </ul>
+</div>
+<div class="callout tip">💡 <b>算法冷知识</b>：何时用低代码、何时写代码？经验法则——标准化表单/问答用低代码；自训练分类器、图谱计算等专业算法用 Python。这正是"系统选型"的核心权衡。</div>
+
+<div class="termbox">
+  <h4>📌 低代码与 AI 编程 · 核心术语</h4>
+  <ul>
+    <li><span class="term" data-def="以可视化拖拽与配置为主、少量代码为辅的应用开发方式，降低搭建业务系统的门槛。">低代码</span></li>
+    <li><span class="term" data-def="为 UI 组件（如按钮）绑定'点击时调用工作流'等行为，实现前后端联动。">事件绑定</span></li>
+    <li><span class="term" data-def="以'描述—预览—对话修正'循环生成与迭代应用的开发范式。">AI 编程</span></li>
+    <li><span class="term" data-def="可复用的界面/逻辑单元（按钮、表单、列表等），是低代码页面的积木。">组件</span></li>
+    <li><span class="term" data-def="将界面元素与数据源字段关联，数据源变化自动反映到界面。">数据绑定</span></li>
+  </ul>
+</div>
+
+<span class="mod mod-kb" id="lit">前沿文献 · 近三年精选（2023–2026）</span>
+    <p>以下文献反映本章主题在智能体时代的最新进展，供学有余力的同学延伸阅读（链接指向原文/预印本）。</p>
+          <div class="callout src">🎓 <b>学界观点</b>：李广建等（2025）讨论了低代码平台在信息服务机构应用系统开发中的适用性；张兴旺等（2024）指出无代码 / 低代码的范式价值与固有局限。这说明：低代码是软件工程的“新质生产力”，但发布仍须纳入版本与变更治理。</div>
+<ul class="lit-list">
+      <li><a href="https://www.connectedpapers.com/main/ba71fb0fa68ab7d566dd4bbc6ab27efe7a1ff4a9/Using-ChatGPT-in-Software-Requirements-Engineering%3A-A-Comprehensive-Review/graph" target="_blank" rel="noopener">ChatGPT 提示词模式：提升代码质量、重构与软件设计（ChatGPT Prompt Patterns for Improving Code Quality, Refactoring, Requirements Elicitation, and Software Design）</a>
+        <div class="lit-meta">White et al., 2023, Springer</div>
+        <div class="lit-note">提示词模式提升代码质量/重构/设计</div></li>
+
+      <li><a href="https://finance.sina.cn/2025-05-30/detail-ineyipfa8707225.d.html" target="_blank" rel="noopener">美团 NoCode：对话式 AI 编程智能体（Meituan NoCode: A Conversational AI Coding Agent）</a>
+        <div class="lit-meta">美团, 2025, 产业实践</div>
+        <div class="lit-note">AI 原生无代码，零代码全栈生成</div></li>
+
+      <li><a href="https://aiproducthub.cn/sites/miaoda-ai-app-builder-features-usage-experience.html" target="_blank" rel="noopener">百度秒哒：多智能体协作的无代码应用搭建平台（Baidu MiaoDa: A Multi-Agent No-Code App Builder）</a>
+        <div class="lit-meta">百度, 2024/2025, 产业实践</div>
+        <div class="lit-note">对话式无代码，已生成超 50 万应用</div></li>
+
+      <li><a href="https://scholar.google.com/scholar?q=Turning+Low-Code+into+No-Code+with+LLMs" target="_blank" rel="noopener">用 LLM 将低代码变为无代码（Turning Low-Code into No-Code with LLMs）</a>
+        <div class="lit-meta">Hagel et al., 2024, 会议</div>
+        <div class="lit-note">LLM 将低代码升级为无代码</div></li>
+
+      <li><a href="https://scholar.google.com/scholar?q=low-code+platform+adoption+factors" target="_blank" rel="noopener">低代码平台采纳影响因素研究（Low-code adoption factors）</a>
+        <div class="lit-meta">Käss et al., 2023, OpenAlex</div>
+        <div class="lit-note">低代码平台采纳影响因素</div></li>
+
+          <li><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0%E5%9C%A8%E4%BF%A1%E6%81%AF%E6%9C%8D%E5%8A%A1%E6%9C%BA%E6%9E%84%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%80%82%E7%94%A8%E6%80%A7%E7%A0%94%E7%A9%B6" target="_blank" rel="noopener">低代码平台在信息服务机构应用系统开发中的适用性研究</a>
+        <div class="lit-meta">李广建, 等. 低代码平台在信息服务机构应用系统开发中的适用性研究[J]. 图书情报工作, 2025, 69(8): 1-12.</div>
+        <div class="lit-note">评估低代码在图情机构系统开发中的适配场景与边界</div></li>
+
+      <li><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E6%97%A0%E4%BB%A3%E7%A0%81%20/%20%E4%BD%8E%E4%BB%A3%E7%A0%81%E9%A9%B1%E5%8A%A8%E7%9A%84%E5%9B%BE%E6%83%85%E5%BA%94%E7%94%A8%E6%9E%84%E5%BB%BA%EF%BC%9A%E8%8C%83%E5%BC%8F%E4%B8%8E%E5%B1%80%E9%99%90" target="_blank" rel="noopener">无代码 / 低代码驱动的图情应用构建：范式与局限</a>
+        <div class="lit-meta">张兴旺, 等. 无代码 / 低代码驱动的图情应用构建：范式与局限[J]. 情报资料工作, 2024(5): 20-30.</div>
+        <div class="lit-note">讨论无代码范式对开发民主化的价值及可维护性局限</div></li>
+
+      <li><a href="https://kns.cnki.net/kns8s/defaultresult?kw=AI%20%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B%E5%AF%B9%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E7%9A%84%E5%BD%B1%E5%93%8D" target="_blank" rel="noopener">AI 编程助手对信息系统开发方法的影响</a>
+        <div class="lit-meta">周庆山, 等. AI 编程助手对信息系统开发方法的影响[J]. 情报科学, 2024, 42(10): 100-110.</div>
+        <div class="lit-note">从方法学层面分析 AI 编程对需求、设计、测试环节的重构</div></li>
+
+    </ul>
+        <div class="callout tip">💡 <b>软考/职业考点</b>：本章对应软考高项「实施阶段 / 配置与变更管理（第19章）」。低代码发布须纳入版本与变更管理。</div>
+
+      <!-- 本章学习方法 -->
+    <div class="callout method">
+      <span class="m-tag">本章学习方法 · 做中学（Project-Based Learning）</span>
+      <p><b>核心理念：</b>在真实项目里边做边学，比先学完再练记得牢；每完成一个可运行的小产品，能力就长一块。</p>
+      <p><b>四步/要点：</b>① 定小目标先要一个可运行的最小产品　② 拆最小版切出最小可用功能，尽快跑通　③ 边做边查遇到卡点即时查、即时验证　④ 复盘沉淀做完复盘，沉淀为可复用模板</p>
+      <p><b>与录屏结合：</b>录屏时，从「我要做一个 XX 应用」出发，边拖组件边讲解，展示做中学的全过程。</p>
+    </div>
+
+              <!-- G3. 知识巩固与提高 -->
+    <h3 class="sec-h" id="review">知识巩固与提高</h3>
+    <div class="btnrow">
+      <a class="btn" href="课堂测试_第08章.pptx" target="_blank" rel="noopener">📂 第08章 课堂测试（PPT · 10 题 · 点击打开）</a>
+    </div>
+<h3 class="sec-h" id="exp">上机实验 · 升级为低代码应用 / AI 编程</h3>
+    <div class="labtask">
+      <h3>📋 实验任务书</h3>
+      <p><b>目标：</b>将前期智能体交付为可部署的低代码应用，或体验 AI 编程。</p>
+      <p><b>环境：</b>扣子 Coze 低代码应用 / AI 编程模式。</p>
+      <p><b>步骤：</b>① 设计界面并绑定按钮事件调用工作流；② 预览测试、发布到商店/Web 验证多端；③ 或自然语言描述 Web 应用观察闭环；④ 查看历史版本。</p>
+      <p><b>交付物：</b>应用界面截图（或 AI 编程项目结构）+ 事件绑定说明 + 发布链接。</p>
+      <p><b>评分点：</b>界面设计(25%) · 事件绑定(30%) · 发布多端(25%) · 版本理解(20%)。</p>
+    </div>
+    <h3 class="sec-h" id="labexp">🛠 分步操作 · 把智能体升级为低代码应用 / AI 编程</h3>
+    <span class="mod mod-lab">动手 · 分步操作</span>
+    <ol>
+      <li>将前期智能体升级为低代码应用：设计桌面/移动端界面，绑定按钮事件调用工作流。</li>
+      <li>预览测试，发布到 Coze 商店或 Web，验证多端一致性。</li>
+      <li>或体验 AI 编程：用自然语言描述一个简单 Web 应用（如天气/博客生成器），观察"描述→生成→部署"。</li>
+      <li>查看自动生成的历史版本，理解版本控制。</li>
+    </ol>
+    <details class="fold">
+      <summary>📝 事件绑定示例</summary>
+      <p>选中「生成周报」按钮 → 事件「点击时」→ 动作「调用工作流 weekly_report」→ 参数绑定 Markdown 组件内容 = 工作流返回变量 output。</p>
+    </details>
+<h3 class="exp-h">🔬 扩展实验（选做 2–3 项，巩固本章学法）</h3>
+    <div class="expext">
+      <h4>扩展实验 1 · 事件绑定实战<span class="tag">前端</span></h4>
+      <p><b>任务：</b>给按钮绑定「点击调用工作流」，对比「无事件 vs 有事件」的交互差异。</p>
+      <p><b>交付：</b>费曼式讲清前后端联动，录屏演示。</p>
+    </div>
+    <div class="expext">
+      <h4>扩展实验 2 · AI 编程描述<span class="tag">AI 编程</span></h4>
+      <p><b>任务：</b>用自然语言描述一个应用让 AI 生成，再对话式修正。</p>
+      <p><b>交付：</b>录屏展示「描述即开发」闭环，总结提示技巧。</p>
+    </div>
+    <div class="expext">
+      <h4>扩展实验 3 · 前端低代码<span class="tag">UI</span></h4>
+      <p><b>任务：</b>用组件库搭一个表单页。</p>
+      <p><b>交付：</b>讲清「容器 / 列表 / AI 对话组件」如何拼出界面，录屏演示。</p>
+    </div>
+
+    <h2 class="part p4">第四部分　本章小结</h2>
+      <h3 class="sec-h" id="sum">本章小结</h3>
+    <div class="summary">
+            <h4>核心要点回顾</h4>
+      <ul>
+        <li>智能体=对话核心；低代码应用=产品化完整形态。</li>
+        <li>开发流程：创建→编排→界面→测试→发布。</li>
+        <li>事件绑定连接前端 UI 与后端工作流。</li>
+        <li>AI 编程：自然语言描述即开发，闭环迭代。</li>
+        <li>技能(Skill)=可见工具，集成服务=底层实现。</li>
+        <li>下一章：实施、测试与项目管理——收尾与综合项目。</li>
+      </ul>
+      <p class="progress-txt">延伸阅读：ima 知识库《智能体宇宙》"AI 编程助手全景""从生成代码到自主开发"；软件开发方法演进与软件工程核心概念相关教材；清华 P-PMCO 课程思政范式。</p>
+    </div>
+      <h3 class="sec-h" id="caseext">拓展案例 · 京点点 Oxygen Vision</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B3-24</span> <b>京点点Oxygen Vision 设计智能体</b><br><span class="cunit">申报单位：京东零售</span></p>
+        <p>京点点Oxygen Vision (ai.jd.com) 是零售行业首个全自动AI 设计智能体，基于京东多模态AIGC 技术、零售大数据与合规体系构建，面向商家、采销提供零门槛、全自动、商用级素材生产服务。智能体具备商品图生成、视频生成、AI 模特、AB 试验、智能分析五大能力，可覆盖90% 零售设计场景，实现“输入即生成、生成即商用”。通过人机协同模式，大幅降低设计门槛，提升内容生产效率。目前已服务超100 万商家，素材成本降低99%，提升商家综合运营效率10 倍以上，是零售AIGC 智能体规模化落地的典型范例。</p>
+        <p><b>看点</b>：京点点用“慢思考拆解设计蓝图 + 快思考并行生成”把创意生产流程化，并把结果直接推到商用。请关注它如何把“生成”与“评估”放进同一条自动化链路。</p>
+        <h4>延伸思考题</h4>
+        <ol>
+          <li>京点点的“慢思考（任务拆解与蓝图设计）／快思考（并行生成执行）”双速架构，与低代码平台中“设计时／运行时”的分离有何相似之处？请各举一个例子说明。</li>
+          <li>案例称素材成本降低 99%、商家综合运营效率提升 10 倍以上。请设计一套验证这两个数字的评测方案（须说明指标、样本、对照与周期）。</li>
+          <li>若把 AI 生成的商品图直接投入商用，会涉及哪些合规风险？请结合零代码平台的发布流程，提出三道上线前的检查关卡。</li>
+        </ol>
+        
+      </div>
+
+    <div class="btnrow">
+      <button class="btn" id="exportPdf">⬇ 导出本章 PDF</button>
+      <a class="btn ghost" href="index.html">← 返回门户</a>
+    </div>
+
+    <div class="readbox">
+      <span class="dot" id="readDot"></span>
+      <button class="btn ghost" id="markRead" data-ch="8">标记为已读</button>
+    </div>
+
+  </main>
+</div>
+
+<div id="termtip"></div>
+<script src="app.js"></script>
+</body>
+</html>

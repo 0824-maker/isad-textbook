@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="eh85yOT9ov8o9gXs6mowgI">
+<head data-page-node-id="Mx73ncPBf5SzEts9KaGNxw">
+<meta charset="utf-8" data-page-node-id="GOJLKnkAszwIizjC8MMxV1">
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="TGsoCW4GTh2eZtpJkuTo2A">
+<title>智能体创新实践汇编 · 左右对称思维导图</title>
+<style>
+  :root{
+    --bg:#0f1729; --panel:#16223c; --ink:#e8eefc; --muted:#9fb0d0;
+    --root:#ffd166; --rootink:#1a1300;
+    --left:#4cc9f0; --right:#f72585; --leaf:#cfe3ff; --leafink:#0f1729;
+    --line:rgba(159,176,208,.45);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 700px at 50% -10%,#1b294a,#0f1729 60%);
+    color:var(--ink);font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;}
+  header{padding:18px 22px 6px;text-align:center}
+  header h1{margin:0;font-size:20px;letter-spacing:.5px}
+  header p{margin:6px 0 0;color:var(--muted);font-size:13px}
+  .toolbar{display:flex;gap:10px;justify-content:center;margin:10px 0 4px}
+  .toolbar button{background:var(--panel);color:var(--ink);border:1px solid #2c3c63;
+    border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px}
+  .toolbar button:hover{border-color:var(--left)}
+  #map{position:relative;min-height:80vh;padding:30px 0 80px}
+  svg#links{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+  #root{position:absolute;top:18px;left:50%;transform:translateX(-50%);z-index:3;
+    background:var(--root);color:var(--rootink);font-weight:700;padding:12px 20px;border-radius:14px;
+    box-shadow:0 6px 22px rgba(255,209,102,.35);font-size:16px;white-space:nowrap}
+  .side{position:absolute;top:96px;width:46%;display:flex;flex-direction:column;gap:14px;z-index:2}
+  #left{left:1%}
+  #right{right:1%;align-items:flex-end}
+  .branch{display:flex;flex-direction:column;align-items:flex-start;width:100%}
+  #right .branch{align-items:flex-end}
+  .cat{font-weight:700;padding:9px 14px;border-radius:11px;cursor:pointer;font-size:14px;
+    border:1px solid transparent;white-space:nowrap}
+  .branch.l .cat{background:rgba(76,201,240,.16);color:var(--left);border-color:rgba(76,201,240,.5)}
+  .branch.r .cat{background:rgba(247,37,133,.16);color:var(--right);border-color:rgba(247,37,133,.5)}
+  .cat .cnt{opacity:.7;font-weight:500;font-size:12px;margin-left:6px}
+  .children{display:flex;flex-direction:column;gap:7px;margin:10px 0 0 18px;width:calc(100% - 18px)}
+  #right .children{margin:10px 18px 0 0;align-items:flex-end}
+  .leaf{background:var(--panel);color:var(--leaf);border:1px solid #2c3c63;border-radius:9px;
+    padding:7px 11px;font-size:12.5px;max-width:420px;line-height:1.35;cursor:default}
+  .leaf:hover{border-color:var(--leaf);transform:translateY(-1px)}
+  .leaf .u{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+  .collapsed .children{display:none}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:0 16px 30px}
+</style>
+</head>
+<body data-page-node-id="o55adxuEUAsJ5ziG45GE3a">
+<header data-page-node-id="kGlJm6c6WFWpmCDyOFPvHO">
+  <h1 data-page-node-id="vitlXxLEdklBfrlnw7UuuU">2026 智能经济新形态 · 智能体创新实践汇编</h1>
+  <p data-page-node-id="miGuQ2lYOKA6jwgUZhOWHp">左右对称思维导图 · 共 116 个案例 / 8 大板块 · 点击板块可展开或折叠案例（交互式，离线可用）</p>
+</header>
+<div class="toolbar" data-page-node-id="6cvQoeDtaMNEeyZ8QN7akP">
+  <button onclick="allExpand()" data-page-node-id="4uprmI79kRp9LeEWCblm7U">全部展开</button>
+  <button onclick="allCollapse()" data-page-node-id="QWfHetkLm6iUqT0TRDU3jE">全部折叠</button>
+</div>
+<div id="map" data-page-node-id="kGJ0pihKPuAADBG8RTrwSy">
+  <svg id="links" data-page-node-id="yEh0PyQdDTm3GBwfi5y9ca"></svg>
+  <div id="root" data-page-node-id="B4UnNpKn4za7hisB1wLwBk"></div>
+  <div id="left" class="side" data-page-node-id="eHcQVekVup4h1HQiOBAaHS"></div>
+  <div id="right" class="side" data-page-node-id="it2g60VJXWoocAGB5opsXK"></div>
+</div>
+<footer data-page-node-id="1LFw4vh7LGO8tHdRMasAMa">数据来源：中国信通院《2026智能经济新形态——智能体创新实践汇编》。本图仅作结构导航，案例详情见配套 MD 文档。</footer>
+<script>
+const DATA = {"root": "智能体创新实践汇编（2026）", "left": ["智能体+ 基础技术", "智能体+ 行业应用（科学智能）", "智能体+ 行业应用（新质生产）", "智能体+ 行业应用（民生福祉）"], "right": ["智能体+ 行业应用（治理增效）", "智能体+ 终端产品", "智能体+ 互联网", "智能体+ 创新生态"], "cats": [{"name": "智能体+ 基础技术", "count": 9, "cases": [{"title": "超级EVA 整车级智能体", "unit": "上海阶跃星辰智能科技股份有限公司", "folio": 14, "idx": 0}, {"title": "端侧AI 智能体存算融合超级基座", "unit": "上海无量火智能科技有限公司", "folio": 20, "idx": 1}, {"title": "基于 LobsterAI Agent 架构的网易有道全场景应用实践", "unit": "网易有道信息技术", "folio": 24, "idx": 2}, {"title": "基于HiDream系列大模型的专业级AI影视创作协作智能体“帧赞”", "unit": "智象未来", "folio": 28, "idx": 3}, {"title": "基于多智能体协同的故障调度新实践", "unit": "中国移动通信集团福建有限公司", "folio": 40, "idx": 4}, {"title": "基于中兴通讯AIOS 的企业级智能体平台建设方案", "unit": "中兴通讯股份有限公司", "folio": 46, "idx": 5}, {"title": "蚂蚁数科DTClaw AI 智能体平台", "unit": "蚂蚁区块链科技", "folio": 50, "idx": 6}, {"title": "网易智企帝王蟹(ClawHive): 企业级 AI Agent 平台", "unit": "杭州网易智企科技有限公司", "folio": 56, "idx": 7}, {"title": "智枢- 动态本体引擎：构建企业级AI 可信决策基座", "unit": "北京中数睿智科技有限公司", "folio": 60, "idx": 8}]}, {"name": "智能体+ 行业应用（科学智能）", "count": 6, "cases": [{"title": "AI4S 能源材料研发智能体系统", "unit": "上海电气集团股份有限公司中央研究院", "folio": 66, "idx": 9}, {"title": "DAMO Lingshu 智能体", "unit": "阿里巴巴达摩院", "folio": 70, "idx": 10}, {"title": "对话式蛋白质研发智能体MatwingsVenus ™( 晓鹜™）", "unit": "上海天鹜科技有限公司", "folio": 74, "idx": 11}, {"title": "丰登·基因科学家", "unit": "上海人工智能实验室", "folio": 78, "idx": 12}, {"title": "生态科学数据认知转化可信智能体底座", "unit": "北京中科院软件中心有限公司", "folio": 82, "idx": 13}, {"title": "天工超级智能体（Skywork Super Agents）", "unit": "昆仑万维科技股份有限公司", "folio": 86, "idx": 14}]}, {"name": "智能体+ 行业应用（新质生产）", "count": 42, "cases": [{"title": "“AI 基因图谱智能体”赋能投研体系", "unit": "上海汇正财经顾问有限公司", "folio": 96, "idx": 15}, {"title": "AInnoGC 工业本体智能体平台助力制造业认知变革", "unit": "创新奇智科技集团股份有限公司", "folio": 106, "idx": 16}, {"title": "AI 软件工厂SDD 提效实践", "unit": "杭州网易智企科技有限公司", "folio": 112, "idx": 17}, {"title": "DAO Agent 创投全链路智能体矩阵", "unit": "上海一行万物科技有限公司", "folio": 116, "idx": 18}, {"title": "EasyLink 投行合规智能体", "unit": "上海容易链智能科技有限公司", "folio": 124, "idx": 19}, {"title": "储能电站运营管理智慧中枢", "unit": "丙戊数智科技", "folio": 128, "idx": 20}, {"title": "大小模型协同的智能招投标系统", "unit": "中国联合网络通信有限公司上海市分公司", "folio": 134, "idx": 21}, {"title": "大型变压器工程设计方案智能生成", "unit": "中国电气装备集团科学技术研究院有限公司", "folio": 142, "idx": 22}, {"title": "电网设备图像匹配与去重智能体", "unit": "憨猴科技集团有限公司", "folio": 148, "idx": 23}, {"title": "多模态智能决策充电桩规划系统", "unit": "中国移动通信集团广西有限公司", "folio": 152, "idx": 24}, {"title": "风险探查分析报告智能体", "unit": "渤海银行股份有限公司", "folio": 158, "idx": 25}, {"title": "高端电力装备图纸设计与审核智能体", "unit": "上海羚数智能科技有限公司", "folio": 164, "idx": 26}, {"title": "公允价格智能体助力采购数智化转型", "unit": "中电信数智科技有限公司", "folio": 170, "idx": 27}, {"title": "合规素材AI 智能审核系统", "unit": "深圳市国诚投资咨询有限公司", "folio": 174, "idx": 28}, {"title": "合同条款风险识别智能体", "unit": "上海电气集团数字科技有限公司", "folio": 180, "idx": 29}, {"title": "恒生投顾智能体“善策”，重塑财富管理服务", "unit": "恒生电子股份有限公司", "folio": 184, "idx": 30}, {"title": "华院工业级智能体", "unit": "华院计算技术", "folio": 188, "idx": 31}, {"title": "慧多宝全面赋能律所超级智能体落地实践", "unit": "上海法忞銮智能科技有限公司", "folio": 192, "idx": 32}, {"title": "基于复杂系统理论的天立“学科大脑”", "unit": "天立国际四川启鸣达人科技有限公司", "folio": 198, "idx": 33}, {"title": "基于络书大模型的智能体规模化应用", "unit": "石家庄以岭药业股份有限公司", "folio": 204, "idx": 34}, {"title": "基于声纹确权的正版数字音色授权交易先行者", "unit": "智声悦合", "folio": 210, "idx": 35}, {"title": "佳沃集团“小佳”智能体赋能蓝莓全产业链", "unit": "佳沃集团有限公司", "folio": 214, "idx": 36}, {"title": "尽调智能体：让尽调工作更高效", "unit": "上海金轩数字科技有限公司", "folio": 220, "idx": 37}, {"title": "京点点Oxygen Vision 设计智能体", "unit": "京东零售", "folio": 224, "idx": 38}, {"title": "猎聘AI 求职伙伴", "unit": "同道猎聘集团", "folio": 228, "idx": 39}, {"title": "临港智算中心算电协同项目", "unit": "上海达卯科技有限公司", "folio": 232, "idx": 40}, {"title": "隆福寺商业数字化转型服务项目", "unit": "开普云信息科技股份有限公司", "folio": 236, "idx": 41}, {"title": "蜜度营销智能体 赋能营销增长环节中的提质增效", "unit": "蜜度科技股份有限公司", "folio": 240, "idx": 42}, {"title": "面向高比例新能源电力交易市场辅助决策智能体", "unit": "上海路明星光智能科技有限公司", "folio": 244, "idx": 43}, {"title": "汽车经销商AI 留修管理平台", "unit": "上海赢科信息技术有限公司", "folio": 248, "idx": 44}, {"title": "清洁能源工业智能体", "unit": "北京京能清洁能源电力股份有限公司", "folio": 254, "idx": 45}, {"title": "上海钢联大宗商品价格预测系统", "unit": "上海钢联电子商务股份有限公司", "folio": 258, "idx": 46}, {"title": "事故报告归因分析智能体", "unit": "浙江实在智能科技有限公司", "folio": 262, "idx": 47}, {"title": "隧道工程盾构机智能体应用", "unit": "上海隧道工程有限公司", "folio": 270, "idx": 48}, {"title": "卫华集团AI 赋能平台，驱动ETO 工业制造全链路智能转型", "unit": "浩鲸云计算科技股份有限公司", "folio": 274, "idx": 49}, {"title": "小沓AI Agent——全球首款供应链企业级数字员工平台", "unit": "壹沓科技", "folio": 282, "idx": 50}, {"title": "小钢数字智能助手", "unit": "上海钢联电子商务股份有限公司", "folio": 286, "idx": 51}, {"title": "有爱小山——智能电子病历辅助生成智能体", "unit": "复旦大学附属中山医院", "folio": 292, "idx": 52}, {"title": "智能预警与采购协同智能体", "unit": "上海电气集团数字科技有限公司", "folio": 296, "idx": 53}, {"title": "智擎·百变Agent", "unit": "中企网络通信技术有限公司", "folio": 300, "idx": 54}, {"title": "智子光储AI 大模型驱动的专家智能体", "unit": "智子熹源", "folio": 306, "idx": 55}, {"title": "自智网络故障场景端到端智能体协同", "unit": "中兴通讯股份有限公司", "folio": 314, "idx": 56}]}, {"name": "智能体+ 行业应用（民生福祉）", "count": 15, "cases": [{"title": "AIDA：面向互联网医院的多模态诊疗智能体创新实践", "unit": "上海交通大学医学院附属仁济医院", "folio": 322, "idx": 57}, {"title": "AI 医生智能体：全链条赋能医疗普惠", "unit": "数坤科技股份有限公司", "folio": 328, "idx": 58}, {"title": "AI 原生智慧医疗系统", "unit": "浪潮电子信息产业股份有限公司", "folio": 334, "idx": 59}, {"title": "uAI MedTuring 医图灵析", "unit": "上海联影智能科技股份有限公司", "folio": 340, "idx": 60}, {"title": "爱康iKKie", "unit": "天津爱康未来互联网医院有限公司", "folio": 344, "idx": 61}, {"title": "达医智影-基于平扫CT 的“一扫多筛”医疗AI 平台", "unit": "阿里巴巴达摩院", "folio": 348, "idx": 62}, {"title": "观心多智能体系统", "unit": "复旦大学附属中山医院", "folio": 352, "idx": 63}, {"title": "“沪小游”城市生活智能体", "unit": "中国联合网络通信有限公司上海市分公司", "folio": 356, "idx": 64}, {"title": "慧康护——术后护理多智能体系统", "unit": "复旦大学附属肿瘤医院", "folio": 360, "idx": 65}, {"title": "精准护航：AI 驱动的健康管理新范式", "unit": "中国移动通信集团天津有限公司", "folio": 364, "idx": 66}, {"title": "灵跃AI 体育教育智能体平台", "unit": "融梦跃视", "folio": 370, "idx": 67}, {"title": "全球首个端到端AI 诊所", "unit": "上海森亿智慧信息科技股份有限公司", "folio": 376, "idx": 68}, {"title": "医院影像科多维AI 管理智能体", "unit": "上海医圆数据科技有限公司", "folio": 380, "idx": 69}, {"title": "智圣一号——数智编码员智能体", "unit": "复旦大学附属中山医院", "folio": 388, "idx": 70}, {"title": "作业帮AI 超级老师教育智能体", "unit": "作业帮作业帮成立于2015 年，现已成长为行业领先的教育科技公司，是“国家高新技术企业”、科技部认", "folio": 392, "idx": 71}]}, {"name": "智能体+ 行业应用（治理增效）", "count": 17, "cases": [{"title": "AI 驱动的特殊资产智能分发平台", "unit": "模驭人工智能科技", "folio": 400, "idx": 72}, {"title": "CoMi 智能体平台+昇腾算力政企全域协同运营解决方案", "unit": "北京致远互联软件股份有限公司", "folio": 406, "idx": 73}, {"title": "Data Agent 激活企业数据生产力", "unit": "杭州网易智企科技有限公司", "folio": 410, "idx": 74}, {"title": "V 助手分析智能体驱动政务治理增效", "unit": "上海蜜度云智能科技有限公司", "folio": 414, "idx": 75}, {"title": "超大综合交通枢纽客流管理智能体", "unit": "中城交", "folio": 418, "idx": 76}, {"title": "基于Token Factory与智能体的 AIGC视听评测基础设施建设", "unit": "北京九章云极科技股份有限公司", "folio": 422, "idx": 77}, {"title": "基于多模态大模型的肺癌全流程AI 诊疗智能体", "unit": "杭州深睿博联科技有限公司", "folio": 426, "idx": 78}, {"title": "基于多智能体协同的交通运输全域智理体系", "unit": "中国移动通信集团天津有限公司", "folio": 432, "idx": 79}, {"title": "交通民生服务智能体的构建与应用", "unit": "中城交", "folio": 438, "idx": 80}, {"title": "七大销售智能体，助力新能源汽车品牌提升销售成单确定性", "unit": "迈富时网络技术", "folio": 442, "idx": 81}, {"title": "青岛地铁MetroClaw 智办助手", "unit": "青岛地铁集团有限公司", "folio": 446, "idx": 82}, {"title": "全栈AI 赋能基层治理的智慧社区服务智能体实践", "unit": "中国移动通信集团天津有限公司", "folio": 450, "idx": 83}, {"title": "申通地铁热线工单处置智能体创新实践", "unit": "联通数据智能有限公司", "folio": 456, "idx": 84}, {"title": "通信网络黑灯运维智能体系统", "unit": "中国移动通信集团江苏有限公司", "folio": 462, "idx": 85}, {"title": "液化气场站视觉自动巡检智能体", "unit": "南通市市政设施管理处", "folio": 468, "idx": 86}, {"title": "智能体赋能电联共享网络自治运营", "unit": "中国联合网络通信有限公司上海市分公司", "folio": 474, "idx": 87}, {"title": "智网星链：面向现实场景的具身智能体平台", "unit": "上海氦川科技有限公司", "folio": 480, "idx": 88}]}, {"name": "智能体+ 终端产品", "count": 5, "cases": [{"title": "BossAI浏览器——基于多智能体协同的下一代AI浏览器", "unit": "元聚变", "folio": 488, "idx": 89}, {"title": "大模型数字人应用智能终端", "unit": "云知声智能科技股份有限公司", "folio": 496, "idx": 90}, {"title": "美的自进化家居智能体MevoX", "unit": "美的集团", "folio": 500, "idx": 91}, {"title": "模力通AI 办公智能体与一体机终端赋能政务实践", "unit": "上海蜜度蜜巢智能科技有限公司", "folio": 506, "idx": 92}, {"title": "拟人交互机器人Galbot", "unit": "北京银河通用机器人股份有限公司", "folio": 510, "idx": 93}]}, {"name": "智能体+ 互联网", "count": 18, "cases": [{"title": "AI 智能体网关统一接入管控实践", "unit": "中国电信云网操作系统研发中心", "folio": 516, "idx": 94}, {"title": "CubeMAP 智能体互联网体系架构创新与实践", "unit": "中国联合网络通信有限公司研究院", "folio": 518, "idx": 95}, {"title": "U 爱“小贝壳”——您身边的全科数字医生管家", "unit": "联通", "folio": 522, "idx": 96}, {"title": "产业智能体协同应用平台", "unit": "中国互联网络信息中心", "folio": 526, "idx": 97}, {"title": "电商内容平台的AI 智能体运营实践", "unit": "上海商汤智能科技有限公司", "folio": 530, "idx": 98}, {"title": "多智能体集群与联邦协同平台", "unit": "中国电信股份有限公司研究院", "folio": 534, "idx": 99}, {"title": "多智能体协同跨域故障智诊", "unit": "中国移动通信集团江苏有限公司", "folio": 538, "idx": 100}, {"title": "广域智能体协同互联网关", "unit": "紫金山实验室", "folio": 542, "idx": 101}, {"title": "基于iBNG 的家庭智能体网关创新实践", "unit": "中国移动通信有限公司研究院", "folio": 546, "idx": 102}, {"title": "基于多智能体协同的施工方案生成与审核关键技术研究与应用", "unit": "中国电信股份有限公司陕西分公司", "folio": 552, "idx": 103}, {"title": "基于可信数字身份的对话式智能体通话解决方案", "unit": "华为技术有限公司", "folio": 558, "idx": 104}, {"title": "金融业智能体可信互联技术探索与应用", "unit": "中国银联股份有限公司", "folio": 562, "idx": 105}, {"title": "肯德基小K 智能体", "unit": "胜斗士", "folio": 568, "idx": 106}, {"title": "越秀地产多云运营管理智能体协同案例", "unit": "广州越创智数信息科技有限公司", "folio": 572, "idx": 107}, {"title": "正确政绩观问题查摆助手智能体", "unit": "江苏移动信息系统集成有限公司", "folio": 576, "idx": 108}, {"title": "智能体“五位一体”监测治理体系", "unit": "中国移动通信集团湖南有限公司", "folio": 580, "idx": 109}, {"title": "智能体互联网开放网络协议（AONP）", "unit": "中国移动通信有限公司研究院", "folio": 586, "idx": 110}, {"title": "智能体互联网助力赋能文旅场景", "unit": "中移九天人工智能科技", "folio": 590, "idx": 111}]}, {"name": "智能体+ 创新生态", "count": 4, "cases": [{"title": "AI 智能体驱动园区生态服务升级", "unit": "上海一行万物科技有限公司", "folio": 596, "idx": 112}, {"title": "江小智一站式数智赋能创新实践", "unit": "中国移动通信集团江西有限公司", "folio": 602, "idx": 113}, {"title": "面向类Claw 智能体的全生命周期安全治理实践", "unit": "北京兴云数科技术有限公司", "folio": 608, "idx": 114}, {"title": "智能体数据安全隐私计算平台", "unit": "上海才月科技有限公司", "folio": 618, "idx": 115}]}]};
+const map = document.getElementById('map');
+const leftEl = document.getElementById('left');
+const rightEl = document.getElementById('right');
+document.getElementById('root').textContent = DATA.root;
+const byName = {};
+DATA.cats.forEach(c=>byName[c.name]=c);
+
+function buildSide(el, names, side){
+  names.forEach(n=>{
+    const c = byName[n];
+    const br = document.createElement('div');
+    br.className = 'branch ' + side;
+    const cat = document.createElement('div');
+    cat.className = 'cat';
+    cat.innerHTML = c.name + '<span class="cnt">'+c.count+' 例</span>';
+    const ch = document.createElement('div');
+    ch.className = 'children';
+    c.cases.forEach(k=>{
+      const lf = document.createElement('div');
+      lf.className = 'leaf';
+      lf.innerHTML = escapeHtml(k.title) + '<span class="u">'+escapeHtml(k.unit)+' · folio '+k.folio+'</span>';
+      ch.appendChild(lf);
+    });
+    cat.onclick = ()=> br.classList.toggle('collapsed');
+    br.appendChild(cat); br.appendChild(ch);
+    el.appendChild(br);
+  });
+}
+buildSide(leftEl, DATA.left, 'l');
+buildSide(rightEl, DATA.right, 'r');
+
+function escapeHtml(s){return (s||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));}
+
+function center(el){const r=el.getBoundingClientRect();const m=map.getBoundingClientRect();
+  return {x:r.left-m.left+r.width/2, y:r.top-m.top+r.height/2};}
+
+function redraw(){
+  const svg = document.getElementById('links');
+  const m = map.getBoundingClientRect();
+  svg.setAttribute('width', m.width); svg.setAttribute('height', m.height);
+  svg.innerHTML='';
+  const root = center(document.getElementById('root'));
+  document.querySelectorAll('.branch').forEach(br=>{
+    const cat = br.querySelector('.cat');
+    const cc = center(cat);
+    drawLine(svg, root, cc, br.classList.contains('l')?'var(--left)':'var(--right)', 2.2);
+    if(!br.classList.contains('collapsed')){
+      br.querySelectorAll('.leaf').forEach(lf=>{
+        const lc = center(lf);
+        drawLine(svg, cc, lc, 'var(--line)', 1);
+      });
+    }
+  });
+}
+function drawLine(svg,a,b,color,w){
+  const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+  const midx=(a.x+b.x)/2;
+  const d='M'+a.x+' '+a.y+' C '+midx+' '+a.y+', '+midx+' '+b.y+', '+b.x+' '+b.y;
+  p.setAttribute('d',d); p.setAttribute('fill','none');
+  p.setAttribute('stroke',color); p.setAttribute('stroke-width',w);
+  svg.appendChild(p);
+}
+function allExpand(){document.querySelectorAll('.branch').forEach(b=>b.classList.remove('collapsed'));requestAnimationFrame(redraw);}
+function allCollapse(){document.querySelectorAll('.branch').forEach(b=>b.classList.add('collapsed'));requestAnimationFrame(redraw);}
+window.addEventListener('load',()=>requestAnimationFrame(redraw));
+window.addEventListener('resize',redraw);
+// redraw after fonts/layout settle
+setTimeout(redraw,300);
+</script>
+</body>
+</html>

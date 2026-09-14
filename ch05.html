@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="YkUqeLTCmSLwlECyRiESZ7">
+<head data-page-node-id="pOWkU5EEsEtI3lFqIACzWv">
+<meta charset="UTF-8" data-page-node-id="7k70bYXzclYhWYfeLoaVhE">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="N7oLwgULtFpueMIR6GrF7Q">
+<title>第5章 知识库设计与提示词工程 · 数字教材</title>
+<link rel="stylesheet" href="style.css" data-page-node-id="a7Ay4Q3rtEXa8NHJxPbaT4">
+</head>
+<body data-page-node-id="1k3Am1injwE0Zyv2Nay2ta">
+<header class="topbar" data-page-node-id="sCcUHZdJ2VwgR8SUZFxLJ9">
+  <div class="wrap" data-page-node-id="oDFwIBti9GWzBUgSPtPiW8">
+    <div class="brand" data-page-node-id="MHDRINEABTcSGZkGFNK8hn">《信息系统分析与设计》· 数字教材
+      <small data-page-node-id="EbSCr1KWIOynUEyDXtLm7e">智能体实战主线 · 信息资源管理专业</small></div>
+    <nav data-page-node-id="eKFy9qOlolrIZySGpmBUQT">
+      <a href="index.html" data-page-node-id="XWl91SehQMoGxt6kVOkT7z">门户</a>
+      <a href="ch04.html" data-page-node-id="xO5MmmDS0bKB4EoGxBShkJ">第4章</a>
+      <a href="ch05.html" data-page-node-id="3GQYyQluctOwsWe366OHmu">第5章</a>
+      <a href="ch09.html" data-page-node-id="lldadStZKKfRS8VP3OewM4">第9章</a>
+      <a href="appendix.html" data-page-node-id="GIWEeI64uRARozCpPVAWqo">附录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc" data-page-node-id="A3wvNa59zrDEzeMaHPf8ZF">
+  <aside class="side" data-page-node-id="17tDuHCfNNGVWy6PAmA2fg">
+    
+    <a href="#lead" class="cur" data-page-node-id="F7FENCc56L4I9mAHVLHC1W">导语与学习目标</a>
+    <span class="navpart p1">第一部分　课程导学</span>
+    <a href="#theory" data-page-node-id="RMbx5olYWkW6xNzNFcgfGT">理论基石</a>
+    <a href="#ideo" data-page-node-id="ECdm4HXjsK86PJYjEnIF6k">课程思政</a>
+    <a href="#casein">案例导入</a>
+    <span class="navpart p2">第二部分　课程内容</span>
+    <a href="#s51" data-page-node-id="Mky7e3JgFFo1LrqbEXkOYu">5.1 提示词分类与组成</a>
+    <a href="#s52" data-page-node-id="WWmt59QWzhkLIkHZNRF9xe">5.2 编写与优化闭环</a>
+    <a href="#s53" data-page-node-id="8BlH2oe7rQ78BqV5oWvUFB">5.3 RAG 原理</a>
+    <a href="#s54" data-page-node-id="M5E9PbLD3KZVr2P8FisYm3">5.4 知识库类型</a>
+    <a href="#s55" data-page-node-id="2gTZgFe7bG9iqoTEfveR7t">5.5 KB 资源</a>
+    <span class="navpart p3">第三部分　拓展练习</span>
+    <a href="#kb" data-page-node-id="KD13zqYhtnyFGVbNlzzgjH">知识拓展与前沿</a>
+    <a href="#lit" data-page-node-id="dtYLKgQzltXgi5uKR7vOz2">↳ 前沿文献</a>
+    <a href="#exp" data-page-node-id="AUWCfX1CpEFA2LxPFAgG0B">上机实验</a>
+    <span class="navpart p4">第四部分　本章小结</span>
+    <a href="#sum" data-page-node-id="1WjYAywjPnACvnHSnbxxDH">本章小结</a>
+    <a href="#caseext">拓展案例 · 延伸思考</a>
+  </aside>
+
+  <main class="content" data-page-node-id="IgE89DKuegOKAlJrUOriyw">
+    <h1 data-page-node-id="zsS45DobYjtwivHFuFKUNd">第 5 章　知识库设计与提示词工程</h1>
+    <p class="progress-txt" data-page-node-id="dZ82weMILdwvMhW1IwipDs">让智能体从"通才"变为领域"专家"：知识 + 提示词。本章掌握提示词编写、RAG 原理与 Coze 知识库配置，这是信息资源管理专业的看家本领。</p>
+
+    
+
+    <h2 class="part p1" id="lead">第一部分　课程导学</h2>
+
+<span class="mod mod-lead" data-page-node-id="GmY2EiiGcsfbxV1DShPUh1">导语 · 本章定位</span>
+    <p data-page-node-id="JeU65Co9zGl3qjT8Zsnl1O">大模型是"通才"，知识库与提示词让它成为你的"领域专家"。对信息资源管理专业，<b data-page-node-id="SkZP3yJLlMkCKX5KAUMEvi">知识组织、规范标注、检索增强正是我们的专业主场</b>。本章把 DIKW、范式、知识表示等经典理论，直接接到 RAG 与提示词工程上。</p>
+
+    <span class="mod mod-lead" data-page-node-id="TptbQab4rZLEAuBPIvUJSa">三维学习目标</span>
+    <div class="goals" data-page-node-id="D14zGCQHh1PkjjDcfyntyN">
+      <div class="goal" data-page-node-id="famBDH2h5aTC2rOnPaHM6C"><b data-page-node-id="gFHs6kHlYtYi1AOYrbtgof">知识</b><br data-page-node-id="Th0QCVlbpPTUO1Jl0IWU7f">理解提示词分类与组成；掌握编写与优化；理解知识库与 RAG 原理。</div>
+      <div class="goal" data-page-node-id="YHo9sprPsH5qtPzIxunHQH"><b data-page-node-id="ChjOSuIAFKE8t0OvhK8kux">能力</b><br data-page-node-id="s4j70o8yMU0vHGlLdDy2Q5">能编写结构化系统提示词；能创建并配置 Coze 知识库；能设置召回与排序参数。</div>
+      <div class="goal" data-page-node-id="ias57NW4IUAVTTin8hetgA"><b data-page-node-id="cLJ6Jfygj0SSgIf0fzMC3C">价值</b><br data-page-node-id="3I5AdD8lgSSs8ndzxP1DHs">树立数据驱动与严谨表述意识；理解"知识+提示词=成功关键"；善用 KB 提示词模板。</div>
+    </div>
+
+            
+    
+      <h3 class="sec-h" id="theory">理论基石 · 信息系统分析与设计</h3>
+    <span class="mod mod-theory" data-page-node-id="fnPC38ciXwVQrM6me7r8eV">理论 · 数据—信息—知识（DIKW）</span>
+    <p data-page-node-id="F1Gto2oqNoAYfHaUpvmjkg">Data 数据（原始事实）→ Info 信息（经处理、赋语境）→ Knowledge 知识（可指导行动）→ Wisdom 智慧（价值判断与前瞻决策）。</p>
+    <span class="mod mod-theory" data-page-node-id="r6i8MFpbL4RFTq8bhFFxM6">理论 · 数据建模与规范化</span>
+    <p data-page-node-id="VxDrJh7shgqDhcC6UTYqnM">ER 模型（实体、属性、联系 1:1/1:N/M:N）；关系模型（二维表、主键/外键）；范式 1NF/2NF/3NF（消除插入/更新/删除异常）；知识表示（规则/框架/语义网络/本体）。</p>
+    <span class="mod mod-theory" data-page-node-id="kLQaHew6ZdKa0gCGWHEGMm">理论 · 知识库与 RAG 的理论基础</span>
+    <p data-page-node-id="cGvYvrWwVVESZbLGr675mI">知识表示：符号主义（规则/本体，可解释）与连接主义（向量嵌入，可泛化）；RAG 外挂知识库弥补参数化知识静态性；向量检索（嵌入→余弦相似度召回→重排）；提示词工程 = 把规格说明显式化。</p>
+    <span class="mod mod-theory" data-page-node-id="ojP0c0SH3wxZFamYiS5EeH">理论 ↔ 智能体能力 映射</span>
+    <div class="two" data-page-node-id="EfL6ETOLOv1BpWBFhvnjJp">
+      <div class="card" data-page-node-id="WJmBBATc4RExOtgjioCzgh"><b data-page-node-id="xB5MPZsbeHklxy3u3c8M1T">DIKW</b> ↔ 知识库把数据/信息结构化提升为可行动知识</div>
+      <div class="card" data-page-node-id="vwC8DbwnBr1BE8rnYxt0uP"><b data-page-node-id="RJAwZEPEfG0xN7gfJO1Xzr">ER 与范式</b> ↔ 知识结构化存储遵循范式减少冗余</div>
+      <div class="card" data-page-node-id="DKDsXOUHMbrI5mSuBYAyhe"><b data-page-node-id="WH24phq0xcF7t3XKuWw70X">知识表示（规则/本体）</b> ↔ 提示词=可解释规则；本体支撑语义检索</div>
+      <div class="card" data-page-node-id="sBoDM8r3HhOkmBwJlywDxF"><b data-page-node-id="GFeIH2ozRm9SU15aoZa143">RAG</b> ↔ 外挂知识库弥补大模型参数化知识静态性</div>
+      <div class="card" data-page-node-id="fyUtxUrNZRUxICAc7sQcG1"><b data-page-node-id="kHU3HCVjwNDXQPf0dYELDc">提示词工程=规格</b> ↔ 规范化需求→结构化提示→可靠召回</div>
+    </div>
+    <span class="mod mod-theory" data-page-node-id="tZrZRDcxMZqaU20izXCjpB">理论可视化 · 信息系统相关图形（4 幅）</span>
+
+    <figure class="figure" data-page-node-id="h8jDb1HV6PSRS0NK8Duuy3">
+      <svg viewBox="0 0 680 250" role="img" aria-label="DIKW金字塔" data-page-node-id="3iweF5I8mwTLHtCnaTmW8S">
+        <polygon points="300,20 380,20 410,72 270,72" fill="#0F6E8C" data-page-node-id="TcxUc7T1FOq7BN4qHolbES"/>
+        <polygon points="268,82 412,82 442,134 238,134" fill="#1497A8" data-page-node-id="IJlYyR8SuLBzLa7g3CGDDM"/>
+        <polygon points="238,144 442,144 472,196 208,196" fill="#3FB0C0" data-page-node-id="VkmZ30iNe2Pc6ypJob8DYW"/>
+        <polygon points="208,206 472,206 502,258 178,258" fill="#8FD3DF" data-page-node-id="cq6QBK02dqLA45LZQZrPHx"/>
+        <g fill="#fff" font-size="14" text-anchor="middle" data-page-node-id="xvhVILw2MgB5LJrtFE0Ttp">
+          <text x="340" y="52" data-page-node-id="Ko5oHmpk0xivi8KGrzfw2u">Wisdom 智慧</text>
+          <text x="340" y="112" data-page-node-id="JvbeeL4S1CSdDvsZsJzENk">Knowledge 知识</text>
+          <text x="340" y="172" data-page-node-id="HdeBxcIF9nYTU0KWxgFXGS">Information 信息</text>
+          <text x="340" y="234" data-page-node-id="OKl7NYqBi4lEj9lvFd19wK">Data 数据</text>
+        </g>
+      </svg>
+      <span class="cap" data-page-node-id="CgTk654L3NTKDzeLJwnd7R"><b data-page-node-id="4z8FJExieTdJrR0qjNDDnw">图1</b>　DIKW 金字塔：数据→信息→知识→智慧</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="ET5Jzn7T1MW3jiLEsGFrt7">
+      <svg viewBox="0 0 680 200" role="img" aria-label="RAG流程" data-page-node-id="I1OGKhe5RStM18imNrt2A9">
+        <defs data-page-node-id="bSPpyqDtsB7G3aUvZ9Lvx2"><marker id="m5b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="Oz2aH7OIBN8OiAdQZECyFW"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C" data-page-node-id="9iqdnyctBRe1RCMO3JaUkq"/></marker></defs>
+        <g font-size="13" fill="#0E2F3A" text-anchor="middle" data-page-node-id="GDyfp5DrMizgGZPs4e9DU7">
+          <rect x="20" y="70" width="120" height="50" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="ku6ftTJVxPwDhmZF47hrqs"/><text x="80" y="92" data-page-node-id="Rjd7ACmscy1kbtGFQFSq1S">索引构建</text><text x="80" y="110" font-size="10" fill="#5A6B73" data-page-node-id="PywopyUqykmgd5JBoio7lV">分段→向量化</text>
+          <rect x="190" y="70" width="120" height="50" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="jft54EO0XinWMaUAiJQuJp"/><text x="250" y="92" data-page-node-id="KSflUuZryGmY49l9uJgbEb">检索 Retrieve</text><text x="250" y="110" font-size="10" fill="#5A6B73" data-page-node-id="ITKwhP5BG7eeaOMaN6pcm2">语义/混合</text>
+          <rect x="360" y="70" width="120" height="50" rx="9" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="lM49yCXNQz2uIDzKRvKGRh"/><text x="420" y="92" data-page-node-id="EjExx8Qbx6OSlDrH7ZvYbk">增强 Augment</text><text x="420" y="110" font-size="10" fill="#5A6B73" data-page-node-id="AYMp0Ik2cned6ZB0b8l7mi">拼接上下文</text>
+          <rect x="530" y="70" width="130" height="50" rx="9" fill="#eaf7ef" stroke="#2E8B57" data-page-node-id="SET6wEgj4J4lSht1C7gGqr"/><text x="595" y="92" data-page-node-id="C0XEE6ZkM7i39AJUsrj3pC">生成 Generate</text><text x="595" y="110" font-size="10" fill="#5A6B73" data-page-node-id="t09ECjEetyQXPJjk8Jzz1T">带引用回答</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="2" fill="none" marker-end="url(#m5b)" data-page-node-id="FuGYyETrOpJE9Ujr1ncpOP">
+          <line x1="140" y1="95" x2="188" y2="95" data-page-node-id="HC1IJzBSMbbqGAofWz0IbR"/>
+          <line x1="310" y1="95" x2="358" y2="95" data-page-node-id="g5IL3LdzRCxhL9xnPru1Kl"/>
+          <line x1="480" y1="95" x2="528" y2="95" data-page-node-id="iw36SXEHoZ1f0j1gvtP9VY"/>
+        </g>
+      </svg>
+      <span class="cap" data-page-node-id="eNCXmrlGobts4BNFNDEp4J"><b data-page-node-id="rx55P5DjSePrE1FVH8hlIN">图2</b>　RAG 流程：索引 → 检索 → 增强 → 生成</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="DLYhYSDVb7VQEoL0jyaaSm">
+      <svg viewBox="0 0 680 230" role="img" aria-label="ER模型与范式" data-page-node-id="j3Qjm5jenDd3fAYeaCGw9c">
+        <g font-size="13" fill="#0E2F3A" text-anchor="middle" data-page-node-id="2ruwAU0MIzzQmFSBjXZfw1">
+          <rect x="60" y="40" width="150" height="56" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="bhG563fxuqRo5M347FezjQ"/><text x="135" y="62" data-page-node-id="XvVTBFN6Gfbrv6zRB9GS2Y">实体 学生</text><text x="135" y="82" font-size="10" fill="#5A6B73" data-page-node-id="iPXXxB5oFYUaUMnS153DFL">属性: 学号(PK)</text>
+          <rect x="470" y="40" width="150" height="56" rx="9" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="JiFjY1N7u315CEHyxnwIpg"/><text x="545" y="62" data-page-node-id="6hEsuMaFH0OaizMg9n24N5">实体 选课</text><text x="545" y="82" font-size="10" fill="#5A6B73" data-page-node-id="bBiHPEoNvSZDcPtsQ0ftMZ">属性: 成绩</text>
+          <text x="135" y="135" font-size="12" fill="#0F6E8C" data-page-node-id="WJUwc6yHdSiDnMcr42en3R">1</text>
+          <text x="545" y="135" font-size="12" fill="#0F6E8C" data-page-node-id="Fa7uAgnmh9nf3PzLOweUPi">N</text>
+          <line x1="210" y1="68" x2="468" y2="68" stroke="#0F6E8C" stroke-width="2" data-page-node-id="IWYVHumIcnGbE3zt41aHvU"/>
+          <text x="340" y="58" font-size="12" fill="#0E2F3A" data-page-node-id="9JJ3zuRjbtwNuhTazGQWHN">选修</text>
+          <rect x="230" y="170" width="220" height="40" rx="8" fill="#FDF3E3" stroke="#E0A82E" data-page-node-id="rmrlZ0wN2MNrDPDYUJfLGg"/><text x="340" y="195" data-page-node-id="RHQ6hqwsiAtWVhN3wfrJxP">范式: 1NF→2NF→3NF（消异常）</text>
+        </g>
+      </svg>
+      <span class="cap" data-page-node-id="BnTIYzTBIrWXfZWmlygj6n"><b data-page-node-id="nPLq3N0EDF1AgTYZLb93OX">图3</b>　ER 模型（实体—联系 1:N）与关系范式规范化</span>
+    </figure>
+
+    <figure class="figure" data-page-node-id="ED4QAnZTudtkjspRrWou8E">
+      <svg viewBox="0 0 680 300" role="img" aria-label="UML时序图RAG" data-page-node-id="2mRGoVmrX4L63uoRupSTX1">
+        <defs data-page-node-id="vAsDAhTtERxK3Vhcm3w0js"><marker id="m5d" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" data-page-node-id="HAz1TIBV8cmHwqAFZmaijc"><path d="M0,0 L7,3 L0,6 Z" fill="#0F6E8C" data-page-node-id="mah4SdyZT81fuBRw793Uu4"/></marker></defs>
+        <g font-size="12" fill="#0E2F3A" text-anchor="middle" data-page-node-id="MYVtBaKP5CuRKUcVk3Ju2o">
+          <rect x="30" y="30" width="90" height="34" rx="6" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="AVx8JQfEgzbEnX0qIfDNlb"/><text x="75" y="52" data-page-node-id="wrNYDaC0aeKzXlrhJrlppT">用户</text>
+          <rect x="150" y="30" width="100" height="34" rx="6" fill="#EAF4F6" stroke="#0F6E8C" data-page-node-id="eF5B7Kc0oDnj28DJD3o3rK"/><text x="200" y="52" data-page-node-id="GDlBcw35VspqOONw3Fe8h1">智能体</text>
+          <rect x="280" y="30" width="100" height="34" rx="6" fill="#fff" stroke="#0F6E8C" data-page-node-id="wSlw0zFeYpBdPas5bKIO6O"/><text x="330" y="52" data-page-node-id="vTniQNC5uRZ13xDHzunb4m">检索器</text>
+          <rect x="410" y="30" width="100" height="34" rx="6" fill="#fff" stroke="#0F6E8C" data-page-node-id="ABiDnjG0QeAaz4b9fro9wk"/><text x="460" y="52" data-page-node-id="XDupyFTvn1BMRiCItjqWoL">知识库</text>
+          <rect x="540" y="30" width="90" height="34" rx="6" fill="#eaf7ef" stroke="#2E8B57" data-page-node-id="DQyxpdBdqqR7sL7EGYubJX"/><text x="585" y="52" data-page-node-id="lzX2xQF4SRtgzIUHxde25D">LLM</text>
+        </g>
+        <g stroke="#0F6E8C" stroke-width="1.5" fill="none" marker-end="url(#m5d)" data-page-node-id="r32jTS6k0oBUcNjcctsD9t">
+          <line x1="120" y1="80" x2="198" y2="80" data-page-node-id="FH4MIGGAu8BTURVBG2BhCX"/><text x="160" y="74" font-size="11" fill="#5A6B73" data-page-node-id="hc8Z4KETZwDQN6KHKAuMNO">提问</text>
+          <line x1="250" y1="110" x2="328" y2="110" data-page-node-id="P939ki6dKF4KtpOHh1OdGE"/><text x="290" y="104" font-size="11" fill="#5A6B73" data-page-node-id="HtlGaihpCNWiSQiKCSJRoa">检索(query)</text>
+          <line x1="380" y1="140" x2="458" y2="140" data-page-node-id="uV5RwGQJJkQ8jR71Bu4rIA"/><text x="420" y="134" font-size="11" fill="#5A6B73" data-page-node-id="LnexrghymSYIWd761AoEsU">向量召回 top-k</text>
+          <line x1="510" y1="170" x2="462" y2="170" data-page-node-id="IyQCM9R2ZrVrDDot1S5uSC"/><text x="486" y="164" font-size="11" fill="#5A6B73" data-page-node-id="ymFfg8kc0wh5HjSUvNHIdY">片段</text>
+          <line x1="250" y1="200" x2="198" y2="200" data-page-node-id="nBZjGkWlQblBydwPbHeaNZ"/><text x="224" y="194" font-size="11" fill="#5A6B73" data-page-node-id="x6Xds6Xj7nvDAUlvXYtIQB">拼接上下文</text>
+          <line x1="250" y1="230" x2="578" y2="230" data-page-node-id="ntkyVKUg54kumeYvkmHvH2"/><text x="415" y="224" font-size="11" fill="#5A6B73" data-page-node-id="Yz32jx0Vs5sqGPnuzLsli7">prompt+上下文</text>
+          <line x1="540" y1="260" x2="202" y2="260" data-page-node-id="dzdCfVd3Ffv9E8dquuZVji"/><text x="370" y="254" font-size="11" fill="#5A6B73" data-page-node-id="616oH1SERBSj9tGRNdwNJN">生成回答→回复(带引用)</text>
+        </g>
+      </svg>
+      <span class="cap" data-page-node-id="lDYEzGTZqhTRAeOfiglwXy"><b data-page-node-id="XEpgX6yuGnlGhHoTqU8vWE">图4</b>　UML 时序图：RAG 检索增强生成的协作链路</span>
+    </figure>
+
+          <div class="callout method" id="classicmap"><span class="m-tag">经典方法论对照 · 数据层 与 知识库</span><p>原版 ch14 的<b>关系模型、三范式、ORM/JPA、NoSQL 四类</b>，正是智能体"知识库/RAG 数据底座"的经典前身。把知识库当作"智能体的数据层"来设计：结构化字段用范式约束，向量检索用 NoSQL/ANN 索引。详见 <a href="appendix.html#modeling">附录 H.7</a>。</p></div>
+
+<h3 class="sec-h" id="ideo">课程思政 · 价值引领</h3>
+    
+<!-- wxfig-inject -->
+<figure class="wxfig" data-page-node-id="gTraeg5U0Pt282od3t6UaK">
+  <img src="media/weixin/ch05_prompt_react.png" alt="ch05_prompt_react.png" loading="lazy" data-page-node-id="7pKJfs63y9UBnrcRpKQ1Hv">
+  <figcaption data-page-node-id="lvHqjtzjl6GK6n0xYcCKFX">
+    <strong data-page-node-id="LlKRprWr3oJIAfYEDGpp7F">图：Prompt 工程与 ReAct 循环</strong><br data-page-node-id="72EcfYDQCcEVHUY0Scrww3">ReAct = 思考(Thought) → 行动(Action) → 观察(Observation) 的循环迭代过程；Prompt 设计需包含角色设定、任务描述、输出格式约束等要素。附 LangChain 代码示例。
+    <span class="src" data-page-node-id="c3xmht4sSvUKbzNZew5oTO">来源：公众号·大模型助理</span>
+  </figcaption>
+</figure>
+<span class="mod mod-kb" data-page-node-id="ff2TXGEsgF8pGS7iCPuWau">前沿动态 · 行业速递（2026-08）</span>
+<div class="callout frontier" data-page-node-id="XyUIrrlD1ivLMWbqxMCYG2">
+  <span class="f-tag" data-page-node-id="hwdmIXtWI9LooqoMJlY1ZJ">动态更新 2026-08</span>
+  <p data-page-node-id="OjoXH9XAfTiHxZAcIHayW5"><b data-page-node-id="A6GGasDpJ4DCcc6QA3Avsl">1</b> RAG 进化：从“检索增强”升级为 Agent 的“记忆神经系统”，采用分层索引（基础层 / 规则层 / 案例层）。</p>
+  <p data-page-node-id="AWupGgedCDUGiDyMUlGAsA"><b data-page-node-id="zip017HiYQDyWqMFMitWvX">2</b> 动态知识保鲜：知识库变更到系统同步从 72 小时压缩到 9 分钟。</p>
+  <p data-page-node-id="OONSusStlFrp3ivHttcC3k"><b data-page-node-id="LtSlWKTshkOnoQXABvqMVP">3</b> Agentic RAG（2026-08-11）：引入自主代理做任务拆解与工具调度，复杂任务完成度提升 40%+。</p>
+  <p class="src" data-page-node-id="kBG1mVXyAELq5HkfZg1Vyz">来源：kwkr 2026 Agentic AI 七趋势、mtrt Agentic RAG 2026-08-11</p>
+</div>
+
+<span class="mod mod-ideo" data-page-node-id="D8d8k1PmowqKpqPufnIf92">精神坐标 · 人民日报金句</span>
+    <div class="callout quote" data-page-node-id="ZQom5hrOCe246qPBIUZ1EE">"涓涓细流汇成大海，点点星光点亮银河。"——人民日报金句库</div>
+    <div class="callout quote" data-page-node-id="T7HiWxsgRI98FNDo3fop17">"没有一朵花，一开始就是一朵花。"</div>
+    <p data-page-node-id="nsVS3nN7J8iL9SpNZzq7ZO"><b data-page-node-id="fx8e7eyerTUGCJKySG9RWT">本章映射：</b>知识库与提示词工程没有捷径——高质量 RAG 来自对文档的规范清洗与结构化。每一份被认真标注的知识，都是点亮智能体"银河"的一点星光；知识工程，是渐进生长出来的。</p>
+    <span class="mod mod-ideo" data-page-node-id="kZONcqDD7ZYaNS5H1J5BOb">名校范式 · 清华课程思政案例</span>
+    <div class="callout warn" data-page-node-id="eHBcLHB3oNfPpbxfg5qOAF">🎓 清华《计算机程序设计基础》课程思政·科学精神维度：在知识延伸中求真、求实；强调对"正确性"的较真；引导以严谨态度对待每一处细节与边界。</div>
+    <p data-page-node-id="6aSoJ3X46Q96aHD6gcmBmW"><b data-page-node-id="D7GGjtNzc4jt3mzkE6Gep9">本章映射：</b>高质量 RAG 来自规范清洗与结构化（范式、本体、图谱），是一种求真的科学态度。每一条被认真标注的知识，都是点亮智能体"银河"的星光。</p>
+
+    
+<span class="mod mod-ideo" data-page-node-id="pCfIeQTOu708kHx4134wcc">课程思政案例 · IMA 知识库</span>
+<div class="kbcase" data-page-node-id="x3MsXeLLHMtfNZJVcc4WMw">
+  <h4 data-page-node-id="MDVc24psfr92bttLCl52OE">知识库时代的数据合规：网络安全"为人民、靠人民"</h4>
+  <ul data-page-node-id="AJdAnY0EmcU4IJPfeFFcnP">
+    <li data-page-node-id="ouLTljP1wQMpx8wkCkBUdx">《信息安全技术》课程思政案例"现实世界与网络世界的身份识别"：教育学生警惕安全风险，培养诚信、友善的价值准则。</li>
+    <li data-page-node-id="p5I434Bm4Gkul0eQCFHihQ">依场景科学选择、辩证分析身份认证手段的安全性，保护个人、家庭和企业信息安全，践行网络安全"为人民、靠人民"。</li>
+  </ul>
+  <span class="src" data-page-node-id="sxNIt2EiqD6iREhFbw9709">来源：IMA 知识库《课程思政示范案例》· 《信息安全技术》课程思政案例(2022)</span>
+  <span class="think" data-page-node-id="5KHfCkTcuyuNVCuGgl9QM4"><b data-page-node-id="EiCotarsWcLSLywIMAyfZ2">本章映射：</b>RAG 知识库是智能体的"记忆与依据"。上传语料前要想：数据来源合法吗？含不含个人信息？召回会不会泄露？——知识库设计就是数据合规设计。</span>
+</div>
+      <h3 class="sec-h" id="casein">案例导入 · 智枢·动态本体引擎</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B1-09</span> <b>智枢-动态本体引擎：构建企业级AI 可信决策基座</b><br><span class="cunit">申报单位：北京中数睿智科技有限公司</span></p>
+        <p>本案例聚焦中数睿智自主研发的“智枢-动态本体引擎”。该产品是连接企业原始数据与AI 智能应用的智能桥梁，通过对象层、逻辑层、动作层三层架构，将企业零散的业务数据、专家经验和业务流程转化为 AI 可理解、可执行的结构化知识。该引擎已通过中国信息通信研究院中国泰尔实验室的权威检测，成为国内首个通过该机构卓越级测试的动态本体引擎产品。它从根本上解决了大模型在企业核心业务中“不可理解、不可信、不可控”的痛点，为金融风控、能源调度、工业运维等高要求场景提供了可信、可解释的智能决策基座。</p>
+        <p><b>导学解读 · 与本章的对接</b>：请把这个案例当作“知识库不是文档堆，而是知识的组织结构”的最强证据。智枢的三层架构几乎可以逐格对上本章内容：<b>对象层</b>统一业务概念、消除语义歧义——这正是信息资源管理专业熟悉的<b>受控词表与本体构建</b>；<b>逻辑层</b>把专家经验与行业规范转化为 AI 可执行的规则库——对应提示词工程中的角色设定与约束注入；<b>动作层</b>对接业务系统形成“决策—执行”闭环——对应知识库与工具调用的联动。其本体全生命周期被拆解为“建（自动化构建）、现（可视化专家评审）、演（反事实推演）、用（面向智能体快速应用）”四步，几乎就是一条标准的知识库建设流程。</p>
+        
+      </div>
+
+    <h2 class="part p2">第二部分　课程内容</h2>
+      <h3 class="sec-h" id="s51">5.1　提示词分类与组成</h3>
+    <p data-page-node-id="fTX6HUnG53jUuCHk2drlIO"><b data-page-node-id="YR2dB9K41pcBMcuUeOSfmH">系统提示词</b>：开发者在"人设与回复逻辑"编写，定义全局角色与规则，稳定影响所有对话（即需求规格）。<b data-page-node-id="SZyDXGGYFzXCuTPZHH3REA">用户提示词</b>：终端用户输入的具体指令，动态触发本轮任务。</p>
+    <p data-page-node-id="m01hGULj2cBsQStMJbgRpj">组成四段：<b data-page-node-id="LWvwYqhnFTcMU1xnQwizxM">角色设定</b>（# 角色声明身份）→ <b data-page-node-id="GyIQkxHV28e56PIxQS5xdi">技能/流程</b>（## 技能列流程）→ <b data-page-node-id="BfV9l8iz8xoUSFN521K9Sp">限制</b>（## 限制定边界）→ <b data-page-node-id="lzY0mLN5j9i3DONvYr6X5S">回复格式</b>（## 回复格式给模板）。</p>
+
+    
+    <div class="pptgrid" data-cnt="28" data-page-node-id="EOloxwR8PTMg2GdL2dxtAT">
+      <figure class="wxfig" data-page-node-id="BLWNeAxufuxYbg7uaDiH0F">
+  <img src="media/coze/p128.jpg" alt="课件第 128 页" loading="lazy" data-page-node-id="JMt5uLykvOpS09WC72TgWG">
+</figure>
+      <figure class="wxfig" data-page-node-id="FFKBrKCg6qUHAGgfL8pjGm">
+  <img src="media/coze/p129.jpg" alt="课件第 129 页" loading="lazy" data-page-node-id="fZDHFDvKqJnGAfzdEk45QB">
+</figure>
+      <figure class="wxfig" data-page-node-id="eU0dHnHxGTIjG683xewQpc">
+  <img src="media/coze/p130.jpg" alt="课件第 130 页" loading="lazy" data-page-node-id="yX4t1QEuql2wgCQBWb3EbT">
+</figure>
+      <figure class="wxfig" data-page-node-id="EAdmx0uHo23F6zSD1z35MB">
+  <img src="media/coze/p133.jpg" alt="课件第 133 页" loading="lazy" data-page-node-id="hQSqsvd5lSB5FOuAIghdk5">
+</figure>
+      <figure class="wxfig" data-page-node-id="OvytNdnzzed1NJNHop6GQj">
+  <img src="media/coze/p136.jpg" alt="课件第 136 页" loading="lazy" data-page-node-id="KBu0tGmNA6RtPE0GFtvWNs">
+</figure>
+      <figure class="wxfig" data-page-node-id="mjWciGrAYEc8GiHP3xeRkq">
+  <img src="media/coze/p137.jpg" alt="课件第 137 页" loading="lazy" data-page-node-id="pkd2sz5ewA0sV70hpLMjai">
+</figure>
+      <figure class="wxfig" data-page-node-id="MSAtCaMFP71Zzotn3t0Txv">
+  <img src="media/coze/p138.jpg" alt="课件第 138 页" loading="lazy" data-page-node-id="gk5hWKtVJs6E6fE3RSyoAB">
+</figure>
+      <figure class="wxfig" data-page-node-id="fuFZKNO6IdCCityM4bnblL">
+  <img src="media/coze/p139.jpg" alt="课件第 139 页" loading="lazy" data-page-node-id="MjLxm6KOVqfaQ2vqRoYuk3">
+</figure>
+      <figure class="wxfig" data-page-node-id="kZzjZTDjyQdJsZjsuzxTmI">
+  <img src="media/coze/p140.jpg" alt="课件第 140 页" loading="lazy" data-page-node-id="1SVOQNYhSkDoWt0E2u6doE">
+</figure>
+      <figure class="wxfig" data-page-node-id="F2Lhd1mQHDkrQIwKqg1OvA">
+  <img src="media/coze/p141.jpg" alt="课件第 141 页" loading="lazy" data-page-node-id="Wu0YanD7Yr92JnZUVoFAYM">
+</figure>
+      <figure class="wxfig" data-page-node-id="fSkA7LZH3PMl56rFTt6ObG">
+  <img src="media/coze/p142.jpg" alt="课件第 142 页" loading="lazy" data-page-node-id="qwLCkXoAOxgEIuRwsJQuN1">
+</figure>
+      <figure class="wxfig" data-page-node-id="ySEApFjonIbvB2CbbV5WeD">
+  <img src="media/coze/p143.jpg" alt="课件第 143 页" loading="lazy" data-page-node-id="qX3pP62Cuxe6uxjLwhAoXt">
+</figure>
+      <figure class="wxfig" data-page-node-id="NoUHbkcwcHsRx5TRHdlHpR">
+  <img src="media/coze/p173.jpg" alt="课件第 173 页" loading="lazy" data-page-node-id="sM7tXhXkBFvET3vM3DMjha">
+</figure>
+      <figure class="wxfig" data-page-node-id="k5YVFjy5iKdYBJrvE7XH5Z">
+  <img src="media/coze/p174.jpg" alt="课件第 174 页" loading="lazy" data-page-node-id="CA89sUa2gi9MRW3g6a1LVl">
+</figure>
+      <figure class="wxfig" data-page-node-id="D5gBCy0wXiP2lXXB6HqSIO">
+  <img src="media/coze/p183.jpg" alt="课件第 183 页" loading="lazy" data-page-node-id="gVHtOrzsfySMkSIdoMj5lD">
+</figure>
+      <figure class="wxfig" data-page-node-id="n4GHe8C03fT1IkBDbkMAP4">
+  <img src="media/coze/p186.jpg" alt="课件第 186 页" loading="lazy" data-page-node-id="Z0FZlvBB2M35Mu4ai4aio6">
+</figure>
+      <figure class="wxfig" data-page-node-id="gS87y8GFj2WXYMj3XOThIi">
+  <img src="media/coze/p187.jpg" alt="课件第 187 页" loading="lazy" data-page-node-id="SFOeOInaU2RGbWYJfEBvPO">
+</figure>
+      <figure class="wxfig" data-page-node-id="6TNubj2uFdEzTGMS49GgHh">
+  <img src="media/coze/p188.jpg" alt="课件第 188 页" loading="lazy" data-page-node-id="A3FpmlbMx6Vfbx3yDdzpHF">
+</figure>
+      <figure class="wxfig" data-page-node-id="CWso3vIemObwsHCT9zNgXO">
+  <img src="media/coze/p189.jpg" alt="课件第 189 页" loading="lazy" data-page-node-id="zDQLIuwKiy6xnYAT9Td4le">
+</figure>
+      <figure class="wxfig" data-page-node-id="ieIk3NDPCjHCTA9MVcbX4X">
+  <img src="media/coze/p190.jpg" alt="课件第 190 页" loading="lazy" data-page-node-id="kxO0XHcceskVADPiCclNMr">
+</figure>
+      <figure class="wxfig" data-page-node-id="8JgfHgk47b0vwgytSAaU5b">
+  <img src="media/coze/p191.jpg" alt="课件第 191 页" loading="lazy" data-page-node-id="wllwNx6TsO03BmCNgYh48F">
+</figure>
+      <figure class="wxfig" data-page-node-id="WfPSvhhU6FpH0MNOKlVd0o">
+  <img src="media/coze/p192.jpg" alt="课件第 192 页" loading="lazy" data-page-node-id="sCABj4hlBZlk5KbqtEasc3">
+</figure>
+      <figure class="wxfig" data-page-node-id="2L0Dzt8wCqylW9pxhsCx75">
+  <img src="media/coze/p193.jpg" alt="课件第 193 页" loading="lazy" data-page-node-id="1yiKi4FS7V295uc8c5EJep">
+</figure>
+      <figure class="wxfig" data-page-node-id="vWLxXGHRSI7tR1m65V3lZi">
+  <img src="media/coze/p195.jpg" alt="课件第 195 页" loading="lazy" data-page-node-id="qa5l3nhY3D6esFHxnrVi4y">
+</figure>
+      <figure class="wxfig" data-page-node-id="0w2BFZn3N0plK67cYhHdXx">
+  <img src="media/coze/p196.jpg" alt="课件第 196 页" loading="lazy" data-page-node-id="CanVoxke3nAichixJO2l2K">
+</figure>
+      <figure class="wxfig" data-page-node-id="WveQeuB8dBHvq3nx6RrdiW">
+  <img src="media/coze/p197.jpg" alt="课件第 197 页" loading="lazy" data-page-node-id="5KnhqD6siTiDBPbhuFMLqT">
+</figure>
+      <figure class="wxfig" data-page-node-id="k5xioc5wPNeH214LnDyHtl">
+  <img src="media/coze/p198.jpg" alt="课件第 198 页" loading="lazy" data-page-node-id="futqB3jMs4MUSyC74BpLdk">
+</figure>
+      <figure class="wxfig" data-page-node-id="7qcroYGEer9T8m0PB23ltI">
+  <img src="media/coze/p211.jpg" alt="课件第 211 页" loading="lazy" data-page-node-id="zkXyEouY8g7NZLZysPM7zu">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s52">5.2　提示词编写与优化闭环</h3>
+    <p data-page-node-id="FrysTjxLiy7ZoeTfFnPW2U">四步迭代：① <b data-page-node-id="h7TYsqPk6utvF1JmM6jQHc">编写</b>（Markdown 写清角色/技能/限制）→ ② <b data-page-node-id="XldeC0E9z1lXIqhXPhkfcQ">测试</b>（预览面板运行）→ ③ <b data-page-node-id="AsnsblRZcAlOtcOoHJh6qJ">分析</b>（定位与预期不符）→ ④ <b data-page-node-id="YK3m5gOXFQqDATAffD3dVE">优化</b>（AI 润色或调试迭代）。提示词没有"一次写成"，只有"持续打磨"。</p>
+
+    
+    <div class="pptgrid" data-cnt="7" data-page-node-id="pfSDsXFlfvNeVb1uOQonzt">
+      <figure class="wxfig" data-page-node-id="BAUsCaRG4zBWkrHKxFL6Es">
+  <img src="media/coze/p104.jpg" alt="课件第 104 页" loading="lazy" data-page-node-id="l9Qas8m92eNArrjBziG71K">
+</figure>
+      <figure class="wxfig" data-page-node-id="qGVQJYWNckOAPl9319A5K4">
+  <img src="media/coze/p106.jpg" alt="课件第 106 页" loading="lazy" data-page-node-id="oSnLZIcKdBJxprOQpfZGLE">
+</figure>
+      <figure class="wxfig" data-page-node-id="7N9WFcbhSkYUD7j7iCnnHc">
+  <img src="media/coze/p132.jpg" alt="课件第 132 页" loading="lazy" data-page-node-id="lFYaCKYoT2gwHiUvniNaJN">
+</figure>
+      <figure class="wxfig" data-page-node-id="mkFFhDOU3MO06dMkGkupjc">
+  <img src="media/coze/p134.jpg" alt="课件第 134 页" loading="lazy" data-page-node-id="lO8vvgl7KTri6txPQbolUU">
+</figure>
+      <figure class="wxfig" data-page-node-id="749VrwZdy9EUh0qIKZX5C0">
+  <img src="media/coze/p135.jpg" alt="课件第 135 页" loading="lazy" data-page-node-id="GH3HPHIWPgpZIvGBVsFmAr">
+</figure>
+      <figure class="wxfig" data-page-node-id="MzZJkSwdDD6phzpIaCfW6V">
+  <img src="media/coze/p184.jpg" alt="课件第 184 页" loading="lazy" data-page-node-id="RM9bU73wqju5iDUoVM6dUK">
+</figure>
+      <figure class="wxfig" data-page-node-id="6BjsfrUpzFhBLFwcWfI36y">
+  <img src="media/coze/p194.jpg" alt="课件第 194 页" loading="lazy" data-page-node-id="nDAnlw1oHN815hOauxgwph">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s53">5.3　知识库与 RAG 工作原理</h3>
+    <p data-page-node-id="IpDv23BmgRnjWyOByTfdiQ"><span class="term" data-def="RAG（检索增强生成）：先检索外部知识再生成回答，弥补大模型参数化知识的静态与幻觉问题。" data-page-node-id="qAAZty1pf0vhch8ypWfnRm">RAG</span> = 检索 + 增强 + 生成，先"查证"再"言"。流程：文本分段（500~1000 字符）→ Embedding 向量化 → 存入向量库；检索分语义/全文/混合；再把召回片段与问题拼接交大模型。<b data-page-node-id="WLP2ISbzcVh5U9bTZZEQXD">价值：减少幻觉、知识实时、可解释、领域适配</b>。</p>
+
+    
+    <div class="pptgrid" data-cnt="12" data-page-node-id="Qdk99FgVb4WJb1iRuLCklp">
+      <figure class="wxfig" data-page-node-id="RCnoZHJUM77JS9TmNDDcXt">
+  <img src="media/coze/p089.jpg" alt="课件第 89 页" loading="lazy" data-page-node-id="dm8JfwEdJlqVFBCNrDrMFU">
+</figure>
+      <figure class="wxfig" data-page-node-id="KkwtuG7uai1yuQdWzQl0ga">
+  <img src="media/coze/p092.jpg" alt="课件第 92 页" loading="lazy" data-page-node-id="VW8BgFNUehKJREEtoh5Nc1">
+</figure>
+      <figure class="wxfig" data-page-node-id="CNEMZvHvyZ8Jcd3GZCXcaB">
+  <img src="media/coze/p093.jpg" alt="课件第 93 页" loading="lazy" data-page-node-id="ELGCMxP2hO6Vt1CRpyHKiM">
+</figure>
+      <figure class="wxfig" data-page-node-id="QY9anEsHZi1nlKoGLurmcE">
+  <img src="media/coze/p095.jpg" alt="课件第 95 页" loading="lazy" data-page-node-id="QhiZr8A5LurQAeTgn5KY2l">
+</figure>
+      <figure class="wxfig" data-page-node-id="pSNapn6B0LuGOxGnKDS1x4">
+  <img src="media/coze/p131.jpg" alt="课件第 131 页" loading="lazy" data-page-node-id="7sZiaGKMzDgkNpPLx3jefC">
+</figure>
+      <figure class="wxfig" data-page-node-id="EuLXQrFUov4gFCmc5KZDe7">
+  <img src="media/coze/p176.jpg" alt="课件第 176 页" loading="lazy" data-page-node-id="NWHSzFCS5KgfLrYPYHhVBf">
+</figure>
+      <figure class="wxfig" data-page-node-id="iuIDnJ1aObXUcfM75QhAsR">
+  <img src="media/coze/p180.jpg" alt="课件第 180 页" loading="lazy" data-page-node-id="qwGYLfZqKUkHoVKgYrj4IF">
+</figure>
+      <figure class="wxfig" data-page-node-id="ygJLVMmn36n1stu7Oogx3F">
+  <img src="media/coze/p181.jpg" alt="课件第 181 页" loading="lazy" data-page-node-id="F29WyYggSzIOdk5QJmBKwQ">
+</figure>
+      <figure class="wxfig" data-page-node-id="5kX3sOWYWxWcsAVgvRjciQ">
+  <img src="media/coze/p182.jpg" alt="课件第 182 页" loading="lazy" data-page-node-id="PfTRtgvzxHGAGFPbIV579Z">
+</figure>
+      <figure class="wxfig" data-page-node-id="ImuHlMequgzvDMrTiGhRoy">
+  <img src="media/coze/p185.jpg" alt="课件第 185 页" loading="lazy" data-page-node-id="GwIEdu8btQFCqjyQ2UQ1ZU">
+</figure>
+      <figure class="wxfig" data-page-node-id="Pt0sdPFMajNy9w6u2DDiD1">
+  <img src="media/coze/p210.jpg" alt="课件第 210 页" loading="lazy" data-page-node-id="rcfaYQAYUAOUJUavNIDiSG">
+</figure>
+      <figure class="wxfig" data-page-node-id="00rPkLKMXw5FZi0JAZ7qav">
+  <img src="media/coze/p212.jpg" alt="课件第 212 页" loading="lazy" data-page-node-id="eC5Phwxo0CBFQrkfAcwBFn">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s54">5.4　知识库类型与召回排序</h3>
+    <table data-page-node-id="ri1ihX0mGchGak0yjXxAvT">
+      <thead data-page-node-id="CdV1EBe7iXGQ76efBgMJf5"><tr data-page-node-id="89gcv3oaDqbT3Mc97QBMy9"><th data-page-node-id="KzIG1Qh589cIslGQ8dDIB8">类型</th><th data-page-node-id="PMgmtKPVsIrGIkLerpQ6tD">适用</th><th data-page-node-id="zoMrgq5HTEgINDWPGWNntp">要点</th></tr></thead>
+      <tbody data-page-node-id="zBSSOGdXSCoQIQno0BRXh9">
+        <tr data-page-node-id="EOSMwEvHv76rODPJMGbfHQ"><td data-page-node-id="9mzbf1NEfgRr4NTjEgPp3T"><b data-page-node-id="qgrYuOQ98G2B5DFab5VU8c">文本</b></td><td data-page-node-id="TWtOYB517bptnWPBb5lkJg">手册/报告等非结构化</td><td data-page-node-id="eUZDGYK8sbQulNtZDq3DrE">自动/手动分段，按片段召回</td></tr>
+        <tr data-page-node-id="LL4yY0Vw2sa2zsvsRGQhES"><td data-page-node-id="kepZ7zkTpnVg4TfBovSNNn"><b data-page-node-id="FLeQzVFAsj0ab73zclPTno">表格</b></td><td data-page-node-id="AvzTgiEWsuulFBkc9RBBvH">价格表/参数表</td><td data-page-node-id="Bm1fVt6r2kD2IOaRt9rOH8">勾选索引列，支持 NL2SQL 条件查询</td></tr>
+        <tr data-page-node-id="qavL8eTIyQWOl7Ib6rAvRD"><td data-page-node-id="w1Ll8zPw1y3iM4eW7z0wFo"><b data-page-node-id="lRxoF4HOh5RqAaxCqUbliw">图片</b></td><td data-page-node-id="bgbiZDGjH6iektut99hcew">图片素材</td><td data-page-node-id="E21eriLkm3xrKNej3g4GPD">按标注匹配，适合图片理解与生成</td></tr>
+      </tbody>
+    </table>
+    <p data-page-node-id="RGJU65PXnMnxxMbvnxSg5O">召回负责"查全"（语义/全文/混合初筛），排序负责"查准"（重排）；可设最大召回数量（默认 5）与最小匹配度（默认 0.50）。</p>
+
+    
+    <div class="pptgrid" data-cnt="4" data-page-node-id="iXBVr8W5FsSxtlCMIQd1uY">
+      <figure class="wxfig" data-page-node-id="8sOg5UsiE6WppiVCS684hO">
+  <img src="media/coze/p088.jpg" alt="课件第 88 页" loading="lazy" data-page-node-id="dqItQhAlN2avcEQivJVBqO">
+</figure>
+      <figure class="wxfig" data-page-node-id="ebmyCJx4wHut2WFWKASbAT">
+  <img src="media/coze/p177.jpg" alt="课件第 177 页" loading="lazy" data-page-node-id="AE3xNjBCElGlPekbJvO87H">
+</figure>
+      <figure class="wxfig" data-page-node-id="CERr4TGvkQPVl5GyWYDghm">
+  <img src="media/coze/p178.jpg" alt="课件第 178 页" loading="lazy" data-page-node-id="mbtF2BXL6O9OOLT1KITFEQ">
+</figure>
+      <figure class="wxfig" data-page-node-id="sgXC3hCEiu2ialvGQk44P2">
+  <img src="media/coze/p179.jpg" alt="课件第 179 页" loading="lazy" data-page-node-id="0mquhBxaECu5FFq10Sb7vY">
+</figure>
+    </div>
+
+      <h3 class="sec-h" id="s55">5.5　知识库赋能：提示词资源</h3>
+    <p data-page-node-id="obFXRJYUWmyk5YfRnY1XTh">KB《大模型 Prompt 提示词编写指南》系统梳理核心知识点；《万字长文讲清 Prompt·Skill·MCP·Agent》厘清概念边界；角色提示词库可直接套用。实践箴言：<b data-page-node-id="DUut3PAhVkeFRYMsdZPXqQ">知识库质量 + 提示词清晰度 = 智能体成功的关键</b>。</p>
+
+          
+
+    
+    <h2 class="part p3">第三部分　拓展练习</h2>
+      <h3 class="sec-h" id="kb">知识拓展与前沿</h3>
+    <span class="mod mod-kb" data-page-node-id="nkiFSXBfU9wBiBYh8FMHOP">拓展 · 从 RAG 到 Agentic RAG</span>
+    <p data-page-node-id="cNk5aBFu8b4nZLei88eKOI">普通 RAG 检索拼接；Agentic RAG 让 Agent 把复杂查询拆成子查询分别检索、评估召回质量、不足则重写查询、按结果重做检索计划，直至满足——检索过程本身被智能体化。</p>
+    <span class="mod mod-kb" data-page-node-id="mdnsWeYHpErCePDwKW9FuQ">案例 · 提示工程即"智能体说明书"</span>
+    <p data-page-node-id="iDDhJOepEC0QZLghHUKwQR">System Prompt 四要素：角色设定 + 可用工具 + 行动格式 + 完成条件。启示：提示词是智能体的"规格说明"，需版本化管理与迭代优化（正是 LangChain/LlamaIndex 的设计精髓）。</p>
+    <span class="mod mod-kb" data-page-node-id="NsWJo2S6ZRzm2jwjsv8qfU">前沿 · 上下文工程（Context Engineering）</span>
+    <p data-page-node-id="vqqnQwYNNXpGuZ0gAMP3yl">从"提示工程"升级到"上下文工程"：系统化组织进入模型的全部上下文（指令/知识 RAG/工具描述/记忆/历史与中间结果），在有限窗口内最大化有效信息、抑制噪声与幻觉。</p>
+    <div class="callout src" data-page-node-id="LDaMHNzOAmMljsCZirpFbG">📚 来源：ima 知识库《智能体宇宙》《AI前沿研究报告》。</div>
+
+    
+<div class="casebox" data-page-node-id="glTCinIxL5bIfEVNluPdDz">
+  <h4 data-page-node-id="xiIhUqGNreC8cOiZ7i7m0k">🗂️ 案例 · 流行语 + 鸡汤 RAG 知识库</h4>
+  <ul data-page-node-id="SAewHGVm4jlOcg6HE2adlY">
+    <li data-page-node-id="taBJcC4gBC7Z5RuoHPYrAa">🎯 <b data-page-node-id="E8JmAN4wtsQIRLZTgFkdCG">场景</b>：把流行语（带年份/来源/情感标签）与鸡汤建为 RAG 知识库，做"年度热词问答"和近义检测。</li>
+    <li data-page-node-id="LBN6rEji8PkjlSpBcSRZDC">🔧 <b data-page-node-id="mkETJkt2cZEheLkEQsGELi">RAG 落点</b>：用户问"2024 年有哪些职场类热词？"→ 检索增强生成回答；用文本向量找"神马都是浮云"与"都不重要"的近义聚类。</li>
+    <li data-page-node-id="W5xCRlGk30vB4J1uvWzrN2">🤖 <b data-page-node-id="DfMmshiqWieSBXIkI1J2Z9">Coze 实践</b>：知识库 + 工作流节点（年份→检索→大模型汇总→输出卡片），对应本章"知识库即受保护的信息资产"。</li>
+  </ul>
+</div>
+<div class="callout tip" data-page-node-id="cExB25YdpQjEnKBYRNVxVL">💡 <b data-page-node-id="aMMdLTbGK0JrT1juJUYMzU">算法冷知识</b>：情感分析（snownlp）——流行语情感极性≈0.5（自嘲混合），鸡汤明显偏高（单向正能量）。两者对比就是一堂"情感特征工程"课；教材第 5 节 <code data-page-node-id="ogshCNqA3XkQX4O5vvED6g">jieba+snownlp+Counter</code> 代码卡片可直接演示。</div>
+
+<span class="mod mod-kb" id="lit" data-page-node-id="08DdLtcMJoQzSXhXRk5fEr">前沿文献 · 近三年精选（2023–2026）</span>
+    <p data-page-node-id="nxKYJ8tFfrFz6AZkuyEwZL">以下文献反映本章主题在智能体时代的最新进展，供学有余力的同学延伸阅读（链接指向原文/预印本）。</p>
+          <div class="callout src" data-page-node-id="K32CK1KyS2AB97QetHB3ON">🎓 <b data-page-node-id="e8O3fXWN3bmifm1fcrghFs">学界观点</b>：洪亮等（2026）以动态知识图谱增强 RAG，显著提升网络热词发现与演化预测；杨建梁等（2025）用大语言模型实现红色档案资源的交互式知识发现。这印证了“RAG 的回答质量，取决于底层知识组织的规范程度”。</div>
+<ul class="lit-list" data-page-node-id="KYlIJ5ecSHoohP4xLieWsy">
+      <li data-page-node-id="ZVNi1w8LDrDwP32GS1g0Ji"><a href="https://arxiv.org/abs/2312.10997" target="_blank" rel="noopener" data-page-node-id="QEu1D6FwtKbAhRmdUn4fG4">面向大语言模型的检索增强生成综述（Retrieval-Augmented Generation for Large Language Models: A Survey）</a>
+        <div class="lit-meta" data-page-node-id="Ky99ms8Zc5B5BNqXm12dij">Gao et al., 2024, arXiv:2312.10997</div>
+        <div class="lit-note" data-page-node-id="cWFGiMrZHK8MwS8IneDDFD">朴素/高级/模块化三范式权威综述</div></li>
+
+      <li data-page-node-id="eu03uuwRqzoL5ljTQhWEw5"><a href="https://www.aas.net.cn/cn/article/pdf/preview/10.16383/j.aas.c240163.pdf" target="_blank" rel="noopener" data-page-node-id="mTuSrnMgVRJBEy3ENsUkQL">从RAG到SAGE：现状与展望（From RAG to SAGE: The State of the Art and Prospects）</a>
+        <div class="lit-meta" data-page-node-id="OHaeFuxQMZdUBirhiJGQXG">Tian et al., 2025, 自动化学报, 51(6):1145–1169</div>
+        <div class="lit-note" data-page-node-id="N3PMITQL83two9hKBRnyCr">中文顶刊，RAG 原理+拓展框架 SAGE</div></li>
+
+      <li data-page-node-id="GOMZiG7ueFYO4fUl9XJMEe"><a href="https://hub.baai.ac.cn/view/43613" target="_blank" rel="noopener" data-page-node-id="s7VadQD5gwMsJnc5DWPNhg">一文搞懂RAG技术的5种范式（A Comprehensive Survey of RAG's Five Paradigms）</a>
+        <div class="lit-meta" data-page-node-id="U9LLGU2tiORC1rWBB3y9Ce">BAAI, 2024, 智源研究院</div>
+        <div class="lit-note" data-page-node-id="myU4GiaGY44HceA6ngqp3z">Naive/Advanced/Modular/Graph/Agentic RAG</div></li>
+
+      <li data-page-node-id="cdaYnOjgEKGdIXmFWMeQy1"><a href="https://arxiv.org/abs/2405.13576" target="_blank" rel="noopener" data-page-node-id="iCu1iHrDq3yrH3DAAHDDpo">FlashRAG：高效的模块化 RAG 研究工具包（FlashRAG: A Modular Toolkit for Efficient RAG Research）</a>
+        <div class="lit-meta" data-page-node-id="AsvCUN3VxmwOuO1hBZZjK5">Jin et al., 2024, arXiv:2405.13576</div>
+        <div class="lit-note" data-page-node-id="XQEQtCByuU5D2629Fqwd7q">12 种 RAG 方法+32 数据集模块化工具包</div></li>
+
+      <li data-page-node-id="JTQuaeEOx1b3BWShnZT7GJ"><a href="https://arxiv.org/abs/2402.19473" target="_blank" rel="noopener" data-page-node-id="6Dgl7Q7Pg71tRkof976us3">面向 AIGC 的检索增强生成综述（Retrieval-Augmented Generation for AI-Generated Content: A Survey）</a>
+        <div class="lit-meta" data-page-node-id="AeBiGDBjrAmzWjxT0XSvhh">Zhao et al., 2024, arXiv:2402.19473</div>
+        <div class="lit-note" data-page-node-id="KKEcJ4HouUU148wsUuTgMH">AIGC 视角的 RAG 综述</div></li>
+
+          <li data-page-node-id="An5ARYF2UrtHbZPFiC3tVJ"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E5%9F%BA%E4%BA%8E%E5%8A%A8%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%9A%84%E7%BD%91%E7%BB%9C%E7%83%AD%E8%AF%8D%E5%8F%91%E7%8E%B0%E4%B8%8E%E6%BC%94%E5%8C%96%E9%A2%84%E6%B5%8B" target="_blank" rel="noopener" data-page-node-id="rQfE5hJiHpQrqRh0OYJu6y">基于动态知识图谱检索增强的网络热词发现与演化预测</a>
+        <div class="lit-meta" data-page-node-id="2QUPEn5DdzOjoLdeuGhpR2">洪亮, 等. 基于动态知识图谱检索增强的网络热词发现与演化预测[J]. 信息资源管理学报, 2026, 16(2): 50-62.</div>
+        <div class="lit-note" data-page-node-id="8GN5i9vGexA2mU9hjdlZxv">GraphRAG 思路：用动态图谱增强检索，缓解纯向量召回的割裂问题</div></li>
+
+      <li data-page-node-id="EX4JoHbDESuLYRFk0s5HBV"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E5%9F%BA%E4%BA%8E%E7%BE%A4%E6%99%BA%E5%9B%BE%E8%B0%B1%E7%9A%84%E5%9B%BE%E4%B9%A6%E9%A6%86%E7%9F%A5%E8%AF%86%E6%9C%8D%E5%8A%A1%E6%A8%A1%E5%9E%8B" target="_blank" rel="noopener" data-page-node-id="gfWJjQ9kUSZeEgqW9ypYGA">基于群智图谱的图书馆知识服务模型</a>
+        <div class="lit-meta" data-page-node-id="AHzScoUaZ3lPxrQCdw3ITb">曾子明, 等. 基于群智图谱的图书馆知识服务模型[J]. 图书馆杂志, 2026, 45(3): 20-30.</div>
+        <div class="lit-note" data-page-node-id="KoEbYBy5zRBtOGgSyaAurv">将用户众包与图谱结合，构建新型图书馆知识模型</div></li>
+
+      <li data-page-node-id="kIRlQijoqko3DMBn9pWi4i"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E5%9F%BA%E4%BA%8E%E5%BC%80%E6%BA%90%E7%A7%91%E6%8A%80%E9%A1%B9%E7%9B%AE%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA%E7%A0%94%E7%A9%B6" target="_blank" rel="noopener" data-page-node-id="cLrhcnummCPgVFSHDZlPig">基于开源科技项目数据的多模态知识图谱构建研究</a>
+        <div class="lit-meta" data-page-node-id="bFSLlM706urnPELXNHKKAP">窦永香, 等. 基于开源科技项目数据的多模态知识图谱构建研究[J]. 情报理论与实践, 2025, 48(3): 70-80.</div>
+        <div class="lit-note" data-page-node-id="SkQ8JOgHkFWUN7LuBMkO34">多模态抽取 + 图谱融合，对应本章知识表示与多模态知识库</div></li>
+
+      <li data-page-node-id="AX1ChAkWLPBFpIRmfVDqfI"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E5%9F%BA%E4%BA%8E%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BA%A2%E8%89%B2%E6%A1%A3%E6%A1%88%E8%B5%84%E6%BA%90%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%9F%A5%E8%AF%86%E5%8F%91%E7%8E%B0" target="_blank" rel="noopener" data-page-node-id="2NqpdapIUyyh2Xt62jFH0R">基于大语言模型的红色档案资源交互式知识发现</a>
+        <div class="lit-meta" data-page-node-id="G4gzc8r0NHvIV2QGRf7TJu">杨建梁, 等. 基于大语言模型的红色档案资源交互式知识发现[J]. 图书情报工作, 2025, 69(15): 14-25.</div>
+        <div class="lit-note" data-page-node-id="WMV0BqxxrHaErRJWiHO7qU">LLM + RAG 实现档案资源的可对话式知识发现</div></li>
+
+      <li data-page-node-id="wX0P7DwToMiQ4QN46tif88"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E8%9E%8D%E5%90%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%8E%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F%E7%A0%94%E7%A9%B6" target="_blank" rel="noopener" data-page-node-id="dC6ZCOv3Vfw8vCmVYF31hU">融合知识图谱与大模型的智能问答系统研究</a>
+        <div class="lit-meta" data-page-node-id="O2RpaTmpsSGNMeg4UJETG1">王颖, 等. 融合知识图谱与大模型的智能问答系统研究[J]. 情报科学, 2024, 42(7): 80-90.</div>
+        <div class="lit-note" data-page-node-id="TUr3B5flKLpC0QojXayWYs">图谱提供可解释路径、大模型负责自然语言表达，二者互补</div></li>
+
+    </ul>
+        <div class="callout tip" data-page-node-id="hEO8xydTHAYIPjRvsxwyCp">💡 <b data-page-node-id="pbzW9xFzYZGHQGwPNdiiIW">软考/职业考点</b>：本章对应 CISA「保护信息资产(D5) 数据分级与保护」，并呼应《数据安全法》《个人信息保护法》。知识库即是受保护的信息资产。</div>
+
+      <!-- 本章学习方法 -->
+    <div class="callout method" data-page-node-id="XPvWSAhXFpuz7RxCuMOIZK">
+      <span class="m-tag" data-page-node-id="XqEF56PqBMpGkiVYRoZqwq">本章学习方法 · 费曼 + 检索式学习（Retrieval Practice）</span>
+      <p data-page-node-id="n7KWfRSY2WDb2rjELOT6GF"><b data-page-node-id="FyQEqTB7FgCYe1IoBiUbCa">核心理念：</b>先用法曼「讲出来」检验理解，再用「检索练习」(主动回忆)巩固——研究证明比反复阅读有效数倍。</p>
+      <p data-page-node-id="Y9gIElUOYnNcbYkrXHoDFj"><b data-page-node-id="R85SSqKhiQUQC44Y7DVsFr">四步/要点：</b>① 讲出来学完一段→合上书用自己的话讲一遍　② 主动回忆用提问自测，不翻书召回　③ 回看补漏讲不清处回去补，再讲　④ 类比收尾用一句类比固化记忆</p>
+      <p data-page-node-id="6nmeREo0lou7sjn9V6tc9I"><b data-page-node-id="S54qiWplJFrjibcN3ms32m">与录屏结合：</b>录屏时，先讲清「RAG 如何检索知识」，再现场自测 3 个问题，展示检索练习如何让知识真正长在自己身上。</p>
+    </div>
+
+              <!-- G3. 知识巩固与提高 -->
+    <h3 class="sec-h" id="review">知识巩固与提高</h3>
+    <div class="btnrow">
+      <a class="btn" href="课堂测试_第05章.pptx" target="_blank" rel="noopener">📂 第05章 课堂测试（PPT · 10 题 · 点击打开）</a>
+    </div>
+<h3 class="sec-h" id="exp">上机实验 · 创建知识库并编写提示词</h3>
+    <div class="labtask" data-page-node-id="TBqDiTaLgz4siTQtaSilye">
+      <h3 data-page-node-id="B8PahSQH2dF6pBqHlByBIJ">📋 实验任务书</h3>
+      <p data-page-node-id="3mj0Xt7MjUxrhsYHTNtfVu"><b data-page-node-id="0ERdaBXmJ75zLefN4X83R7">目标：</b>为项目建立领域知识库并写出结构良好的系统提示词。</p>
+      <p data-page-node-id="ZGUxeBlU4ZYrnLiHrJlZDL"><b data-page-node-id="6UTRARp1R7MiPLmK13HfW8">环境：</b>扣子 Coze 知识库 + 提示词编辑器。</p>
+      <p data-page-node-id="Pm4ZOaS62JcICQrXXnhBQp"><b data-page-node-id="h4jrsjuQoBcLbceAW6EJYa">步骤：</b>① 建库（文本/表格/图片）并导入；② 配置召回策略与阈值；③ 写系统提示词（角色/技能/限制/格式）；④ 关联知识库预览测试，对比有无库差异；⑤ 记录参数实验。</p>
+      <p data-page-node-id="8oo3lE3U9Eg2XY7cvY1LB0"><b data-page-node-id="5ffcct2iFAO0hFWOyIR1GE">交付物：</b>知识库截图 + 系统提示词终稿 + 召回参数实验记录。</p>
+      <p data-page-node-id="PaugMX3Mfya8xYvYnBKVKy"><b data-page-node-id="58lEpKXcz0a2moHAmh2ukP">评分点：</b>知识库配置(25%) · 提示词结构(30%) · 测试对比(30%) · 参数记录(15%)。</p>
+    </div>
+    <h3 class="sec-h" id="labexp">🛠 分步操作 · 为项目创建知识库并编写提示词</h3>
+    <span class="mod mod-lab" data-page-node-id="6TqRjLZLpgzOkH9botzXtS">动手 · 分步操作</span>
+    <ol data-page-node-id="NWtQyrqOyLhI1mhZG8qZfi">
+      <li data-page-node-id="kQwgKwAPdhFwNPzk1BF6Gh">准备一份领域资料（手册/表格/图片），在 Coze 创建对应类型知识库并导入。</li>
+      <li data-page-node-id="9tjBC42uxEjbf2RAEO8IZ4">配置召回策略（混合/语义/全文）、最大召回数量与最小匹配度。</li>
+      <li data-page-node-id="y2kygQFZadDKWQq7VMwXM4">编写系统提示词：角色 + 技能 + 限制 + 格式，可套用 KB 角色提示词模板。</li>
+      <li data-page-node-id="qJUKshDbGKuXu7xFwcLjT5">在智能体中关联知识库，预览测试；对比"无知识库"与"有知识库"的回答差异。</li>
+      <li data-page-node-id="D5NY1kt2nEUdIn1EEs9h38">调整召回参数，观察同一问题检索结果的变化。</li>
+    </ol>
+    <details class="fold" data-page-node-id="MW9RxsbRFkMFfT1yoBUif7">
+      <summary data-page-node-id="F9iDqGXFRR1Q10WnEdKWzh">📝 系统提示词模板（知识型助手）</summary>
+      <p data-page-node-id="mzL8X5xXDS0sy5n2YcW82G"># 角色<br data-page-node-id="LVu9h48GMCUOgaOgSETgIH">你是[领域]专家助手，基于知识库严谨作答。<br data-page-node-id="v22bYY5wRmPFTLHVH6vQM6">## 技能<br data-page-node-id="CSo6539LltkFEi5IpbaiND">1. 检索知识库并引用来源 2. 按用户语言回答<br data-page-node-id="jbqM0Hos3gJsqzeAvOFfnP">## 限制<br data-page-node-id="BGfPmVVCTrhli1nWFNfenO">- 仅基于知识库内容，缺失则明确说明<br data-page-node-id="acUNGsGKEDMs63cMWnOOP5">- 不编造数据，给出可追溯引用<br data-page-node-id="T3lGTyyDgn11ob4W1DST0U">## 回复格式<br data-page-node-id="EfDq1CoPU1YxvrxBwU4S4P">结论 → 依据（引用） → 提示</p>
+    </details>
+<h3 class="exp-h" data-page-node-id="N8Q4TcjvArOju7BeqczHtJ">🔬 扩展实验（选做 2–3 项，巩固本章学法）</h3>
+    <div class="expext" data-page-node-id="3BPDvdXQ6ItSZpo0Lworx3">
+      <h4 data-page-node-id="DxuwBXuuDpB45gAcO9BxNA">扩展实验 1 · 提示词模板库<span class="tag" data-page-node-id="cEoFw0hlKidxZGu5R266hC">工程</span></h4>
+      <p data-page-node-id="To6K6Fpabzc8UDrtT9YAEy"><b data-page-node-id="2oqwjcW6vCYwewWlFSHEHv">任务：</b>为你章内场景设计 3 套提示词模板(角色/任务/约束)。</p>
+      <p data-page-node-id="7CLQzw60Gh0ySFdw3Jdpl3"><b data-page-node-id="NcDkmLf0oWcQvIgwYyOf5a">交付：</b>对比效果，费曼式讲清「模板为何提效」，录屏演示。</p>
+    </div>
+    <div class="expext" data-page-node-id="l3JPXdYdlAfksbVGCMoEGf">
+      <h4 data-page-node-id="Dw4GCBZm0Kaki60hHfvHxH">扩展实验 2 · 分层索引<span class="tag" data-page-node-id="D2VgGdzNliHD2tSKpN67uo">检索</span></h4>
+      <p data-page-node-id="AqW8Zod9pF5I1mGW10vasl"><b data-page-node-id="s7hB8elj29vsv3SU3daWLc">任务：</b>给知识库建「摘要层 + 原文层」两级索引，测试命中率差异。</p>
+      <p data-page-node-id="JuNSuUFfldbXOPltUt0zIZ"><b data-page-node-id="ARAHD8UKS33E2A78PZv2UV">交付：</b>录屏总结分层检索何时优于平铺检索。</p>
+    </div>
+    <div class="expext" data-page-node-id="AoIyfnIejP8pYlJjyjjXvl">
+      <h4 data-page-node-id="QGYKcs0Yzfutd0m4Qg5oOi">扩展实验 3 · 问答评估<span class="tag" data-page-node-id="yAYp1zK1IHXBloVk5DvrtU">评测</span></h4>
+      <p data-page-node-id="rIBNpXbbHDtqWqxGNa3CcS"><b data-page-node-id="FJmEQtS6HROOOCwVsRen6Z">任务：</b>用 10 条问题评估 RAG 回答质量(相关性/准确性)。</p>
+      <p data-page-node-id="bQEtBShXLPQdLOJqdavGb9"><b data-page-node-id="6HuANM9HAdB9bn2OCubRHq">交付：</b>录屏讲解「如何判断知识库够不够好」，给出改进项。</p>
+    </div>
+
+    <h2 class="part p4">第四部分　本章小结</h2>
+      <h3 class="sec-h" id="sum">本章小结</h3>
+    <div class="summary" data-page-node-id="IOXT8cfAKpr2E0MI0KRFJM">
+            <h4>核心要点回顾</h4>
+      <ul data-page-node-id="7B8N8zyn1K8z4fqhVFFODB">
+        <li data-page-node-id="sW8kA9Ce4LFfApzehunHCK">提示词 = 角色 + 技能 + 限制 + 格式，需持续迭代。</li>
+        <li data-page-node-id="VYoTu7TWTrhQUSqj5TdsgC">系统/用户提示词职责不同，前者稳定影响全局。</li>
+        <li data-page-node-id="Wkir6LylDBK886OnS5azqA">RAG：检索→增强→生成，抑制幻觉、提升专业度。</li>
+        <li data-page-node-id="OwrYJ7rtkjKzQKJ7Zs4wDI">知识库三类：文本/表格/图片，各适其场景。</li>
+        <li data-page-node-id="GqR1xp4TznIKE2eD77We0L">召回查全、排序查准，共同决定回答质量。</li>
+        <li data-page-node-id="lYot2qd7GiGY9Ci2kXPcqy">下一章：记忆与多模态——让智能体记住用户、看懂世界。</li>
+      </ul>
+      <p class="progress-txt" data-page-node-id="lKUF8jXCB3RPyvwm084I4d">延伸阅读：ima 知识库《大模型 Prompt 提示词编写指南》《万字长文讲清 Prompt·Skill·MCP·Agent》；DIKW 与数据建模相关教材；上下文工程指南。</p>
+    </div>
+      <h3 class="sec-h" id="caseext">拓展案例 · 恒丰银行 Data Agent</h3>
+      <div class="casebox">
+        <p><span class="tagx">案例 B5-03</span> <b>Data Agent 激活企业数据生产力</b><br><span class="cunit">申报单位：杭州网易智企科技有限公司</span></p>
+        <p>在金融行业数字化转型深化的背景下，银行业虽拥有海量数据资产，却普遍面临"数据丰富、洞察贫瘠"的治理困境。恒丰银行作为中国12 家全国性股份制商业银行之一，以"建设一流数字化敏捷银行"为战略目标，携手网易智企基于数帆DataAgent 产品"网易知数"，打造"恒丰银行绩效助手"数字员工。该智能体构建覆盖数据层、AI 层、触达层、交互层的智能问数体系，基于银行私有化大模型部署，通过角色化Prompt 实现多维度绩效解读，支持PC 端自主用数平台与移动端即时通讯工具"丰秘"双入口触达。</p>
+        <p><b>看点</b>：恒丰银行的“绩效助手”把知识库的三个关键决策摊开给我们看：指标口径要不要先治理？Prompt 要不要按角色定制？答案要不要带来源？这三点决定了 RAG 系统是“能问”还是“可信”。</p>
+        <h4>延伸思考题</h4>
+        <ol>
+          <li>恒丰银行在 POC 阶段横向对比 16 家主流数据厂商，评估维度含产品架构、AI 能力成熟度、数据体系兼容性、实施难度、安全合规与长期演进潜力。请把它改写成本章的“知识库选型评估表”，并补充你认为缺失的两项指标。</li>
+          <li>案例采用“角色化 Prompt（如个贷客户经理视角）”生成绩效解读。请为一个“班主任视角的班级学情解读”写一段角色化提示词，须包含角色、任务、约束、输出格式四要素。</li>
+          <li>若知识库中同时存在“绩效指标口径说明”（长文本制度）与“月度绩效明细表”（结构化表格）两类文档，你会如何设计分块策略与元数据？说明原因。</li>
+        </ol>
+        
+      </div>
+
+    <!-- AGENT-LIT-INJECT -->
+    <span class="mod mod-kb">📚 智能体工程必读文献 · 工程层 · 提示与编译（DSPy）</span>
+    <ul class="lit-list">
+      <li>
+        <a href="https://arxiv.org/abs/2310.03714" target="_blank" rel="noopener">Khattab et al.《DSPy: Compiling Declarative Language Model Calls into State-of-the-Art Pipelines》(ICLR 2024)</a>
+        <div class="lit-meta">arXiv:2310.03714 · DOI https://doi.org/10.48550/arXiv.2310.03714</div>
+        <div class="lit-note">用“编程+编译”替代手搓提示词；与第5章提示工程/RAG 互补</div>
+      </li>
+    </ul>
+<!-- /AGENT-LIT-INJECT -->
+
+<div class="btnrow" data-page-node-id="e1hbaPsRRoQuqpOGIu1YuZ">
+      <button class="btn" id="exportPdf" data-page-node-id="5RvKWJtEvPWHiVWxQ2aVo6">⬇ 导出本章 PDF</button>
+      <a class="btn ghost" href="index.html" data-page-node-id="cxjvSnhMEkF8S5QcsKHNnl">← 返回门户</a>
+    </div>
+
+    <div class="readbox" data-page-node-id="8uZpUgevvEgINgrcIdvnUg">
+      <span class="dot" id="readDot" data-page-node-id="69K0WB1P17KxTOy5K5QmEJ"></span>
+      <button class="btn ghost" id="markRead" data-ch="5" data-page-node-id="dk9bhf7NLlOiGb2lisr5Gg">标记为已读</button>
+    </div>
+
+  </main>
+</div>
+
+<div id="termtip" data-page-node-id="8FhfAjAo1PxjhaZjlq4iii"></div>
+<script src="app.js"></script>
+</body>
+</html>
